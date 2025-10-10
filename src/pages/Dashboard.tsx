@@ -6,7 +6,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { participantsData } from "@/data/participants";
 import { getIdeasFor, listDataKeys } from "@/lib/data";
-import { Building2, Lightbulb, TrendingUp, Users } from "lucide-react";
+import {
+  Building2,
+  Lightbulb,
+  PanelLeft,
+  TrendingUp,
+  Users,
+} from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -253,11 +259,11 @@ export const Dashboard = () => {
 
           {/* Main Content */}
           <div className="lg:col-span-3 space-y-6">
-            <Tabs defaultValue="overview" className="w-full">
+            <Tabs defaultValue="processes" className="w-full">
               <TabsList className="grid w-full grid-cols-4 lg:w-auto bg-muted">
                 <TabsTrigger value="overview">{t("nav.overview")}</TabsTrigger>
-                <TabsTrigger value="startseite">
-                  {t("nav.startseite")}
+                <TabsTrigger value="processes">
+                  {t("nav.processes")}
                 </TabsTrigger>
                 <TabsTrigger value="prioritization">
                   {t("nav.prioritization")}
@@ -412,7 +418,7 @@ export const Dashboard = () => {
                 </div>
               </TabsContent>
 
-              <TabsContent value="startseite" className="space-y-6 mt-6">
+              <TabsContent value="processes" className="space-y-6 mt-6">
                 <Card>
                   <CardHeader>
                     <CardTitle>{t("nav.startseite")}</CardTitle>
@@ -550,6 +556,27 @@ export function DynamicCollaboards(): JSX.Element {
       <p className="text-sm text-muted-foreground">No collaboards found.</p>
     );
 
+  // Function to format the department name formally
+  const formatDepartmentName = (key: string): string => {
+    const nameMap: Record<string, string> = {
+      central_solution_design: "Central Solution Design",
+      compliance: "Compliance",
+      contract_logistics: "Contract Logistics",
+      corp_dev: "Corporate Development",
+      esg: "Environmental, Social & Governance",
+      hr: "Human Resources",
+      marketing_communications: "Marketing & Communications",
+      qehs: "Quality, Environment, Health & Safety",
+    };
+    return (
+      nameMap[key] ||
+      key
+        .split("_")
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ")
+    );
+  };
+
   return (
     <div className="space-y-2">
       {links.map((l) => (
@@ -558,9 +585,10 @@ export function DynamicCollaboards(): JSX.Element {
           href={l.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full px-3 py-2 border rounded-md hover:bg-muted/50"
+          className="flex items-center gap-2 w-full px-3 py-2 border rounded-md hover:bg-muted/50 transition-colors"
         >
-          {l.key} Collaboard
+          <PanelLeft className="h-4 w-4" />
+          <span>{formatDepartmentName(l.key)}</span>
         </a>
       ))}
     </div>

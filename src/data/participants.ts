@@ -672,7 +672,7 @@ export const participantsData: Participant[] = [
     businessLine: "",
     day1: false,
     day2: false,
-    day3: false,
+    day3: true,
   },
   {
     cResort: "CFO",

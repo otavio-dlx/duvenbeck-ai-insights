@@ -8,7 +8,7 @@ export const ideas = {
     },
     {
       "Unnamed: 0": "Abteilung:",
-      "Unnamed: 1": "Contract Logistics",
+      "Unnamed: 1": "QEHS",
       "Unnamed: 2": "",
       "Unnamed: 3": "",
     },
@@ -153,7 +153,7 @@ export const ideas = {
       "Unnamed: 0": "",
       "Unnamed: 1": "4.2",
       "Unnamed: 2": "Hier ist der Link: ",
-      "Unnamed: 3": "https://web.collaboard.app/share/nEjufEPrpuOw_AJn_h3qgw",
+      "Unnamed: 3": "https://web.collaboard.app/share/koYmYdx7nV8b3xk3Tgfm8w",
     },
     {
       "Unnamed: 0": "",
@@ -261,98 +261,144 @@ export const ideas = {
   Priorisierungsmatrix: [
     {
       "Unnamed: 0": "Example 1",
-      "Final Prios": "",
-      "Gewichtete Punktzahl": 3.2,
-      Idee: "Automatisierte Lagerlayout-Planung",
-      Problem: "Manuelle Layoutplanung ist zeitintensiv und fehleranfällig.",
-      Lösung:
-        "KI-generierte Layoutvorschläge basierend auf Daten zu Flächen, Prozessen und Volumen.",
-      Ideenverantwortlicher: "Claus Richter",
+      "Final Prios": "2",
+      "Gewichtete Punktzahl": 3.6,
+      Idee: "Automatisiertes Incident Reporting",
+      Problem:
+        "Unfälle und Beinaheunfälle + weitere Incidents werden oft nicht gemeldet oder verspätet gemeldet. Begründung: Aufwand zu hoch",
+      Lösung: "Automatisierte Meldung und Dokumentation von Incidents",
+      Ideenverantwortlicher: "Sevgi Bogaci",
       "Priorität (A, B, C)": "A",
-      Komplexität: 1,
-      Erläuterung: "Integration in CAD",
-      "Kosten (€)": 1,
-      "Erläuterung.1":
-        "Software, die es schon gibt (z.B. AutoCAD mit KI-Plugin)",
-      ROI: 4,
-      "Erläuterung.2": "Zeitsparend, bessere Layouts, weniger Fehler",
-      Risiko: 3,
-      "Erläuterung.3": "Datenqualität",
+      Komplexität: 3,
+      Erläuterung: "Integration in bestehende Systeme",
+      "Kosten (€)": 2,
+      "Erläuterung.1": "App-Entwicklung",
+      ROI: 5,
+      "Erläuterung.2": "Schnellere Meldung, bessere Prävention",
+      Risiko: 4,
+      "Erläuterung.3": "Datenschutz",
       "Strategische Ausrichtung": 5,
-      "Erläuterung.4": "Effizienzsteigerung",
+      "Erläuterung.4": "Sicherheit",
     },
     {
       "Unnamed: 0": "Example 2",
-      "Final Prios": "",
-      "Gewichtete Punktzahl": 3.55,
-      Idee: "Automatisierte Lastenheft-Zusammenfassung",
-      Problem: "Umfangreiche Lastenhefte - keine Zeit",
+      "Final Prios": "1",
+      "Gewichtete Punktzahl": 3.95,
+      Idee: "Fake-Carrier-Erkennung",
+      Problem: "Erkennung von Fake-Carrier / Betrüger",
       Lösung:
-        "Stichhaltige Zusammenfassung/ Extrakt mit den wichtigsten Punkten",
-      Ideenverantwortlicher: "Nico Kolb",
+        "KI zur Überprüfung von Carrier-Unterlagen (z.B. Firmendaten, USt-Id, etc.) auf Plausibilität und Echtzeit-Abgleich mit Blacklists",
+      Ideenverantwortlicher: "Heinrich Brase",
       "Priorität (A, B, C)": "A",
-      Komplexität: 3,
-      Erläuterung: "KI muss lernen, was wichtig ist",
-      "Kosten (€)": 1,
-      "Erläuterung.1": "Bestehende Tools nutzen",
+      Komplexität: 2,
+      Erläuterung: "Datenbanken integrieren",
+      "Kosten (€)": 3,
+      "Erläuterung.1": "API-Zugriffe",
       ROI: 5,
-      "Erläuterung.2": "Zeitsparend",
-      Risiko: 4,
-      "Erläuterung.3": "Wichtige Infos übersehen",
+      "Erläuterung.2": "Verlustprävention",
+      Risiko: 3,
+      "Erläuterung.3": "Falschpositive",
       "Strategische Ausrichtung": 5,
-      "Erläuterung.4": "Effizienz in BD",
+      "Erläuterung.4": "Sicherheit",
     },
     {
       "Unnamed: 0": "Example 3",
-      "Final Prios": "",
-      "Gewichtete Punktzahl": 2.9,
-      Idee: "Automatisierte Richtpreise",
-      Problem: "Richtpreise machen 50 % der Anfragen aus, oft ohne Ertrag",
-      Lösung: "automatisches Erstellung der Richtpreise als Indikationen ",
-      Ideenverantwortlicher: "Tobias Bartschat",
+      "Final Prios": "3",
+      "Gewichtete Punktzahl": 3.35,
+      Idee: "Automatisierte Dokumentenprüfung",
+      Problem:
+        "Lokale Dokumente weichen von zentralen Vorgaben ab, sind nicht normkonform oder nicht auf aktueller Vorlage",
+      Lösung:
+        "KI prüft, ob lokale Dokumente die richtige Vorlage nutzen, inhaltlich normkonform und vollständig sind – inkl. formaler & inhaltlicher Analyse",
+      Ideenverantwortlicher: "Sevgi Bogaci",
       "Priorität (A, B, C)": "A",
-      Komplexität: 2,
-      Erläuterung: "Datenbasis vorhanden",
+      Komplexität: 3,
+      Erläuterung: "Dokumentenanalyse",
       "Kosten (€)": 2,
-      "Erläuterung.1": "Entwicklung",
+      "Erläuterung.1": "Tool",
       ROI: 4,
-      "Erläuterung.2": "Zeitsparend",
-      Risiko: 3,
-      "Erläuterung.3": "Preisgenauigkeit",
+      "Erläuterung.2": "Compliance",
+      Risiko: 4,
+      "Erläuterung.3": "Genauigkeit",
       "Strategische Ausrichtung": 4,
-      "Erläuterung.4": "Schnellere Response",
+      "Erläuterung.4": "Qualität",
     },
     {
       "Unnamed: 0": "Example 4",
-      "Final Prios": "",
-      "Gewichtete Punktzahl": 2.9,
-      Idee: "Automatisierte Vertragsprüfung",
-      Problem: "Vertragsprüfungen/ Dokumentenprüfungen",
+      "Final Prios": "4",
+      "Gewichtete Punktzahl": 3.3,
+      Idee: "Automatisierte Schulungserstellung",
+      Problem:
+        "Schulungen sind teilweise nicht aktuell, werden unvollständig dokumentiert oder erreichen die Zielgruppe nicht",
       Lösung:
-        'Durchsuchen von Vertragsunterlagen nach Risiken / "Fallstricken"',
-      Ideenverantwortlicher: "Nico Kolb",
+        "KI erstellt Schulungsinhalte (z. B. interaktive Module, Videos) basierend auf aktuellen Standards und trackt Fortschritte",
+      Ideenverantwortlicher: "Sevgi Bogaci",
       "Priorität (A, B, C)": "A",
       Komplexität: 2,
-      Erläuterung: "KI für Textanalyse",
-      "Kosten (€)": 2,
-      "Erläuterung.1": "Tool-Integration",
+      Erläuterung: "Content-Generation",
+      "Kosten (€)": 3,
+      "Erläuterung.1": "Plattform",
       ROI: 4,
-      "Erläuterung.2": "Risikominderung",
-      Risiko: 2,
-      "Erläuterung.3": "Rechtliche Genauigkeit",
-      "Strategische Ausrichtung": 5,
-      "Erläuterung.4": "Risikomanagement",
+      "Erläuterung.2": "Bessere Schulung",
+      Risiko: 3,
+      "Erläuterung.3": "Inhaltsgenauigkeit",
+      "Strategische Ausrichtung": 4,
+      "Erläuterung.4": "Kompetenz",
     },
     {
-      "Unnamed: 0": "Idee 5",
-      "Final Prios": "",
-      "Gewichtete Punktzahl": 2.65,
-      Idee: "Automatisierte SWOT-Analyse",
+      "Unnamed: 0": "Example 5",
+      "Final Prios": "5",
+      "Gewichtete Punktzahl": 3.15,
+      Idee: "Automatisierte Audit-Planung",
       Problem:
-        "Erstellung von z.B. SWOT-Analysen zur Projektqualifizierung, aber auch im weiteren Verlauf zur risk mitigation",
+        "Audits werden manuell geplant und durchgeführt, was ineffizient ist",
       Lösung:
-        "Erstellung von z.B. SWOT-Analysen zur Projektqualifizierung, aber auch im weiteren Verlauf zur risk mitigation",
-      Ideenverantwortlicher: "CRI",
+        "KI plant Audits basierend auf Risikobewertung und generiert Checklisten",
+      Ideenverantwortlicher: "Sevgi Bogaci",
+      "Priorität (A, B, C)": "A",
+      Komplexität: 3,
+      Erläuterung: "Risiko-Modellierung",
+      "Kosten (€)": 2,
+      "Erläuterung.1": "Tool",
+      ROI: 4,
+      "Erläuterung.2": "Effizienz",
+      Risiko: 4,
+      "Erläuterung.3": "Abhängigkeit von Daten",
+      "Strategische Ausrichtung": 3,
+      "Erläuterung.4": "Compliance",
+    },
+    {
+      "Unnamed: 0": "Example 6",
+      "Final Prios": "6",
+      "Gewichtete Punktzahl": 2.95,
+      Idee: "Automatisierte Risikoanalyse",
+      Problem:
+        "Risiken werden manuell bewertet, was subjektiv und zeitaufwendig ist",
+      Lösung:
+        "KI analysiert Daten und bewertet Risiken automatisch (z. B. für ISO 31000)",
+      Ideenverantwortlicher: "Sevgi Bogaci",
+      "Priorität (A, B, C)": "A",
+      Komplexität: 2,
+      Erläuterung: "Datenintegration",
+      "Kosten (€)": 3,
+      "Erläuterung.1": "Modellierung",
+      ROI: 3,
+      "Erläuterung.2": "Bessere Risikomanagement",
+      Risiko: 3,
+      "Erläuterung.3": "Modellfehler",
+      "Strategische Ausrichtung": 4,
+      "Erläuterung.4": "Risikominderung",
+    },
+    {
+      "Unnamed: 0": "Example 7",
+      "Final Prios": "",
+      "Gewichtete Punktzahl": 0,
+      Idee: "Automatisierte Umweltdaten-Analyse",
+      Problem:
+        "Energie- und Umweltdaten werden zwar erfasst, aber Auffälligkeiten oder ineffiziente Entwicklungen bleiben unentdeckt",
+      Lösung:
+        "KI erkennt Abweichungen automatisch (z. B. bei SEUs, EnPIs) – Frühwarnsystem für ISO 50001 & 14001",
+      Ideenverantwortlicher: "Sevgi Bogaci",
       "Priorität (A, B, C)": "B",
       Komplexität: "",
       Erläuterung: "",
@@ -366,17 +412,61 @@ export const ideas = {
       "Erläuterung.4": "",
     },
     {
-      "Unnamed: 0": "Idee 6",
+      "Unnamed: 0": "Example 8",
       "Final Prios": "",
       "Gewichtete Punktzahl": 0,
-      Idee: "Weiterbildung/Training",
-      Problem: "Meistens nur über Seminare/Messen möglich",
+      Idee: "Automatisierte Audit-Durchführung",
+      Problem:
+        "Audits werden manuell geplant und durchgeführt, was ineffizient ist",
       Lösung:
-        "KI zur Suche/Aufbereitung nach Weiterbildungspaketen und generell Neuem einsetzen ",
-      Ideenverantwortlicher: "CRI",
+        "KI plant Audits basierend auf Risikobewertung und generiert Checklisten",
+      Ideenverantwortlicher: "Sevgi Bogaci",
       "Priorität (A, B, C)": "B",
       Komplexität: "",
       Erläuterung: "",
+      "Kosten (€)": "",
+      "Erläuterung.1": "",
+      ROI: "",
+      "Erläuterung.2": "",
+      Risiko: "",
+      "Erläuterung.3": "",
+      "Strategische Ausrichtung": "",
+      "Erläuterung.4": "",
+    },
+    {
+      "Unnamed: 0": "Example 9",
+      "Final Prios": "",
+      "Gewichtete Punktzahl": 0,
+      Idee: "Automatisierte Schulungserstellung",
+      Problem:
+        "Schulungen sind teilweise nicht aktuell, werden unvollständig dokumentiert oder erreichen die Zielgruppe nicht",
+      Lösung:
+        "KI erstellt Schulungsinhalte (z. B. interaktive Module, Videos) basierend auf aktuellen Standards und trackt Fortschritte",
+      Ideenverantwortlicher: "Sevgi Bogaci",
+      "Priorität (A, B, C)": "B",
+      Komplexität: "",
+      Erläuterung: "",
+      "Kosten (€)": "",
+      "Erläuterung.1": "",
+      ROI: "",
+      "Erläuterung.2": "",
+      Risiko: "",
+      "Erläuterung.3": "",
+      "Strategische Ausrichtung": "",
+      "Erläuterung.4": "",
+    },
+    {
+      "Unnamed: 0": "Example 10",
+      "Final Prios": "",
+      "Gewichtete Punktzahl": 0,
+      Idee: "Blacklist Abgleich in Echtzeit",
+      Problem: "Blacklists  sind nicht aktuell",
+      Lösung: "",
+      Ideenverantwortlicher: "Permanenter Abgleich von Blacklist Daten",
+      "Priorität (A, B, C)":
+        " Abwehr potentieller Bewerber  mit krimineller Vergangenheit (Diebstahl)",
+      Komplexität: "QEHS",
+      Erläuterung: "B",
       "Kosten (€)": "",
       "Erläuterung.1": "",
       ROI: "",
@@ -494,7 +584,7 @@ export const ideas = {
       Lösung: "",
     },
   ],
-  "Claus Richter": [
+  "Heinrich Brase": [
     {
       "Unnamed: 0": "",
       Problem: "Problem",
@@ -502,257 +592,36 @@ export const ideas = {
     },
     {
       "Unnamed: 0": "1",
-      Problem: "Datenqualität",
-      Lösung: "Analyse",
+      Problem: "Idee",
+      Lösung: "",
     },
     {
       "Unnamed: 0": "2",
-      Problem: "Hohe Anzahl an Dokumentes sichten",
-      Lösung: " sortieren und analysieren",
-    },
-    {
-      "Unnamed: 0": "3",
-      Problem: "Lagerlayoutplanung",
-      Lösung:
-        "Automatisierte Erstellung von Lagerlayouts auf Basis von Mengengerüsten",
-    },
-    {
-      "Unnamed: 0": "4",
-      Problem: "Prozessplanung",
-      Lösung:
-        "Automatisierte Erstellung von Prozessabläufen auf Basis von Mengengerüsten",
-    },
-    {
-      "Unnamed: 0": "5",
-      Problem: "Materialflussplanung",
-      Lösung:
-        "Automatisierte Erstellung von Materialflüssen auf Basis von Mengengerüsten",
-    },
-    {
-      "Unnamed: 0": "6",
-      Problem: "Personalplanung",
-      Lösung:
-        "Automatisierte Erstellung von Personalbedarfsberechnungen auf Basis von Mengengerüsten",
-    },
-    {
-      "Unnamed: 0": "7",
-      Problem: "Ausschreibungsunterlagen",
-      Lösung: "Zusammenfassung von Ausschreibungsunterlagen",
-    },
-    {
-      "Unnamed: 0": "8",
-      Problem: "Cost-Break-downs",
-      Lösung: "Erstellung von Kundenspezifischen Cost-Break-downs",
-    },
-    {
-      "Unnamed: 0": "9",
-      Problem: "Erstellung von z.B. SWOT-Analysen zur Projektqualifizierung",
-      Lösung: " aber auch im weiteren Verlauf zur risk mitigation",
-    },
-    {
-      "Unnamed: 0": "10",
       Problem:
-        "Distanzen messen anhand definierter Bereiche für die Prozesszeiten",
-      Lösung:
-        "Durch Benennung der Bereich ausmessen der Distanzen für die Prozesskalkulation",
-    },
-    {
-      "Unnamed: 0": "11",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "12",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "13",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "14",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "15",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "16",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "17",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "18",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "19",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "20",
-      Problem: "",
-      Lösung: "",
-    },
-  ],
-  "Holger Mitlehner": [
-    {
-      "Unnamed: 0": "",
-      Problem: "Problem",
-      Lösung: "Lösung",
-    },
-    {
-      "Unnamed: 0": "1",
-      Problem: "Ausschreibungsunterlagen sind oft umfangreich",
-      Lösung: "Zusammenfassung von Ausschreibungsunterlagen",
-    },
-    {
-      "Unnamed: 0": "2",
-      Problem: "Spezial-Equipment notwendig",
-      Lösung: "Auflistung von Equipment-Lieferanten",
+        "Entwicklung eines Gefahren-Abwehrtools und Risikoabwehr-Tools für die operative Logistik",
+      Lösung: "Definition von Gefahren ",
     },
     {
       "Unnamed: 0": "3",
-      Problem: "Cost-Break-downs dauern lange",
-      Lösung: "Erstellung von Kundenspezifischen Cost-Break-downs",
-    },
-    {
-      "Unnamed: 0": "4",
-      Problem: "Angebote werden nicht nachgehalten",
-      Lösung: "Automatisierter Workflow - Sequenzmails",
-    },
-    {
-      "Unnamed: 0": "5",
-      Problem: "Zielkundenanalyse aufwendig",
-      Lösung: "Strategische Potentiale automatisch erkennen",
-    },
-    {
-      "Unnamed: 0": "6",
-      Problem: "Virtuelle Lagerbesichtigung",
-      Lösung: "Virtueller Rundgang",
-    },
-    {
-      "Unnamed: 0": "7",
-      Problem: "Prüfung von Mengengerüsten / Logistikdaten auf Plausibilität",
-      Lösung: "Prüfung von Mengengerüsten / Logsitikdaten auf Plausibilität",
-    },
-    {
-      "Unnamed: 0": "8",
-      Problem: "Erstellung von z.B. SWOT-Analysen zur Projektqualifizierung",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "9",
       Problem:
-        'Durchsuchen von Vertragsunterlagen nach Risiken / "Fallstricken"',
-      Lösung:
-        'Durchsuchen von Vertragsunterlagen nach Risiken / "Fallstricken"',
-    },
-    {
-      "Unnamed: 0": "10",
-      Problem: "Logistik-Daten stimmen manchmal nicht",
-      Lösung: "Prüfung von Mengengerüsten / Logsitikdaten auf Plausibilität",
-    },
-    {
-      "Unnamed: 0": "11",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "12",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "13",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "14",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "15",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "16",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "17",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "18",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "19",
-      Problem: "",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "20",
-      Problem: "",
-      Lösung: "",
-    },
-  ],
-  "Nico Kolb": [
-    {
-      "Unnamed: 0": "",
-      Problem: "Problem",
-      Lösung: "Lösung",
-    },
-    {
-      "Unnamed: 0": "1",
-      Problem: "Umfangreiche Lastenhefte - keine Zeit",
-      Lösung:
-        "Stichhaltige Zusammenfassung/ Extrakt mit den wichtigsten Punkten",
-    },
-    {
-      "Unnamed: 0": "2",
-      Problem: "Nachfassen Angebote findet nur sporadisch statt",
-      Lösung: " aufgrund der Zeit",
-    },
-    {
-      "Unnamed: 0": "3",
-      Problem: "Vertragsprüfungen/ Dokumentenprüfungen",
-      Lösung:
-        'Durchsuchen von Vertragsunterlagen nach Risiken / "Fallstricken"',
+        "Fehlende Informationen über eventuell risikoreiche Geschäftspartner und Unternehmen",
+      Lösung: "Automatisierter Abgleich von Datenbanken / Background Checks ",
     },
     {
       "Unnamed: 0": "4",
-      Problem: "Angebote werden nicht nachgehalten",
-      Lösung: "Automatisierter Workflow - Sequenzmails",
+      Problem: "Blacklists  sind nicht aktuell",
+      Lösung: "Permanenter Abgleich von Blacklist Daten ",
     },
     {
       "Unnamed: 0": "5",
-      Problem: "Virtuelle Lagerbesichtigung",
-      Lösung: "Virtueller Rundgang",
+      Problem:
+        "Abwehr potentieller Bewerber  mit krimineller Vergangenheit (Diebstahl)",
+      Lösung: "HR Blacklist ",
     },
     {
       "Unnamed: 0": "6",
-      Problem: "Zielkundenanalyse aufwendig",
-      Lösung: "Strategische Potentiale automatisch erkennen",
+      Problem: "",
+      Lösung: "",
     },
     {
       "Unnamed: 0": "7",
@@ -825,7 +694,7 @@ export const ideas = {
       Lösung: "",
     },
   ],
-  "Tobias Bartschat": [
+  "Sevgi Bogaci": [
     {
       "Unnamed: 0": "",
       Problem: "Problem",
@@ -833,44 +702,47 @@ export const ideas = {
     },
     {
       "Unnamed: 0": "1",
-      Problem: " Lastenheft Zusammenfassung ",
-      Lösung: "Automatische Auskunft über die wichtigsten Punkte",
+      Problem: "Energie- und Umweltdaten werden zwar erfasst",
+      Lösung:
+        " aber Auffälligkeiten oder ineffiziente Entwicklungen bleiben unentdeckt",
     },
     {
       "Unnamed: 0": "2",
-      Problem: "Richtpreise machen 50 % der Anfragen aus",
-      Lösung: " oft ohne Ertrag",
+      Problem: "Schulungen sind teilweise nicht aktuell",
+      Lösung:
+        " werden unvollständig dokumentiert oder erreichen die Zielgruppe nicht",
     },
     {
       "Unnamed: 0": "3",
-      Problem: "Nachhalten von Deadlines ",
-      Lösung: "Erstellung von Terminen",
+      Problem: "Audits werden manuell geplant und durchgeführt",
+      Lösung: " was ineffizient ist",
     },
     {
       "Unnamed: 0": "4",
-      Problem: "Virtuelle Lagerbesichtigung",
-      Lösung: "Virtueller Rundgang",
+      Problem: "Risiken werden manuell bewertet",
+      Lösung: " was subjektiv und zeitaufwendig ist",
     },
     {
       "Unnamed: 0": "5",
-      Problem: "Zielkundenanalyse aufwendig",
-      Lösung: "Strategische Potentiale automatisch erkennen",
+      Problem: "Lokale Dokumente weichen von zentralen Vorgaben ab",
+      Lösung: " sind nicht normkonform oder nicht auf aktueller Vorlage",
     },
     {
       "Unnamed: 0": "6",
-      Problem: "Erstellung von z.B. SWOT-Analysen zur Projektqualifizierung",
-      Lösung: "",
+      Problem:
+        "Unfälle und Beinaheunfälle + weitere Incidents werden oft nicht gemeldet oder verspätet gemeldet. Begründung: Aufwand zu hoch",
+      Lösung: "Automatisierte Meldung und Dokumentation von Incidents",
     },
     {
       "Unnamed: 0": "7",
-      Problem: "Präsentationen erstellen",
-      Lösung: "Automatisierte Erstellung von Präsentationen für Kunden",
+      Problem: "Fehlende / unvollständige Dokumentation von Audits",
+      Lösung:
+        "Automatisierte Audit-Durchführung und -Dokumentation (z. B. mit mobiler App und KI-Support)",
     },
     {
       "Unnamed: 0": "8",
-      Problem: "Ressourcenplanung ",
-      Lösung:
-        "Erkennung wer noch Kapa hat und wie lange man für welches Thema brauchen sollte (Idee). Umsetzbarkeit fraglich ",
+      Problem: "",
+      Lösung: "",
     },
     {
       "Unnamed: 0": "9",
@@ -1333,7 +1205,7 @@ export const ideas = {
         "Change Management: Planung zur Schulung und Akzeptanz der Nutzer.",
     },
   ],
-  "Idee 1 - Lastenheftzusammenfass": [
+  "Idee 1 Fake Carrier": [
     {
       Idee: "",
       "Fragen / Themen": "",
@@ -1350,8 +1222,8 @@ export const ideas = {
     {
       Idee: "",
       "Fragen / Themen": "Projekt Sponsor",
-      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
-      "Inhalte / Antworten": "TRI / TBA",
+      Erläuterung: "COO",
+      "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1376,8 +1248,8 @@ export const ideas = {
     {
       Idee: "",
       "Fragen / Themen": "Involvierte Teams",
-      Erläuterung: "Welche Teams sind involviert",
-      "Inhalte / Antworten": "SD / BD / IT",
+      Erläuterung: "IMS-Carrier, Cooperate Security, operative Niederlassungen",
+      "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1402,8 +1274,9 @@ export const ideas = {
     {
       Idee: "",
       "Fragen / Themen": "Potenzielle Konflikte",
-      Erläuterung: "Mögliche Interessens- oder Ressourcen Überschneidungen",
-      "Inhalte / Antworten": "Keine",
+      Erläuterung:
+        "Datenabgleich mit Externen (Datenschutz), Blockieren legitimer Carrier",
+      "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1429,7 +1302,7 @@ export const ideas = {
       Idee: "",
       "Fragen / Themen": "Benötigte Mittel",
       Erläuterung: "Personal, Budget, Technologie",
-      "Inhalte / Antworten": "IT Ressourcen für Integration, Budget für Tool",
+      "Inhalte / Antworten": "KI-Entwicklung, Integration in IMS",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1456,7 +1329,7 @@ export const ideas = {
       "Fragen / Themen": "Datenverfügbarkeit",
       Erläuterung:
         "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
-      "Inhalte / Antworten": "Lastenhefte als PDF / Word",
+      "Inhalte / Antworten": "Carrier-Daten, Blacklists, externe Datenbanken",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1484,7 +1357,7 @@ export const ideas = {
       Erläuterung:
         "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
       "Inhalte / Antworten":
-        "Prototyp: Test mit 5 Lastenheften\nPilot: Rollout in SD Team\nEthik: Anonymisierung von Kundendaten\nSkalierbarkeit: Cloud-basiert\nChange: Schulung für SD",
+        "Prototyp: Test mit bekannten Fake-Carriern\nPilot: In IMS-Carrier\nEthik: DSGVO\nSkalierbarkeit: Echtzeit\nChange: Schulung für Carrier-Manager",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1537,8 +1410,9 @@ export const ideas = {
     {
       Idee: "",
       "Fragen / Themen": "Sonstige Kommentare",
-      Erläuterung: "Was ist noch wichtig für diese Initiative? ",
-      "Inhalte / Antworten": "Fokus auf Genauigkeit der Zusammenfassung",
+      "Was ist noch wichtig für diese Initiative? ":
+        "Integration mit externen Blacklists",
+      "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1735,7 +1609,7 @@ export const ideas = {
         "Change Management: Planung zur Schulung und Akzeptanz der Nutzer.",
     },
   ],
-  "Idee 2 -Richtpreise": [
+  "Idee 2 Dokumenten- und Audit-Au": [
     {
       Idee: "",
       "Fragen / Themen": "",
@@ -1752,8 +1626,8 @@ export const ideas = {
     {
       Idee: "",
       "Fragen / Themen": "Projekt Sponsor",
-      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
-      "Inhalte / Antworten": "TBA / TRI",
+      Erläuterung: "CXO",
+      "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1778,8 +1652,9 @@ export const ideas = {
     {
       Idee: "",
       "Fragen / Themen": "Involvierte Teams",
-      Erläuterung: "Welche Teams sind involviert",
-      "Inhalte / Antworten": "SD / IT",
+      Erläuterung:
+        "QEHS, ISD, Security, ggfs. Legal (für Legal Complaince Audits)",
+      "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1804,8 +1679,9 @@ export const ideas = {
     {
       Idee: "",
       "Fragen / Themen": "Potenzielle Konflikte",
-      Erläuterung: "Mögliche Interessens- oder Ressourcen Überschneidungen",
-      "Inhalte / Antworten": "Keine",
+      Erläuterung:
+        "Schnittstellenprobleme zwischen lokaler und zentraler Dokumentation",
+      "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1831,7 +1707,7 @@ export const ideas = {
       Idee: "",
       "Fragen / Themen": "Benötigte Mittel",
       Erläuterung: "Personal, Budget, Technologie",
-      "Inhalte / Antworten": "IT Ressourcen, Datenbasis aufbauen",
+      "Inhalte / Antworten": "Dokumenten-Management-System, KI-Tool",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1858,7 +1734,7 @@ export const ideas = {
       "Fragen / Themen": "Datenverfügbarkeit",
       Erläuterung:
         "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
-      "Inhalte / Antworten": "Historische Daten aus CRM / Kalkulationen",
+      "Inhalte / Antworten": "Zentrale Vorlagen, lokale Dokumente",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1886,7 +1762,7 @@ export const ideas = {
       Erläuterung:
         "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
       "Inhalte / Antworten":
-        "Prototyp: Test mit historischen Daten\nPilot: Einsatz in SD\nEthik: Anonymisierung\nSkalierbarkeit: Cloud\nChange: Schulung",
+        "Prototyp: Test mit 10 Dokumenten\nPilot: In einer Niederlassung\nEthik: Anonymisierung\nSkalierbarkeit: Cloud\nChange: Schulung",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1914,7 +1790,7 @@ export const ideas = {
       "Fragen / Themen": "Grober Zeitplan",
       Erläuterung: "Bis wann sollte welcher Milestone erreicht sein? ",
       "Inhalte / Antworten":
-        "Q4 2025: Datenaufbau\nQ1 2026: Prototyp\nQ2 2026: Rollout",
+        "Q4 2025: Prototyp\nQ1 2026: Pilot\nQ2 2026: Rollout",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1940,7 +1816,7 @@ export const ideas = {
       Idee: "",
       "Fragen / Themen": "Sonstige Kommentare",
       Erläuterung: "Was ist noch wichtig für diese Initiative? ",
-      "Inhalte / Antworten": "Genauigkeit der Preise sicherstellen",
+      "Inhalte / Antworten": "Zentrale vs. lokale Verantwortung klären",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -2137,7 +2013,7 @@ export const ideas = {
         "Change Management: Planung zur Schulung und Akzeptanz der Nutzer.",
     },
   ],
-  "Idee 3 - Vertragsprüfung": [
+  "Idee 3 Schulungs- und Trainings": [
     {
       Idee: "",
       "Fragen / Themen": "",
@@ -2154,8 +2030,8 @@ export const ideas = {
     {
       Idee: "",
       "Fragen / Themen": "Projekt Sponsor",
-      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
-      "Inhalte / Antworten": "TRI / TBA / Legal",
+      Erläuterung: "CXO, CPO",
+      "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -2180,8 +2056,9 @@ export const ideas = {
     {
       Idee: "",
       "Fragen / Themen": "Involvierte Teams",
-      Erläuterung: "Welche Teams sind involviert",
-      "Inhalte / Antworten": "SD / BD / Legal / IT",
+      Erläuterung:
+        "HR, QEHS, ISD, Security, opertaive Niederlasungen die Schulungen erstellen",
+      "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -2206,8 +2083,9 @@ export const ideas = {
     {
       Idee: "",
       "Fragen / Themen": "Potenzielle Konflikte",
-      Erläuterung: "Mögliche Interessens- oder Ressourcen Überschneidungen",
-      "Inhalte / Antworten": "Legal vs. KI-Genauigkeit",
+      Erläuterung:
+        "Uneinheitliche Schulungsinhalte, Akzeptanz der KI-generierten Materialien",
+      "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -2233,7 +2111,7 @@ export const ideas = {
       Idee: "",
       "Fragen / Themen": "Benötigte Mittel",
       Erläuterung: "Personal, Budget, Technologie",
-      "Inhalte / Antworten": "Legal Expert, IT, Tool",
+      "Inhalte / Antworten": "LMS-System, KI-Content-Generator",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -2260,7 +2138,7 @@ export const ideas = {
       "Fragen / Themen": "Datenverfügbarkeit",
       Erläuterung:
         "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
-      "Inhalte / Antworten": "Verträge als PDF",
+      "Inhalte / Antworten": "Aktuelle Standards, Schulungsinhalte",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -2288,7 +2166,7 @@ export const ideas = {
       Erläuterung:
         "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
       "Inhalte / Antworten":
-        "Prototyp: Test mit 5 Verträgen\nPilot: Mit Legal\nEthik: Anonymisierung\nSkalierbarkeit: Cloud\nChange: Schulung",
+        "Prototyp: Erstellung einer Schulung\nPilot: Test in einer Niederlassung\nEthik: Inhaltsprüfung\nSkalierbarkeit: Cloud\nChange: Rollout-Plan",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -2342,7 +2220,7 @@ export const ideas = {
       Idee: "",
       "Fragen / Themen": "Sonstige Kommentare",
       Erläuterung: "Was ist noch wichtig für diese Initiative? ",
-      "Inhalte / Antworten": "Enge Abstimmung mit Legal",
+      "Inhalte / Antworten": "Mehrsprachigkeit berücksichtigen",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",

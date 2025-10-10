@@ -17,7 +17,7 @@ export function getLocalizedString(str: TranslatedString | string): string {
 export function processMatrixRow(
   row: Record<string, unknown>,
   source: string
-): MatrixRow {
+): MatrixRow | null {
   const getString = (key: string): string => {
     const value = row[key];
     return typeof value === "string" ? value : "";
@@ -28,12 +28,19 @@ export function processMatrixRow(
     return typeof value === "number" ? value : 0;
   };
 
+  // Skip rows where Idee is empty or equals "Idee" (header row)
+  const idea = getString("Idee");
+  if (!idea || idea === "Idee") {
+    return null;
+  }
+
+  // Create the matrix row
   return {
     id: getString("Unnamed: 0"),
     source,
     idea: {
-      de: getString("Idee"),
-      en: getString("Idea") || getString("Idee"),
+      de: idea,
+      en: getString("Idea") || idea,
     },
     problem: {
       de: getString("Problem"),

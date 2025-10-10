@@ -1,1366 +1,1458 @@
 export const ideas = {
-  "Startseite": [
+  Startseite: [
     {
-      "Unnamed: 0": "",
-      "Datum:": "Abteilung:",
-      "6 Oktober 2025": "Compliance",
-      "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 0": "Datum:",
+      "Unnamed: 1": "7 Oktober 2025",
     },
     {
-      "Unnamed: 0": "",
-      "Datum:": "",
-      "6 Oktober 2025": "",
-      "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 0": "Abteilung:",
+      "Unnamed: 1": "Compliance",
     },
     {
-      "Unnamed: 0": "",
-      "Datum:": "",
-      "6 Oktober 2025": "",
-      "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 0": "Collaboard Link:",
+      "Unnamed: 1": "https://web.collaboard.app/share/3P6tjXJczckl3ecL-pXBFw",
     },
     {
       "Unnamed: 0": "",
       "Datum:": 1,
-      "6 Oktober 2025": "Dieses Spreadsheet ist das zentrale Dokument für den Workshop. Es wird für die individuelle Ideation, die Gruppenübungen und als Hauptergebnis am Ende des Workshops verwendet.",
+      "6 Oktober 2025":
+        "Dieses Spreadsheet ist das zentrale Dokument für den Workshop. Es wird für die individuelle Ideation, die Gruppenübungen und als Hauptergebnis am Ende des Workshops verwendet.",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": 2,
       "6 Oktober 2025": "Individuelle Übung:",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": 2.1,
-      "Unnamed: 3": "Jede:r Teilnehmer:in erstellt eine Kopie des Tabs „John Smith“.",
-      "Unnamed: 4": ""
+      "Unnamed: 3":
+        "Jede:r Teilnehmer:in erstellt eine Kopie des Tabs „John Smith“.",
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": 2.2,
       "Unnamed: 3": "Benenne den Tab mit deinem eigenen Vor- und Nachnamen um.",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": 2.3,
-      "Unnamed: 3": "Alle Ideen in dieser Übung sollen ausschließlich in deinem eigenen Tab eingetragen werden.",
-      "Unnamed: 4": ""
+      "Unnamed: 3":
+        "Alle Ideen in dieser Übung sollen ausschließlich in deinem eigenen Tab eingetragen werden.",
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": 3,
       "6 Oktober 2025": "Gruppenübung:",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": 3.1,
       "Unnamed: 3": "Nur die Gruppenleitung arbeitet aktiv im Spreadsheet.",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": 3.2,
       "Unnamed: 3": "Verwendet dazu den Tab „Priorisierungsmatrix“.",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": 4,
       "6 Oktober 2025": "Prozessdesign:",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": 4.1,
-      "Unnamed: 3": "Jede Gruppe hat ihr eigenes Board, um die Prozesse für die final ausgewählten Ideen zu entwerfen.",
-      "Unnamed: 4": ""
+      "Unnamed: 3":
+        "Jede Gruppe hat ihr eigenes Board, um die Prozesse für die final ausgewählten Ideen zu entwerfen.",
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": 4.2,
       "Unnamed: 3": "Hier ist der Link:",
-      "Unnamed: 4": " https://web.collaboard.app/share/3P6tjXJczckl3ecL-pXBFw"
+      "Unnamed: 4": " https://web.collaboard.app/share/3P6tjXJczckl3ecL-pXBFw",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": 5,
-      "6 Oktober 2025": "Der Tab „Priorisierungsmatrix“ enthält Formeln, die nicht verändert werden sollten. Die Funktionsweise der Scorecard wird im Tab „Annahmen“ erklärt.",
+      "6 Oktober 2025":
+        "Der Tab „Priorisierungsmatrix“ enthält Formeln, die nicht verändert werden sollten. Die Funktionsweise der Scorecard wird im Tab „Annahmen“ erklärt.",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": 6,
-      "6 Oktober 2025": "Hinweis: Die Gruppen sollen die Ideen mit A, B oder C bewerten – wobei A die beste und C die schwächste Bewertung darstellt. Zur Priorisierung dürfen maximal 6 Ideen mit A gekennzeichnet werden.",
+      "6 Oktober 2025":
+        "Hinweis: Die Gruppen sollen die Ideen mit A, B oder C bewerten – wobei A die beste und C die schwächste Bewertung darstellt. Zur Priorisierung dürfen maximal 6 Ideen mit A gekennzeichnet werden.",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": "",
       "6 Oktober 2025": "",
       "Unnamed: 3": "",
-      "Unnamed: 4": ""
+      "Unnamed: 4": "",
     },
     {
       "Unnamed: 0": "",
       "Datum:": 7,
       "6 Oktober 2025": "Workbook:",
-      "Unnamed: 3": "https://drive.google.com/file/d/1VMbAavdWLAu1D69t5XKtB_WoSWs39yFK/view?usp=drive_link",
-      "Unnamed: 4": ""
-    }
+      "Unnamed: 3":
+        "https://drive.google.com/file/d/1VMbAavdWLAu1D69t5XKtB_WoSWs39yFK/view?usp=drive_link",
+      "Unnamed: 4": "",
+    },
   ],
-  "Annahmen": [
+  Annahmen: [
     {
-      "Kriterium": "Complexity",
+      Kriterium: "Complexity",
       "Gewichtung (%)": 20.0,
-      "Detaillierte Definition": "Technical, operational, and organizational difficulty of implementation",
-      "Bewertungsleitfaden": "1–5 (5 = trivial, 1 = highly complex)",
-      "Sonderfälle / Hinweise": "Complexity = 1 if multiple legacy systems, missing data, or dependencies on external partners; \nComplexity = 5 if internal proof-of-concept using standard tools"
+      "Detaillierte Definition":
+        "Technical, operational, and organizational difficulty of implementation",
+      Bewertungsleitfaden: "1–5 (5 = trivial, 1 = highly complex)",
+      "Sonderfälle / Hinweise":
+        "Complexity = 1 if multiple legacy systems, missing data, or dependencies on external partners; \nComplexity = 5 if internal proof-of-concept using standard tools",
     },
     {
-      "Kriterium": "Cost",
+      Kriterium: "Cost",
       "Gewichtung (%)": 20.0,
-      "Detaillierte Definition": "Total financial and human effort to implement the project",
-      "Bewertungsleitfaden": "Convert hours or subscription costs into numeric 1–5 scale (1 = low, 5 = very high)",
-      "Sonderfälle / Hinweise": "Recurring subscription costs >50k€/year = 5; \nVery small internal proof-of-concept <500€ = 1"
+      "Detaillierte Definition":
+        "Total financial and human effort to implement the project",
+      Bewertungsleitfaden:
+        "Convert hours or subscription costs into numeric 1–5 scale (1 = low, 5 = very high)",
+      "Sonderfälle / Hinweise":
+        "Recurring subscription costs >50k€/year = 5; \nVery small internal proof-of-concept <500€ = 1",
     },
     {
-      "Kriterium": "ROI (Return on Investment)",
+      Kriterium: "ROI (Return on Investment)",
       "Gewichtung (%)": 25.0,
-      "Detaillierte Definition": "Total expected benefits from the project, monetary or qualitative",
-      "Bewertungsleitfaden": "Normalize to 1–5: €100k+ revenue or >15% productivity improvement = 5, minimal gains = 1",
-      "Sonderfälle / Hinweise": "Projects with intangible outcomes (customer satisfaction, risk reduction) score based on estimated business impact using 1–5 scale"
+      "Detaillierte Definition":
+        "Total expected benefits from the project, monetary or qualitative",
+      Bewertungsleitfaden:
+        "Normalize to 1–5: €100k+ revenue or >15% productivity improvement = 5, minimal gains = 1",
+      "Sonderfälle / Hinweise":
+        "Projects with intangible outcomes (customer satisfaction, risk reduction) score based on estimated business impact using 1–5 scale",
     },
     {
-      "Kriterium": "Risk",
+      Kriterium: "Risk",
       "Gewichtung (%)": 15.0,
-      "Detaillierte Definition": "Probability of project failure or negative impact",
-      "Bewertungsleitfaden": "1–5 (5 = low, 1 = high)",
-      "Sonderfälle / Hinweise": "Projects touching sensitive data or regulatory compliance = 1; \nLow-risk internal POC = 5"
+      "Detaillierte Definition":
+        "Probability of project failure or negative impact",
+      Bewertungsleitfaden: "1–5 (5 = low, 1 = high)",
+      "Sonderfälle / Hinweise":
+        "Projects touching sensitive data or regulatory compliance = 1; \nLow-risk internal POC = 5",
     },
     {
-      "Kriterium": "Strategic Alignment",
+      Kriterium: "Strategic Alignment",
       "Gewichtung (%)": 20.0,
-      "Detaillierte Definition": "How well the project supports Duvenbeck’s strategy and business priorities",
-      "Bewertungsleitfaden": "1–5 (1 = low, 5 = high)",
-      "Sonderfälle / Hinweise": "Alignment = 5 if project contributes to top strategic goals (e.g., cost reduction in logistics operations); \nAlignment = 1 if only marginally related"
+      "Detaillierte Definition":
+        "How well the project supports Duvenbeck’s strategy and business priorities",
+      Bewertungsleitfaden: "1–5 (1 = low, 5 = high)",
+      "Sonderfälle / Hinweise":
+        "Alignment = 5 if project contributes to top strategic goals (e.g., cost reduction in logistics operations); \nAlignment = 1 if only marginally related",
     },
     {
-      "Kriterium": "",
+      Kriterium: "",
       "Gewichtung (%)": "",
       "Detaillierte Definition": "",
-      "Bewertungsleitfaden": "",
-      "Sonderfälle / Hinweise": ""
+      Bewertungsleitfaden: "",
+      "Sonderfälle / Hinweise": "",
     },
     {
-      "Kriterium": "Total",
+      Kriterium: "Total",
       "Gewichtung (%)": 100.0,
       "Detaillierte Definition": "",
-      "Bewertungsleitfaden": "",
-      "Sonderfälle / Hinweise": ""
-    }
+      Bewertungsleitfaden: "",
+      "Sonderfälle / Hinweise": "",
+    },
   ],
-  "Priorisierungsmatrix": [
+  Priorisierungsmatrix: [
     {
       "Unnamed: 0": "Example 1",
       "Final prio": "",
       "Gewichtete Punktzahl": 3.2,
-      "Idee": "Regulatory Monitoring (z.B. Überwachung von Veränderungen auf einer Website)",
-      "Problem": "Änderungen in Vorschriften werden oft zu spät bemerkt, was zu Compliance-Risiken führt.",
-      "Lösung": "Automatisiertes Monitoring erkennt Änderungen sofort und informiert die zuständigen Personen.",
-      "Ideenverantwortlicher": "John Smith",
+      Idee: "Regulatory Monitoring (z.B. Überwachung von Veränderungen auf einer Website)",
+      Problem:
+        "Änderungen in Vorschriften werden oft zu spät bemerkt, was zu Compliance-Risiken führt.",
+      Lösung:
+        "Automatisiertes Monitoring erkennt Änderungen sofort und informiert die zuständigen Personen.",
+      Ideenverantwortlicher: "John Smith",
       "Priorität (A, B, C)": "A",
-      "Komplexität": 3.0,
-      "Erläuterung": "",
+      Komplexität: 3.0,
+      Erläuterung: "",
       "Kosten (€)": 3.0,
       "Erläuterung.1": "",
-      "ROI": 3.0,
+      ROI: 3.0,
       "Erläuterung.2": "",
-      "Risiko": 3.0,
+      Risiko: 3.0,
       "Erläuterung.3": "",
       "Strategische Ausrichtung": 4.0,
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "Example 2",
       "Final prio": "",
       "Gewichtete Punktzahl": 1.65,
-      "Idee": "Policy Erstellung (Entwurf)",
-      "Problem": "Richtlinien sind zeitaufwendig zu erstellen und oft uneinheitlich formuliert.",
-      "Lösung": "KI-gestützte Tools helfen, klare, konsistente und rechtlich einwandfreie Policies zu entwerfen.",
-      "Ideenverantwortlicher": "John Smith",
+      Idee: "Policy Erstellung (Entwurf)",
+      Problem:
+        "Richtlinien sind zeitaufwendig zu erstellen und oft uneinheitlich formuliert.",
+      Lösung:
+        "KI-gestützte Tools helfen, klare, konsistente und rechtlich einwandfreie Policies zu entwerfen.",
+      Ideenverantwortlicher: "John Smith",
       "Priorität (A, B, C)": "A",
-      "Komplexität": 2.0,
-      "Erläuterung": "",
+      Komplexität: 2.0,
+      Erläuterung: "",
       "Kosten (€)": 1.0,
       "Erläuterung.1": "",
-      "ROI": 2.0,
+      ROI: 2.0,
       "Erläuterung.2": "",
-      "Risiko": 1.0,
+      Risiko: 1.0,
       "Erläuterung.3": "",
       "Strategische Ausrichtung": 2.0,
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "Example 3",
       "Final prio": "",
       "Gewichtete Punktzahl": 1.65,
-      "Idee": "Voranalyse von NDA’s und anderen Verträgen",
-      "Problem": "Verträge manuell prüfen ist langwierig und fehleranfällig.",
-      "Lösung": "Automatisierte Voranalyse identifiziert kritische Punkte und reduziert Prüfaufwand.",
-      "Ideenverantwortlicher": "John Smith",
+      Idee: "Voranalyse von NDA’s und anderen Verträgen",
+      Problem: "Verträge manuell prüfen ist langwierig und fehleranfällig.",
+      Lösung:
+        "Automatisierte Voranalyse identifiziert kritische Punkte und reduziert Prüfaufwand.",
+      Ideenverantwortlicher: "John Smith",
       "Priorität (A, B, C)": "B",
-      "Komplexität": 2.0,
-      "Erläuterung": "",
+      Komplexität: 2.0,
+      Erläuterung: "",
       "Kosten (€)": 1.0,
       "Erläuterung.1": "",
-      "ROI": 2.0,
+      ROI: 2.0,
       "Erläuterung.2": "",
-      "Risiko": 1.0,
+      Risiko: 1.0,
       "Erläuterung.3": "",
       "Strategische Ausrichtung": 2.0,
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "Example 4",
       "Final prio": "",
       "Gewichtete Punktzahl": 2.95,
-      "Idee": "Compliance Training",
-      "Problem": "Klassisches Training ist oft unflexibel und schwer skalierbar.",
-      "Lösung": "Digitale Trainingslösungen oder KI-gestützte Lernpfade vermitteln Wissen effizient und praxisnah.",
-      "Ideenverantwortlicher": "John Smith",
+      Idee: "Compliance Training",
+      Problem: "Klassisches Training ist oft unflexibel und schwer skalierbar.",
+      Lösung:
+        "Digitale Trainingslösungen oder KI-gestützte Lernpfade vermitteln Wissen effizient und praxisnah.",
+      Ideenverantwortlicher: "John Smith",
       "Priorität (A, B, C)": "C",
-      "Komplexität": 3.0,
-      "Erläuterung": "",
+      Komplexität: 3.0,
+      Erläuterung: "",
       "Kosten (€)": 2.0,
       "Erläuterung.1": "",
-      "ROI": 4.0,
+      ROI: 4.0,
       "Erläuterung.2": "",
-      "Risiko": 5.0,
+      Risiko: 5.0,
       "Erläuterung.3": "",
       "Strategische Ausrichtung": 1.0,
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "Example 5",
       "Final prio": "",
       "Gewichtete Punktzahl": 2.2,
-      "Idee": "Risk Management",
-      "Problem": "Risiken werden oft zu spät erkannt und unstrukturiert bewertet.",
-      "Lösung": "Systematisches, datenbasiertes Risikomanagement erlaubt frühzeitige Identifikation und Priorisierung von Risiken.",
-      "Ideenverantwortlicher": "John Smith",
+      Idee: "Risk Management",
+      Problem:
+        "Risiken werden oft zu spät erkannt und unstrukturiert bewertet.",
+      Lösung:
+        "Systematisches, datenbasiertes Risikomanagement erlaubt frühzeitige Identifikation und Priorisierung von Risiken.",
+      Ideenverantwortlicher: "John Smith",
       "Priorität (A, B, C)": "C",
-      "Komplexität": 1.0,
-      "Erläuterung": "",
+      Komplexität: 1.0,
+      Erläuterung: "",
       "Kosten (€)": 2.0,
       "Erläuterung.1": "",
-      "ROI": 3.0,
+      ROI: 3.0,
       "Erläuterung.2": "",
-      "Risiko": 3.0,
+      Risiko: 3.0,
       "Erläuterung.3": "",
       "Strategische Ausrichtung": 2.0,
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "Idee 2",
       "Final prio": 1.0,
       "Gewichtete Punktzahl": 3.15,
-      "Idee": "Schadenprüfung",
-      "Problem": "Haftungsprüfung inkl. \"gutachterliche\" Bewertung",
-      "Lösung": "Ist der Schaden erstattungsfähig? Haftungsgrundlagen erfüllt? Bewertung des Schadenausmaßes",
-      "Ideenverantwortlicher": "Muriel Berning ",
+      Idee: "Schadenprüfung",
+      Problem: 'Haftungsprüfung inkl. "gutachterliche" Bewertung',
+      Lösung:
+        "Ist der Schaden erstattungsfähig? Haftungsgrundlagen erfüllt? Bewertung des Schadenausmaßes",
+      Ideenverantwortlicher: "Muriel Berning ",
       "Priorität (A, B, C)": "A",
-      "Komplexität": 3.0,
-      "Erläuterung": "Vertragsprüfung, gesetzliche Haftung, Marktwerte, Schrottwerte, Warenart und Warenfunktion",
+      Komplexität: 3.0,
+      Erläuterung:
+        "Vertragsprüfung, gesetzliche Haftung, Marktwerte, Schrottwerte, Warenart und Warenfunktion",
       "Kosten (€)": 3.0,
-      "Erläuterung.1": "gesondertes Programm wird benötigt (vertrauliche Firmendaten enthalten). Mitarbeiteraufwand relativ gering (Reduzierung Arbeitsaufwand). Kostenersparnis Versicherung & Gutachterkosten",
-      "ROI": 3.0,
+      "Erläuterung.1":
+        "gesondertes Programm wird benötigt (vertrauliche Firmendaten enthalten). Mitarbeiteraufwand relativ gering (Reduzierung Arbeitsaufwand). Kostenersparnis Versicherung & Gutachterkosten",
+      ROI: 3.0,
       "Erläuterung.2": "",
-      "Risiko": 4.0,
-      "Erläuterung.3": "Muss vom Mitarbeiter noch einmal gegengerprüft werden. Verhandlungen immer noch möglich. Teilweise sensible Firmendaten enthalten",
+      Risiko: 4.0,
+      "Erläuterung.3":
+        "Muss vom Mitarbeiter noch einmal gegengerprüft werden. Verhandlungen immer noch möglich. Teilweise sensible Firmendaten enthalten",
       "Strategische Ausrichtung": 3.0,
-      "Erläuterung.4": "Ersparung von externen und internen Personalaufwänden. "
+      "Erläuterung.4":
+        "Ersparung von externen und internen Personalaufwänden. ",
     },
     {
       "Unnamed: 0": "",
       "Final prio": 2.0,
       "Gewichtete Punktzahl": 3.15,
-      "Idee": "Vertragsprüfung (Versicherung)",
-      "Problem": "Vertragsprüfung - Haftung & Versicherung inkl. Checkliste",
-      "Lösung": "Erstellung Checkliste inkl. Makierung relevante Passagen ggf Vorabprüfung, Übersetzung",
-      "Ideenverantwortlicher": "Laura Krasniqi",
+      Idee: "Vertragsprüfung (Versicherung)",
+      Problem: "Vertragsprüfung - Haftung & Versicherung inkl. Checkliste",
+      Lösung:
+        "Erstellung Checkliste inkl. Makierung relevante Passagen ggf Vorabprüfung, Übersetzung",
+      Ideenverantwortlicher: "Laura Krasniqi",
       "Priorität (A, B, C)": "A",
-      "Komplexität": 2.0,
-      "Erläuterung": "Daten für die Checkliste können einfach ausgelesen werden. Nur Versicherungsthemen relevant, nicht der ganze Vertrag. Bereitstellung von Versicherungsumfang möglich.",
+      Komplexität: 2.0,
+      Erläuterung:
+        "Daten für die Checkliste können einfach ausgelesen werden. Nur Versicherungsthemen relevant, nicht der ganze Vertrag. Bereitstellung von Versicherungsumfang möglich.",
       "Kosten (€)": 4.0,
-      "Erläuterung.1": "gesondertes Programm wird benötigt (vertrauliche Firmendaten enthalten). Mitarbeiteraufwand relativ gering (Reduzierung Arbeitsaufwand). ",
-      "ROI": 3.0,
+      "Erläuterung.1":
+        "gesondertes Programm wird benötigt (vertrauliche Firmendaten enthalten). Mitarbeiteraufwand relativ gering (Reduzierung Arbeitsaufwand). ",
+      ROI: 3.0,
       "Erläuterung.2": "",
-      "Risiko": 4.0,
-      "Erläuterung.3": "Muss vom Mitarbeiter noch einmal gegengeprüft werden, um Deckungslücken zu vermeiden.",
+      Risiko: 4.0,
+      "Erläuterung.3":
+        "Muss vom Mitarbeiter noch einmal gegengeprüft werden, um Deckungslücken zu vermeiden.",
       "Strategische Ausrichtung": 3.0,
-      "Erläuterung.4": "schnellere Rückmeldungen an den Kunden = Kundenzufriedenheit wird verbessert. Ersparnis von Mitarbeiteraufwand"
+      "Erläuterung.4":
+        "schnellere Rückmeldungen an den Kunden = Kundenzufriedenheit wird verbessert. Ersparnis von Mitarbeiteraufwand",
     },
     {
       "Unnamed: 0": "",
       "Final prio": "",
       "Gewichtete Punktzahl": 0.0,
-      "Idee": "",
-      "Problem": "Versicherungsausschreibung (Erstellung Ergebnispräsentation inkl. Vergleich Versicherungsschutz)",
-      "Lösung": "Erstellung Präsentation + Vergleichsübersicht ",
-      "Ideenverantwortlicher": "Laura Krasniqi",
+      Idee: "",
+      Problem:
+        "Versicherungsausschreibung (Erstellung Ergebnispräsentation inkl. Vergleich Versicherungsschutz)",
+      Lösung: "Erstellung Präsentation + Vergleichsübersicht ",
+      Ideenverantwortlicher: "Laura Krasniqi",
       "Priorität (A, B, C)": "B",
-      "Komplexität": "",
-      "Erläuterung": "",
+      Komplexität: "",
+      Erläuterung: "",
       "Kosten (€)": "",
       "Erläuterung.1": "",
-      "ROI": "",
+      ROI: "",
       "Erläuterung.2": "",
-      "Risiko": "",
+      Risiko: "",
       "Erläuterung.3": "",
       "Strategische Ausrichtung": "",
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "Idea 1",
       "Final prio": 1.0,
       "Gewichtete Punktzahl": 4.3,
-      "Idee": "",
-      "Problem": "Dokumentation/Administration und Zusammenfassung von E-Mail-Verläufen, Dokumenten, Vertragsprüfungen in Aktensystem jeweils mit Erstellung einer Beschreibung des Inhalts im Aktenablagesystem",
-      "Lösung": "Ggf. automatisiertes Zuordnen der Dokumente zu den betreffenden Akten und Auslesen des Inhalts mit Erstellung einer Zusammenfassung (automatisierte Sachverhaltserfassung)",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem:
+        "Dokumentation/Administration und Zusammenfassung von E-Mail-Verläufen, Dokumenten, Vertragsprüfungen in Aktensystem jeweils mit Erstellung einer Beschreibung des Inhalts im Aktenablagesystem",
+      Lösung:
+        "Ggf. automatisiertes Zuordnen der Dokumente zu den betreffenden Akten und Auslesen des Inhalts mit Erstellung einer Zusammenfassung (automatisierte Sachverhaltserfassung)",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "A",
-      "Komplexität": 5.0,
-      "Erläuterung": "keine hohe Komplexität, weil: reines Auslesen von vorhandenen Daten; zum Teil Systeme bekannt, die das bereits umsetzen können",
+      Komplexität: 5.0,
+      Erläuterung:
+        "keine hohe Komplexität, weil: reines Auslesen von vorhandenen Daten; zum Teil Systeme bekannt, die das bereits umsetzen können",
       "Kosten (€)": 3.0,
       "Erläuterung.1": "abhängig von der Systemlandschaft",
-      "ROI": 5.0,
-      "Erläuterung.2": "sehr hoch durch Zeitersparnis in Dokumentenablage, recherche und Fallbearbeitung",
-      "Risiko": 3.0,
-      "Erläuterung.3": "mittleres Risiko, da nur Vorhandenes ausgelesen wird und keine neuen Ergebnisse generiert werden ",
+      ROI: 5.0,
+      "Erläuterung.2":
+        "sehr hoch durch Zeitersparnis in Dokumentenablage, recherche und Fallbearbeitung",
+      Risiko: 3.0,
+      "Erläuterung.3":
+        "mittleres Risiko, da nur Vorhandenes ausgelesen wird und keine neuen Ergebnisse generiert werden ",
       "Strategische Ausrichtung": 5.0,
-      "Erläuterung.4": "Vereinheitlichung; Reduzierung des administrativen Aufwands"
+      "Erläuterung.4":
+        "Vereinheitlichung; Reduzierung des administrativen Aufwands",
     },
     {
       "Unnamed: 0": "",
       "Final prio": "",
       "Gewichtete Punktzahl": 0.0,
-      "Idee": "",
-      "Problem": "Recherche rechtlicher Einschätzungen in Datenbanken (gesetzliche Grundlagen + Rechtsprechung)",
-      "Lösung": "beck-online chat-bot oder DUV-GPT",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem:
+        "Recherche rechtlicher Einschätzungen in Datenbanken (gesetzliche Grundlagen + Rechtsprechung)",
+      Lösung: "beck-online chat-bot oder DUV-GPT",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "B",
-      "Komplexität": "",
-      "Erläuterung": "",
+      Komplexität: "",
+      Erläuterung: "",
       "Kosten (€)": "",
       "Erläuterung.1": "",
-      "ROI": "",
+      ROI: "",
       "Erläuterung.2": "",
-      "Risiko": "",
+      Risiko: "",
       "Erläuterung.3": "",
       "Strategische Ausrichtung": "",
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "Idea 2",
       "Final prio": 2.0,
       "Gewichtete Punktzahl": 3.9,
-      "Idee": "",
-      "Problem": "Erstellung von Schriftsätzen, Klagen, Klageerwiderungen, Anschreiben etc. ",
-      "Lösung": "Nutzung der Rechercheergebnisse, der Sachverhaltszusammenfasstung etc. zur Erstellung von Texten in juristischer Tonalität unter Hinzuziehung vorgegebener Muster u.a. auch aus der beck-online Datenbank",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem:
+        "Erstellung von Schriftsätzen, Klagen, Klageerwiderungen, Anschreiben etc. ",
+      Lösung:
+        "Nutzung der Rechercheergebnisse, der Sachverhaltszusammenfasstung etc. zur Erstellung von Texten in juristischer Tonalität unter Hinzuziehung vorgegebener Muster u.a. auch aus der beck-online Datenbank",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "A",
-      "Komplexität": 3.0,
-      "Erläuterung": " Erstellung von Verträgen : komplexer; Erstellung von Schriftsätzen und Verarbeitungsbeschreibungen: nicht so komplex ",
+      Komplexität: 3.0,
+      Erläuterung:
+        " Erstellung von Verträgen : komplexer; Erstellung von Schriftsätzen und Verarbeitungsbeschreibungen: nicht so komplex ",
       "Kosten (€)": 3.0,
-      "Erläuterung.1": "mittlere bis hohe Investitionskosten; laufende Kosten abhängig von Nutzung und API-Abfragen",
-      "ROI": 5.0,
-      "Erläuterung.2": "Sehr hoch: erhebliche Zeitersparnis bei wiederkehrenden Aufgaben (z. B. Entwürfe, Stellungnahmen, interne Rückmeldungen). Reduziert Recherchen und Formulierungsaufwand.",
-      "Risiko": 3.0,
-      "Erläuterung.3": "Mittel: Risiken betreffen inhaltliche Richtigkeit, Datenvertraulichkeit bei externer Verarbeitung (z. B. bei Nutzung von Online-Datenbanken) und Urheberrecht. Durch klare Governance und manuelle Endkontrolle gut beherrschbar",
+      "Erläuterung.1":
+        "mittlere bis hohe Investitionskosten; laufende Kosten abhängig von Nutzung und API-Abfragen",
+      ROI: 5.0,
+      "Erläuterung.2":
+        "Sehr hoch: erhebliche Zeitersparnis bei wiederkehrenden Aufgaben (z. B. Entwürfe, Stellungnahmen, interne Rückmeldungen). Reduziert Recherchen und Formulierungsaufwand.",
+      Risiko: 3.0,
+      "Erläuterung.3":
+        "Mittel: Risiken betreffen inhaltliche Richtigkeit, Datenvertraulichkeit bei externer Verarbeitung (z. B. bei Nutzung von Online-Datenbanken) und Urheberrecht. Durch klare Governance und manuelle Endkontrolle gut beherrschbar",
       "Strategische Ausrichtung": 5.0,
-      "Erläuterung.4": "Automatisierung, Zeitersparnis, Vereinheitlichung und Standardisierung, Beschleunigung"
+      "Erläuterung.4":
+        "Automatisierung, Zeitersparnis, Vereinheitlichung und Standardisierung, Beschleunigung",
     },
     {
       "Unnamed: 0": "",
       "Final prio": "",
       "Gewichtete Punktzahl": 0.0,
-      "Idee": "",
-      "Problem": "Erstellung von Fragebögen und Gesprächsleitfäden",
-      "Lösung": "Nach Bereitstellung des Sachverhaltes Aufarbeitung und Entwurf von Fragen ",
-      "Ideenverantwortlicher": "",
+      Idee: "",
+      Problem: "Erstellung von Fragebögen und Gesprächsleitfäden",
+      Lösung:
+        "Nach Bereitstellung des Sachverhaltes Aufarbeitung und Entwurf von Fragen ",
+      Ideenverantwortlicher: "",
       "Priorität (A, B, C)": "",
-      "Komplexität": "",
-      "Erläuterung": "",
+      Komplexität: "",
+      Erläuterung: "",
       "Kosten (€)": "",
       "Erläuterung.1": "",
-      "ROI": "",
+      ROI: "",
       "Erläuterung.2": "",
-      "Risiko": "",
+      Risiko: "",
       "Erläuterung.3": "",
       "Strategische Ausrichtung": "",
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "",
       "Final prio": "",
       "Gewichtete Punktzahl": 0.0,
-      "Idee": "",
-      "Problem": "Erstellung von Vertragsvorlagen, Vorlagen für Richtlinien, Datenschutzhinweise und andere Dokumente sowie Einfügen in bestehende Vorlagen (z.B. auch in Verarbeitungsbeschreibungen, Logistikverträge, Arbeitsverträge) ",
-      "Lösung": "Texterstellung auf Grundlage von Stichpunkten und Themenblöcken, Erstellen und Einfügen in vorgegebene Vorlagen",
-      "Ideenverantwortlicher": "",
+      Idee: "",
+      Problem:
+        "Erstellung von Vertragsvorlagen, Vorlagen für Richtlinien, Datenschutzhinweise und andere Dokumente sowie Einfügen in bestehende Vorlagen (z.B. auch in Verarbeitungsbeschreibungen, Logistikverträge, Arbeitsverträge) ",
+      Lösung:
+        "Texterstellung auf Grundlage von Stichpunkten und Themenblöcken, Erstellen und Einfügen in vorgegebene Vorlagen",
+      Ideenverantwortlicher: "",
       "Priorität (A, B, C)": "",
-      "Komplexität": "",
-      "Erläuterung": "",
+      Komplexität: "",
+      Erläuterung: "",
       "Kosten (€)": "",
       "Erläuterung.1": "",
-      "ROI": "",
+      ROI: "",
       "Erläuterung.2": "",
-      "Risiko": "",
+      Risiko: "",
       "Erläuterung.3": "",
       "Strategische Ausrichtung": "",
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "Idea 4",
       "Final prio": 4.0,
       "Gewichtete Punktzahl": 3.5,
-      "Idee": "",
-      "Problem": "Prüfung und Analyse von Standards (NDA, CoC, IT-AGB, AVV etc.) sowie auch von nicht standardisierten Verträgen ",
-      "Lösung": "Automatische Prüfung und Zusammenfassung u.a. unter Berücksichtigung vorgegebener Regeln (KI-Lösung von OTRIS)",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem:
+        "Prüfung und Analyse von Standards (NDA, CoC, IT-AGB, AVV etc.) sowie auch von nicht standardisierten Verträgen ",
+      Lösung:
+        "Automatische Prüfung und Zusammenfassung u.a. unter Berücksichtigung vorgegebener Regeln (KI-Lösung von OTRIS)",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "A",
-      "Komplexität": 2.0,
-      "Erläuterung": "Mittel bis hoch: Abhängig von der Regelvielfalt und Dokumentenstruktur. Die KI muss sowohl juristische Sprache als auch spezifische Unternehmensregeln verstehen und anwenden können.",
+      Komplexität: 2.0,
+      Erläuterung:
+        "Mittel bis hoch: Abhängig von der Regelvielfalt und Dokumentenstruktur. Die KI muss sowohl juristische Sprache als auch spezifische Unternehmensregeln verstehen und anwenden können.",
       "Kosten (€)": 2.0,
-      "Erläuterung.1": "Kosten durch OTRIS (Add-On bei OTRIS) relativ gering, da bereits das System vorhanden ist und es sich nur um ein Add-On handelt",
-      "ROI": 5.0,
-      "Erläuterung.2": "hohe Zeitersparnis, sobald implementiert; Erstellung des Playbooks erfordert vorab erhöhten Zeitaufwand",
-      "Risiko": 3.0,
-      "Erläuterung.3": "Niedrig bis mittel: Geringes Risiko bei interner Nutzung; bei externer Cloud-Lösung Prüfung von Datenschutz und Datensicherheit erforderlich. Risiko falscher Bewertungen bei unvollständigen Regeln.",
+      "Erläuterung.1":
+        "Kosten durch OTRIS (Add-On bei OTRIS) relativ gering, da bereits das System vorhanden ist und es sich nur um ein Add-On handelt",
+      ROI: 5.0,
+      "Erläuterung.2":
+        "hohe Zeitersparnis, sobald implementiert; Erstellung des Playbooks erfordert vorab erhöhten Zeitaufwand",
+      Risiko: 3.0,
+      "Erläuterung.3":
+        "Niedrig bis mittel: Geringes Risiko bei interner Nutzung; bei externer Cloud-Lösung Prüfung von Datenschutz und Datensicherheit erforderlich. Risiko falscher Bewertungen bei unvollständigen Regeln.",
       "Strategische Ausrichtung": 5.0,
-      "Erläuterung.4": "Sehr gute Passung: Stärkt Qualitätssicherung, Standardisierung und Nachvollziehbarkeit. Unterstützt die digitale Transformation der Rechtsabteilung und fördert Konsistenz."
+      "Erläuterung.4":
+        "Sehr gute Passung: Stärkt Qualitätssicherung, Standardisierung und Nachvollziehbarkeit. Unterstützt die digitale Transformation der Rechtsabteilung und fördert Konsistenz.",
     },
     {
       "Unnamed: 0": "Idea 5",
       "Final prio": 3.0,
       "Gewichtete Punktzahl": 3.5,
-      "Idee": "",
-      "Problem": "Kleine, widerkehrende Fälle und Fragen",
-      "Lösung": "Chatbot",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem: "Kleine, widerkehrende Fälle und Fragen",
+      Lösung: "Chatbot",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "A",
-      "Komplexität": 3.0,
-      "Erläuterung": "Mittel: Aufbau eines internen Wissenspools, Training der KI auf firmenspezifische Inhalte und laufende Pflege notwendig. Technisch gut umsetzbar mit vorhandenen Lösungen.",
+      Komplexität: 3.0,
+      Erläuterung:
+        "Mittel: Aufbau eines internen Wissenspools, Training der KI auf firmenspezifische Inhalte und laufende Pflege notwendig. Technisch gut umsetzbar mit vorhandenen Lösungen.",
       "Kosten (€)": 3.0,
-      "Erläuterung.1": "einmalige Implementierung und kontinuierliche Pflege durch Legal (DUV GPT könnte nach Implementierung genutzt werden)",
-      "ROI": 4.0,
-      "Erläuterung.2": "relativ hoch: Entlastet das Team bei Routineanfragen, reduziert Bearbeitungszeiten, erhöht Reaktionsgeschwindigkeit. Starker Produktivitätsgewinn im Tagesgeschäft. Bei Interessenabwägung schwieriger anzuwenden",
-      "Risiko": 2.0,
-      "Erläuterung.3": "höheres Risiko: Treffgenauigkeit der Schlagworte fehleranfällig",
+      "Erläuterung.1":
+        "einmalige Implementierung und kontinuierliche Pflege durch Legal (DUV GPT könnte nach Implementierung genutzt werden)",
+      ROI: 4.0,
+      "Erläuterung.2":
+        "relativ hoch: Entlastet das Team bei Routineanfragen, reduziert Bearbeitungszeiten, erhöht Reaktionsgeschwindigkeit. Starker Produktivitätsgewinn im Tagesgeschäft. Bei Interessenabwägung schwieriger anzuwenden",
+      Risiko: 2.0,
+      "Erläuterung.3":
+        "höheres Risiko: Treffgenauigkeit der Schlagworte fehleranfällig",
       "Strategische Ausrichtung": 5.0,
-      "Erläuterung.4": "direkte Antwort, schnelle erste Einschätzung, Beschleunigung des Prozesses"
+      "Erläuterung.4":
+        "direkte Antwort, schnelle erste Einschätzung, Beschleunigung des Prozesses",
     },
     {
       "Unnamed: 0": "",
       "Final prio": "",
       "Gewichtete Punktzahl": 0.0,
-      "Idee": "",
-      "Problem": "Kosten-Management",
-      "Lösung": "?",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem: "Kosten-Management",
+      Lösung: "?",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "C",
-      "Komplexität": "",
-      "Erläuterung": "",
+      Komplexität: "",
+      Erläuterung: "",
       "Kosten (€)": "",
       "Erläuterung.1": "",
-      "ROI": "",
+      ROI: "",
       "Erläuterung.2": "",
-      "Risiko": "",
+      Risiko: "",
       "Erläuterung.3": "",
       "Strategische Ausrichtung": "",
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "",
       "Final prio": "",
       "Gewichtete Punktzahl": 0.0,
-      "Idee": "",
-      "Problem": "Vertragsmanagement:\nAnlage, Erinnerungen, Verlängerungen, ...",
-      "Lösung": "Otris",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem: "Vertragsmanagement:\nAnlage, Erinnerungen, Verlängerungen, ...",
+      Lösung: "Otris",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "B",
-      "Komplexität": "",
-      "Erläuterung": "",
+      Komplexität: "",
+      Erläuterung: "",
       "Kosten (€)": "",
       "Erläuterung.1": "",
-      "ROI": "",
+      ROI: "",
       "Erläuterung.2": "",
-      "Risiko": "",
+      Risiko: "",
       "Erläuterung.3": "",
       "Strategische Ausrichtung": "",
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "",
       "Final prio": "",
       "Gewichtete Punktzahl": 0.0,
-      "Idee": "",
-      "Problem": "Managemententscheidungen",
-      "Lösung": "Automatisierte Vorlage \nan das betroffene Management",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem: "Managemententscheidungen",
+      Lösung: "Automatisierte Vorlage \nan das betroffene Management",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "B",
-      "Komplexität": "",
-      "Erläuterung": "",
+      Komplexität: "",
+      Erläuterung: "",
       "Kosten (€)": "",
       "Erläuterung.1": "",
-      "ROI": "",
+      ROI: "",
       "Erläuterung.2": "",
-      "Risiko": "",
+      Risiko: "",
       "Erläuterung.3": "",
       "Strategische Ausrichtung": "",
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "",
       "Final prio": "",
       "Gewichtete Punktzahl": 0.0,
-      "Idee": "",
-      "Problem": "Unterschriften",
-      "Lösung": "Anschließen an Vertragsprozess \nmit automatischer Zuweisung",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem: "Unterschriften",
+      Lösung: "Anschließen an Vertragsprozess \nmit automatischer Zuweisung",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "B",
-      "Komplexität": "",
-      "Erläuterung": "",
+      Komplexität: "",
+      Erläuterung: "",
       "Kosten (€)": "",
       "Erläuterung.1": "",
-      "ROI": "",
+      ROI: "",
       "Erläuterung.2": "",
-      "Risiko": "",
+      Risiko: "",
       "Erläuterung.3": "",
       "Strategische Ausrichtung": "",
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "Idea 6",
       "Final prio": 5.0,
       "Gewichtete Punktzahl": 3.65,
-      "Idee": "",
-      "Problem": "Verhandlungszusammenfassung / Gesprächszusammenfassung / Meetingzusammenfassung",
-      "Lösung": "Automatisierte Mitschrift / Zusammenfassung",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem:
+        "Verhandlungszusammenfassung / Gesprächszusammenfassung / Meetingzusammenfassung",
+      Lösung: "Automatisierte Mitschrift / Zusammenfassung",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "A",
-      "Komplexität": 4.0,
-      "Erläuterung": "weniger komplex : Spracherkennung, Themenanalyse und Zusammenfassung sind technisch gut beherrschbar. Zusätzliche Anforderungen an rechtssichere Speicherung und ggf. Mehrsprachigkeit.",
+      Komplexität: 4.0,
+      Erläuterung:
+        "weniger komplex : Spracherkennung, Themenanalyse und Zusammenfassung sind technisch gut beherrschbar. Zusätzliche Anforderungen an rechtssichere Speicherung und ggf. Mehrsprachigkeit.",
       "Kosten (€)": 3.0,
-      "Erläuterung.1": "Mittel: Abhängig von der Lösung (z. B. interne KI, MS Copilot, Drittanbieter). Laufende Kosten gering, wenn bestehende Systeme genutzt werden.",
-      "ROI": 4.0,
-      "Erläuterung.2": "relativ hoch: Spart erheblich Zeit bei der Nachbereitung und verbessert Dokumentationsqualität. Reduziert Risiko, dass wesentliche Punkte verloren gehen.",
-      "Risiko": 3.0,
-      "Erläuterung.3": "mittleres Risiko: Risiko bei datenschutzkonformer Verwendung kontrollierbar",
+      "Erläuterung.1":
+        "Mittel: Abhängig von der Lösung (z. B. interne KI, MS Copilot, Drittanbieter). Laufende Kosten gering, wenn bestehende Systeme genutzt werden.",
+      ROI: 4.0,
+      "Erläuterung.2":
+        "relativ hoch: Spart erheblich Zeit bei der Nachbereitung und verbessert Dokumentationsqualität. Reduziert Risiko, dass wesentliche Punkte verloren gehen.",
+      Risiko: 3.0,
+      "Erläuterung.3":
+        "mittleres Risiko: Risiko bei datenschutzkonformer Verwendung kontrollierbar",
       "Strategische Ausrichtung": 4.0,
-      "Erläuterung.4": "Vereinheitlichung Dokumentations, Erhöhung Digitalisierung und Qualität"
+      "Erläuterung.4":
+        "Vereinheitlichung Dokumentations, Erhöhung Digitalisierung und Qualität",
     },
     {
       "Unnamed: 0": "",
       "Final prio": "",
       "Gewichtete Punktzahl": 0.0,
-      "Idee": "",
-      "Problem": "Schulungen",
-      "Lösung": "Automatisierte Erstellung PPP",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem: "Schulungen",
+      Lösung: "Automatisierte Erstellung PPP",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "B",
-      "Komplexität": "",
-      "Erläuterung": "",
+      Komplexität: "",
+      Erläuterung: "",
       "Kosten (€)": "",
       "Erläuterung.1": "",
-      "ROI": "",
+      ROI: "",
       "Erläuterung.2": "",
-      "Risiko": "",
+      Risiko: "",
       "Erläuterung.3": "",
       "Strategische Ausrichtung": "",
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "",
       "Final prio": "",
       "Gewichtete Punktzahl": 0.0,
-      "Idee": "",
-      "Problem": "Dokumentenvergleiche",
-      "Lösung": "Adobe Pro oder intergriert in KI-Lösung",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem: "Dokumentenvergleiche",
+      Lösung: "Adobe Pro oder intergriert in KI-Lösung",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "B",
-      "Komplexität": "",
-      "Erläuterung": "",
+      Komplexität: "",
+      Erläuterung: "",
       "Kosten (€)": "",
       "Erläuterung.1": "",
-      "ROI": "",
+      ROI: "",
       "Erläuterung.2": "",
-      "Risiko": "",
+      Risiko: "",
       "Erläuterung.3": "",
       "Strategische Ausrichtung": "",
-      "Erläuterung.4": ""
+      "Erläuterung.4": "",
     },
     {
       "Unnamed: 0": "Idea 3",
       "Final prio": 6.0,
       "Gewichtete Punktzahl": 2.7,
-      "Idee": "",
-      "Problem": "Risikoanalysen (Datenschutz)",
-      "Lösung": "automatisierte Risikoanalyse ",
-      "Ideenverantwortlicher": "Legal, Compliance & Datenschutz ",
+      Idee: "",
+      Problem: "Risikoanalysen (Datenschutz)",
+      Lösung: "automatisierte Risikoanalyse ",
+      Ideenverantwortlicher: "Legal, Compliance & Datenschutz ",
       "Priorität (A, B, C)": "A",
-      "Komplexität": 2.0,
-      "Erläuterung": "relativ komplex: Playbooks müssen vorab erstellt werden; Entwicklung von Ergebnissen und Bewertungen",
+      Komplexität: 2.0,
+      Erläuterung:
+        "relativ komplex: Playbooks müssen vorab erstellt werden; Entwicklung von Ergebnissen und Bewertungen",
       "Kosten (€)": 3.0,
-      "Erläuterung.1": "Mittel: Initialer Aufwand für Systemanbindung und Parametrisierung, danach geringe laufende Kosten.",
-      "ROI": 4.0,
-      "Erläuterung.2": "Hoch: Deutliche Zeitersparnis bei Risikoanalysen und DSFA-Vorbereitung, verbesserte Nachvollziehbarkeit und geringere Fehleranfälligkeit.",
-      "Risiko": 2.0,
-      "Erläuterung.3": "menschliche Kontrolle bleibt erforderlich, Ergebnisqualität abhängig von Datenbasis und Parametern, Datenschutzkonformität der eingesetzen KI muss gewährleistet sein",
+      "Erläuterung.1":
+        "Mittel: Initialer Aufwand für Systemanbindung und Parametrisierung, danach geringe laufende Kosten.",
+      ROI: 4.0,
+      "Erläuterung.2":
+        "Hoch: Deutliche Zeitersparnis bei Risikoanalysen und DSFA-Vorbereitung, verbesserte Nachvollziehbarkeit und geringere Fehleranfälligkeit.",
+      Risiko: 2.0,
+      "Erläuterung.3":
+        "menschliche Kontrolle bleibt erforderlich, Ergebnisqualität abhängig von Datenbasis und Parametern, Datenschutzkonformität der eingesetzen KI muss gewährleistet sein",
       "Strategische Ausrichtung": 2.0,
-      "Erläuterung.4": "Direkte Unterstützung der Rechenschaftspflicht nach Art. 5 Abs. 2 DSGVO"
-    }
+      "Erläuterung.4":
+        "Direkte Unterstützung der Rechenschaftspflicht nach Art. 5 Abs. 2 DSGVO",
+    },
   ],
   "Muriel Berning": [
     {
       "Unnamed: 0": "",
       "Unnamed: 1": "Problem",
-      "Unnamed: 2": "Lösung"
+      "Unnamed: 2": "Lösung",
     },
     {
       "Unnamed: 0": 1.0,
       "Unnamed: 1": "Relevanz der Teile",
-      "Unnamed: 2": "KI sagt mir, wofür die Teile relevant sind (bspw. Sicherheitsbauteile)"
+      "Unnamed: 2":
+        "KI sagt mir, wofür die Teile relevant sind (bspw. Sicherheitsbauteile)",
     },
     {
       "Unnamed: 0": 2.0,
       "Unnamed: 1": "Haftungsprüfung ",
-      "Unnamed: 2": "Ist der Schaden erstattungsfähig? Haftungsgrundlagen erfüllt?"
+      "Unnamed: 2":
+        "Ist der Schaden erstattungsfähig? Haftungsgrundlagen erfüllt?",
     },
     {
       "Unnamed: 0": 3.0,
       "Unnamed: 1": "Bewertung Schadenausmaß",
-      "Unnamed: 2": "Ungefähre Einschätzung der Kosten (Planung für Rückstellungswerte)"
+      "Unnamed: 2":
+        "Ungefähre Einschätzung der Kosten (Planung für Rückstellungswerte)",
     },
     {
       "Unnamed: 0": 4.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 5.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 6.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 7.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 8.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 9.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 10.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 11.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 12.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 13.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 14.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 15.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 16.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 17.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 18.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 19.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 20.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
-    }
+      "Unnamed: 2": "",
+    },
   ],
   "John Smith": [
     {
       "Unnamed: 0": "",
       "Unnamed: 1": "Problem",
-      "Unnamed: 2": "Lösung"
+      "Unnamed: 2": "Lösung",
     },
     {
       "Unnamed: 0": 1.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 2.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 3.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 4.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 5.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 6.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 7.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 8.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 9.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 10.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 11.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 12.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 13.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 14.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 15.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 16.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 17.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 18.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 19.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 20.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
-    }
+      "Unnamed: 2": "",
+    },
   ],
   "Laura Krasniqi": [
     {
       "Unnamed: 0": "",
       "Unnamed: 1": "Problem",
-      "Unnamed: 2": "Lösung"
+      "Unnamed: 2": "Lösung",
     },
     {
       "Unnamed: 0": 1.0,
       "Unnamed: 1": "Vertragsprüfung - Haftung & Versicherung inkl. Checkliste",
-      "Unnamed: 2": "Erstellung Checkliste inkl. Makierung relevante Passagen ggf Voarbprüfung"
+      "Unnamed: 2":
+        "Erstellung Checkliste inkl. Makierung relevante Passagen ggf Voarbprüfung",
     },
     {
       "Unnamed: 0": 2.0,
-      "Unnamed: 1": "Versicherungsausschreibung (Erstellung Ergebnispräsentation inkl. Vergleich Versicherungsschutz)",
-      "Unnamed: 2": "Erstellung Präsentation + Vergleichsübersicht "
+      "Unnamed: 1":
+        "Versicherungsausschreibung (Erstellung Ergebnispräsentation inkl. Vergleich Versicherungsschutz)",
+      "Unnamed: 2": "Erstellung Präsentation + Vergleichsübersicht ",
     },
     {
       "Unnamed: 0": 3.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 4.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 5.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 6.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 7.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 8.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 9.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 10.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 11.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 12.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 13.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 14.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 15.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 16.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 17.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 18.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 19.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 20.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
-    }
+      "Unnamed: 2": "",
+    },
   ],
   "Elisa Jürgens": [
     {
       "Unnamed: 0": "",
       "Unnamed: 1": "Problem",
-      "Unnamed: 2": "Lösung"
+      "Unnamed: 2": "Lösung",
     },
     {
       "Unnamed: 0": 1.0,
       "Unnamed: 1": "Vertragsprüfungen ",
-      "Unnamed: 2": "Automatisierte KI-Lösung (OTRIS)"
+      "Unnamed: 2": "Automatisierte KI-Lösung (OTRIS)",
     },
     {
       "Unnamed: 0": 2.0,
       "Unnamed: 1": "lange Mailverläufe",
-      "Unnamed: 2": "Automatisierte Sachverhaltserfassung"
+      "Unnamed: 2": "Automatisierte Sachverhaltserfassung",
     },
     {
       "Unnamed: 0": 3.0,
       "Unnamed: 1": "Kleine, widerkehrende Fälle und Fragen",
-      "Unnamed: 2": "Chatbot"
+      "Unnamed: 2": "Chatbot",
     },
     {
       "Unnamed: 0": 4.0,
       "Unnamed: 1": "Vertragserstellungen / Standardanschreiben",
-      "Unnamed: 2": "Automatisiertes Einfügen in Standards"
+      "Unnamed: 2": "Automatisiertes Einfügen in Standards",
     },
     {
       "Unnamed: 0": 5.0,
       "Unnamed: 1": "Kosten-Management",
-      "Unnamed: 2": "?"
+      "Unnamed: 2": "?",
     },
     {
       "Unnamed: 0": 6.0,
-      "Unnamed: 1": "Vertragsmanagement:\nAnlage, Erinnerungen, Verlängerungen, ...",
-      "Unnamed: 2": "Otris"
+      "Unnamed: 1":
+        "Vertragsmanagement:\nAnlage, Erinnerungen, Verlängerungen, ...",
+      "Unnamed: 2": "Otris",
     },
     {
       "Unnamed: 0": 7.0,
       "Unnamed: 1": "Managemententscheidungen",
-      "Unnamed: 2": "Automatisierte Vorlage \nan das betroffene Management"
+      "Unnamed: 2": "Automatisierte Vorlage \nan das betroffene Management",
     },
     {
       "Unnamed: 0": 8.0,
       "Unnamed: 1": "Unterschriften",
-      "Unnamed: 2": "Anschließen an Vertragsprozess \nmit automatischer Zuweisung"
+      "Unnamed: 2":
+        "Anschließen an Vertragsprozess \nmit automatischer Zuweisung",
     },
     {
       "Unnamed: 0": 9.0,
       "Unnamed: 1": "Verhandlungszusammenfassung",
-      "Unnamed: 2": "Automatisierte Mitschrift"
+      "Unnamed: 2": "Automatisierte Mitschrift",
     },
     {
       "Unnamed: 0": 10.0,
       "Unnamed: 1": "Recherchen",
-      "Unnamed: 2": "DUV-GPT"
+      "Unnamed: 2": "DUV-GPT",
     },
     {
       "Unnamed: 0": 11.0,
       "Unnamed: 1": "Schulungen",
-      "Unnamed: 2": "Automatisierte Erstellung PPP"
+      "Unnamed: 2": "Automatisierte Erstellung PPP",
     },
     {
       "Unnamed: 0": 12.0,
       "Unnamed: 1": "Dokumentenvergleiche",
-      "Unnamed: 2": "Adobe Pro oder intergriert in KI-Lösung"
+      "Unnamed: 2": "Adobe Pro oder intergriert in KI-Lösung",
     },
     {
       "Unnamed: 0": 13.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 14.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 15.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 16.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 17.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 18.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 19.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 20.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
-    }
+      "Unnamed: 2": "",
+    },
   ],
   "Katharina Boland": [
     {
       "Unnamed: 0": "",
       "Unnamed: 1": "Problem",
-      "Unnamed: 2": "Lösung"
+      "Unnamed: 2": "Lösung",
     },
     {
       "Unnamed: 0": 1.0,
-      "Unnamed: 1": "Dokumentation/Administration von E-Mail-Verläufen, Dokumenten, Vertragsprüfungen in Aktensystem jeweils mit Erstellung einer Beschreibung des Inhalts im Aktenablagesystem",
-      "Unnamed: 2": "Ggf. automatisiertes Zuordnen der Dokumente zu den betreffenden Akten und Auslesen des Inhalts mit Erstellung einer Zusammenfassung "
+      "Unnamed: 1":
+        "Dokumentation/Administration von E-Mail-Verläufen, Dokumenten, Vertragsprüfungen in Aktensystem jeweils mit Erstellung einer Beschreibung des Inhalts im Aktenablagesystem",
+      "Unnamed: 2":
+        "Ggf. automatisiertes Zuordnen der Dokumente zu den betreffenden Akten und Auslesen des Inhalts mit Erstellung einer Zusammenfassung ",
     },
     {
       "Unnamed: 0": 2.0,
-      "Unnamed: 1": "Recherche rechtlicher Einschätzungen in Datenbanken (gesetzliche Grundlagen + Rechtsprechung)",
-      "Unnamed: 2": "beck-online chat-bot oder DUV-GPT"
+      "Unnamed: 1":
+        "Recherche rechtlicher Einschätzungen in Datenbanken (gesetzliche Grundlagen + Rechtsprechung)",
+      "Unnamed: 2": "beck-online chat-bot oder DUV-GPT",
     },
     {
       "Unnamed: 0": 3.0,
-      "Unnamed: 1": "Erstellung von Schriftsätzen, Klagen, Klageerwiderungen, Anschreiben etc. ",
-      "Unnamed: 2": "Nutzung der Rechercheergebnisse, der Sachverhaltszusammenfasstung etc. zur Erstellung von Texten in juristischer Tonalität unter Hinzuziehung vorgegebener Muster u.a. auch aus der beck-online Datenbank"
+      "Unnamed: 1":
+        "Erstellung von Schriftsätzen, Klagen, Klageerwiderungen, Anschreiben etc. ",
+      "Unnamed: 2":
+        "Nutzung der Rechercheergebnisse, der Sachverhaltszusammenfasstung etc. zur Erstellung von Texten in juristischer Tonalität unter Hinzuziehung vorgegebener Muster u.a. auch aus der beck-online Datenbank",
     },
     {
       "Unnamed: 0": 4.0,
       "Unnamed: 1": "Erstellung von Fragebögen und Gesprächsleitfäden",
-      "Unnamed: 2": "Nach Bereitstellung des Sachverhaltes Aufarbeitung und Entwurf von Fragen "
+      "Unnamed: 2":
+        "Nach Bereitstellung des Sachverhaltes Aufarbeitung und Entwurf von Fragen ",
     },
     {
       "Unnamed: 0": 5.0,
-      "Unnamed: 1": "Erstellung von Vertragsvorlagen, Vorlagen für Richtlinien, Datenschutzhinweise und andere Dokumente sowie Einfügen in bestehende Vorlagen (z.B. auch in Verarbeitungsbeschreibungen, Logistikverträge, Arbeitsverträge) ",
-      "Unnamed: 2": "Texterstellung auf Grundlage von Stichpunkten und Themenblöcken, Erstellen und Einfügen in vorgegebene Vorlagen"
+      "Unnamed: 1":
+        "Erstellung von Vertragsvorlagen, Vorlagen für Richtlinien, Datenschutzhinweise und andere Dokumente sowie Einfügen in bestehende Vorlagen (z.B. auch in Verarbeitungsbeschreibungen, Logistikverträge, Arbeitsverträge) ",
+      "Unnamed: 2":
+        "Texterstellung auf Grundlage von Stichpunkten und Themenblöcken, Erstellen und Einfügen in vorgegebene Vorlagen",
     },
     {
       "Unnamed: 0": 6.0,
-      "Unnamed: 1": "Prüfung und Analyse von Standards (NDA, CoC, IT-AGB, AVV etc.) sowie auch von nicht standardisierten Verträgen ",
-      "Unnamed: 2": "Automatische Prüfung und Zusammenfassung u.a. unter Berücksichtigung vorgegebener Regeln (KI-Lösung von OTRIS)"
+      "Unnamed: 1":
+        "Prüfung und Analyse von Standards (NDA, CoC, IT-AGB, AVV etc.) sowie auch von nicht standardisierten Verträgen ",
+      "Unnamed: 2":
+        "Automatische Prüfung und Zusammenfassung u.a. unter Berücksichtigung vorgegebener Regeln (KI-Lösung von OTRIS)",
     },
     {
       "Unnamed: 0": 7.0,
       "Unnamed: 1": "lange Mailverläufe",
-      "Unnamed: 2": "Automatisierte Sachverhaltserfassung"
+      "Unnamed: 2": "Automatisierte Sachverhaltserfassung",
     },
     {
       "Unnamed: 0": 8.0,
       "Unnamed: 1": "Kleine, widerkehrende Fälle und Fragen",
-      "Unnamed: 2": "Chatbot"
+      "Unnamed: 2": "Chatbot",
     },
     {
       "Unnamed: 0": 9.0,
       "Unnamed: 1": "Kosten-Management",
-      "Unnamed: 2": "?"
+      "Unnamed: 2": "?",
     },
     {
       "Unnamed: 0": 10.0,
-      "Unnamed: 1": "Vertragsmanagement:\nAnlage, Erinnerungen, Verlängerungen, ...",
-      "Unnamed: 2": "Otris"
+      "Unnamed: 1":
+        "Vertragsmanagement:\nAnlage, Erinnerungen, Verlängerungen, ...",
+      "Unnamed: 2": "Otris",
     },
     {
       "Unnamed: 0": 11.0,
       "Unnamed: 1": "Managemententscheidungen",
-      "Unnamed: 2": "Automatisierte Vorlage \nan das betroffene Management"
+      "Unnamed: 2": "Automatisierte Vorlage \nan das betroffene Management",
     },
     {
       "Unnamed: 0": 12.0,
       "Unnamed: 1": "Unterschriften",
-      "Unnamed: 2": "Anschließen an Vertragsprozess \nmit automatischer Zuweisung"
+      "Unnamed: 2":
+        "Anschließen an Vertragsprozess \nmit automatischer Zuweisung",
     },
     {
       "Unnamed: 0": 13.0,
       "Unnamed: 1": "Verhandlungszusammenfassung",
-      "Unnamed: 2": "Automatisierte Mitschrift"
+      "Unnamed: 2": "Automatisierte Mitschrift",
     },
     {
       "Unnamed: 0": 14.0,
       "Unnamed: 1": "Schulungen",
-      "Unnamed: 2": "Automatisierte Erstellung PPP"
+      "Unnamed: 2": "Automatisierte Erstellung PPP",
     },
     {
       "Unnamed: 0": 15.0,
       "Unnamed: 1": "Dokumentenvergleiche",
-      "Unnamed: 2": "Adobe Pro oder intergriert in KI-Lösung"
+      "Unnamed: 2": "Adobe Pro oder intergriert in KI-Lösung",
     },
     {
       "Unnamed: 0": 16.0,
       "Unnamed: 1": "Risikoanalysen (Datenschutz)",
-      "Unnamed: 2": "automatisierte Risikoanalyse "
+      "Unnamed: 2": "automatisierte Risikoanalyse ",
     },
     {
       "Unnamed: 0": 17.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 18.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 19.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 20.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
-    }
+      "Unnamed: 2": "",
+    },
   ],
   "Florentine van der Linde": [
     {
       "Unnamed: 0": "",
       "Unnamed: 1": "Problem",
-      "Unnamed: 2": "Lösung"
+      "Unnamed: 2": "Lösung",
     },
     {
       "Unnamed: 0": "",
       "Unnamed: 1": "automatische Ablage und auslesen der Verträge im VM?",
-      "Unnamed: 2": "KI liest Verträge aus, sucht sich die Kernpunkte raus und legt den Vertrag ab"
+      "Unnamed: 2":
+        "KI liest Verträge aus, sucht sich die Kernpunkte raus und legt den Vertrag ab",
     },
     {
       "Unnamed: 0": 2.0,
       "Unnamed: 1": "Erstellung und Aktualisierung von Schulungsunterlagen?",
-      "Unnamed: 2": "Entwurf für Schulung, Beispiel für Gliederung, was muss alles beachtet werden?"
+      "Unnamed: 2":
+        "Entwurf für Schulung, Beispiel für Gliederung, was muss alles beachtet werden?",
     },
     {
       "Unnamed: 0": 3.0,
       "Unnamed: 1": "Erstellung von Verarbeitungsbeschreibungen",
-      "Unnamed: 2": "vorbefüllter Entwurf, der nur noch abgestimmt und freigegeben werden muss."
+      "Unnamed: 2":
+        "vorbefüllter Entwurf, der nur noch abgestimmt und freigegeben werden muss.",
     },
     {
       "Unnamed: 0": 5.0,
       "Unnamed: 1": "Vertragsprüfung (AVV?)",
-      "Unnamed: 2": "automatisierte Prüfung anhand einer Checkliste?"
+      "Unnamed: 2": "automatisierte Prüfung anhand einer Checkliste?",
     },
     {
       "Unnamed: 0": 6.0,
       "Unnamed: 1": "fehlende Entwürfe, Startpunkt schwierig",
-      "Unnamed: 2": "Datenschutzhinweise, Einwilligungen etc. Vorlagen erstellen"
+      "Unnamed: 2":
+        "Datenschutzhinweise, Einwilligungen etc. Vorlagen erstellen",
     },
     {
       "Unnamed: 0": 8.0,
       "Unnamed: 1": "Risikoanalysen (Datenschutz)",
-      "Unnamed: 2": "automatisierte Risikoanalyse "
+      "Unnamed: 2": "automatisierte Risikoanalyse ",
     },
     {
       "Unnamed: 0": 9.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 10.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 11.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 12.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 13.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 14.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 15.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 16.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 17.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 18.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 19.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
+      "Unnamed: 2": "",
     },
     {
       "Unnamed: 0": 20.0,
       "Unnamed: 1": "",
-      "Unnamed: 2": ""
-    }
+      "Unnamed: 2": "",
+    },
   ],
   "Beispiel-Projektbrief": [
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1369,12 +1461,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Projekt Sponsor",
-      "Erläuterung": "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
+      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1383,12 +1475,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1397,12 +1489,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Involvierte Teams",
-      "Erläuterung": "Welche Teams sind involviert",
+      Erläuterung: "Welche Teams sind involviert",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1411,12 +1503,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1425,12 +1517,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Potenzielle Konflikte",
-      "Erläuterung": "Mögliche Interessens- oder Ressourcen Überschneidungen",
+      Erläuterung: "Mögliche Interessens- oder Ressourcen Überschneidungen",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1439,12 +1531,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1453,12 +1545,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Benötigte Mittel",
-      "Erläuterung": "Personal, Budget, Technologie",
+      Erläuterung: "Personal, Budget, Technologie",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1467,12 +1559,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1481,12 +1573,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Datenverfügbarkeit",
-      "Erläuterung": "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
+      Erläuterung:
+        "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1495,12 +1588,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1509,12 +1602,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "GenAI-spezifische Überlegungen",
-      "Erläuterung": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+      Erläuterung:
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1523,12 +1617,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1537,12 +1631,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Für jede Initiative sollten folgende Punkte thematisiert werden:"
+      "Unnamed: 11":
+        "Für jede Initiative sollten folgende Punkte thematisiert werden:",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Grober Zeitplan",
-      "Erläuterung": "Bis wann sollte welcher Milestone erreicht sein? ",
+      Erläuterung: "Bis wann sollte welcher Milestone erreicht sein? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1551,12 +1646,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1565,12 +1660,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Projekt-Sponsor: "
+      "Unnamed: 11": "Projekt-Sponsor: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Sonstige Kommentare",
-      "Erläuterung": "Was ist noch wichtig für diese Initiative? ",
+      Erläuterung: "Was ist noch wichtig für diese Initiative? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1579,12 +1674,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1593,12 +1688,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Beteiligte Abteilungen: "
+      "Unnamed: 11": "Beteiligte Abteilungen: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1607,12 +1702,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1621,12 +1716,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Potenzielle Konflikte: "
+      "Unnamed: 11": "Potenzielle Konflikte: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1635,12 +1730,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1649,12 +1744,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ressourcen: Benötigte Mittel "
+      "Unnamed: 11": "Ressourcen: Benötigte Mittel ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1663,12 +1758,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1677,12 +1772,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Datenverfügbarkeit: "
+      "Unnamed: 11": "Datenverfügbarkeit: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1691,12 +1786,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1705,12 +1800,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "GenAI-spezifische Überlegungen"
+      "Unnamed: 11": "GenAI-spezifische Überlegungen",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1719,12 +1814,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit."
+      "Unnamed: 11":
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1733,12 +1829,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback."
+      "Unnamed: 11":
+        "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1747,12 +1844,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits)."
+      "Unnamed: 11":
+        "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1761,12 +1859,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen."
+      "Unnamed: 11":
+        "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1775,14 +1874,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Change Management: Planung zur Schulung und Akzeptanz der Nutzer."
-    }
+      "Unnamed: 11":
+        "Change Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+    },
   ],
   "Legal Chatbot - Projektbrief": [
     {
-      "Idee": "Idea 3",
+      Idee: "Idea 3",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1791,12 +1891,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Projekt Sponsor",
-      "Erläuterung": "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
+      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
       "Inhalte / Antworten": "Legal",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1805,12 +1905,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1819,12 +1919,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Involvierte Teams",
-      "Erläuterung": "Welche Teams sind involviert",
+      Erläuterung: "Welche Teams sind involviert",
       "Inhalte / Antworten": "Legal, Datenschutz",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1833,12 +1933,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1847,12 +1947,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Potenzielle Konflikte",
-      "Erläuterung": "Mögliche Interessens- oder Ressourcen Überschneidungen",
+      Erläuterung: "Mögliche Interessens- oder Ressourcen Überschneidungen",
       "Inhalte / Antworten": "Insurance, Claim-Management, Accounting",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1861,12 +1961,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1875,12 +1975,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Benötigte Mittel",
-      "Erläuterung": "Personal, Budget, Technologie",
+      Erläuterung: "Personal, Budget, Technologie",
       "Inhalte / Antworten": "Personal, Budget, Technologie",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1889,12 +1989,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1903,13 +2003,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Datenverfügbarkeit",
-      "Erläuterung": "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
-      "Inhalte / Antworten": "Bereitstellung von Informationen und Antworten in Form von Playbooks; Für die Bewertung und Beantwortung der Fragen erforderliche Dokumente und Informationen aus den Fachabteilungen ",
+      Erläuterung:
+        "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
+      "Inhalte / Antworten":
+        "Bereitstellung von Informationen und Antworten in Form von Playbooks; Für die Bewertung und Beantwortung der Fragen erforderliche Dokumente und Informationen aus den Fachabteilungen ",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1917,12 +2019,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1931,13 +2033,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "GenAI-spezifische Überlegungen",
-      "Erläuterung": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
-      "Inhalte / Antworten": "Frage-Antwort-Modell nach einfachen wenn-dann-Vorgaben",
+      Erläuterung:
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+      "Inhalte / Antworten":
+        "Frage-Antwort-Modell nach einfachen wenn-dann-Vorgaben",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -1945,12 +2049,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1959,12 +2063,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Für jede Initiative sollten folgende Punkte thematisiert werden:"
+      "Unnamed: 11":
+        "Für jede Initiative sollten folgende Punkte thematisiert werden:",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Grober Zeitplan",
-      "Erläuterung": "Bis wann sollte welcher Milestone erreicht sein? ",
+      Erläuterung: "Bis wann sollte welcher Milestone erreicht sein? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1973,12 +2078,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -1987,12 +2092,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Projekt-Sponsor: "
+      "Unnamed: 11": "Projekt-Sponsor: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Sonstige Kommentare",
-      "Erläuterung": "Was ist noch wichtig für diese Initiative? ",
+      Erläuterung: "Was ist noch wichtig für diese Initiative? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2001,12 +2106,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2015,12 +2120,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Beteiligte Abteilungen: "
+      "Unnamed: 11": "Beteiligte Abteilungen: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2029,12 +2134,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2043,12 +2148,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Potenzielle Konflikte: "
+      "Unnamed: 11": "Potenzielle Konflikte: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2057,12 +2162,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2071,12 +2176,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ressourcen: Benötigte Mittel "
+      "Unnamed: 11": "Ressourcen: Benötigte Mittel ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2085,12 +2190,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2099,12 +2204,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Datenverfügbarkeit: "
+      "Unnamed: 11": "Datenverfügbarkeit: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2113,12 +2218,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2127,12 +2232,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "GenAI-spezifische Überlegungen"
+      "Unnamed: 11": "GenAI-spezifische Überlegungen",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2141,12 +2246,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit."
+      "Unnamed: 11":
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2155,12 +2261,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback."
+      "Unnamed: 11":
+        "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2169,12 +2276,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits)."
+      "Unnamed: 11":
+        "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2183,12 +2291,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen."
+      "Unnamed: 11":
+        "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2197,14 +2306,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Change Management: Planung zur Schulung und Akzeptanz der Nutzer."
-    }
+      "Unnamed: 11":
+        "Change Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+    },
   ],
   "Dokumentenerstellung - Projektb": [
     {
-      "Doku": "Idea 2",
+      Doku: "Idea 2",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2213,12 +2323,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "Projekt Sponsor",
-      "Erläuterung": "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
+      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
       "Inhalte / Antworten": "Legal",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2227,12 +2337,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2241,12 +2351,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "Involvierte Teams",
-      "Erläuterung": "Welche Teams sind involviert",
+      Erläuterung: "Welche Teams sind involviert",
       "Inhalte / Antworten": "Legal, Compliance & Datenschutz",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2255,12 +2365,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2269,12 +2379,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "Potenzielle Konflikte",
-      "Erläuterung": "Mögliche Interessens- oder Ressourcen Überschneidungen",
+      Erläuterung: "Mögliche Interessens- oder Ressourcen Überschneidungen",
       "Inhalte / Antworten": "Andere Fachabteilungen als Nutzende von Vorlagen",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2283,12 +2393,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2297,12 +2407,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "Benötigte Mittel",
-      "Erläuterung": "Personal, Budget, Technologie",
+      Erläuterung: "Personal, Budget, Technologie",
       "Inhalte / Antworten": "Personal, Budget, Technologie",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2311,12 +2421,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2325,13 +2435,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "Datenverfügbarkeit",
-      "Erläuterung": "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
-      "Inhalte / Antworten": "Gewünschte Aufbau und Inhalte müssen vorgegeben werden, Vorlagen müssen bereitgestellt werden, Sachverhaltszusammenfassungen müssen bereitgestellt werden",
+      Erläuterung:
+        "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
+      "Inhalte / Antworten":
+        "Gewünschte Aufbau und Inhalte müssen vorgegeben werden, Vorlagen müssen bereitgestellt werden, Sachverhaltszusammenfassungen müssen bereitgestellt werden",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -2339,12 +2451,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2353,13 +2465,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "GenAI-spezifische Überlegungen",
-      "Erläuterung": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
-      "Inhalte / Antworten": "LLM-Tool erforderlich, richtige Verwendung/Formulierung von Promts und Auswahl passender Promts ",
+      Erläuterung:
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+      "Inhalte / Antworten":
+        "LLM-Tool erforderlich, richtige Verwendung/Formulierung von Promts und Auswahl passender Promts ",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -2367,12 +2481,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2381,12 +2495,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Für jede Initiative sollten folgende Punkte thematisiert werden:"
+      "Unnamed: 11":
+        "Für jede Initiative sollten folgende Punkte thematisiert werden:",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "Grober Zeitplan",
-      "Erläuterung": "Bis wann sollte welcher Milestone erreicht sein? ",
+      Erläuterung: "Bis wann sollte welcher Milestone erreicht sein? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2395,12 +2510,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2409,12 +2524,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Projekt-Sponsor: "
+      "Unnamed: 11": "Projekt-Sponsor: ",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "Sonstige Kommentare",
-      "Erläuterung": "Was ist noch wichtig für diese Initiative? ",
+      Erläuterung: "Was ist noch wichtig für diese Initiative? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2423,12 +2538,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2437,12 +2552,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Beteiligte Abteilungen: "
+      "Unnamed: 11": "Beteiligte Abteilungen: ",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2451,12 +2566,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2465,12 +2580,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Potenzielle Konflikte: "
+      "Unnamed: 11": "Potenzielle Konflikte: ",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2479,12 +2594,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2493,12 +2608,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ressourcen: Benötigte Mittel "
+      "Unnamed: 11": "Ressourcen: Benötigte Mittel ",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2507,12 +2622,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2521,12 +2636,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Datenverfügbarkeit: "
+      "Unnamed: 11": "Datenverfügbarkeit: ",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2535,12 +2650,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2549,12 +2664,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "GenAI-spezifische Überlegungen"
+      "Unnamed: 11": "GenAI-spezifische Überlegungen",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2563,12 +2678,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit."
+      "Unnamed: 11":
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2577,12 +2693,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback."
+      "Unnamed: 11":
+        "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2591,12 +2708,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits)."
+      "Unnamed: 11":
+        "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2605,12 +2723,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen."
+      "Unnamed: 11":
+        "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.",
     },
     {
-      "Doku": "",
+      Doku: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2619,14 +2738,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Change Management: Planung zur Schulung und Akzeptanz der Nutzer."
-    }
+      "Unnamed: 11":
+        "Change Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+    },
   ],
   "Schadenprüfung-Projektbrief ": [
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2635,12 +2755,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Projekt Sponsor",
-      "Erläuterung": "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
+      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
       "Inhalte / Antworten": "Muriel Berning ",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2649,12 +2769,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2663,12 +2783,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Involvierte Teams",
-      "Erläuterung": "Welche Teams sind involviert",
+      Erläuterung: "Welche Teams sind involviert",
       "Inhalte / Antworten": "Claim / Insurance ",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2677,12 +2797,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2691,12 +2811,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Potenzielle Konflikte",
-      "Erläuterung": "Mögliche Interessens- oder Ressourcen Überschneidungen",
+      Erläuterung: "Mögliche Interessens- oder Ressourcen Überschneidungen",
       "Inhalte / Antworten": "keine",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2705,12 +2825,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2719,12 +2839,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Benötigte Mittel",
-      "Erläuterung": "Personal, Budget, Technologie",
+      Erläuterung: "Personal, Budget, Technologie",
       "Inhalte / Antworten": "Budget, Technologie",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2733,12 +2853,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2747,13 +2867,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Datenverfügbarkeit",
-      "Erläuterung": "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
-      "Inhalte / Antworten": "Schadenunterlagen (Bilder, Schadenprotokoll, Wertnachweise, etc.) / rechtl. Grundlagen + Fachwissen ",
+      Erläuterung:
+        "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
+      "Inhalte / Antworten":
+        "Schadenunterlagen (Bilder, Schadenprotokoll, Wertnachweise, etc.) / rechtl. Grundlagen + Fachwissen ",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -2761,12 +2883,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2775,13 +2897,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "GenAI-spezifische Überlegungen",
-      "Erläuterung": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
-      "Inhalte / Antworten": "Zugriff auf bestehende Schadensotware, um ein entsprechendes Gutachten zu erstellen. ",
+      Erläuterung:
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+      "Inhalte / Antworten":
+        "Zugriff auf bestehende Schadensotware, um ein entsprechendes Gutachten zu erstellen. ",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -2789,12 +2913,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2803,12 +2927,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Für jede Initiative sollten folgende Punkte thematisiert werden:"
+      "Unnamed: 11":
+        "Für jede Initiative sollten folgende Punkte thematisiert werden:",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Grober Zeitplan",
-      "Erläuterung": "Bis wann sollte welcher Milestone erreicht sein? ",
+      Erläuterung: "Bis wann sollte welcher Milestone erreicht sein? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2817,12 +2942,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2831,12 +2956,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Projekt-Sponsor: "
+      "Unnamed: 11": "Projekt-Sponsor: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Sonstige Kommentare",
-      "Erläuterung": "Was ist noch wichtig für diese Initiative? ",
+      Erläuterung: "Was ist noch wichtig für diese Initiative? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2845,12 +2970,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2859,12 +2984,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Beteiligte Abteilungen: "
+      "Unnamed: 11": "Beteiligte Abteilungen: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2873,12 +2998,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2887,12 +3012,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Potenzielle Konflikte: "
+      "Unnamed: 11": "Potenzielle Konflikte: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2901,12 +3026,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2915,12 +3040,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ressourcen: Benötigte Mittel "
+      "Unnamed: 11": "Ressourcen: Benötigte Mittel ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2929,12 +3054,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2943,12 +3068,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Datenverfügbarkeit: "
+      "Unnamed: 11": "Datenverfügbarkeit: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2957,12 +3082,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2971,12 +3096,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "GenAI-spezifische Überlegungen"
+      "Unnamed: 11": "GenAI-spezifische Überlegungen",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2985,12 +3110,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit."
+      "Unnamed: 11":
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -2999,12 +3125,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback."
+      "Unnamed: 11":
+        "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3013,12 +3140,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits)."
+      "Unnamed: 11":
+        "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3027,12 +3155,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen."
+      "Unnamed: 11":
+        "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3041,14 +3170,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Change Management: Planung zur Schulung und Akzeptanz der Nutzer."
-    }
+      "Unnamed: 11":
+        "Change Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+    },
   ],
   "Vertragsprüfung-Projektbrief ": [
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3057,12 +3187,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Projekt Sponsor",
-      "Erläuterung": "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
+      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
       "Inhalte / Antworten": "Laura Krasniqi",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3071,12 +3201,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3085,12 +3215,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Involvierte Teams",
-      "Erläuterung": "Welche Teams sind involviert",
+      Erläuterung: "Welche Teams sind involviert",
       "Inhalte / Antworten": "Insurance",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3099,12 +3229,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3113,12 +3243,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Potenzielle Konflikte",
-      "Erläuterung": "Mögliche Interessens- oder Ressourcen Überschneidungen",
+      Erläuterung: "Mögliche Interessens- oder Ressourcen Überschneidungen",
       "Inhalte / Antworten": "Legal",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3127,12 +3257,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3141,12 +3271,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Benötigte Mittel",
-      "Erläuterung": "Personal, Budget, Technologie",
+      Erläuterung: "Personal, Budget, Technologie",
       "Inhalte / Antworten": "Budget, Technologie",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3155,12 +3285,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3169,13 +3299,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Datenverfügbarkeit",
-      "Erläuterung": "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
-      "Inhalte / Antworten": "Vertragsunterlagen / rechtl. Grundlagen + Versicherungsübersicht Duvenbeck ",
+      Erläuterung:
+        "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
+      "Inhalte / Antworten":
+        "Vertragsunterlagen / rechtl. Grundlagen + Versicherungsübersicht Duvenbeck ",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -3183,12 +3315,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3197,13 +3329,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "GenAI-spezifische Überlegungen",
-      "Erläuterung": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
-      "Inhalte / Antworten": "Erstellung Checkliste inkl. Risikobewertung hinsichtlich Versicherungsschutz ",
+      Erläuterung:
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+      "Inhalte / Antworten":
+        "Erstellung Checkliste inkl. Risikobewertung hinsichtlich Versicherungsschutz ",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -3211,12 +3345,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3225,12 +3359,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Für jede Initiative sollten folgende Punkte thematisiert werden:"
+      "Unnamed: 11":
+        "Für jede Initiative sollten folgende Punkte thematisiert werden:",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Grober Zeitplan",
-      "Erläuterung": "Bis wann sollte welcher Milestone erreicht sein? ",
+      Erläuterung: "Bis wann sollte welcher Milestone erreicht sein? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3239,12 +3374,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3253,12 +3388,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Projekt-Sponsor: "
+      "Unnamed: 11": "Projekt-Sponsor: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Sonstige Kommentare",
-      "Erläuterung": "Was ist noch wichtig für diese Initiative? ",
+      Erläuterung: "Was ist noch wichtig für diese Initiative? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3267,12 +3402,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3281,12 +3416,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Beteiligte Abteilungen: "
+      "Unnamed: 11": "Beteiligte Abteilungen: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3295,12 +3430,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3309,12 +3444,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Potenzielle Konflikte: "
+      "Unnamed: 11": "Potenzielle Konflikte: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3323,12 +3458,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3337,12 +3472,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ressourcen: Benötigte Mittel "
+      "Unnamed: 11": "Ressourcen: Benötigte Mittel ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3351,12 +3486,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3365,12 +3500,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Datenverfügbarkeit: "
+      "Unnamed: 11": "Datenverfügbarkeit: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3379,12 +3514,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3393,12 +3528,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "GenAI-spezifische Überlegungen"
+      "Unnamed: 11": "GenAI-spezifische Überlegungen",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3407,12 +3542,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit."
+      "Unnamed: 11":
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3421,12 +3557,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback."
+      "Unnamed: 11":
+        "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3435,12 +3572,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits)."
+      "Unnamed: 11":
+        "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3449,12 +3587,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen."
+      "Unnamed: 11":
+        "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3463,14 +3602,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Change Management: Planung zur Schulung und Akzeptanz der Nutzer."
-    }
+      "Unnamed: 11":
+        "Change Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+    },
   ],
   "Automatisierte Aktenpflege - Pr": [
     {
-      "Idee": 1.0,
+      Idee: 1.0,
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3479,12 +3619,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Projekt Sponsor",
-      "Erläuterung": "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
+      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
       "Inhalte / Antworten": "Legal",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3493,12 +3633,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3507,12 +3647,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Involvierte Teams",
-      "Erläuterung": "Welche Teams sind involviert",
+      Erläuterung: "Welche Teams sind involviert",
       "Inhalte / Antworten": "Legal & Datenschutz",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3521,12 +3661,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3535,12 +3675,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Potenzielle Konflikte",
-      "Erläuterung": "Mögliche Interessens- oder Ressourcen Überschneidungen",
+      Erläuterung: "Mögliche Interessens- oder Ressourcen Überschneidungen",
       "Inhalte / Antworten": "keine",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3549,12 +3689,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3563,12 +3703,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Benötigte Mittel",
-      "Erläuterung": "Personal, Budget, Technologie",
+      Erläuterung: "Personal, Budget, Technologie",
       "Inhalte / Antworten": "IT-Ressourcen, Technologie, Budget",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3577,12 +3717,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3591,12 +3731,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Datenverfügbarkeit",
-      "Erläuterung": "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
+      Erläuterung:
+        "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
       "Inhalte / Antworten": "E-Mails, Dokumente und deren Inhalte",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3605,12 +3746,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3619,13 +3760,15 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "GenAI-spezifische Überlegungen",
-      "Erläuterung": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
-      "Inhalte / Antworten": "Tool als Add-On zu bestehendem Aktensystem ggf. mit Schnittstelle zu bestehenden Systemen (z.B. Microsoft 365 mit Copilot)",
+      Erläuterung:
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+      "Inhalte / Antworten":
+        "Tool als Add-On zu bestehendem Aktensystem ggf. mit Schnittstelle zu bestehenden Systemen (z.B. Microsoft 365 mit Copilot)",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
       "Unnamed: 6": "",
@@ -3633,12 +3776,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3647,12 +3790,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Für jede Initiative sollten folgende Punkte thematisiert werden:"
+      "Unnamed: 11":
+        "Für jede Initiative sollten folgende Punkte thematisiert werden:",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Grober Zeitplan",
-      "Erläuterung": "Bis wann sollte welcher Milestone erreicht sein? ",
+      Erläuterung: "Bis wann sollte welcher Milestone erreicht sein? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3661,12 +3805,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3675,12 +3819,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Projekt-Sponsor: "
+      "Unnamed: 11": "Projekt-Sponsor: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "Sonstige Kommentare",
-      "Erläuterung": "Was ist noch wichtig für diese Initiative? ",
+      Erläuterung: "Was ist noch wichtig für diese Initiative? ",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3689,12 +3833,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3703,12 +3847,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Beteiligte Abteilungen: "
+      "Unnamed: 11": "Beteiligte Abteilungen: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3717,12 +3861,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3731,12 +3875,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Potenzielle Konflikte: "
+      "Unnamed: 11": "Potenzielle Konflikte: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3745,12 +3889,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3759,12 +3903,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ressourcen: Benötigte Mittel "
+      "Unnamed: 11": "Ressourcen: Benötigte Mittel ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3773,12 +3917,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3787,12 +3931,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Datenverfügbarkeit: "
+      "Unnamed: 11": "Datenverfügbarkeit: ",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3801,12 +3945,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": ""
+      "Unnamed: 11": "",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3815,12 +3959,12 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "GenAI-spezifische Überlegungen"
+      "Unnamed: 11": "GenAI-spezifische Überlegungen",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3829,12 +3973,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit."
+      "Unnamed: 11":
+        "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3843,12 +3988,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback."
+      "Unnamed: 11":
+        "Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3857,12 +4003,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits)."
+      "Unnamed: 11":
+        "Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3871,12 +4018,13 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen."
+      "Unnamed: 11":
+        "Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.",
     },
     {
-      "Idee": "",
+      Idee: "",
       "Fragen / Themen": "",
-      "Erläuterung": "",
+      Erläuterung: "",
       "Inhalte / Antworten": "",
       "Unnamed: 4": "",
       "Unnamed: 5": "",
@@ -3885,7 +4033,8 @@ export const ideas = {
       "Unnamed: 8": "",
       "Unnamed: 9": "",
       "Unnamed: 10": "",
-      "Unnamed: 11": "Change Management: Planung zur Schulung und Akzeptanz der Nutzer."
-    }
-  ]
+      "Unnamed: 11":
+        "Change Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+    },
+  ],
 };

@@ -208,7 +208,8 @@ export const PrioritizationMatrix: React.FC = () => {
           };
 
           const ideeRaw = stringifyValue(r["Idee"] ?? r["Unnamed: 0"] ?? "");
-          if (!ideeRaw.trim()) continue;
+          // Skip empty ideas or those that are just headers
+          if (!ideeRaw.trim() || ideeRaw === "Idee") continue;
 
           acc.push({
             source: k,
