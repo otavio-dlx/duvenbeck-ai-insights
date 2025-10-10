@@ -36,6 +36,9 @@ Before marking a PR ready for review, ensure:
 - Prefer to create a draft PR when making larger changes so maintainers can give early feedback.
 - When modifying UI components, make small visual changes and include screenshots or a short gif in the PR.
 - If the change affects public APIs or types, bump/review the relevant versioning notes and document the change in the changelog or PR description.
+- Always respect and maintain consistency with the existing UI design patterns and component structure.
+- Verify that all changes comply with the original requirements and provide a good user experience, including clear calls-to-action (CTAs) when appropriate.
+- Reuse existing components whenever possible to maintain consistency, unless there's a specific need for a new component.
 
 ## Testing and verification steps for agents
 

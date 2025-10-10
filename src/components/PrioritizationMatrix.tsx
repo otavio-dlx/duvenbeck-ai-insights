@@ -1,6 +1,13 @@
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { participantsData } from "@/data/participants";
 import { getIdeasFor, listDataKeys } from "@/lib/data";
 import React, { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 type Row = {
   source: string;
@@ -12,18 +19,131 @@ type Row = {
 
 type DisplayRow = Row & { sourceDisplay: string };
 
+type ProjectInfo = {
+  fragen?: string;
+  erlauterung?: string;
+  inhalte?: string;
+  problem?: string;
+  losung?: string;
+  additional?: Record<string, string>;
+};
+
 export const PrioritizationMatrix: React.FC = () => {
+  const { t } = useTranslation();
   const [rows, setRows] = useState<Row[]>([]);
   const [sortBy, setSortBy] = useState<keyof Row | "source">(
     "gewichtetePunktzahl"
   );
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
+  const [selectedIdea, setSelectedIdea] = useState<{
+    source: string;
+    idee: string;
+  } | null>(null);
+  const [projectBrief, setProjectBrief] = useState<string>("");
 
   const normalize = (s: string) =>
     s
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "_")
       .replace(/(^_+)|(_+$)/g, "");
+
+  const handleIdeaClick = async (source: string, idee: string) => {
+    setSelectedIdea({ source, idee });
+    const data = await getIdeasFor(source);
+    if (!data) return;
+
+    // Initialize project info
+    type ProjectInfo = {
+      fragen?: string;
+      erlauterung?: string;
+      inhalte?: string;
+      problem?: string;
+      losung?: string;
+      additional?: Record<string, string>;
+    };
+
+    const projectInfo: ProjectInfo = {};
+
+    // Look through all sections in the data
+    Object.entries(data).forEach(([section, content]) => {
+      if (!Array.isArray(content)) return;
+
+      content.forEach((item: Record<string, unknown>) => {
+        const itemIdee = item["Idee"] || item["Unnamed: 0"];
+        if (itemIdee && normalize(String(itemIdee)) === normalize(idee)) {
+          // Found a matching item, collect relevant information
+          projectInfo.fragen = String(item["Fragen / Themen"] || "");
+          projectInfo.erlauterung = String(item["Erläuterung"] || "");
+          projectInfo.inhalte = String(item["Inhalte / Antworten"] || "");
+          projectInfo.problem = String(item["Problem"] || "");
+          projectInfo.losung = String(item["Lösung"] || item["Solution"] || "");
+
+          // Collect any additional relevant fields
+          Object.entries(item).forEach(([key, value]) => {
+            if (
+              value &&
+              !key.startsWith("Unnamed") &&
+              ![
+                "Idee",
+                "Fragen / Themen",
+                "Erläuterung",
+                "Inhalte / Antworten",
+                "Problem",
+                "Lösung",
+                "Solution",
+              ].includes(key)
+            ) {
+              if (!projectInfo.additional) projectInfo.additional = {};
+              projectInfo.additional[key] = String(value);
+            }
+          });
+        }
+      });
+    });
+
+    // Format the sections for display
+    const formattedSections = [];
+
+    const sections = [
+      { key: "problem", title: "🚫 Problem", content: projectInfo.problem },
+      { key: "losung", title: "✨ Lösung", content: projectInfo.losung },
+      {
+        key: "fragen",
+        title: "❓ Fragen / Themen",
+        content: projectInfo.fragen,
+      },
+      {
+        key: "erlauterung",
+        title: "📝 Erläuterung",
+        content: projectInfo.erlauterung,
+      },
+      {
+        key: "inhalte",
+        title: "📋 Inhalte / Antworten",
+        content: projectInfo.inhalte,
+      },
+    ];
+
+    sections.forEach((section) => {
+      if (section.content) {
+        formattedSections.push({
+          title: section.title,
+          content: section.content,
+        });
+      }
+    });
+
+    if (projectInfo.additional) {
+      Object.entries(projectInfo.additional).forEach(([key, value]) => {
+        formattedSections.push({
+          title: key,
+          content: value,
+        });
+      });
+    }
+
+    setProjectBrief(JSON.stringify(formattedSections));
+  };
 
   // Precompute participant names for fuzzy matching
   const participantNormalized = useMemo(
@@ -157,40 +277,77 @@ export const PrioritizationMatrix: React.FC = () => {
   };
 
   return (
-    <div className="overflow-auto rounded-md border">
-      <table className="min-w-full text-sm">
-        <thead className="bg-muted">
-          <tr>
-            {header("source", "Source")}
-            {header("idee", "Idee")}
-            {header("finalPrio", "Final Prio")}
-            {header("gewichtetePunktzahl", "Gewichtete Punktzahl")}
-            {header("prioritaet", "Priorität")}
-          </tr>
-        </thead>
-        <tbody>
-          {sorted.length === 0 ? (
+    <>
+      <div className="overflow-auto rounded-md border">
+        <table className="min-w-full text-sm">
+          <thead className="bg-muted">
             <tr>
-              <td className="p-2" colSpan={5}>
-                No prioritization rows found.
-              </td>
+              {header("source", "Source")}
+              {header("idee", "Idee")}
+              {header("finalPrio", "Final Prio")}
+              {header("gewichtetePunktzahl", "Gewichtete Punktzahl")}
+              {header("prioritaet", "Priorität")}
             </tr>
-          ) : (
-            sorted.map((r) => (
-              <tr
-                key={`${r.source}-${r.idee?.slice(0, 30)}-${r.finalPrio}`}
-                className="border-t"
-              >
-                <td className="p-2">{r.sourceDisplay}</td>
-                <td className="p-2">{r.idee}</td>
-                <td className="p-2">{String(r.finalPrio)}</td>
-                <td className="p-2">{String(r.gewichtetePunktzahl)}</td>
-                <td className="p-2">{r.prioritaet}</td>
+          </thead>
+          <tbody>
+            {sorted.length === 0 ? (
+              <tr>
+                <td className="p-2" colSpan={5}>
+                  No prioritization rows found.
+                </td>
               </tr>
-            ))
-          )}
-        </tbody>
-      </table>
-    </div>
+            ) : (
+              sorted.map((r) => (
+                <tr
+                  key={`${r.source}-${r.idee?.slice(0, 30)}-${r.finalPrio}`}
+                  className="border-t hover:bg-muted/50 cursor-pointer transition-colors"
+                  onClick={() => r.idee && handleIdeaClick(r.source, r.idee)}
+                >
+                  <td className="p-2">{r.sourceDisplay}</td>
+                  <td className="p-2">{r.idee}</td>
+                  <td className="p-2">{String(r.finalPrio)}</td>
+                  <td className="p-2">{String(r.gewichtetePunktzahl)}</td>
+                  <td className="p-2">{r.prioritaet}</td>
+                </tr>
+              ))
+            )}
+          </tbody>
+        </table>
+      </div>
+
+      <Dialog
+        open={selectedIdea !== null}
+        onOpenChange={() => setSelectedIdea(null)}
+      >
+        <DialogContent className="max-w-2xl max-h-[85vh] p-0 gap-0 bg-background/95 backdrop-blur-sm">
+          <DialogHeader className="p-6 pb-2">
+            <DialogTitle className="text-xl font-bold">
+              {selectedIdea?.idee}
+            </DialogTitle>
+          </DialogHeader>
+          <div className="px-6 pb-6 overflow-y-auto max-h-[calc(85vh-8rem)]">
+            {projectBrief &&
+              JSON.parse(projectBrief).map(
+                (
+                  section: { title: string; content: string },
+                  index: number
+                ) => (
+                  <div
+                    key={index}
+                    className="py-4 first:pt-0 border-b last:border-b-0 border-border/50"
+                  >
+                    <h3 className="text-base font-semibold text-primary mb-2 flex items-center gap-2">
+                      {section.title}
+                    </h3>
+                    <div className="text-sm leading-relaxed text-muted-foreground whitespace-pre-line">
+                      {section.content}
+                    </div>
+                  </div>
+                )
+              )}
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 };

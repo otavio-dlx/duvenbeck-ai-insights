@@ -1,4 +1,3 @@
-import { DataViewer } from "@/components/DataViewer";
 import { FilterPanel } from "@/components/FilterPanel";
 import { Header } from "@/components/Header";
 import { MetricCard } from "@/components/MetricCard";
@@ -156,7 +155,6 @@ export const Dashboard = () => {
                 <TabsTrigger value="participants">
                   {t("nav.participants")}
                 </TabsTrigger>
-                <TabsTrigger value="datasets">Datasets</TabsTrigger>
               </TabsList>
 
               <TabsContent value="overview" className="space-y-6 mt-6">
@@ -320,10 +318,6 @@ export const Dashboard = () => {
                     </div>
                   </CardContent>
                 </Card>
-              </TabsContent>
-
-              <TabsContent value="datasets" className="space-y-6 mt-6">
-                <DataViewer />
               </TabsContent>
             </Tabs>
           </div>

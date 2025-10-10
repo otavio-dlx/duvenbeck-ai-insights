@@ -48,6 +48,15 @@
     "effort": "Effort",
     "actions": "Actions"
   },
+  "modal": {
+    "sections": {
+      "problem": "Problem",
+      "lösung": "Solution",
+      "fragen_themen": "Questions / Topics",
+      "erläuterung": "Description",
+      "inhalte_antworten": "Content / Answers"
+    }
+  },
   "common": {
     "day1": "Day 1 (Oct 6)",
     "day2": "Day 2 (Oct 7)",
