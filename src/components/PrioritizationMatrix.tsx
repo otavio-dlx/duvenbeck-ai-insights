@@ -165,7 +165,7 @@ export const PrioritizationMatrix: React.FC = () => {
         const data = await getIdeasFor(k);
         if (!data) continue;
 
-        const maybeMatrix = (data as any)["Priorisierungsmatrix"];
+        const maybeMatrix = (data as { [key: string]: unknown })["Priorisierungsmatrix"];
         if (!Array.isArray(maybeMatrix)) continue;
 
         for (const r of maybeMatrix as Array<Record<string, unknown>>) {

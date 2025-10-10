@@ -24,17 +24,17 @@ export const DataViewer: React.FC = () => {
   }, [selected]);
 
   return (
-    <Card>
+    <Card className="overflow-visible">
       <CardHeader>
         <CardTitle>Datasets</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="mb-4 flex flex-wrap gap-2">
+      <CardContent className="overflow-visible">
+        <div className="mb-4 flex flex-wrap gap-2 relative z-10">
           {keys.map((k) => (
             <button
               key={k}
-              className={`px-3 py-1 rounded-md border hover:bg-muted/50 transition-colors ${
-                k === selected ? "bg-muted" : ""
+              className={`px-3 py-1 rounded-md border hover:bg-muted/50 transition-colors shadow-sm ${
+                k === selected ? "bg-muted" : "bg-background"
               }`}
               onClick={() => setSelected(k)}
             >

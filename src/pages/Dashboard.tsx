@@ -14,6 +14,7 @@ import {
   BarChart,
   CartesianGrid,
   Cell,
+  Legend,
   Pie,
   PieChart,
   ResponsiveContainer,
@@ -89,6 +90,13 @@ export const Dashboard = () => {
     "hsl(var(--chart-1))",
     "hsl(var(--chart-2))",
     "hsl(var(--chart-3))",
+    "hsl(var(--chart-4, 280 65% 65%))",
+    "hsl(var(--chart-5, 200 65% 65%))",
+    "hsl(var(--chart-6, 150 65% 65%))",
+    "hsl(var(--chart-7, 30 65% 65%))",
+    "hsl(var(--chart-8, 320 65% 65%))",
+    "hsl(var(--chart-9, 180 65% 65%))",
+    "hsl(var(--chart-10, 60 65% 65%))",
   ];
 
   const handleReset = () => {
@@ -158,7 +166,7 @@ export const Dashboard = () => {
               </TabsList>
 
               <TabsContent value="overview" className="space-y-6 mt-6">
-                <div className="grid gap-6 md:grid-cols-2">
+                <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
                   <Card>
                     <CardHeader>
                       <CardTitle className="text-lg">
@@ -166,34 +174,77 @@ export const Dashboard = () => {
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <ResponsiveContainer width="100%" height={300}>
-                        <BarChart data={departmentData}>
-                          <CartesianGrid
-                            strokeDasharray="3 3"
-                            stroke="hsl(var(--border))"
-                          />
-                          <XAxis
-                            dataKey="name"
-                            angle={-45}
-                            textAnchor="end"
-                            height={80}
-                            stroke="hsl(var(--foreground))"
-                          />
-                          <YAxis stroke="hsl(var(--foreground))" />
-                          <Tooltip
-                            contentStyle={{
-                              backgroundColor: "hsl(var(--popover))",
-                              border: "1px solid hsl(var(--border))",
-                              borderRadius: "var(--radius)",
-                            }}
-                          />
-                          <Bar
-                            dataKey="value"
-                            fill="hsl(var(--primary))"
-                            radius={[8, 8, 0, 0]}
-                          />
-                        </BarChart>
-                      </ResponsiveContainer>
+                      <div className="space-y-6">
+                        <div className="h-[250px]">
+                          <ResponsiveContainer width="100%" height="100%">
+                            <BarChart
+                              data={departmentData}
+                              margin={{
+                                top: 5,
+                                right: 30,
+                                left: 40,
+                                bottom: 5,
+                              }}
+                            >
+                              <CartesianGrid
+                                strokeDasharray="3 3"
+                                stroke="hsl(var(--border))"
+                                opacity={0.2}
+                              />
+                              <XAxis dataKey="name" hide={true} />
+                              <YAxis
+                                stroke="hsl(var(--foreground))"
+                                tick={{
+                                  fill: "hsl(var(--foreground))",
+                                  fontSize: 12,
+                                }}
+                                tickMargin={10}
+                              />
+                              <Tooltip
+                                contentStyle={{
+                                  backgroundColor: "hsl(var(--popover))",
+                                  border: "1px solid hsl(var(--border))",
+                                  borderRadius: "var(--radius)",
+                                  color: "hsl(var(--foreground))",
+                                }}
+                                cursor={{
+                                  fill: "hsl(var(--muted))",
+                                  opacity: 0.2,
+                                }}
+                              />
+                              <Bar dataKey="value" radius={[4, 4, 0, 0]}>
+                                {departmentData.map((entry, index) => (
+                                  <Cell
+                                    key={entry.name}
+                                    fill={COLORS[index]}
+                                    stroke="hsl(var(--background))"
+                                    strokeWidth={2}
+                                  />
+                                ))}
+                              </Bar>
+                            </BarChart>
+                          </ResponsiveContainer>
+                        </div>
+                        <div className="flex flex-wrap justify-center gap-4">
+                          {departmentData.map((entry, index) => (
+                            <div
+                              key={entry.name}
+                              className="flex items-center gap-2"
+                            >
+                              <div
+                                className="w-3 h-3 rounded-full"
+                                style={{
+                                  backgroundColor: COLORS[index],
+                                  border: "2px solid hsl(var(--background))",
+                                }}
+                              />
+                              <span className="text-sm text-muted-foreground">
+                                {entry.name}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
                     </CardContent>
                   </Card>
 
@@ -203,37 +254,57 @@ export const Dashboard = () => {
                         {t("charts.participantsByDay")}
                       </CardTitle>
                     </CardHeader>
-                    <CardContent className="flex justify-center">
-                      <ResponsiveContainer width="100%" height={300}>
-                        <PieChart>
-                          <Pie
-                            data={dayData}
-                            cx="50%"
-                            cy="50%"
-                            labelLine={false}
-                            label={({ name, percent }) =>
-                              `${name}: ${(percent * 100).toFixed(0)}%`
-                            }
-                            outerRadius={80}
-                            fill="hsl(var(--primary))"
-                            dataKey="value"
-                          >
-                            {dayData.map((entry, index) => (
-                              <Cell
-                                key={`cell-${index}`}
-                                fill={COLORS[index % COLORS.length]}
-                              />
-                            ))}
-                          </Pie>
-                          <Tooltip
-                            contentStyle={{
-                              backgroundColor: "hsl(var(--popover))",
-                              border: "1px solid hsl(var(--border))",
-                              borderRadius: "var(--radius)",
+                    <CardContent>
+                      <div className="h-[400px]">
+                        <ResponsiveContainer width="100%" height="100%">
+                          <PieChart
+                            margin={{
+                              top: 20,
+                              right: 30,
+                              left: 20,
+                              bottom: 60,
                             }}
-                          />
-                        </PieChart>
-                      </ResponsiveContainer>
+                          >
+                            <Pie
+                              data={dayData}
+                              cx="50%"
+                              cy="45%"
+                              outerRadius={100}
+                              fill="hsl(var(--primary))"
+                              dataKey="value"
+                              nameKey="name"
+                            >
+                              {dayData.map((entry, index) => (
+                                <Cell
+                                  key={entry.name}
+                                  fill={COLORS[index % COLORS.length]}
+                                  stroke="hsl(var(--background))"
+                                  strokeWidth={2}
+                                />
+                              ))}
+                            </Pie>
+                            <Tooltip
+                              contentStyle={{
+                                backgroundColor: "hsl(var(--popover))",
+                                border: "1px solid hsl(var(--border))",
+                                borderRadius: "var(--radius)",
+                                color: "hsl(var(--foreground))",
+                              }}
+                            />
+                            <Legend
+                              verticalAlign="bottom"
+                              height={36}
+                              formatter={(value) => (
+                                <span
+                                  style={{ color: "hsl(var(--foreground))" }}
+                                >
+                                  {value}
+                                </span>
+                              )}
+                            />
+                          </PieChart>
+                        </ResponsiveContainer>
+                      </div>
                     </CardContent>
                   </Card>
                 </div>
