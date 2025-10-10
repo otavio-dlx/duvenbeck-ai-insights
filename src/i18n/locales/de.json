@@ -48,6 +48,21 @@
     "effort": "Aufwand",
     "actions": "Aktionen"
   },
+  "matrix": {
+    "source": "Quelle",
+    "idea": "Idee",
+    "finalPrio": "Finale Priorität",
+    "weightedScore": "Gewichtete Punktzahl",
+    "priority": "Priorität",
+    "noRows": "Keine Priorisierungszeilen gefunden.",
+    "sections": {
+      "problem": "🚫 Problem",
+      "solution": "✨ Lösung",
+      "questions": "❓ Fragen / Themen",
+      "explanation": "📝 Erläuterung",
+      "content": "📋 Inhalte / Antworten"
+    }
+  },
   "modal": {
     "sections": {
       "problem": "Problem",

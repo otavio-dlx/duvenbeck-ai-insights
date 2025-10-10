@@ -27,3 +27,30 @@ export interface Idea {
   effort?: number;
   participants?: string[];
 }
+
+export interface TranslatedString {
+  de: string;
+  en: string;
+}
+
+export interface MatrixRow {
+  id: string;
+  source: string;
+  idea: TranslatedString;
+  problem: TranslatedString;
+  solution: TranslatedString;
+  owner: string;
+  priority: string;
+  complexity: number;
+  explanation: TranslatedString;
+  cost: number;
+  costExplanation: TranslatedString;
+  roi: number;
+  roiExplanation: TranslatedString;
+  risk: number;
+  riskExplanation: TranslatedString;
+  strategicAlignment: number;
+  strategyExplanation: TranslatedString;
+  finalPriority: string | number;
+  weightedScore: number;
+}

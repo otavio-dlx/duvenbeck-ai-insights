@@ -48,6 +48,21 @@
     "effort": "Effort",
     "actions": "Actions"
   },
+  "matrix": {
+    "source": "Source",
+    "idea": "Idea",
+    "finalPrio": "Final Priority",
+    "weightedScore": "Weighted Score",
+    "priority": "Priority",
+    "noRows": "No prioritization rows found.",
+    "sections": {
+      "problem": "🚫 Problem",
+      "solution": "✨ Solution",
+      "questions": "❓ Questions / Topics",
+      "explanation": "📝 Explanation",
+      "content": "📋 Content / Answers"
+    }
+  },
   "modal": {
     "sections": {
       "problem": "Problem",

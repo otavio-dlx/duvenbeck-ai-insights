@@ -9,9 +9,12 @@ import { getIdeasFor, listDataKeys } from "@/lib/data";
 import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import { TranslatedString } from "@/data/types";
+import { getLocalizedString } from "@/lib/data";
+
 type Row = {
   source: string;
-  idee?: string;
+  idee?: TranslatedString;
   finalPrio?: string | number;
   gewichtetePunktzahl?: number | string;
   prioritaet?: string;
@@ -105,22 +108,40 @@ export const PrioritizationMatrix: React.FC = () => {
     const formattedSections = [];
 
     const sections = [
-      { key: "problem", title: "🚫 Problem", content: projectInfo.problem },
-      { key: "losung", title: "✨ Lösung", content: projectInfo.losung },
+      {
+        key: "problem",
+        title: t("matrix.sections.problem"),
+        content: projectInfo.problem
+          ? getLocalizedString(projectInfo.problem)
+          : "",
+      },
+      {
+        key: "losung",
+        title: t("matrix.sections.solution"),
+        content: projectInfo.losung
+          ? getLocalizedString(projectInfo.losung)
+          : "",
+      },
       {
         key: "fragen",
-        title: "❓ Fragen / Themen",
-        content: projectInfo.fragen,
+        title: t("matrix.sections.questions"),
+        content: projectInfo.fragen
+          ? getLocalizedString(projectInfo.fragen)
+          : "",
       },
       {
         key: "erlauterung",
-        title: "📝 Erläuterung",
-        content: projectInfo.erlauterung,
+        title: t("matrix.sections.explanation"),
+        content: projectInfo.erlauterung
+          ? getLocalizedString(projectInfo.erlauterung)
+          : "",
       },
       {
         key: "inhalte",
-        title: "📋 Inhalte / Antworten",
-        content: projectInfo.inhalte,
+        title: t("matrix.sections.content"),
+        content: projectInfo.inhalte
+          ? getLocalizedString(projectInfo.inhalte)
+          : "",
       },
     ];
 
@@ -165,7 +186,9 @@ export const PrioritizationMatrix: React.FC = () => {
         const data = await getIdeasFor(k);
         if (!data) continue;
 
-        const maybeMatrix = (data as { [key: string]: unknown })["Priorisierungsmatrix"];
+        const maybeMatrix = (data as { [key: string]: unknown })[
+          "Priorisierungsmatrix"
+        ];
         if (!Array.isArray(maybeMatrix)) continue;
 
         for (const r of maybeMatrix as Array<Record<string, unknown>>) {
@@ -282,29 +305,36 @@ export const PrioritizationMatrix: React.FC = () => {
         <table className="min-w-full text-sm">
           <thead className="bg-muted">
             <tr>
-              {header("source", "Source")}
-              {header("idee", "Idee")}
-              {header("finalPrio", "Final Prio")}
-              {header("gewichtetePunktzahl", "Gewichtete Punktzahl")}
-              {header("prioritaet", "Priorität")}
+              {header("source", t("matrix.source"))}
+              {header("idee", t("matrix.idea"))}
+              {header("finalPrio", t("matrix.finalPrio"))}
+              {header("gewichtetePunktzahl", t("matrix.weightedScore"))}
+              {header("prioritaet", t("matrix.priority"))}
             </tr>
           </thead>
           <tbody>
             {sorted.length === 0 ? (
               <tr>
                 <td className="p-2" colSpan={5}>
-                  No prioritization rows found.
+                  {t("matrix.noRows")}
                 </td>
               </tr>
             ) : (
               sorted.map((r) => (
                 <tr
-                  key={`${r.source}-${r.idee?.slice(0, 30)}-${r.finalPrio}`}
+                  key={`${r.source}-${
+                    r.idee ? getLocalizedString(r.idee).slice(0, 30) : ""
+                  }-${r.finalPrio}`}
                   className="border-t hover:bg-muted/50 cursor-pointer transition-colors"
-                  onClick={() => r.idee && handleIdeaClick(r.source, r.idee)}
+                  onClick={() =>
+                    r.idee &&
+                    handleIdeaClick(r.source, getLocalizedString(r.idee))
+                  }
                 >
                   <td className="p-2">{r.sourceDisplay}</td>
-                  <td className="p-2">{r.idee}</td>
+                  <td className="p-2">
+                    {r.idee ? getLocalizedString(r.idee) : ""}
+                  </td>
                   <td className="p-2">{String(r.finalPrio)}</td>
                   <td className="p-2">{String(r.gewichtetePunktzahl)}</td>
                   <td className="p-2">{r.prioritaet}</td>
