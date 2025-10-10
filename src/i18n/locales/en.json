@@ -1,0 +1,60 @@
+{
+  "app": {
+    "title": "AI Workshop Dashboard",
+    "subtitle": "Duvenbeck AI Workshop October 6-8, 2025"
+  },
+  "auth": {
+    "password": "Password",
+    "login": "Login",
+    "invalidPassword": "Invalid password",
+    "enterPassword": "Please enter password"
+  },
+  "nav": {
+    "overview": "Overview",
+    "startseite": "Home",
+    "assumptions": "Assumptions",
+    "prioritization": "Prioritization Matrix",
+    "projectBriefs": "Project Briefs",
+    "participants": "Participants"
+  },
+  "filters": {
+    "title": "Filters",
+    "department": "Department",
+    "allDepartments": "All Departments",
+    "day": "Day",
+    "allDays": "All Days",
+    "participant": "Participant",
+    "allParticipants": "All Participants",
+    "reset": "Reset"
+  },
+  "metrics": {
+    "totalIdeas": "Total Ideas",
+    "totalParticipants": "Participants",
+    "departments": "Departments",
+    "avgPriority": "Avg Priority"
+  },
+  "charts": {
+    "ideasByDepartment": "Ideas by Department",
+    "participantsByDay": "Participants by Day",
+    "priorityDistribution": "Priority Distribution",
+    "impactVsEffort": "Impact vs. Effort"
+  },
+  "table": {
+    "idea": "Idea",
+    "department": "Department",
+    "owner": "Owner",
+    "priority": "Priority",
+    "impact": "Impact",
+    "effort": "Effort",
+    "actions": "Actions"
+  },
+  "common": {
+    "day1": "Day 1 (Oct 6)",
+    "day2": "Day 2 (Oct 7)",
+    "day3": "Day 3 (Oct 8)",
+    "details": "Details",
+    "close": "Close",
+    "loading": "Loading...",
+    "noData": "No data available"
+  }
+}
