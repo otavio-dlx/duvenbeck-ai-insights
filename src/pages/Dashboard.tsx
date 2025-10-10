@@ -48,30 +48,132 @@ export const Dashboard = () => {
     });
   }, [selectedDepartment, selectedDay]);
 
-  // Calculate metrics
-  const metrics = useMemo(() => {
-    const totalIdeas = filteredParticipants.length * 3; // Assuming avg 3 ideas per participant
+  // Calculate metrics and department data
+  const { metrics, departmentData } = useMemo(() => {
+    const departments = [...new Set(participantsData.map((p) => p.groupName))];
+    const ideasByDept: { [key: string]: number } = {};
+    let totalIdeasCount = 0;
+
+    // Load ideas for each department
+    departments.forEach((dept) => {
+      try {
+        // Mapeamento explícito de todos os departamentos para seus arquivos de dados
+        const deptMappings: { [key: string]: string[] } = {
+          ESG: ["esg"],
+          HR: ["hr"],
+          "Marketing & Communication": ["marketing_communications"],
+          "Corporate Development": ["corp_dev"],
+          Compliance: ["compliance"],
+          Legal: ["legal"],
+          Controlling: ["controlling"],
+          "Group Accounting I": ["group_accounting"],
+          "Business Solution PCL": ["business_solution_pcl"],
+          "Road Sales SE": ["road_sales_se"],
+          "IT Shared Services": ["it_shared_services"],
+          "Solution Design": ["solution_design"],
+          "Platform Services / Digital Workplace": ["platform_services"],
+          "Security Management": ["security_management"],
+          "Contract Logistics": ["contract_logistics"],
+          "Information Security": ["information_security"],
+          "Strategic KAM": ["strategic_kam"],
+          CRM: ["crm"],
+          QEHS: ["qehs"],
+          Insurance: ["insurance"],
+          "Central Solution Design": ["central_solution_design"],
+        };
+
+        const deptKeys = deptMappings[dept] || [
+          dept.toLowerCase().replace(/[^a-z0-9]/g, "_"),
+        ];
+        const deptData = import.meta.glob("../data/*.ts", { eager: true });
+        const deptFiles = Object.entries(deptData).filter(([path]) =>
+          deptKeys.some((key) => path.toLowerCase().includes(key))
+        );
+
+        deptFiles.forEach(([_, module]) => {
+          // Define a type for the expected module structure
+          type IdeasModule = { ideas?: Record<string, unknown> };
+          const ideas = (module as IdeasModule).ideas;
+          if (
+            ideas?.Priorisierungsmatrix &&
+            Array.isArray(ideas.Priorisierungsmatrix)
+          ) {
+            // Count ideas from the Priorisierungsmatrix
+            const matrixIdeas = ideas.Priorisierungsmatrix.filter(
+              (item: Record<string, unknown>) => {
+                if (!item || typeof item !== "object") return false;
+
+                // Skip empty rows
+                if (Object.values(item).every((val) => !val)) return false;
+
+                // Skip header rows
+                if (
+                  Object.values(item).some(
+                    (val) =>
+                      typeof val === "string" &&
+                      ["Priorisierungsmatrix", "Titel"].includes(val)
+                  )
+                )
+                  return false;
+
+                // Check for Problem and/or Solution fields
+                const hasValidContent = Object.entries(item).some(
+                  ([key, value]) => {
+                    if (
+                      !value ||
+                      typeof value !== "string" ||
+                      value.trim().length === 0
+                    )
+                      return false;
+
+                    const problemField =
+                      key === "Problem" ||
+                      key.toLowerCase().includes("problem") ||
+                      key === "Unnamed: 1";
+
+                    const solutionField =
+                      key === "Lösung" ||
+                      key === "Lösung." ||
+                      key.toLowerCase().includes("losung") ||
+                      key.toLowerCase().includes("solution") ||
+                      key === "Unnamed: 2";
+
+                    return (
+                      (problemField || solutionField) && value.trim().length > 0
+                    );
+                  }
+                );
+
+                return hasValidContent;
+              }
+            );
+
+            const count = matrixIdeas.length;
+            ideasByDept[dept] = (ideasByDept[dept] || 0) + count;
+            totalIdeasCount += count;
+          }
+        });
+      } catch (error) {
+        console.warn(`Error processing department ${dept}:`, error);
+      }
+    });
+
     const uniqueDepts = new Set(filteredParticipants.map((p) => p.groupName))
       .size;
 
-    return {
-      totalIdeas,
+    const metrics = {
+      totalIdeas: totalIdeasCount,
       totalParticipants: filteredParticipants.length,
       departments: uniqueDepts,
       avgPriority: 7.5, // Mock data
     };
-  }, [filteredParticipants]);
 
-  // Prepare chart data
-  const departmentData = useMemo(() => {
-    const counts: { [key: string]: number } = {};
-    filteredParticipants.forEach((p) => {
-      counts[p.groupName] = (counts[p.groupName] || 0) + 1;
-    });
-    return Object.entries(counts)
+    const departmentData = Object.entries(ideasByDept)
       .map(([name, value]) => ({ name, value }))
       .sort((a, b) => b.value - a.value)
       .slice(0, 10);
+
+    return { metrics, departmentData };
   }, [filteredParticipants]);
 
   const dayData = useMemo(() => {
@@ -413,7 +515,7 @@ export function DynamicCollaboards(): JSX.Element {
         try {
           const data = await getIdeasFor(k);
           if (!data) continue;
-          const startseite = (data as any)["Startseite"];
+          const startseite = (data as Record<string, unknown>)["Startseite"];
           if (!Array.isArray(startseite)) continue;
 
           let url: string | null = null;
