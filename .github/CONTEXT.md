@@ -1,0 +1,62 @@
+# Project Context: AI Insights Dashboard
+
+## Overview
+
+This project was created to centralize and visualize AI initiative ideas collected from comprehensive workshops conducted across all departments within Duvenbeck. The dashboard serves as a strategic tool to evaluate, prioritize, and present the most impactful AI opportunities to leadership.
+
+## Background
+
+### Workshop Initiative
+We conducted a series of workshops with each department in the company to:
+- **Educate** teams on AI capabilities and potential applications
+- **Capture insights** on how AI can enhance their specific workflows and processes
+- **Identify pain points** that could be addressed through AI solutions
+- **Brainstorm innovative ideas** for AI implementation within their domains
+
+### Data Collection
+Each workshop resulted in a comprehensive dataset containing:
+- Department-specific AI ideas and initiatives
+- Problem statements and proposed solutions
+- Priority assessments and feasibility evaluations
+- Resource requirements and implementation considerations
+
+These insights are stored as structured data files in the `/src/data/` folder, with one file per department.
+
+## Project Purpose
+
+### Primary Objectives
+1. **Centralized Visualization**: Create a unified dashboard to display all captured AI ideas across departments
+2. **Priority Identification**: Enable easy filtering and sorting to identify high-impact, high-feasibility initiatives  
+3. **Strategic Evaluation**: Provide tools to assess ideas based on multiple factors (complexity, impact, alignment, etc.)
+4. **Executive Reporting**: Present the most promising AI opportunities in a clear, actionable format for the CIO and leadership team
+
+### Key Stakeholders
+- **Department Teams**: Contributors who provided ideas and insights during workshops
+- **CIO**: Primary decision-maker who will use this dashboard to evaluate and prioritize AI investments
+- **Leadership Team**: Strategic stakeholders who need visibility into AI initiative potential across the organization
+
+## Dashboard Functionality
+
+The dashboard enables users to:
+- Browse all collected AI ideas by department or category
+- Apply filters to find ideas matching specific criteria (priority, complexity, impact, etc.)
+- View detailed information about each initiative including problem statements, solutions, and assessments
+- Prioritize initiatives using a multi-factor evaluation matrix
+- Generate reports and visualizations for executive presentations
+
+## Success Criteria
+
+The project is successful when:
+- All workshop insights are accurately represented and accessible
+- The CIO can quickly identify the top AI opportunities worth pursuing
+- Leadership has clear visibility into AI potential across all departments
+- The dashboard facilitates informed decision-making about AI investments and resource allocation
+
+## Data Structure
+
+Each department file contains:
+- **Home section**: Department metadata and workshop information
+- **Ideas array**: Structured list of AI initiatives with standardized fields for evaluation
+- **Internationalization**: Multi-language support for global accessibility
+
+This structured approach ensures consistency across departments while maintaining the unique insights and priorities of each team.

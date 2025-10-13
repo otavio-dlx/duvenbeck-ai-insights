@@ -6,11 +6,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Languages, LogOut } from 'lucide-react';
+import { Languages, LogOut, Calculator, BarChart3, Menu } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '@/assets/logo.png';
 
 export const Header = () => {
   const { t, i18n } = useTranslation();
+  const location = useLocation();
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -30,9 +32,56 @@ export const Header = () => {
             <h1 className="text-lg font-semibold text-foreground">{t('app.title')}</h1>
             <p className="text-xs text-muted-foreground">{t('app.subtitle')}</p>
           </div>
+          
+          {/* Desktop Navigation Menu */}
+          <nav className="hidden md:flex items-center gap-1 ml-8">
+            <Link to="/">
+              <Button 
+                variant={location.pathname === '/' ? 'default' : 'ghost'} 
+                size="sm" 
+                className="gap-2"
+              >
+                <BarChart3 className="h-4 w-4" />
+                Dashboard
+              </Button>
+            </Link>
+            <Link to="/priority-analysis">
+              <Button 
+                variant={location.pathname === '/priority-analysis' ? 'default' : 'ghost'} 
+                size="sm" 
+                className="gap-2"
+              >
+                <Calculator className="h-4 w-4" />
+                Priority Analysis
+              </Button>
+            </Link>
+          </nav>
         </div>
         
         <div className="flex items-center gap-2">
+          {/* Mobile Navigation Menu */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild className="md:hidden">
+              <Button variant="outline" size="icon">
+                <Menu className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-popover w-48">
+              <Link to="/">
+                <DropdownMenuItem className="gap-2">
+                  <BarChart3 className="h-4 w-4" />
+                  Dashboard
+                </DropdownMenuItem>
+              </Link>
+              <Link to="/priority-analysis">
+                <DropdownMenuItem className="gap-2">
+                  <Calculator className="h-4 w-4" />
+                  Priority Analysis
+                </DropdownMenuItem>
+              </Link>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon">
