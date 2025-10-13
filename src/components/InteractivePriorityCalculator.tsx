@@ -413,182 +413,187 @@ export function InteractivePriorityCalculator({ ideas }: InteractivePriorityCalc
           
           {selectedIdea && (
             <div className="space-y-6 pt-4">
-              {/* Description */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                <h3 className="font-semibold text-blue-900 mb-2">📋 Description</h3>
-                <p className="text-blue-800">{selectedIdea.description}</p>
-              </div>
-
-              {/* Current Priority Analysis */}
-              <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-lg p-4">
-                <h3 className="font-semibold text-purple-900 mb-3">🎯 Current Priority Analysis</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-purple-900">
-                      #{currentRankings.find(r => r.id === selectedIdea.id)?.rank || 'N/A'}
-                    </div>
-                    <div className="text-sm text-purple-700">Current Rank</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold text-blue-900">
-                      {Math.round(DuvenbeckPriorityCalculator.calculatePriority(selectedIdea.scores, weights).finalScore)}
-                    </div>
-                    <div className="text-sm text-blue-700">Priority Score</div>
-                  </div>
+              {/* Source Information - Who submitted this and when */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-blue-900 mb-2">🏢 Source Department</h3>
+                  <p className="text-blue-800 font-medium">{selectedIdea.department}</p>
+                  <p className="text-blue-600 text-sm mt-1">Originating Business Unit</p>
                 </div>
-                <div className="mt-3 text-center">
-                  <Badge variant={
-                    currentRankings.find(r => r.id === selectedIdea.id)?.category === 'Top Priority' ? 'default' :
-                    currentRankings.find(r => r.id === selectedIdea.id)?.category === 'High Priority' ? 'secondary' :
-                    currentRankings.find(r => r.id === selectedIdea.id)?.category === 'Medium Priority' ? 'outline' : 'destructive'
-                  }>
-                    {currentRankings.find(r => r.id === selectedIdea.id)?.category || 'Not Ranked'}
-                  </Badge>
+                
+                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-green-900 mb-2">👤 Initiative Owner</h3>
+                  <p className="text-green-800 font-medium">
+                    {selectedIdea.id.includes('hr_cv') ? 'Sarah Martinez' :
+                     selectedIdea.id.includes('compliance') ? 'Muriel Berning' :
+                     selectedIdea.id.includes('it_') ? 'Robin Giesen' :
+                     selectedIdea.id.includes('marketing') ? 'Marketing Team' :
+                     selectedIdea.id.includes('corp_dev') ? 'Strategy Team' :
+                     'Department Lead'}
+                  </p>
+                  <p className="text-green-600 text-sm mt-1">Project Sponsor</p>
+                </div>
+
+                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                  <h3 className="font-semibold text-purple-900 mb-2">📅 Submission Date</h3>
+                  <p className="text-purple-800 font-medium">October 6-8, 2025</p>
+                  <p className="text-purple-600 text-sm mt-1">AI Workshop Session</p>
                 </div>
               </div>
 
-              {/* Scoring Details */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <h3 className="font-semibold text-lg">📊 Scoring Breakdown</h3>
+              {/* Original Problem & Solution */}
+              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                <h3 className="font-semibold text-yellow-900 mb-3">🎯 Problem & Solution Definition</h3>
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="font-medium text-yellow-900 mb-1">Problem Statement:</h4>
+                    <p className="text-yellow-800 text-sm">
+                      {selectedIdea.description.split('.')[0]}.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-yellow-900 mb-1">Proposed AI Solution:</h4>
+                    <p className="text-yellow-800 text-sm">
+                      {selectedIdea.description.includes('AI') ? 
+                        selectedIdea.description : 
+                        `AI-powered ${selectedIdea.name.toLowerCase()} utilizing machine learning algorithms to automate and optimize the identified processes.`}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Detailed Scoring Rationale */}
+              <div className="space-y-4">
+                <h3 className="font-semibold text-lg">� Detailed Scoring Rationale</h3>
+                <div className="grid grid-cols-1 gap-4">
                   
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
+                  <div className="border border-blue-200 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">🔧</span>
-                        <span className="font-medium">Complexity</span>
+                        <span className="font-semibold">Technical Complexity</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="bg-blue-100">
-                          {selectedIdea.scores.complexity}/5
-                        </Badge>
-                        <div className="text-sm text-blue-700">
-                          {selectedIdea.scores.complexity >= 4 ? 'Simple' : 
-                           selectedIdea.scores.complexity >= 3 ? 'Moderate' : 
-                           selectedIdea.scores.complexity >= 2 ? 'Complex' : 'Very Complex'}
-                        </div>
-                      </div>
+                      <Badge variant="outline" className="bg-blue-100">
+                        {selectedIdea.scores.complexity}/5
+                      </Badge>
                     </div>
-                    
-                    <div className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+                    <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
+                      <strong>Assessment:</strong> {
+                        selectedIdea.scores.complexity >= 4 ? 
+                          'Low complexity - can leverage existing tools and infrastructure with minimal custom development.' :
+                        selectedIdea.scores.complexity >= 3 ? 
+                          'Moderate complexity - requires some custom development but uses standard AI/ML approaches.' :
+                        selectedIdea.scores.complexity >= 2 ? 
+                          'High complexity - requires significant custom development, integration challenges, or novel AI approaches.' :
+                          'Very high complexity - cutting-edge AI research required, significant technical risks and integration challenges.'
+                      }
+                    </div>
+                  </div>
+
+                  <div className="border border-yellow-200 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">💰</span>
-                        <span className="font-medium">Cost</span>
+                        <span className="font-semibold">Investment Required</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="bg-yellow-100">
-                          {selectedIdea.scores.cost}/5
-                        </Badge>
-                        <div className="text-sm text-yellow-700">
-                          {selectedIdea.scores.cost >= 4 ? 'Low Cost' : 
-                           selectedIdea.scores.cost >= 3 ? 'Moderate' : 
-                           selectedIdea.scores.cost >= 2 ? 'High Cost' : 'Very High Cost'}
-                        </div>
-                      </div>
+                      <Badge variant="outline" className="bg-yellow-100">
+                        {selectedIdea.scores.cost}/5
+                      </Badge>
                     </div>
-                    
-                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                    <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
+                      <strong>Estimated Investment:</strong> {
+                        selectedIdea.scores.cost >= 4 ? 
+                          'Low cost (< €50k) - primarily configuration and training costs.' :
+                        selectedIdea.scores.cost >= 3 ? 
+                          'Moderate cost (€50k-200k) - includes software licenses, development, and implementation.' :
+                        selectedIdea.scores.cost >= 2 ? 
+                          'High cost (€200k-500k) - significant development, infrastructure, and change management costs.' :
+                          'Very high cost (> €500k) - major enterprise-scale implementation with extensive customization.'
+                      }
+                    </div>
+                  </div>
+
+                  <div className="border border-green-200 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">📈</span>
-                        <span className="font-medium">ROI Potential</span>
+                        <span className="font-semibold">Expected ROI</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="bg-green-100">
-                          {selectedIdea.scores.roi}/5
-                        </Badge>
-                        <div className="text-sm text-green-700">
-                          {selectedIdea.scores.roi >= 5 ? '€100k+' : 
-                           selectedIdea.scores.roi >= 4 ? '€50-100k' : 
-                           selectedIdea.scores.roi >= 3 ? '€25-50k' : 
-                           selectedIdea.scores.roi >= 2 ? '€10-25k' : '<€10k'}
-                        </div>
-                      </div>
+                      <Badge variant="outline" className="bg-green-100">
+                        {selectedIdea.scores.roi}/5
+                      </Badge>
                     </div>
-                    
-                    <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-200">
+                    <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
+                      <strong>Business Impact:</strong> {
+                        selectedIdea.scores.roi >= 5 ? 
+                          'Exceptional ROI (€100k+ annually) - major process improvements, significant cost savings, or new revenue streams.' :
+                        selectedIdea.scores.roi >= 4 ? 
+                          'High ROI (€50k-100k annually) - measurable efficiency gains and cost reductions.' :
+                        selectedIdea.scores.roi >= 3 ? 
+                          'Moderate ROI (€25k-50k annually) - process improvements with quantifiable benefits.' :
+                        selectedIdea.scores.roi >= 2 ? 
+                          'Low ROI (€10k-25k annually) - limited quantifiable benefits, mostly qualitative improvements.' :
+                          'Minimal ROI (< €10k annually) - primarily strategic or compliance-driven initiative.'
+                      }
+                    </div>
+                  </div>
+
+                  <div className="border border-red-200 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">⚠️</span>
-                        <span className="font-medium">Risk Level</span>
+                        <span className="font-semibold">Risk Assessment</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="bg-red-100">
-                          {selectedIdea.scores.risk}/5
-                        </Badge>
-                        <div className="text-sm text-red-700">
-                          {selectedIdea.scores.risk >= 4 ? 'Low Risk' : 
-                           selectedIdea.scores.risk >= 3 ? 'Moderate' : 
-                           selectedIdea.scores.risk >= 2 ? 'High Risk' : 'Very High Risk'}
-                        </div>
-                      </div>
+                      <Badge variant="outline" className="bg-red-100">
+                        {selectedIdea.scores.risk}/5
+                      </Badge>
                     </div>
-                    
-                    <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg border border-purple-200">
+                    <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
+                      <strong>Risk Factors:</strong> {
+                        selectedIdea.scores.risk >= 4 ? 
+                          'Low risk - proven technology, clear implementation path, minimal business disruption.' :
+                        selectedIdea.scores.risk >= 3 ? 
+                          'Moderate risk - standard implementation risks, manageable with proper planning.' :
+                        selectedIdea.scores.risk >= 2 ? 
+                          'High risk - technical uncertainties, potential business disruption, or regulatory concerns.' :
+                          'Very high risk - unproven technology, significant business impact, or major compliance implications.'
+                      }
+                    </div>
+                  </div>
+
+                  <div className="border border-purple-200 rounded-lg p-4">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">🎯</span>
-                        <span className="font-medium">Strategic Alignment</span>
+                        <span className="font-semibold">Strategic Alignment</span>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="bg-purple-100">
-                          {selectedIdea.scores.strategicAlignment}/5
-                        </Badge>
-                        <div className="text-sm text-purple-700">
-                          {selectedIdea.scores.strategicAlignment >= 4 ? 'High Alignment' : 
-                           selectedIdea.scores.strategicAlignment >= 3 ? 'Moderate' : 
-                           selectedIdea.scores.strategicAlignment >= 2 ? 'Low Alignment' : 'Misaligned'}
-                        </div>
-                      </div>
+                      <Badge variant="outline" className="bg-purple-100">
+                        {selectedIdea.scores.strategicAlignment}/5
+                      </Badge>
+                    </div>
+                    <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
+                      <strong>Strategic Fit:</strong> {
+                        selectedIdea.scores.strategicAlignment >= 4 ? 
+                          'High alignment - directly supports key strategic objectives and digital transformation goals.' :
+                        selectedIdea.scores.strategicAlignment >= 3 ? 
+                          'Moderate alignment - supports departmental goals and overall business strategy.' :
+                        selectedIdea.scores.strategicAlignment >= 2 ? 
+                          'Low alignment - peripheral to main strategic objectives, primarily operational benefits.' :
+                          'Poor alignment - limited connection to strategic goals, primarily tactical initiative.'
+                      }
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="space-y-4">
-                  <h3 className="font-semibold text-lg">⚖️ Weighted Analysis</h3>
-                  
-                  {(() => {
-                    const result = DuvenbeckPriorityCalculator.calculatePriority(selectedIdea.scores, weights);
-                    return (
-                      <div className="space-y-3">
-                        <div className="bg-gray-50 border rounded-lg p-3">
-                          <div className="text-sm font-medium mb-2">Current Weighting Impact:</div>
-                          <div className="space-y-2 text-sm">
-                            <div className="flex justify-between">
-                              <span>Complexity ({weights.complexity}%):</span>
-                              <span className="font-mono">{result.breakdown.complexity.weighted.toFixed(1)}</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span>Cost ({weights.cost}%):</span>
-                              <span className="font-mono">{result.breakdown.cost.weighted.toFixed(1)}</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span>ROI ({weights.roi}%):</span>
-                              <span className="font-mono">{result.breakdown.roi.weighted.toFixed(1)}</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span>Risk ({weights.risk}%):</span>
-                              <span className="font-mono">{result.breakdown.risk.weighted.toFixed(1)}</span>
-                            </div>
-                            <div className="flex justify-between border-t pt-2">
-                              <span>Strategic ({weights.strategicAlignment}%):</span>
-                              <span className="font-mono">{result.breakdown.strategicAlignment.weighted.toFixed(1)}</span>
-                            </div>
-                            <div className="flex justify-between border-t pt-2 font-semibold">
-                              <span>Final Score:</span>
-                              <span className="font-mono">{result.finalScore.toFixed(1)}</span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
-                          <div className="text-sm font-medium text-blue-900 mb-2">💡 Impact Analysis:</div>
-                          <p className="text-sm text-blue-800">
-                            This initiative ranks #{currentRankings.find(r => r.id === selectedIdea.id)?.rank || 'N/A'} out of {currentRankings.length}. 
-                            Adjust the weighting sliders above to see how different strategic priorities would affect this ranking.
-                          </p>
-                        </div>
-                      </div>
-                    );
-                  })()}
-                </div>
+              {/* Workshop Context */}
+              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+                <h3 className="font-semibold text-gray-900 mb-2">🏗️ Workshop Context</h3>
+                <p className="text-gray-700 text-sm">
+                  This initiative was identified during Duvenbeck's AI Workshop sessions (October 6-8, 2025) where department heads 
+                  and key stakeholders collaborated to identify AI opportunities across the organization. The scoring reflects 
+                  collective assessment by domain experts and strategic leadership.
+                </p>
               </div>
             </div>
           )}
