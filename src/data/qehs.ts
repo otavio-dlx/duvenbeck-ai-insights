@@ -3,7 +3,7 @@ export const ideas = {
     {
       date: "2025-10-07",
       department: "QEHS",
-      collaboardLink: "https://web.collaboard.app/share/zljYdszGklt4sRINQ0eOKw",
+      collaboardLink: "https://web.collaboard.app/share/koYmYdx7nV8b3xk3Tgfm8w",
     },
   ],
   ideas: [

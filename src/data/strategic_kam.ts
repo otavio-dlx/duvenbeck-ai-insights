@@ -3,7 +3,7 @@ export const ideas = {
     {
       date: "2025-10-07",
       department: "Strategic KAM",
-      collaboardLink: "https://web.collaboard.app/share/zljYdszGklt4sRINQ0eOKw",
+      collaboardLink: "https://web.collaboard.app/share/ZD9KFNqil-LmaJEc-47WtQ",
     },
   ],
   ideas: [
@@ -15,7 +15,8 @@ export const ideas = {
       owner: "MGE",
       priority: "A",
       complexity: 4,
-      complexityNoteKey: "strategic_kam.notes.complexity.automated_news_procurement",
+      complexityNoteKey:
+        "strategic_kam.notes.complexity.automated_news_procurement",
       cost: 4,
       costNoteKey: "strategic_kam.notes.cost.automated_news_procurement",
       roi: 4,
@@ -23,7 +24,8 @@ export const ideas = {
       risk: 4,
       riskNoteKey: "strategic_kam.notes.risk.automated_news_procurement",
       strategicAlignment: 5,
-      strategicNoteKey: "strategic_kam.notes.strategic.automated_news_procurement",
+      strategicNoteKey:
+        "strategic_kam.notes.strategic.automated_news_procurement",
     },
     {
       finalPrio: 2,
@@ -33,7 +35,8 @@ export const ideas = {
       owner: "MGE",
       priority: "B",
       complexity: 3,
-      complexityNoteKey: "strategic_kam.notes.complexity.automated_crm_recommendations",
+      complexityNoteKey:
+        "strategic_kam.notes.complexity.automated_crm_recommendations",
       cost: 1,
       costNoteKey: "strategic_kam.notes.cost.automated_crm_recommendations",
       roi: 2,
@@ -41,7 +44,8 @@ export const ideas = {
       risk: 2,
       riskNoteKey: "strategic_kam.notes.risk.automated_crm_recommendations",
       strategicAlignment: 4,
-      strategicNoteKey: "strategic_kam.notes.strategic.automated_crm_recommendations",
+      strategicNoteKey:
+        "strategic_kam.notes.strategic.automated_crm_recommendations",
     },
     {
       finalPrio: 3,

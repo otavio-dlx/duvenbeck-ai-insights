@@ -3,7 +3,7 @@ export const ideas = {
     {
       date: "2025-10-08",
       department: "IT Platform Services / Digital Workplace",
-      collaboardLink: "https://web.collaboard.app/share/zljYdszGklt4sRINQ0eOKw",
+      collaboardLink: "https://web.collaboard.app/share/4LFOhXRZX1a9cHjbtC4e6A",
     },
   ],
   ideas: [
@@ -11,19 +11,24 @@ export const ideas = {
       finalPrio: 1,
       ideaKey: "it_platform_services.ideas.ticket_quality_prioritization",
       problemKey: "it_platform_services.problems.ticket_quality_prioritization",
-      solutionKey: "it_platform_services.solutions.ticket_quality_prioritization",
+      solutionKey:
+        "it_platform_services.solutions.ticket_quality_prioritization",
       owner: "Jörg Laufenburg",
       priority: "A",
       complexity: 4,
-      complexityNoteKey: "it_platform_services.notes.complexity.ticket_quality_prioritization",
+      complexityNoteKey:
+        "it_platform_services.notes.complexity.ticket_quality_prioritization",
       cost: 5,
-      costNoteKey: "it_platform_services.notes.cost.ticket_quality_prioritization",
+      costNoteKey:
+        "it_platform_services.notes.cost.ticket_quality_prioritization",
       roi: 4,
       roiNote: "",
       risk: 3,
-      riskNoteKey: "it_platform_services.notes.risk.ticket_quality_prioritization",
+      riskNoteKey:
+        "it_platform_services.notes.risk.ticket_quality_prioritization",
       strategicAlignment: 4,
-      strategicNoteKey: "it_platform_services.notes.strategic.ticket_quality_prioritization",
+      strategicNoteKey:
+        "it_platform_services.notes.strategic.ticket_quality_prioritization",
     },
     {
       finalPrio: 2,
@@ -33,7 +38,8 @@ export const ideas = {
       owner: "Nikoley Koch",
       priority: "A",
       complexity: 4,
-      complexityNoteKey: "it_platform_services.notes.complexity.meeting_minutes",
+      complexityNoteKey:
+        "it_platform_services.notes.complexity.meeting_minutes",
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.meeting_minutes",
       roi: 4,
@@ -51,7 +57,8 @@ export const ideas = {
       owner: "Nikoley Koch",
       priority: "A",
       complexity: 4,
-      complexityNoteKey: "it_platform_services.notes.complexity.c_level_communication",
+      complexityNoteKey:
+        "it_platform_services.notes.complexity.c_level_communication",
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.c_level_communication",
       roi: 2,
@@ -59,7 +66,8 @@ export const ideas = {
       risk: 3,
       riskNoteKey: "it_platform_services.notes.risk.c_level_communication",
       strategicAlignment: 4,
-      strategicNoteKey: "it_platform_services.notes.strategic.c_level_communication",
+      strategicNoteKey:
+        "it_platform_services.notes.strategic.c_level_communication",
     },
     {
       finalPrio: 3,
@@ -69,7 +77,8 @@ export const ideas = {
       owner: "Nikoley Koch",
       priority: "A",
       complexity: 4,
-      complexityNoteKey: "it_platform_services.notes.complexity.colleague_communication",
+      complexityNoteKey:
+        "it_platform_services.notes.complexity.colleague_communication",
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.colleague_communication",
       roi: 2,
@@ -77,7 +86,8 @@ export const ideas = {
       risk: 3,
       riskNoteKey: "it_platform_services.notes.risk.colleague_communication",
       strategicAlignment: 4,
-      strategicNoteKey: "it_platform_services.notes.strategic.colleague_communication",
+      strategicNoteKey:
+        "it_platform_services.notes.strategic.colleague_communication",
     },
     {
       finalPrio: 4,
@@ -87,7 +97,8 @@ export const ideas = {
       owner: "Jörg Laufenburg",
       priority: "A",
       complexity: 4,
-      complexityNoteKey: "it_platform_services.notes.complexity.self_service_it_assistant",
+      complexityNoteKey:
+        "it_platform_services.notes.complexity.self_service_it_assistant",
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.self_service_it_assistant",
       roi: 2,
@@ -95,7 +106,8 @@ export const ideas = {
       risk: 2,
       riskNoteKey: "it_platform_services.notes.risk.self_service_it_assistant",
       strategicAlignment: 4,
-      strategicNoteKey: "it_platform_services.notes.strategic.self_service_it_assistant",
+      strategicNoteKey:
+        "it_platform_services.notes.strategic.self_service_it_assistant",
     },
     {
       finalPrio: 5,
@@ -105,7 +117,8 @@ export const ideas = {
       owner: "Nikoley Koch",
       priority: "A",
       complexity: 3,
-      complexityNoteKey: "it_platform_services.notes.complexity.roadmap_creation",
+      complexityNoteKey:
+        "it_platform_services.notes.complexity.roadmap_creation",
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.roadmap_creation",
       roi: 2,
@@ -123,7 +136,8 @@ export const ideas = {
       owner: "Nikoley Koch",
       priority: "A",
       complexity: 3,
-      complexityNoteKey: "it_platform_services.notes.complexity.project_tracking",
+      complexityNoteKey:
+        "it_platform_services.notes.complexity.project_tracking",
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.project_tracking",
       roi: 2,
@@ -136,8 +150,10 @@ export const ideas = {
     {
       finalPrio: null,
       ideaKey: "it_platform_services.ideas.automated_ticket_classification",
-      problemKey: "it_platform_services.problems.automated_ticket_classification",
-      solutionKey: "it_platform_services.solutions.automated_ticket_classification",
+      problemKey:
+        "it_platform_services.problems.automated_ticket_classification",
+      solutionKey:
+        "it_platform_services.solutions.automated_ticket_classification",
       owner: "John Smith",
       priority: "A",
       complexity: null,

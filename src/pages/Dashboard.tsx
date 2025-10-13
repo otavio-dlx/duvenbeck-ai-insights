@@ -447,9 +447,12 @@ export const Dashboard = () => {
               <TabsContent value="processes" className="space-y-6 mt-6">
                 <Card>
                   <CardHeader>
-                    <CardTitle>{t("nav.startseite")}</CardTitle>
+                    <CardTitle className="flex items-center gap-2">
+                      <Building2 className="h-5 w-5" />
+                      Department Collaboards
+                    </CardTitle>
                   </CardHeader>
-                  <CardContent className="space-y-4">
+                  <CardContent className="space-y-6">
                     <div>
                       <h3 className="font-semibold mb-2">
                         Workshop Information
@@ -457,15 +460,14 @@ export const Dashboard = () => {
                       <p className="text-sm text-muted-foreground">
                         The AI Workshop took place from October 6-8, 2025 with
                         participants from various departments across Duvenbeck.
+                        Access each department's collaborative workspace below.
                       </p>
                     </div>
                     <div>
-                      <h3 className="font-semibold mb-2">Collaboards</h3>
-                      <div className="space-y-2">
-                        {/* Dynamically render collaboard links discovered from data files */}
-                        {/** We'll load keys and then attempt to read a workbook/link from Startseite */}
-                        <DynamicCollaboards />
-                      </div>
+                      <h3 className="font-semibold mb-4">
+                        Department Workspaces
+                      </h3>
+                      <DynamicCollaboards />
                     </div>
                   </CardContent>
                 </Card>
@@ -534,38 +536,65 @@ export const Dashboard = () => {
 
 // Top-level component to discover collaboard links from datasets
 export function DynamicCollaboards(): JSX.Element {
-  const [links, setLinks] = useState<Array<{ key: string; url: string }>>([]);
+  const [links, setLinks] = useState<
+    Array<{
+      key: string;
+      url: string;
+      department: string;
+      date: string;
+    }>
+  >([]);
 
   useEffect(() => {
     let mounted = true;
 
     async function discover() {
       const keys = await listDataKeys();
-      const found: Array<{ key: string; url: string }> = [];
+      const found: Array<{
+        key: string;
+        url: string;
+        department: string;
+        date: string;
+      }> = [];
 
       for (const k of keys) {
         try {
           const data = await getIdeasFor(k);
           if (!data) continue;
-          const startseite = (data as Record<string, unknown>)["Startseite"];
-          if (!Array.isArray(startseite)) continue;
 
-          let url: string | null = null;
-          for (const row of startseite) {
-            for (const val of Object.values(row)) {
-              if (typeof val === "string" && val.startsWith("http")) {
-                url = val;
-                break;
-              }
+          // Look for the 'home' array in the data structure
+          const home = data.home;
+          if (!Array.isArray(home) || home.length === 0) continue;
+
+          const homeData = home[0];
+          if (homeData && typeof homeData === "object" && homeData !== null) {
+            const homeRecord = homeData as Record<string, unknown>;
+            const collaboardLink = homeRecord.collaboardLink;
+            const department = homeRecord.department;
+            const date = homeRecord.date;
+
+            if (
+              typeof collaboardLink === "string" &&
+              collaboardLink.startsWith("http")
+            ) {
+              found.push({
+                key: k,
+                url: collaboardLink,
+                department:
+                  typeof department === "string"
+                    ? department
+                    : formatDepartmentName(k),
+                date: typeof date === "string" ? date : "",
+              });
             }
-            if (url) break;
           }
-
-          if (url) found.push({ key: k, url });
         } catch (err) {
           console.warn(`Failed to read dataset ${k}:`, err);
         }
       }
+
+      // Sort by department name
+      found.sort((a, b) => a.department.localeCompare(b.department));
 
       if (mounted) setLinks(found);
     }
@@ -588,11 +617,18 @@ export function DynamicCollaboards(): JSX.Element {
       central_solution_design: "Central Solution Design",
       compliance: "Compliance",
       contract_logistics: "Contract Logistics",
+      controlling: "Controlling",
       corp_dev: "Corporate Development",
       esg: "Environmental, Social & Governance",
       hr: "Human Resources",
+      it_business_solution_road: "IT Business Solution Road",
+      it_plataform_services_digital_workplace:
+        "IT Platform Services / Digital Workplace",
+      it_shared_services: "IT Shared Services",
       marketing_communications: "Marketing & Communications",
       qehs: "Quality, Environment, Health & Safety",
+      road_sales: "Road Sales",
+      strategic_kam: "Strategic Key Account Management",
     };
     return (
       nameMap[key] ||
@@ -604,18 +640,35 @@ export function DynamicCollaboards(): JSX.Element {
   };
 
   return (
-    <div className="space-y-2">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {links.map((l) => (
-        <a
-          key={l.key}
-          href={l.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 w-full px-3 py-2 border rounded-md hover:bg-muted/50 transition-colors"
-        >
-          <PanelLeft className="h-4 w-4" />
-          <span>{formatDepartmentName(l.key)}</span>
-        </a>
+        <Card key={l.key} className="hover:shadow-md transition-shadow">
+          <CardContent className="p-4">
+            <div className="flex items-start justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <Building2 className="h-5 w-5 text-primary" />
+                <h3 className="font-semibold text-sm">{l.department}</h3>
+              </div>
+              {l.date && (
+                <span className="text-xs text-muted-foreground">
+                  {new Date(l.date).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </span>
+              )}
+            </div>
+            <a
+              href={l.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 w-full px-3 py-2 bg-primary/10 hover:bg-primary/20 text-primary rounded-md transition-colors text-sm font-medium"
+            >
+              <PanelLeft className="h-4 w-4" />
+              Open Collaboard
+            </a>
+          </CardContent>
+        </Card>
       ))}
     </div>
   );

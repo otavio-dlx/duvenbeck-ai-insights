@@ -3,7 +3,7 @@ export const ideas = {
     {
       date: "2025-10-07",
       department: "Road Sales SE",
-      collaboardLink: "https://web.collaboard.app/share/zljYdszGklt4sRINQ0eOKw",
+      collaboardLink: "https://web.collaboard.app/share/BhAytX52qYVFGBW4Hl_Gzw",
     },
   ],
   ideas: [
@@ -105,7 +105,8 @@ export const ideas = {
       owner: "John Smith",
       priority: "A",
       complexity: 4,
-      complexityNoteKey: "road_sales.notes.complexity.lead_management_prioritization",
+      complexityNoteKey:
+        "road_sales.notes.complexity.lead_management_prioritization",
       cost: 4,
       costNoteKey: "road_sales.notes.cost.lead_management_prioritization",
       roi: 2,
@@ -113,7 +114,8 @@ export const ideas = {
       risk: 5,
       riskNoteKey: "road_sales.notes.risk.lead_management_prioritization",
       strategicAlignment: 4,
-      strategicNoteKey: "road_sales.notes.strategic.lead_management_prioritization",
+      strategicNoteKey:
+        "road_sales.notes.strategic.lead_management_prioritization",
     },
   ],
 };

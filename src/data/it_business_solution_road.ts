@@ -3,15 +3,18 @@ export const ideas = {
     {
       date: "2025-10-08",
       department: "IT Business Solution Road/ PCL",
-      collaboardLink: "https://web.collaboard.app/share/zljYdszGklt4sRINQ0eOKw",
+      collaboardLink:
+        "https://web.collaboard.app/share/4LFOhXRZX1a9cHjbtC4e6A",
     },
   ],
   ideas: [
     {
       finalPrio: null,
       ideaKey: "it_business_solution_road.ideas.automated_route_optimization",
-      problemKey: "it_business_solution_road.problems.automated_route_optimization",
-      solutionKey: "it_business_solution_road.solutions.automated_route_optimization",
+      problemKey:
+        "it_business_solution_road.problems.automated_route_optimization",
+      solutionKey:
+        "it_business_solution_road.solutions.automated_route_optimization",
       owner: "John Smith",
       priority: "A",
       complexity: 3,
