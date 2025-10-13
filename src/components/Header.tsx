@@ -6,7 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Languages, LogOut, Calculator, BarChart3 } from 'lucide-react';
+import { Languages, LogOut, Calculator, BarChart3, Menu } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '@/assets/logo.png';
 
@@ -33,7 +33,7 @@ export const Header = () => {
             <p className="text-xs text-muted-foreground">{t('app.subtitle')}</p>
           </div>
           
-          {/* Navigation Menu */}
+          {/* Desktop Navigation Menu */}
           <nav className="hidden md:flex items-center gap-1 ml-8">
             <Link to="/">
               <Button 
@@ -59,6 +59,29 @@ export const Header = () => {
         </div>
         
         <div className="flex items-center gap-2">
+          {/* Mobile Navigation Menu */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild className="md:hidden">
+              <Button variant="outline" size="icon">
+                <Menu className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="bg-popover w-48">
+              <Link to="/">
+                <DropdownMenuItem className="gap-2">
+                  <BarChart3 className="h-4 w-4" />
+                  Dashboard
+                </DropdownMenuItem>
+              </Link>
+              <Link to="/priority-analysis">
+                <DropdownMenuItem className="gap-2">
+                  <Calculator className="h-4 w-4" />
+                  Priority Analysis
+                </DropdownMenuItem>
+              </Link>
+            </DropdownMenuContent>
+          </DropdownMenu>
+
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="icon">

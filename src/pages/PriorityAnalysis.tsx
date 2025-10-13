@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { InteractivePriorityCalculator } from '@/components/InteractivePriorityCalculator';
 import { getAllIdeasForCalculator } from '@/lib/data-mapper';
+import { Button } from '@/components/ui/button';
+import { ArrowLeft, Home, Calculator } from 'lucide-react';
 
 export default function PriorityAnalysisPage() {
   // Get all ideas from all departments
@@ -9,6 +12,31 @@ export default function PriorityAnalysisPage() {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
+        {/* Back Navigation */}
+        <div className="mb-6">
+          <div className="flex items-center gap-4 mb-4">
+            <Link to="/">
+              <Button variant="outline" size="sm" className="gap-2">
+                <ArrowLeft className="h-4 w-4" />
+                Back to Dashboard
+              </Button>
+            </Link>
+            
+            {/* Breadcrumb */}
+            <div className="flex items-center text-sm text-gray-500">
+              <Link to="/" className="hover:text-gray-700 flex items-center gap-1">
+                <Home className="h-4 w-4" />
+                Dashboard
+              </Link>
+              <span className="mx-2">/</span>
+              <span className="text-gray-900 flex items-center gap-1">
+                <Calculator className="h-4 w-4" />
+                Priority Analysis
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Page Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
