@@ -43,33 +43,33 @@ Before marking a PR ready for review, ensure:
 ## Translation Pattern Guidelines
  
 When working with department-specific data and translations:
- 
+
 1. Follow the established translation key structure across all department modules:
- 
+
    - Use department name as the root key (e.g., `compliance`, `corp_dev`, `accounting`, etc.)
    - Organize content under appropriate subkeys:
      - `ideas`: For initiative titles
      - `problems`: For problem descriptions
      - `solutions`: For solution descriptions
      - `notes`: For additional context (complexity, cost, risk, strategic alignment)
- 
+
 2. Translation Key Structure:
- 
+
    - Use snake_case for key names and identifiers
    - Follow the pattern: `{department}.{category}.{identifier}`
    - For notes/explanations: `{department}.notes.{type}.{identifier}`
    - Types include: complexity, cost, roi, risk, strategic
- 
+
 3. Implementation:
- 
+
    - Store all translations in i18n locales files (en.json, de.json)
    - Use translation keys in department data files instead of direct text
    - Maintain consistent identifiers across related items (same identifier for idea, problem, solution)
    - Convert original text to English and store in en.json
    - Keep original German text in de.json
- 
+
 4. Department Data Structure:
- 
+
    ```typescript
    export const ideas = {
      home: [
@@ -101,7 +101,7 @@ When working with department-specific data and translations:
      ],
    };
    ```
- 
+
 5. Identifier Creation Rules:
    - Use descriptive, concise identifiers in English
    - Convert spaces to underscores
@@ -110,7 +110,7 @@ When working with department-specific data and translations:
    - Examples:
      - "Market Analysis Automation" → "market_analysis_automation"
      - "Strategic Scenario Planning" → "strategic_scenario_planning"
- 
+
 ## Testing and verification steps for agents
  
 - Install dependencies using the project's package manager (pnpm or npm). Example (local dev):

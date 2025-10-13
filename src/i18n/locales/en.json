@@ -3,69 +3,331 @@
     "title": "AI Workshop Dashboard",
     "subtitle": "Duvenbeck AI Workshop October 6-8, 2025"
   },
-  "compliance": {
+  "controlling": {
     "ideas": {
-      "damage_assessment": "Damage Assessment",
-      "contract_review": "Contract Review (Insurance)",
-      "documentation": "Documentation/Administration",
-      "legal_documents": "Creation of Legal Documents",
-      "questionnaires": "Creation of Questionnaires and Interview Guidelines",
-      "contract_templates": "Creation of Contract Templates",
-      "standards_analysis": "Standards Analysis and Review",
-      "routine_cases": "Small, Recurring Cases and Questions"
+      "presentation_creation": "Presentation Creation",
+      "intensive_research": "Intensive Research",
+      "fp_analysis": "Fleet Performance Analysis"
     },
     "problems": {
-      "damage_assessment": "Liability assessment including expert evaluation",
-      "contract_review": "Contract review - liability & insurance including checklist",
-      "documentation": "Documentation/administration and summarization of email threads, documents, contract reviews in file system with description creation",
-      "legal_documents": "Creation of legal documents, claims, claim responses, letters etc.",
-      "questionnaires": "Creation of questionnaires and interview guidelines",
-      "contract_templates": "Creation of contract templates, policy templates, privacy notices and other documents",
-      "standards_analysis": "Review and analysis of standards (NDA, CoC, IT T&Cs, DPA etc.) and non-standardized contracts",
-      "routine_cases": "Small, recurring cases and questions"
+      "presentation_creation": "MEC, Ad hoc PPT ...",
+      "intensive_research": "Time-intensive research for analysis of historical revenue, years/months/quarters, prices, contract situations etc.",
+      "fp_analysis": "Productivity of own fleet Tour ID"
     },
     "solutions": {
-      "damage_assessment": "Is the damage eligible for compensation? Liability requirements met? Assessment of damage extent",
-      "contract_review": "Creation of checklist including marking relevant passages, preliminary review, translation",
-      "documentation": "Possibly automated assignment of documents to relevant files and content extraction with summary creation",
-      "legal_documents": "Use of research results, case summaries etc. for creating texts in legal tone using predefined templates",
-      "questionnaires": "Processing and drafting questions after situation briefing",
-      "contract_templates": "Text creation based on bullet points and topic blocks, creating and inserting into given templates",
-      "standards_analysis": "Automatic review and summary considering predefined rules (OTRIS AI solution)",
-      "routine_cases": "Chatbot"
+      "presentation_creation": "Automated creation of MEC PPT",
+      "intensive_research": "\"Encyclopedia\" for quick reference // Chatbot",
+      "fp_analysis": "Automated creation of Tour-ID to identify when 2 or more Car_O tours are combined into a round trip. Use Fleetboard for automatic route and productivity analysis. Comprehensive analysis of relevant fleet performance KPIs"
     },
     "notes": {
       "complexity": {
-        "damage_assessment": "Contract review, legal liability, market values, scrap values, goods type and function",
-        "contract_review": "Data for checklist can be easily extracted. Only insurance topics relevant, not entire contract. Insurance coverage provision possible.",
-        "documentation": "No high complexity because: pure extraction of existing data; some systems known that can already implement this",
-        "legal_documents": "Contract creation: more complex; Creation of legal documents and processing descriptions: less complex",
-        "standards_analysis": "Medium to high: Depends on rule variety and document structure. AI must understand and apply both legal language and specific company rules.",
-        "routine_cases": "Medium: Building internal knowledge pool, training AI on company-specific content and ongoing maintenance needed. Technically well implementable with existing solutions."
+        "presentation_creation": "Multiple data sources (e.g., IDL, Lukanet, CAR_O), different presentation levels (BUKRS <> PC), variance analysis of key KPIs, summary of topics based on predefined PPT structure, at Company-Level, BU-Level and Group-Level",
+        "intensive_research": "Multiple data sources, complex initial setup, linking of different data",
+        "fp_analysis": "Productivity analysis regarding various KPIs, different transfer prices complicate matters, planning bases and assumptions not identical, round trip detection desired, early detection of deviations through partial live evaluation"
       },
       "cost": {
-        "damage_assessment": "Separate program needed (contains confidential company data). Relatively low staff effort (reduction in workload). Cost savings insurance & expert costs",
-        "contract_review": "Separate program needed (contains confidential company data). Relatively low staff effort (reduction in workload).",
-        "documentation": "Dependent on system landscape",
-        "legal_documents": "Medium to high investment costs; ongoing costs dependent on usage and API queries",
-        "standards_analysis": "Costs through OTRIS (Add-On with OTRIS) relatively low since system already exists and it's just an add-on",
-        "routine_cases": "One-time implementation and continuous maintenance by Legal (DUV GPT could be used after implementation)"
+        "presentation_creation": "Programming effort, licenses, (ABO)",
+        "intensive_research": "Programming effort, licenses, (ABO), initial development",
+        "fp_analysis": "Programming effort, licenses, (ABO)"
+      },
+      "roi": {
+        "presentation_creation": "CO support, time savings in Controlling",
+        "intensive_research": "CO support, time savings across many involved departments",
+        "fp_analysis": "Fleet optimization, cost reduction, revenue increase, prevention of empty runs and detours"
       },
       "risk": {
-        "damage_assessment": "Must be double-checked by employee. Negotiations still possible. Partially contains sensitive company data",
-        "contract_review": "Must be double-checked by employee to avoid coverage gaps.",
-        "documentation": "Medium risk as only existing content is extracted and no new results are generated",
-        "legal_documents": "Medium: Risks concern content accuracy, data confidentiality in external processing and copyright. Well manageable through clear governance and manual final check",
-        "standards_analysis": "Low to medium: Low risk for internal use; for external cloud solution, review of data protection and security required. Risk of incorrect assessments with incomplete rules.",
-        "routine_cases": "Higher risk: Keyword accuracy error-prone"
+        "presentation_creation": "Sensitive data, comprehensive financial values from all areas",
+        "intensive_research": "Sensitive data, comprehensive financial values from all areas, additionally from operational areas",
+        "fp_analysis": "No highly sensitive data in application"
       },
       "strategic": {
-        "damage_assessment": "Savings in external and internal personnel expenses",
-        "contract_review": "Faster customer feedback = improved customer satisfaction. Savings in employee effort",
-        "documentation": "Standardization; Reduction of administrative effort",
-        "legal_documents": "Automation, time savings, standardization and uniformity, acceleration",
-        "standards_analysis": "Very good fit: Strengthens quality assurance, standardization and traceability. Supports digital transformation of legal department and promotes consistency.",
-        "routine_cases": "Direct response, quick initial assessment, process acceleration"
+        "presentation_creation": "Support for communication with different shareholders",
+        "intensive_research": "Primarily internal use",
+        "fp_analysis": "Develop strategies regarding fleet utilization"
+      }
+    }
+  },
+  "contract_logistics": {
+    "ideas": {
+      "requirements_specification": "Requirements Specification Summary",
+      "target_prices": "Target Prices",
+      "contract_review": "Contract Reviews/Document Reviews"
+    },
+    "problems": {
+      "requirements_specification": "Requirements specification summary and interpretation",
+      "target_prices": "Target prices make up 50% of inquiries, often without profit",
+      "contract_review": "Contract reviews and document reviews"
+    },
+    "solutions": {
+      "requirements_specification": "Automatic information about the most important points with 'filtering' by department, project area",
+      "target_prices": "Automatic creation of target prices as indications",
+      "contract_review": "Automatic detection of major deviations from DUV standard"
+    },
+    "notes": {
+      "complexity": {
+        "requirements_specification": "Experience: Weighting of information essential, languages; wording, accuracy of information but on the other hand pure information processing",
+        "target_prices": "Input of standard information/basic data analogous to CCT",
+        "contract_review": "Search for keywords, interpretation help"
+      },
+      "cost": {
+        "requirements_specification": "Low effort/usage, programming effort however given",
+        "target_prices": "Higher usage, simple data processing/technical implementation",
+        "contract_review": "Low effort/usage, programming effort however given"
+      },
+      "roi": {
+        "requirements_specification": "Small group of people who come in contact with it, only data summarization, time savings for initial document review",
+        "target_prices": "Reduction of calculation effort, freeing up resources for projects",
+        "contract_review": "Small group of people who come in contact with it, interpretation help, time savings for decision makers"
+      },
+      "risk": {
+        "requirements_specification": "Inaccuracy can lead to misinterpretation",
+        "target_prices": "Target price, no contractual binding",
+        "contract_review": "Misinterpretation can lead to high follow-up costs, data security with confidential customer information?"
+      },
+      "strategic": {
+        "requirements_specification": "Qualitative decision support, time savings for employees",
+        "target_prices": "No resource binding, concentration on important/strategic projects",
+        "contract_review": "Risk management"
+      }
+    }
+  },
+  "corp_dev": {
+    "ideas": {
+      "market_analysis_automation": "Part A External: Market Analysis Automation",
+      "strategic_scenario_planning": "Strategic Scenario Planning // Corporate Strategy Evaluation and Master Plan of Action Generation",
+      "customer_profitability_analysis": "AS-IS: Customer Review Profitability Analysis",
+      "competition_trend_alerts": "Part A External: Competition Monitoring & Trend Alerts",
+      "dashboard_reporting": "Creation of Dashboard/Reporting on Goal Achievement (KAM Plans, Budget Targets, Operational Performance)",
+      "contract_database": "Contract Database",
+      "product_portfolio_extension": "TO-BE: Product Portfolio Extension: - Analysis of potential product extensions based on existing customers - What business models/products/services need to be built additionally? + Make or Buy Analysis"
+    },
+    "problems": {
+      "market_analysis_automation": "Market and competitive analyses are time-consuming and often not up to date.",
+      "strategic_scenario_planning": "Strategic decisions are often based on incomplete or outdated assumptions.",
+      "customer_profitability_analysis": "Decisions about investments or divestments are complex and require many data points.",
+      "competition_trend_alerts": "New competitors, technologies, or business models are often recognized too late.",
+      "dashboard_reporting": "High effort, no standards, little homogeneous definition in the group",
+      "contract_database": "Renegotiations, deviations TARGET vs ACTUAL in contract",
+      "product_portfolio_extension": "High effort to identify individual service extensions for customers"
+    },
+    "solutions": {
+      "market_analysis_automation": "AI-powered tools aggregate data in real-time and automatically create concise market overviews.",
+      "strategic_scenario_planning": "AI-supported scenario simulations model different strategies and their potential impacts.",
+      "customer_profitability_analysis": "AI evaluates existing projects and investments based on KPIs, risk, and growth potential, and provides recommendations.",
+      "competition_trend_alerts": "AI continuously monitors market trends and competitor activities and creates alerts for relevant changes.",
+      "dashboard_reporting": "Brainstorming and development of standardized templates for all dashboards (Excel + PPT Export)",
+      "contract_database": "Scan of SLAs/contracts and comparison with ACTUAL values in the system",
+      "product_portfolio_extension": "Once database with all customer contracts is available, it's easy to do a gap analysis and check where upscaling is possible or not + Business Solution can be sketched by AI and potential white spots identified."
+    },
+    "notes": {
+      "complexity": {
+        "market_analysis_automation": "Not complex; however, some data is only available in download documents or behind paywalls. Regular updates/extensions of parameters may be necessary",
+        "strategic_scenario_planning": "No complexity. Through stating objectives, possible alternatives can be quickly brainstormed and scenarios evaluated faster",
+        "customer_profitability_analysis": "Many data points needed from various tools (SAP, customer portal, local and central) as well as documented problems and processes to define optimization potential. Financial metrics available but other topics mostly not centrally stored = Many knowledge holders",
+        "competition_trend_alerts": "Not complex; however, some data is only available in download documents or behind paywalls. Regular updates/extensions of parameters may be necessary",
+        "dashboard_reporting": "Many data needed from various tools (SAP, customer portal etc)",
+        "contract_database": "Very high complexity because many TARGET data like volume are only shared sporadically by customers, or only available retrospectively = Simultaneously many documents and contracts not digitized = Basically every contract and all SLAs (which change regularly) would always need to be updated",
+        "product_portfolio_extension": "Once database with all customer contracts is available, it's easy to do a gap analysis and check where upscaling is possible or not + Business Solution can be sketched by AI and potential white spots identified."
+      },
+      "cost": {
+        "market_analysis_automation": "Costs may only be necessary for certain tools/websites (e.g., Orbis). Some licenses already available.",
+        "strategic_scenario_planning": "Cannot be evaluated",
+        "customer_profitability_analysis": "Low costs, only in-house data + irregular queries (1x per quarter per customer ??)",
+        "competition_trend_alerts": "Costs may only be necessary for certain tools/websites (e.g., Orbis). Some licenses already available.",
+        "dashboard_reporting": "Data exports/interfaces etc necessary to generate live real values",
+        "contract_database": "High manual updating/centralization effort",
+        "product_portfolio_extension": "No high costs"
+      },
+      "roi": {
+        "market_analysis_automation": "ROI not measurable as analysis only represents decision support -> Time savings very high",
+        "strategic_scenario_planning": "No ROI; Support in decision-making and faster strategy adjustment due to changed conditions = No long-term strategy workshops potentially necessary = Cost savings + Faster top-down implementation of goals and measures per resort and partially department + Savings in consulting costs",
+        "customer_profitability_analysis": "Low ROI; Helps with quick analysis",
+        "competition_trend_alerts": "ROI not measurable as analysis only represents decision support -> Time savings very high",
+        "dashboard_reporting": "Many FTEs throughout the group busy with reporting tasks + updates. Through automation, especially in controlling, various times can be used more efficiently",
+        "contract_database": "Deviations and potential for renegotiations quickly and potentially proactively identifiable by AI. = Currently only checked if delivered according to contract in case of negative events or P&L result. Bonus-malus agreements are partially checked by customers and transmitted to DUV = Review and correction can be replaced by AI thus freeing resources for other topics",
+        "product_portfolio_extension": "Quick analysis and KAM plans can be created"
+      },
+      "risk": {
+        "market_analysis_automation": "Risk: Reports not being used",
+        "strategic_scenario_planning": "Incorrect questions/info lead to wrong plans and mismatched goals",
+        "customer_profitability_analysis": "High risk if assumptions are incorrect and customer conversations are interpreted negatively",
+        "competition_trend_alerts": "Risk: Reports not being used",
+        "dashboard_reporting": "No risk; Internal data. At most misinterpretation or wrong definitions",
+        "contract_database": "No risk; In-house data",
+        "product_portfolio_extension": "No risk"
+      },
+      "strategic": {
+        "market_analysis_automation": "Data helps in analyzing possible strategic directions and in decision-making/review with shareholders = Data driven",
+        "strategic_scenario_planning": "3-5 different strategy reviews were done in 3 years = Helps with regular updates and readjustments = Securing information from knowledge holders (C-Level fluctuation)",
+        "customer_profitability_analysis": "Necessary; Wanted by CEO and helps achieve goals (EBITDA) as objective decisions can be made about expansion or exit of customer relationships",
+        "competition_trend_alerts": "Data helps in analyzing possible strategic directions and in decision-making/review with shareholders = Data driven",
+        "dashboard_reporting": "To make agile and fast-paced decisions, ZDF is needed at the push of a button = At the same time high reporting effort towards shareholders can be reduced and standardized = M&A necessity = Data and reporting structures necessary for possible shareholder exit",
+        "contract_database": "",
+        "product_portfolio_extension": "Growth, cross-selling and customer development desired and required. Entry barriers with current customer base lower than new acquisition"
+      }
+    }
+  },
+  "compliance": {
+    "ideas": {
+      "damage_claim_review": "Damage Claim Review",
+      "contract_insurance_review": "Contract Review (Insurance)",
+      "document_administration": "Document Administration & Email Summarization",
+      "legal_document_creation": "Legal Document Creation",
+      "contract_analysis": "Contract & Standards Analysis",
+      "recurring_case_chatbot": "Recurring Case Chatbot"
+    },
+    "problems": {
+      "damage_claim_review": "Liability review including 'expert' assessment",
+      "contract_insurance_review": "Contract review - Liability & Insurance including checklist",
+      "document_administration": "Documentation/Administration and summarization of email threads, documents, contract reviews in file system with creation of content description in file storage system",
+      "legal_document_creation": "Creation of legal briefs, lawsuits, responses to lawsuits, letters etc.",
+      "contract_analysis": "Review and analysis of standards (NDA, CoC, IT-GTC, DPA etc.) as well as non-standardized contracts",
+      "recurring_case_chatbot": "Small, recurring cases and questions"
+    },
+    "solutions": {
+      "damage_claim_review": "Is the damage reimbursable? Liability requirements met? Assessment of damage extent",
+      "contract_insurance_review": "Creation of checklist including marking relevant passages, preliminary review if necessary, translation",
+      "document_administration": "Automated assignment of documents to relevant files and content extraction with summary creation (automated case documentation)",
+      "legal_document_creation": "Use of research results, case summaries etc. for creation of texts in legal tone using predefined templates including from beck-online database",
+      "contract_analysis": "Automatic review and summarization including consideration of predefined rules (OTRIS AI solution)",
+      "recurring_case_chatbot": "Chatbot for routine legal questions and guidance"
+    },
+    "notes": {
+      "complexity": {
+        "damage_claim_review": "Contract review, legal liability, market values, scrap values, type of goods and function",
+        "contract_insurance_review": "Data for checklist can be easily extracted. Only insurance topics relevant, not the entire contract. Provision of insurance coverage possible",
+        "document_administration": "Low complexity because: pure reading of existing data; partly systems known that can already implement this",
+        "legal_document_creation": "Contract creation: more complex; Creation of legal briefs and processing descriptions: less complex",
+        "contract_analysis": "Medium to high: Depends on rule variety and document structure. AI must understand both legal language and specific company rules",
+        "recurring_case_chatbot": "Medium: Building internal knowledge pool, training AI on company-specific content and ongoing maintenance necessary"
+      },
+      "cost": {
+        "damage_claim_review": "Separate program required (contains confidential company data). Employee effort relatively low (reduction in workload). Cost savings in insurance & expert costs",
+        "contract_insurance_review": "Separate program required (contains confidential company data). Employee effort relatively low (reduction in workload)",
+        "document_administration": "Dependent on system landscape",
+        "legal_document_creation": "Medium to high investment costs; ongoing costs dependent on usage and API queries",
+        "contract_analysis": "Costs through OTRIS (add-on to OTRIS) relatively low, as system already exists and it's just an add-on",
+        "recurring_case_chatbot": "One-time implementation and continuous maintenance by Legal (DUV GPT could be used after implementation)"
+      },
+      "roi": {
+        "damage_claim_review": "Cost savings, time savings",
+        "contract_insurance_review": "Faster feedback to customers = improved customer satisfaction. Savings in employee effort",
+        "document_administration": "Very high through time savings in document filing, research and case processing",
+        "legal_document_creation": "Very high: significant time savings for recurring tasks (drafts, statements, internal feedback). Reduces research and formulation effort",
+        "contract_analysis": "High time savings once implemented; Creation of playbook requires increased time investment upfront",
+        "recurring_case_chatbot": "Relatively high: Relieves team from routine inquiries, reduces processing times, increases response speed"
+      },
+      "risk": {
+        "damage_claim_review": "Must be double-checked by employee. Negotiations still possible. Sometimes contains sensitive company data",
+        "contract_insurance_review": "Must be double-checked by employee to avoid coverage gaps",
+        "document_administration": "Medium risk, as only existing content is read and no new results are generated",
+        "legal_document_creation": "Medium: Risks concern content accuracy, data confidentiality in external processing and copyright. Well manageable through clear governance and manual final control",
+        "contract_analysis": "Low to medium: Low risk with internal use; external cloud solution requires data protection and security review. Risk of incorrect assessments with incomplete rules",
+        "recurring_case_chatbot": "Higher risk: Accuracy of keywords error-prone"
+      },
+      "strategic": {
+        "damage_claim_review": "Savings in external and internal personnel expenses",
+        "contract_insurance_review": "Faster customer responses = improved customer satisfaction. Savings in employee effort",
+        "document_administration": "Standardization; Reduction of administrative effort",
+        "legal_document_creation": "Automation, time savings, standardization, acceleration",
+        "contract_analysis": "Very good fit: Strengthens quality assurance, standardization and traceability. Supports digital transformation of legal department",
+        "recurring_case_chatbot": "Direct response, quick initial assessment, process acceleration"
+      }
+    }
+  },
+  "accounting": {
+    "ideas": {
+      "document_reading": "Automated Reading of Documents (Orders/Delivery Notes)",
+      "cash_forecast": "Automated Cash Forecast",
+      "chatbot_external": "Chatbot Solution for External Inquiries",
+      "ic_differences": "Automated Analysis of IC Differences"
+    },
+    "problems": {
+      "document_reading": "Manual reading of documents",
+      "cash_forecast": "Cash forecast is time-consuming due to various data sources",
+      "chatbot_external": "Creditor payment reminders and invoice inquiries require too much manual time",
+      "ic_differences": "Occurrence and subsequent clarification of IC differences"
+    },
+    "solutions": {
+      "document_reading": "Reading of transport orders, delivery notes and contracts",
+      "cash_forecast": "Automated integration of all available sources and logical evaluation",
+      "chatbot_external": "These standard inquiries could be easily answered by a chatbot",
+      "ic_differences": "Automated analysis of differences, development of solution proposals"
+    },
+    "notes": {
+      "complexity": {
+        "document_reading": "Document type must be recognized\nRelevant information must be read depending on document type\nFor contracts: checking against specified parameters\nFor invoices: pre-recording/booking\nFor leasing permanent invoices: information storage in SAP\nFor transport documents: information storage in Car_O",
+        "cash_forecast": "Read CO budget, categorize, assign\nCustomer/entrepreneur assignment\nCustomer payment behavior\nFactoring forecast depending on billing status/speed",
+        "chatbot_external": "Categorization into customers/entrepreneurs\nclear information query (reference/transport order/credit note number)\nclear response with payment date or document copy (payment run)",
+        "ic_differences": "Evaluation of Excel tables exported from LucaNet (comparison of actual figures)"
+      },
+      "cost": {
+        "document_reading": "High document volume (transport papers)",
+        "cash_forecast": "Implementation costs possibly relatively high\nongoing costs rather low due to low query intensity",
+        "chatbot_external": "Potentially higher costs due to many queries",
+        "ic_differences": "Monthly evaluation, manageable size of Excel tables"
+      },
+      "roi": {
+        "document_reading": "Staff reduction possible in many areas\nTime savings\nfaster liquidity\nhigher data quality",
+        "cash_forecast": "Liquidity necessary for corporate management",
+        "chatbot_external": "Quick responses\nCustomer satisfaction\nTransparency",
+        "ic_differences": "(manageable) reduction of internal monthly activities"
+      },
+      "risk": {
+        "document_reading": "Possible misinterpretation by AI",
+        "cash_forecast": "High complexity of different data sources",
+        "chatbot_external": "False information can be shared\nResponses may not match entrepreneur data",
+        "ic_differences": "No significant risk apparent"
+      },
+      "strategic": {
+        "document_reading": "Cost reduction in administration",
+        "cash_forecast": "Liquidity necessary for corporate management",
+        "chatbot_external": "Cost reduction in administration",
+        "ic_differences": "Unknown"
+      }
+    }
+  },
+  "central_solution_design": {
+    "ideas": {
+      "nine_am_process": "9 AM Process",
+      "ftl_precalculation": "Automated FTL Pre-calculation",
+      "subcontractor_database": "Subcontractor Database"
+    },
+    "problems": {
+      "nine_am_process": "9 AM process requires many resources (personnel, time)",
+      "ftl_precalculation": "Time-consuming",
+      "subcontractor_database": "Missing information"
+    },
+    "solutions": {
+      "nine_am_process": "Workflow for retrieving RFQs / RFIs, summarizing and filling fields in CRM via an AI agent (Tool: Dynamics) / Automatic data download",
+      "ftl_precalculation": "- Which loads are a perfect fit?\n- Current costs / Provision of cost KPIs from actual figures / Own data\n- Automatic capture of transport information from tender documents\n- Automated creation of factsheets for companies / NDA extraction\n- Correction of incorrect ZIP code entries / Plausibility check\n- Automatic scheduling for calculation alignment in Outlook\n- Pre-calculation on SharePoint",
+      "subcontractor_database": "Structured provision of information / Automated transport requests to subcontractors / Price structure etc."
+    },
+    "notes": {
+      "complexity": {
+        "nine_am_process": "Support from CRM team, agent must write to CRM / Workflow tool needs access to Outlook",
+        "ftl_precalculation": "Heavily depends on the design and scope of functionality",
+        "subcontractor_database": "Building a new table in the database, creating a new report in the reporting system"
+      },
+      "cost": {
+        "nine_am_process": "Number of tokens is manageable <1000 Euro per year / Purchase of Workflow Manager 600 Euro",
+        "ftl_precalculation": "Processing of actual data and cost KPIs must be done independently of AI. Should build on existing or planned reporting system",
+        "subcontractor_database": "Development costs in data preparation and provision / Ongoing AI costs manageable"
+      },
+      "roi": {
+        "nine_am_process": "Increased employee productivity, approx. 3 hours per day, but measurable effect on offer volume because more can be processed",
+        "ftl_precalculation": "Increases calculation reliability and improves probability of contract award",
+        "subcontractor_database": "Reduction of empty runs, resulting in better equipment utilization"
+      },
+      "risk": {
+        "nine_am_process": "Data protection? Should be clarified",
+        "ftl_precalculation": "Mostly internal process / But data protection issue",
+        "subcontractor_database": "Internal POC"
+      },
+      "strategic": {
+        "nine_am_process": "Correlates with growth goals",
+        "ftl_precalculation": "Correlates with growth goals",
+        "subcontractor_database": "Correlates with growth goals"
       }
     }
   },
@@ -513,12 +775,145 @@
     }
   },
   "modal": {
+    "overview": "Project Overview",
+    "quickOverview": "Quick Overview",
+    "owner": "Owner",
+    "priority": "Priority",
+    "finalPriority": "Final Priority",
+    "projectMetrics": "Project Analysis & Metrics",
+    "metricsDescription": "Detailed evaluation of project feasibility and impact",
+    "complexity": "Complexity",
+    "complexityDesc": "Implementation difficulty",
+    "cost": "Cost",
+    "costDesc": "Investment required",
+    "roi": "ROI",
+    "roiDesc": "Return on investment",
+    "risk": "Risk",
+    "riskDesc": "Implementation risks",
+    "strategicAlignment": "Strategic Alignment",
+    "strategicDesc": "Alignment with company strategy",
+    "projectSummary": "Project Summary",
+    "implementationComplexity": "Implementation",
+    "investmentLevel": "Investment",
+    "expectedReturn": "Expected Return",
+    "dataNotAvailable": "Data Not Available",
+    "noDataAvailable": "No data available",
+    "migrationNeeded": "Project details are not available for this department yet. Please check back after the data migration is complete.",
+    "ideaNotFound": "Idea Not Found",
+    "ideaNotFoundDesc": "The selected idea could not be found in the department's data.",
+    "additionalInformation": "Additional Information",
     "sections": {
       "problem": "Problem",
       "lösung": "Solution",
       "fragen_themen": "Questions / Topics",
       "erläuterung": "Description",
       "inhalte_antworten": "Content / Answers"
+    }
+  },
+  "esg": {
+    "ideas": {
+      "ai_text_creation": "AI-Supported Text Creation",
+      "ai_data_collection": "AI-Supported Data Collection",
+      "ai_data_processing": "AI-Supported Data Processing",
+      "automatic_customer_calculation": "Automatic Calculation + Processing of Customer Requests",
+      "automatic_co2_tracking": "Automatic Collection of All Necessary Data + CO2 Emissions Calculation"
+    },
+    "problems": {
+      "ai_text_creation": "Creating text modules for reporting.",
+      "ai_data_collection": "Creating necessary KPIs and building the data foundation",
+      "ai_data_processing": "Time-consuming creation of monthly ESG Master KPIs",
+      "automatic_customer_calculation": "Customer requests for CO2 balancing at transport level, etc.",
+      "automatic_co2_tracking": "Annual creation of Corporate Carbon Footprint (GES CO2) - Scope 3"
+    },
+    "solutions": {
+      "ai_text_creation": "Automated creation of respective ESRS text modules",
+      "ai_data_collection": "Support/automation of data collection + data quality",
+      "ai_data_processing": "Automated creation of Master KPIs through data foundation",
+      "automatic_customer_calculation": "Collection of freight letters or other parameters for calculating CO2 per transport, shipment, etc. (Shipzero tool)",
+      "automatic_co2_tracking": "Tracking, calculation, etc. of Scope 3 emissions (mostly very unclear) for e.g., employee commuting, waste, etc."
+    },
+    "notes": {
+      "complexity": {
+        "ai_text_creation": "Creation of text modules for reporting",
+        "ai_data_collection": "Automation of a variety of data",
+        "ai_data_processing": "Automation of many data points",
+        "automatic_customer_calculation": "Automation of many data points",
+        "automatic_co2_tracking": "Many unknown parameters must be collected; if not possible, standardized extrapolation must be performed"
+      },
+      "cost": {
+        "ai_text_creation": "Flat rate",
+        "ai_data_collection": "Flat rate",
+        "ai_data_processing": "Flat rate",
+        "automatic_customer_calculation": "Evaluated based on Shipzero contract",
+        "automatic_co2_tracking": "Flat rate"
+      },
+      "risk": {
+        "ai_text_creation": "Flat rate, as fixed reporting framework does not yet exist",
+        "ai_data_collection": "Flat rate, as fixed reporting framework does not yet exist",
+        "ai_data_processing": "Master KPIs for internal use",
+        "automatic_customer_calculation": "Missing or incorrect values could affect customer relationships",
+        "automatic_co2_tracking": "Missing or incorrectly calculated values can influence CO2 balancing"
+      },
+      "strategic": {
+        "ai_text_creation": "Legal requirement",
+        "ai_data_collection": "Legal requirement",
+        "ai_data_processing": "Important for ESG strategy",
+        "automatic_customer_calculation": "Certification necessary, also strategically important for a variety of stakeholders",
+        "automatic_co2_tracking": "Contributes to the above legal requirements"
+      }
+    }
+  },
+  "hr": {
+    "ideas": {
+      "hr_data_dashboard": "HR Data Dashboard/KPI Reporting",
+      "employee_information_dashboard": "Employee Information Dashboard",
+      "hr_agent": "HR Agent for Questions",
+      "vacation_management": "Vacation Management",
+      "email_prioritization": "Email Prioritization"
+    },
+    "problems": {
+      "hr_data_dashboard": "Data (master data & KPIs) must be retrieved from various systems and centrally consolidated and delivered to various stakeholders and shareholders.",
+      "employee_information_dashboard": "Gather information about an employee as a decision basis for any personnel measures. All necessary information for next steps must be retrieved from different systems (payroll system, personnel file, time information system, transfer matrix, etc.).",
+      "hr_agent": "Employees often don't have quick answers to HR questions.",
+      "vacation_management": "Vacation: Employee vacation requests regarding remaining vacation balance, all vacation requests via D3 (in GER) are manually entered into the time information program, vacation requests from D3 need to be incorporated into the work schedule",
+      "email_prioritization": "Prioritization of emails in Outlook, automatic reminders for unprocessed emails"
+    },
+    "solutions": {
+      "hr_data_dashboard": "AI workflow for querying master data and defined KPIs and merging/consolidating as well as providing as reports and live dashboard",
+      "employee_information_dashboard": "Compilation of all important employee information in one overview",
+      "hr_agent": "An HR agent provides immediate information on HR topics.",
+      "vacation_management": "Determination of current vacation balances, automated transmission to employees. Digital vacation requests must be automatically considered in the work schedule. The system captures approved vacation requests from D3 into the time recording program",
+      "email_prioritization": "Email evaluation, response suggestions in connection with Duvenbeck-specific knowledge, email reminders, prioritization"
+    },
+    "notes": {
+      "complexity": {
+        "hr_data_dashboard": "very complicated due to different specificities of country, business unit, locations, systems and payroll providers, plus complexity in data harmonization, probably not all data is currently available in the systems or in different places",
+        "employee_information_dashboard": "very complicated due to different specificities of country, business unit, locations, systems and payroll providers, probably not all data is currently available in the systems or in different places",
+        "hr_agent": "country-specific containers must be filled, possibly automatically filled, legal reliability, differences within a country (locations, collective bargaining), filling legal HR topics possible provider Haufe (for Germany)",
+        "vacation_management": "very complicated due to different specificities of country, business unit, locations, systems and payroll providers, plus complexity in data harmonization, probably not all data is currently available in the systems or in different places",
+        "email_prioritization": "Complexity lies in training Duvenbeck-specific knowledge"
+      },
+      "cost": {
+        "hr_data_dashboard": "High costs when setting up the systems, later regarding running costs no high costs expected",
+        "employee_information_dashboard": "High costs when setting up the systems, later regarding running costs no high costs expected",
+        "hr_agent": "annual license costs for different country-specific providers, consider different language packages (countries but also driver personnel within a country)",
+        "vacation_management": "High costs when setting up the systems, later regarding running costs no high costs expected",
+        "email_prioritization": "Costs for local hosting, one-time costs for building the workflow, possibly server costs"
+      },
+      "risk": {
+        "hr_data_dashboard": "due to personal data",
+        "employee_information_dashboard": "due to personal data",
+        "hr_agent": "rather low risk, as HR controls the content",
+        "vacation_management": "due to personal data",
+        "email_prioritization": "Prerequisite: local hosting, in this case personal data is protected"
+      },
+      "strategic": {
+        "hr_data_dashboard": "corresponds to Duvenbeck's strategic alignment",
+        "employee_information_dashboard": "corresponds to Duvenbeck's strategic alignment",
+        "hr_agent": "Productivity increase, should refer to a digitalization strategy",
+        "vacation_management": "Productivity increase, should refer to a digitalization strategy",
+        "email_prioritization": "Digitalization strategy"
+      }
     }
   },
   "common": {

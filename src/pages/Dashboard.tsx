@@ -98,10 +98,33 @@ export const Dashboard = () => {
 
         deptFiles.forEach(([_, module]) => {
           // Define a type for the expected module structure
-          type IdeasModule = { ideas?: Record<string, unknown> };
+          type IdeasModule = {
+            ideas?:
+              | Record<string, unknown>
+              | Array<{ finalPrio?: string | number; ideaKey?: string }>;
+          };
           const ideas = (module as IdeasModule).ideas;
+
+          // Check for new format first (structured ideas array)
+          if (Array.isArray(ideas)) {
+            const validIdeas = ideas.filter(
+              (item) =>
+                item &&
+                typeof item === "object" &&
+                "ideaKey" in item &&
+                item.ideaKey
+            );
+            const count = validIdeas.length;
+            ideasByDept[dept] = (ideasByDept[dept] || 0) + count;
+            totalIdeasCount += count;
+            return; // Skip old format processing
+          }
+
+          // Fall back to old format (Priorisierungsmatrix)
           if (
-            ideas?.Priorisierungsmatrix &&
+            ideas &&
+            typeof ideas === "object" &&
+            "Priorisierungsmatrix" in ideas &&
             Array.isArray(ideas.Priorisierungsmatrix)
           ) {
             // Count ideas from the Priorisierungsmatrix

@@ -13,7 +13,7 @@ export interface Participant {
 }
 
 export interface DepartmentData {
-  [key: string]: any[];
+  [key: string]: Record<string, unknown>[];
 }
 
 export interface Idea {
@@ -33,24 +33,28 @@ export interface TranslatedString {
   en: string;
 }
 
-export interface MatrixRow {
-  id: string;
-  source: string;
-  idea: TranslatedString;
-  problem: TranslatedString;
-  solution: TranslatedString;
+// Union type to handle both old format (TranslatedString) and new format (translation key)
+export type LocalizableString = TranslatedString | string;
+
+// Removed old MatrixRow interface - focusing on NewFormatIdea only
+
+// New interface for the modern data structure using translation keys
+export interface NewFormatIdea {
+  finalPrio: string | number;
+  ideaKey: string;
+  problemKey: string;
+  solutionKey: string;
   owner: string;
   priority: string;
   complexity: number;
-  explanation: TranslatedString;
+  complexityNoteKey?: string;
   cost: number;
-  costExplanation: TranslatedString;
+  costNoteKey?: string;
   roi: number;
-  roiExplanation: TranslatedString;
+  roiNote?: string; // Legacy field still sometimes used
+  roiNoteKey?: string;
   risk: number;
-  riskExplanation: TranslatedString;
+  riskNoteKey?: string;
   strategicAlignment: number;
-  strategyExplanation: TranslatedString;
-  finalPriority: string | number;
-  weightedScore: number;
+  strategicNoteKey?: string;
 }
