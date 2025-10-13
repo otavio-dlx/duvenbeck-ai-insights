@@ -916,6 +916,145 @@
       }
     }
   },
+  "priorityAnalysis": {
+    "title": "Priority Calculator",
+    "subtitle": "Interactive priority calculator based on the official Duvenbeck scoring matrix. Adjust weighting criteria to perform sensitivity analysis and identify the most strategic AI initiatives across all departments.",
+    "backToDashboard": "Back to Dashboard",
+    "howToUse": "How to Use the Calculator",
+    "instructions": "Adjust the weighting sliders above to reflect your strategic priorities. The ranking will update automatically to show which initiatives align best with your chosen criteria. Use the scenario buttons for common prioritization approaches.",
+    "calculator": {
+      "title": "Interactive Priority Calculator",
+      "subtitle": "Adjust weighting criteria to see how AI initiative priorities change in real-time. Based on the official Duvenbeck scoring matrix.",
+      "reset": "Reset",
+      "exportCsv": "Export CSV",
+      "weightConfiguration": "Weight Configuration",
+      "total": "Total",
+      "mustEqual100": "Must equal 100%",
+      "predefinedScenarios": "Predefined Scenarios",
+      "selectScenario": "Select a scenario",
+      "customWeights": "Custom Weights",
+      "complexity": "Complexity",
+      "cost": "Cost",
+      "roi": "ROI",
+      "risk": "Risk",
+      "strategicAlignment": "Strategic Alignment"
+    },
+    "tabs": {
+      "rankings": "Rankings",
+      "breakdown": "Detailed Breakdown",
+      "scenarios": "Scenario Comparison"
+    },
+    "rankings": {
+      "title": "Priority Rankings",
+      "subtitle": "Ideas ranked by current weighting configuration",
+      "rank": "Rank",
+      "aiInitiative": "AI Initiative",
+      "department": "Department",
+      "score": "Score",
+      "category": "Category",
+      "change": "Change"
+    },
+    "breakdown": {
+      "title": "Detailed Scoring Breakdown",
+      "subtitle": "Individual criterion scores and weighted contributions",
+      "initiative": "Initiative",
+      "total": "Total"
+    },
+    "scenarioComparison": {
+      "title": "Scenario Comparison",
+      "subtitle": "Compare top 5 initiatives across different weighting scenarios"
+    },
+    "categories": {
+      "topPriority": "Top Priority",
+      "highPriority": "High Priority",
+      "mediumPriority": "Medium Priority",
+      "lowPriority": "Low Priority"
+    },
+    "modal": {
+      "analysisTitle": "Priority Calculator Analysis",
+      "sourceDepartment": "Source Department",
+      "originatingUnit": "Originating Business Unit",
+      "initiativeOwner": "Initiative Owner",
+      "projectSponsor": "Project Sponsor",
+      "submissionDate": "Submission Date",
+      "workshopDate": "October 6-8, 2025",
+      "workshopSession": "AI Workshop Session",
+      "problemSolutionDef": "Problem & Solution Definition",
+      "problemStatement": "Problem Statement:",
+      "proposedSolution": "Proposed AI Solution:",
+      "scoringRationale": "Detailed Scoring Rationale",
+      "technicalComplexity": "Technical Complexity",
+      "investmentRequired": "Investment Required",
+      "expectedRoi": "Expected ROI",
+      "riskAssessment": "Risk Assessment",
+      "strategicFit": "Strategic Fit",
+      "assessment": "Assessment",
+      "estimatedInvestment": "Estimated Investment",
+      "businessImpact": "Business Impact",
+      "riskFactors": "Risk Factors",
+      "workshopContext": "Workshop Context",
+      "workshopDescription": "This initiative was identified during Duvenbeck's AI Workshop sessions (October 6-8, 2025) where department heads and key stakeholders collaborated to identify AI opportunities across the organization. The scoring reflects collective assessment by domain experts and strategic leadership.",
+      "aiInitiativeFallback": "AI Initiative",
+      "aiPoweredSolution": "AI-powered {name} utilizing machine learning algorithms to automate and optimize the identified processes.",
+      "complexityLevels": {
+        "low": "Low complexity - can leverage existing tools and infrastructure with minimal custom development.",
+        "moderate": "Moderate complexity - requires some custom development but uses standard AI/ML approaches.",
+        "high": "High complexity - requires significant custom development, integration challenges, or novel AI approaches.",
+        "veryHigh": "Very high complexity - cutting-edge AI research required, significant technical risks and integration challenges."
+      },
+      "costLevels": {
+        "low": "Low cost (< €50k) - primarily configuration and training costs.",
+        "moderate": "Moderate cost (€50k-200k) - includes software licenses, development, and implementation.",
+        "high": "High cost (€200k-500k) - significant development, infrastructure, and change management costs.",
+        "veryHigh": "Very high cost (> €500k) - major enterprise-scale implementation with extensive customization."
+      },
+      "roiLevels": {
+        "exceptional": "Exceptional ROI (€100k+ annually) - major process improvements, significant cost savings, or new revenue streams.",
+        "high": "High ROI (€50k-100k annually) - measurable efficiency gains and cost reductions.",
+        "moderate": "Moderate ROI (€25k-50k annually) - process improvements with quantifiable benefits.",
+        "low": "Low ROI (€10k-25k annually) - limited quantifiable benefits, mostly qualitative improvements.",
+        "minimal": "Minimal ROI (< €10k annually) - primarily strategic or compliance-driven initiative."
+      },
+      "riskLevels": {
+        "low": "Low risk - proven technology, clear implementation path, minimal business disruption.",
+        "moderate": "Moderate risk - standard implementation risks, manageable with proper planning.",
+        "high": "High risk - technical uncertainties, potential business disruption, or regulatory concerns.",
+        "veryHigh": "Very high risk - unproven technology, significant business impact, or major compliance implications."
+      },
+      "strategicLevels": {
+        "high": "High alignment - directly supports key strategic objectives and digital transformation goals.",
+        "moderate": "Moderate alignment - supports departmental goals and overall business strategy.",
+        "low": "Low alignment - peripheral to main strategic objectives, primarily operational benefits.",
+        "poor": "Poor alignment - limited connection to strategic goals, primarily tactical initiative."
+      }
+    },
+    "initiatives": {
+      "warehouse_automation": {
+        "name": "Warehouse Process Automation",
+        "description": "AI-powered warehouse management with automated sorting and inventory tracking"
+      },
+      "compliance_damage_claim_automation": {
+        "name": "Damage Claim Processing Automation",
+        "description": "Automated damage claim review and assessment using AI image recognition and natural language processing"
+      },
+      "fleet_predictive_maintenance": {
+        "name": "Predictive Fleet Maintenance",
+        "description": "IoT and AI system to predict vehicle maintenance needs and prevent breakdowns"
+      },
+      "finance_invoice_processing": {
+        "name": "Intelligent Invoice Processing",
+        "description": "Automated invoice processing and accounts payable management using OCR and ML"
+      },
+      "route_optimization": {
+        "name": "Dynamic Route Optimization",
+        "description": "Real-time route optimization using traffic data, weather conditions, and delivery constraints"
+      },
+      "customer_service_chatbot": {
+        "name": "Customer Service Automation",
+        "description": "AI-powered customer service chatbot for handling inquiries and support requests"
+      }
+    }
+  },
   "common": {
     "day1": "Day 1 (Oct 6)",
     "day2": "Day 2 (Oct 7)",

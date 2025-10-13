@@ -3,9 +3,11 @@ import { InteractivePriorityCalculator } from "@/components/InteractivePriorityC
 import { Button } from "@/components/ui/button";
 import { getAllIdeasForCalculator } from "@/lib/data-mapper";
 import { ArrowLeft } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export default function PriorityAnalysisPage() {
+  const { t } = useTranslation();
   // Get all ideas from all departments
   const allIdeas = getAllIdeasForCalculator();
 
@@ -19,7 +21,7 @@ export default function PriorityAnalysisPage() {
           <Link to="/">
             <Button variant="outline" size="sm" className="gap-2">
               <ArrowLeft className="h-4 w-4" />
-              Back to Dashboard
+              {t("priorityAnalysis.backToDashboard")}
             </Button>
           </Link>
         </div>
@@ -27,13 +29,10 @@ export default function PriorityAnalysisPage() {
         {/* Page Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-foreground mb-2">
-            Priority Calculator
+            {t("priorityAnalysis.title")}
           </h1>
           <p className="text-muted-foreground max-w-4xl">
-            Interactive priority calculator based on the official Duvenbeck
-            scoring matrix. Adjust weighting criteria to perform sensitivity
-            analysis and identify the most strategic AI initiatives across all
-            departments.
+            {t("priorityAnalysis.subtitle")}
           </p>
         </div>
 
@@ -44,13 +43,10 @@ export default function PriorityAnalysisPage() {
         <div className="mt-8">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
             <h3 className="font-medium text-blue-900 mb-2">
-              How to Use the Calculator
+              {t("priorityAnalysis.howToUse")}
             </h3>
             <p className="text-sm text-blue-700">
-              Adjust the weighting sliders above to reflect your strategic
-              priorities. The ranking will update automatically to show which
-              initiatives align best with your chosen criteria. Use the scenario
-              buttons for common prioritization approaches.
+              {t("priorityAnalysis.instructions")}
             </p>
           </div>
         </div>

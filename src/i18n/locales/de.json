@@ -840,6 +840,145 @@
       }
     }
   },
+  "priorityAnalysis": {
+    "title": "Prioritäts-Rechner",
+    "subtitle": "Interaktiver Prioritäts-Rechner basierend auf der offiziellen Duvenbeck Bewertungsmatrix. Passen Sie die Gewichtungskriterien an, um Sensitivitätsanalysen durchzuführen und die strategischsten AI-Initiativen aller Abteilungen zu identifizieren.",
+    "backToDashboard": "Zurück zum Dashboard",
+    "howToUse": "Bedienungsanleitung",
+    "instructions": "Passen Sie die Gewichtungsregler oben an, um Ihre strategischen Prioritäten widerzuspiegeln. Das Ranking wird automatisch aktualisiert, um zu zeigen, welche Initiativen am besten zu Ihren gewählten Kriterien passen. Verwenden Sie die Szenario-Schaltflächen für gängige Priorisierungsansätze.",
+    "calculator": {
+      "title": "Interaktiver Prioritäts-Rechner",
+      "subtitle": "Passen Sie die Gewichtungskriterien an, um zu sehen, wie sich die Prioritäten der AI-Initiativen in Echtzeit ändern. Basierend auf der offiziellen Duvenbeck Bewertungsmatrix.",
+      "reset": "Zurücksetzen",
+      "exportCsv": "CSV exportieren",
+      "weightConfiguration": "Gewichtungskonfiguration",
+      "total": "Gesamt",
+      "mustEqual100": "Muss 100% entsprechen",
+      "predefinedScenarios": "Vordefinierte Szenarien",
+      "selectScenario": "Szenario auswählen",
+      "customWeights": "Benutzerdefinierte Gewichtung",
+      "complexity": "Komplexität",
+      "cost": "Kosten",
+      "roi": "ROI",
+      "risk": "Risiko",
+      "strategicAlignment": "Strategische Ausrichtung"
+    },
+    "tabs": {
+      "rankings": "Rangliste",
+      "breakdown": "Detaillierte Aufschlüsselung",
+      "scenarios": "Szenario-Vergleich"
+    },
+    "rankings": {
+      "title": "Prioritäts-Rangliste",
+      "subtitle": "Nach aktueller Gewichtungskonfiguration sortierte Ideen",
+      "rank": "Rang",
+      "aiInitiative": "AI-Initiative",
+      "department": "Abteilung",
+      "score": "Punkte",
+      "category": "Kategorie",
+      "change": "Änderung"
+    },
+    "breakdown": {
+      "title": "Detaillierte Bewertungsaufschlüsselung",
+      "subtitle": "Individuelle Kriterien-Bewertungen und gewichtete Beiträge",
+      "initiative": "Initiative",
+      "total": "Gesamt"
+    },
+    "scenarioComparison": {
+      "title": "Szenario-Vergleich",
+      "subtitle": "Vergleichen Sie die Top-5-Initiativen verschiedener Gewichtungsszenarien"
+    },
+    "categories": {
+      "topPriority": "Höchste Priorität",
+      "highPriority": "Hohe Priorität",
+      "mediumPriority": "Mittlere Priorität",
+      "lowPriority": "Niedrige Priorität"
+    },
+    "modal": {
+      "analysisTitle": "Prioritäts-Rechner-Analyse",
+      "sourceDepartment": "Quell-Abteilung",
+      "originatingUnit": "Ursprüngliche Geschäftseinheit",
+      "initiativeOwner": "Initiative-Eigentümer",
+      "projectSponsor": "Projekt-Sponsor",
+      "submissionDate": "Einreichungsdatum",
+      "workshopDate": "6.-8. Oktober 2025",
+      "workshopSession": "KI-Workshop-Sitzung",
+      "problemSolutionDef": "Problem- & Lösungsdefinition",
+      "problemStatement": "Problemstellung:",
+      "proposedSolution": "Vorgeschlagene KI-Lösung:",
+      "scoringRationale": "Detaillierte Bewertungslogik",
+      "technicalComplexity": "Technische Komplexität",
+      "investmentRequired": "Erforderliche Investition",
+      "expectedRoi": "Erwarteter ROI",
+      "riskAssessment": "Risikobewertung",
+      "strategicFit": "Strategische Passgenauigkeit",
+      "assessment": "Bewertung",
+      "estimatedInvestment": "Geschätzte Investition",
+      "businessImpact": "Geschäftsauswirkung",
+      "riskFactors": "Risikofaktoren",
+      "workshopContext": "Workshop-Kontext",
+      "workshopDescription": "Diese Initiative wurde während der Duvenbeck KI-Workshop-Sitzungen (6.-8. Oktober 2025) identifiziert, bei denen Abteilungsleiter und wichtige Stakeholder zusammenarbeiteten, um KI-Möglichkeiten in der gesamten Organisation zu identifizieren. Die Bewertung spiegelt die kollektive Einschätzung von Fachexperten und strategischer Führung wider.",
+      "aiInitiativeFallback": "KI-Initiative",
+      "aiPoweredSolution": "KI-gestützte {name} unter Verwendung von Machine-Learning-Algorithmen zur Automatisierung und Optimierung der identifizierten Prozesse.",
+      "complexityLevels": {
+        "low": "Geringe Komplexität - kann vorhandene Tools und Infrastruktur mit minimaler kundenspezifischer Entwicklung nutzen.",
+        "moderate": "Mittlere Komplexität - erfordert einige kundenspezifische Entwicklung, verwendet aber standardmäßige KI/ML-Ansätze.",
+        "high": "Hohe Komplexität - erfordert erhebliche kundenspezifische Entwicklung, Integrationsherausforderungen oder neuartige KI-Ansätze.",
+        "veryHigh": "Sehr hohe Komplexität - modernste KI-Forschung erforderlich, erhebliche technische Risiken und Integrationsherausforderungen."
+      },
+      "costLevels": {
+        "low": "Geringe Kosten (< €50k) - hauptsächlich Konfigurations- und Schulungskosten.",
+        "moderate": "Mittlere Kosten (€50k-200k) - beinhaltet Softwarelizenzen, Entwicklung und Implementierung.",
+        "high": "Hohe Kosten (€200k-500k) - erhebliche Entwicklungs-, Infrastruktur- und Change-Management-Kosten.",
+        "veryHigh": "Sehr hohe Kosten (> €500k) - große unternehmensweite Implementierung mit umfangreicher Anpassung."
+      },
+      "roiLevels": {
+        "exceptional": "Außergewöhnlicher ROI (€100k+ jährlich) - große Prozessverbesserungen, erhebliche Kosteneinsparungen oder neue Einnahmequellen.",
+        "high": "Hoher ROI (€50k-100k jährlich) - messbare Effizienzgewinne und Kostensenkungen.",
+        "moderate": "Mittlerer ROI (€25k-50k jährlich) - Prozessverbesserungen mit quantifizierbaren Vorteilen.",
+        "low": "Geringer ROI (€10k-25k jährlich) - begrenzte quantifizierbare Vorteile, hauptsächlich qualitative Verbesserungen.",
+        "minimal": "Minimaler ROI (< €10k jährlich) - hauptsächlich strategische oder compliance-getriebene Initiative."
+      },
+      "riskLevels": {
+        "low": "Geringes Risiko - bewährte Technologie, klarer Implementierungspfad, minimale Geschäftsunterbrechung.",
+        "moderate": "Mittleres Risiko - Standard-Implementierungsrisiken, mit ordentlicher Planung beherrschbar.",
+        "high": "Hohes Risiko - technische Unsicherheiten, potenzielle Geschäftsunterbrechung oder regulatorische Bedenken.",
+        "veryHigh": "Sehr hohes Risiko - unerprobte Technologie, erhebliche Geschäftsauswirkungen oder große Compliance-Auswirkungen."
+      },
+      "strategicLevels": {
+        "high": "Hohe Ausrichtung - unterstützt direkt wichtige strategische Ziele und digitale Transformationsziele.",
+        "moderate": "Mittlere Ausrichtung - unterstützt Abteilungsziele und die Gesamtgeschäftsstrategie.",
+        "low": "Geringe Ausrichtung - peripher zu den Hauptstrategiezielen, hauptsächlich operative Vorteile.",
+        "poor": "Schlechte Ausrichtung - begrenzte Verbindung zu strategischen Zielen, hauptsächlich taktische Initiative."
+      }
+    },
+    "initiatives": {
+      "warehouse_automation": {
+        "name": "Lager-Prozess-Automatisierung",
+        "description": "KI-gestütztes Lagermanagement mit automatisierter Sortierung und Bestandsverfolgung"
+      },
+      "compliance_damage_claim_automation": {
+        "name": "Schadensmeldungsbearbeitung-Automatisierung",
+        "description": "Automatisierte Schadensmeldungsüberprüfung und -bewertung mittels KI-Bilderkennung und natürlicher Sprachverarbeitung"
+      },
+      "fleet_predictive_maintenance": {
+        "name": "Prädiktive Fuhrpark-Wartung",
+        "description": "IoT- und KI-System zur Vorhersage von Fahrzeug-Wartungsbedarf und Pannenvermeidung"
+      },
+      "finance_invoice_processing": {
+        "name": "Intelligente Rechnungsbearbeitung",
+        "description": "Automatisierte Rechnungsbearbeitung und Kreditorenbuchhaltung mittels OCR und ML"
+      },
+      "route_optimization": {
+        "name": "Dynamische Routenoptimierung",
+        "description": "Echtzeitoptimierung von Routen unter Verwendung von Verkehrsdaten, Wetterbedingungen und Lieferbeschränkungen"
+      },
+      "customer_service_chatbot": {
+        "name": "Kundenservice-Automatisierung",
+        "description": "KI-gestützter Kundenservice-Chatbot zur Bearbeitung von Anfragen und Support-Requests"
+      }
+    }
+  },
   "common": {
     "day1": "Tag 1 (6. Okt)",
     "day2": "Tag 2 (7. Okt)",

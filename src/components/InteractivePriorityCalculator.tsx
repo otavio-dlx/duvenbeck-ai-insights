@@ -51,6 +51,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface InteractivePriorityCalculatorProps {
   ideas: Array<{
@@ -64,7 +65,94 @@ interface InteractivePriorityCalculatorProps {
 
 export function InteractivePriorityCalculator({
   ideas,
-}: InteractivePriorityCalculatorProps) {
+}: Readonly<InteractivePriorityCalculatorProps>) {
+  const { t } = useTranslation();
+
+  // Helper function to translate categories
+  const translateCategory = (category: string) => {
+    switch (category) {
+      case "Top Priority":
+        return t("priorityAnalysis.categories.topPriority");
+      case "High Priority":
+        return t("priorityAnalysis.categories.highPriority");
+      case "Medium Priority":
+        return t("priorityAnalysis.categories.mediumPriority");
+      case "Low Priority":
+        return t("priorityAnalysis.categories.lowPriority");
+      default:
+        return category;
+    }
+  };
+
+  // Helper function to get complexity assessment
+  const getComplexityAssessment = (score: number) => {
+    if (score >= 4) return t("priorityAnalysis.modal.complexityLevels.low");
+    if (score >= 3)
+      return t("priorityAnalysis.modal.complexityLevels.moderate");
+    if (score >= 2) return t("priorityAnalysis.modal.complexityLevels.high");
+    return t("priorityAnalysis.modal.complexityLevels.veryHigh");
+  };
+
+  // Helper function to get cost assessment
+  const getCostAssessment = (score: number) => {
+    if (score >= 4) return t("priorityAnalysis.modal.costLevels.low");
+    if (score >= 3) return t("priorityAnalysis.modal.costLevels.moderate");
+    if (score >= 2) return t("priorityAnalysis.modal.costLevels.high");
+    return t("priorityAnalysis.modal.costLevels.veryHigh");
+  };
+
+  // Helper function to get ROI assessment
+  const getRoiAssessment = (score: number) => {
+    if (score >= 5) return t("priorityAnalysis.modal.roiLevels.exceptional");
+    if (score >= 4) return t("priorityAnalysis.modal.roiLevels.high");
+    if (score >= 3) return t("priorityAnalysis.modal.roiLevels.moderate");
+    if (score >= 2) return t("priorityAnalysis.modal.roiLevels.low");
+    return t("priorityAnalysis.modal.roiLevels.minimal");
+  };
+
+  // Helper function to get risk assessment
+  const getRiskAssessment = (score: number) => {
+    if (score >= 4) return t("priorityAnalysis.modal.riskLevels.low");
+    if (score >= 3) return t("priorityAnalysis.modal.riskLevels.moderate");
+    if (score >= 2) return t("priorityAnalysis.modal.riskLevels.high");
+    return t("priorityAnalysis.modal.riskLevels.veryHigh");
+  };
+
+  // Helper function to get strategic alignment assessment
+  const getStrategicAssessment = (score: number) => {
+    if (score >= 4) return t("priorityAnalysis.modal.strategicLevels.high");
+    if (score >= 3) return t("priorityAnalysis.modal.strategicLevels.moderate");
+    if (score >= 2) return t("priorityAnalysis.modal.strategicLevels.low");
+    return t("priorityAnalysis.modal.strategicLevels.poor");
+  };
+
+  // Helper functions to get translated initiative names and descriptions
+  const getTranslatedInitiativeName = (
+    ideaId: string,
+    fallbackName: string
+  ) => {
+    const translationKey = `priorityAnalysis.initiatives.${ideaId}.name`;
+    const translated = t(translationKey);
+    // If translation key doesn't exist, t() returns the key itself
+    return translated !== translationKey ? translated : fallbackName;
+  };
+
+  const getTranslatedInitiativeDescription = (
+    ideaId: string,
+    fallbackDescription: string,
+    initiativeName: string
+  ) => {
+    const translationKey = `priorityAnalysis.initiatives.${ideaId}.description`;
+    const translated = t(translationKey);
+    // If translation key doesn't exist, t() returns the key itself
+    if (translated !== translationKey) {
+      return translated;
+    }
+    // If no specific translation exists, use the AI-powered solution pattern
+    return t("priorityAnalysis.modal.aiPoweredSolution", {
+      name: initiativeName.toLowerCase(),
+    });
+  };
   const [weights, setWeights] = useState<WeightingConfig>(
     DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS
   );
@@ -138,24 +226,31 @@ export function InteractivePriorityCalculator({
 
   // Export results
   const exportResults = () => {
+    const csvHeaders = [
+      t("priorityAnalysis.rankings.rank"),
+      t("priorityAnalysis.rankings.aiInitiative"),
+      t("priorityAnalysis.rankings.department"),
+      t("priorityAnalysis.breakdown.total"),
+      t("priorityAnalysis.rankings.category"),
+      t("priorityAnalysis.calculator.complexity"),
+      t("priorityAnalysis.calculator.cost"),
+      t("priorityAnalysis.calculator.roi"),
+      t("priorityAnalysis.calculator.risk"),
+      t("priorityAnalysis.calculator.strategicAlignment"),
+    ];
+
     const csvContent = [
-      [
-        "Rank",
-        "Idea",
-        "Department",
-        "Final Score",
-        "Category",
-        "Complexity",
-        "Cost",
-        "ROI",
-        "Risk",
-        "Strategic Alignment",
-      ].join(","),
-      ...currentRankings.map((result) =>
-        [
+      csvHeaders.join(","),
+      ...currentRankings.map((result) => {
+        const idea = ideas.find((idea) => idea.id === result.id);
+        return [
           result.rank,
-          `"${result.name}"`,
-          ideas.find((idea) => idea.id === result.id)?.department || "",
+          `"${
+            idea
+              ? getTranslatedInitiativeName(idea.id, result.name)
+              : result.name
+          }"`,
+          idea?.department || "",
           result.finalScore,
           result.category,
           result.breakdown.complexity.score,
@@ -163,8 +258,8 @@ export function InteractivePriorityCalculator({
           result.breakdown.roi.score,
           result.breakdown.risk.score,
           result.breakdown.strategicAlignment.score,
-        ].join(",")
-      ),
+        ].join(",");
+      }),
     ].join("\n");
 
     const blob = new Blob([csvContent], { type: "text/csv" });
@@ -200,21 +295,20 @@ export function InteractivePriorityCalculator({
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center justify-between">
-            <span>Interactive Priority Calculator</span>
+            <span>{t("priorityAnalysis.calculator.title")}</span>
             <div className="flex gap-2">
               <Button variant="outline" size="sm" onClick={resetWeights}>
                 <RotateCcw className="h-4 w-4 mr-2" />
-                Reset
+                {t("priorityAnalysis.calculator.reset")}
               </Button>
               <Button variant="outline" size="sm" onClick={exportResults}>
                 <Download className="h-4 w-4 mr-2" />
-                Export CSV
+                {t("priorityAnalysis.calculator.exportCsv")}
               </Button>
             </div>
           </CardTitle>
           <CardDescription>
-            Adjust weighting criteria to see how AI initiative priorities change
-            in real-time. Based on the official Duvenbeck scoring matrix.
+            {t("priorityAnalysis.calculator.subtitle")}
           </CardDescription>
         </CardHeader>
       </Card>
@@ -224,12 +318,15 @@ export function InteractivePriorityCalculator({
         <div className="lg:col-span-1">
           <Card>
             <CardHeader>
-              <CardTitle>Weight Configuration</CardTitle>
+              <CardTitle>
+                {t("priorityAnalysis.calculator.weightConfiguration")}
+              </CardTitle>
               <CardDescription>
-                Total: {Math.round(totalWeight)}%
+                {t("priorityAnalysis.calculator.total")}:{" "}
+                {Math.round(totalWeight)}%
                 {Math.abs(totalWeight - 100) > 0.1 && (
                   <Badge variant="destructive" className="ml-2">
-                    Must equal 100%
+                    {t("priorityAnalysis.calculator.mustEqual100")}
                   </Badge>
                 )}
               </CardDescription>
@@ -238,17 +335,23 @@ export function InteractivePriorityCalculator({
               {/* Scenario Selector */}
               <div>
                 <label className="text-sm font-medium mb-2 block">
-                  Predefined Scenarios
+                  {t("priorityAnalysis.calculator.predefinedScenarios")}
                 </label>
                 <Select
                   value={selectedScenario}
                   onValueChange={handleScenarioChange}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a scenario" />
+                    <SelectValue
+                      placeholder={t(
+                        "priorityAnalysis.calculator.selectScenario"
+                      )}
+                    />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="custom">Custom Weights</SelectItem>
+                    <SelectItem value="custom">
+                      {t("priorityAnalysis.calculator.customWeights")}
+                    </SelectItem>
                     {scenarios.map((scenario) => (
                       <SelectItem key={scenario.name} value={scenario.name}>
                         {scenario.name}
@@ -320,13 +423,13 @@ export function InteractivePriorityCalculator({
           <Tabs defaultValue="rankings" className="w-full">
             <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="rankings" className="cursor-pointer">
-                Rankings
+                {t("priorityAnalysis.tabs.rankings")}
               </TabsTrigger>
               <TabsTrigger value="breakdown" className="cursor-pointer">
-                Detailed Breakdown
+                {t("priorityAnalysis.tabs.breakdown")}
               </TabsTrigger>
               <TabsTrigger value="scenarios" className="cursor-pointer">
-                Scenario Comparison
+                {t("priorityAnalysis.tabs.scenarios")}
               </TabsTrigger>
             </TabsList>
 
@@ -334,21 +437,33 @@ export function InteractivePriorityCalculator({
             <TabsContent value="rankings">
               <Card>
                 <CardHeader>
-                  <CardTitle>Priority Rankings</CardTitle>
+                  <CardTitle>{t("priorityAnalysis.rankings.title")}</CardTitle>
                   <CardDescription>
-                    Ideas ranked by current weighting configuration
+                    {t("priorityAnalysis.rankings.subtitle")}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Table>
                     <TableHeader>
                       <TableRow>
-                        <TableHead className="w-12">Rank</TableHead>
-                        <TableHead>AI Initiative</TableHead>
-                        <TableHead>Department</TableHead>
-                        <TableHead>Score</TableHead>
-                        <TableHead>Category</TableHead>
-                        <TableHead className="w-12">Change</TableHead>
+                        <TableHead className="w-12">
+                          {t("priorityAnalysis.rankings.rank")}
+                        </TableHead>
+                        <TableHead>
+                          {t("priorityAnalysis.rankings.aiInitiative")}
+                        </TableHead>
+                        <TableHead>
+                          {t("priorityAnalysis.rankings.department")}
+                        </TableHead>
+                        <TableHead>
+                          {t("priorityAnalysis.rankings.score")}
+                        </TableHead>
+                        <TableHead>
+                          {t("priorityAnalysis.rankings.category")}
+                        </TableHead>
+                        <TableHead className="w-12">
+                          {t("priorityAnalysis.rankings.change")}
+                        </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
@@ -366,12 +481,21 @@ export function InteractivePriorityCalculator({
                             <TableCell>
                               <div>
                                 <div className="font-medium flex items-center gap-2">
-                                  {result.name}
+                                  {idea
+                                    ? getTranslatedInitiativeName(
+                                        idea.id,
+                                        result.name
+                                      )
+                                    : result.name}
                                   <ExternalLink className="h-3 w-3 text-muted-foreground" />
                                 </div>
                                 {idea?.description && (
                                   <div className="text-sm text-muted-foreground line-clamp-2">
-                                    {idea.description}
+                                    {getTranslatedInitiativeDescription(
+                                      idea.id,
+                                      idea.description,
+                                      idea.name
+                                    )}
                                   </div>
                                 )}
                               </div>
@@ -404,7 +528,7 @@ export function InteractivePriorityCalculator({
                                     : "destructive"
                                 }
                               >
-                                {result.category}
+                                {translateCategory(result.category)}
                               </Badge>
                             </TableCell>
                             <TableCell>
@@ -423,96 +547,122 @@ export function InteractivePriorityCalculator({
             <TabsContent value="breakdown">
               <Card>
                 <CardHeader>
-                  <CardTitle>Detailed Scoring Breakdown</CardTitle>
+                  <CardTitle>{t("priorityAnalysis.breakdown.title")}</CardTitle>
                   <CardDescription>
-                    Individual criterion scores and weighted contributions
+                    {t("priorityAnalysis.breakdown.subtitle")}
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <Table>
                     <TableHeader>
                       <TableRow>
-                        <TableHead>Initiative</TableHead>
-                        <TableHead>Complexity</TableHead>
-                        <TableHead>Cost</TableHead>
-                        <TableHead>ROI</TableHead>
-                        <TableHead>Risk</TableHead>
-                        <TableHead>Strategic</TableHead>
-                        <TableHead>Total</TableHead>
+                        <TableHead>
+                          {t("priorityAnalysis.breakdown.initiative")}
+                        </TableHead>
+                        <TableHead>
+                          {t("priorityAnalysis.calculator.complexity")}
+                        </TableHead>
+                        <TableHead>
+                          {t("priorityAnalysis.calculator.cost")}
+                        </TableHead>
+                        <TableHead>
+                          {t("priorityAnalysis.calculator.roi")}
+                        </TableHead>
+                        <TableHead>
+                          {t("priorityAnalysis.calculator.risk")}
+                        </TableHead>
+                        <TableHead>
+                          {t("priorityAnalysis.calculator.strategicAlignment")}
+                        </TableHead>
+                        <TableHead>
+                          {t("priorityAnalysis.breakdown.total")}
+                        </TableHead>
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {currentRankings.slice(0, 10).map((result) => (
-                        <TableRow key={result.id}>
-                          <TableCell className="font-medium">
-                            {result.name}
-                          </TableCell>
-                          <TableCell>
-                            <div className="text-center">
-                              <div>{result.breakdown.complexity.score}</div>
-                              <div className="text-xs text-muted-foreground">
-                                (
-                                {Math.round(
-                                  result.breakdown.complexity.weighted * 20
-                                )}
-                                )
+                      {currentRankings.slice(0, 10).map((result) => {
+                        const idea = ideas.find((i) => i.id === result.id);
+                        return (
+                          <TableRow key={result.id}>
+                            <TableCell className="font-medium">
+                              {idea
+                                ? getTranslatedInitiativeName(
+                                    idea.id,
+                                    result.name
+                                  )
+                                : result.name}
+                            </TableCell>
+                            <TableCell>
+                              <div className="text-center">
+                                <div>{result.breakdown.complexity.score}</div>
+                                <div className="text-xs text-muted-foreground">
+                                  (
+                                  {Math.round(
+                                    result.breakdown.complexity.weighted * 20
+                                  )}
+                                  )
+                                </div>
                               </div>
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <div className="text-center">
-                              <div>{result.breakdown.cost.score}</div>
-                              <div className="text-xs text-muted-foreground">
-                                (
-                                {Math.round(
-                                  result.breakdown.cost.weighted * 20
-                                )}
-                                )
+                            </TableCell>
+                            <TableCell>
+                              <div className="text-center">
+                                <div>{result.breakdown.cost.score}</div>
+                                <div className="text-xs text-muted-foreground">
+                                  (
+                                  {Math.round(
+                                    result.breakdown.cost.weighted * 20
+                                  )}
+                                  )
+                                </div>
                               </div>
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <div className="text-center">
-                              <div>{result.breakdown.roi.score}</div>
-                              <div className="text-xs text-muted-foreground">
-                                (
-                                {Math.round(result.breakdown.roi.weighted * 20)}
-                                )
+                            </TableCell>
+                            <TableCell>
+                              <div className="text-center">
+                                <div>{result.breakdown.roi.score}</div>
+                                <div className="text-xs text-muted-foreground">
+                                  (
+                                  {Math.round(
+                                    result.breakdown.roi.weighted * 20
+                                  )}
+                                  )
+                                </div>
                               </div>
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <div className="text-center">
-                              <div>{result.breakdown.risk.score}</div>
-                              <div className="text-xs text-muted-foreground">
-                                (
-                                {Math.round(
-                                  result.breakdown.risk.weighted * 20
-                                )}
-                                )
+                            </TableCell>
+                            <TableCell>
+                              <div className="text-center">
+                                <div>{result.breakdown.risk.score}</div>
+                                <div className="text-xs text-muted-foreground">
+                                  (
+                                  {Math.round(
+                                    result.breakdown.risk.weighted * 20
+                                  )}
+                                  )
+                                </div>
                               </div>
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <div className="text-center">
-                              <div>
-                                {result.breakdown.strategicAlignment.score}
+                            </TableCell>
+                            <TableCell>
+                              <div className="text-center">
+                                <div>
+                                  {result.breakdown.strategicAlignment.score}
+                                </div>
+                                <div className="text-xs text-muted-foreground">
+                                  (
+                                  {Math.round(
+                                    result.breakdown.strategicAlignment
+                                      .weighted * 20
+                                  )}
+                                  )
+                                </div>
                               </div>
-                              <div className="text-xs text-muted-foreground">
-                                (
-                                {Math.round(
-                                  result.breakdown.strategicAlignment.weighted *
-                                    20
-                                )}
-                                )
-                              </div>
-                            </div>
-                          </TableCell>
-                          <TableCell>
-                            <Badge variant="default">{result.finalScore}</Badge>
-                          </TableCell>
-                        </TableRow>
-                      ))}
+                            </TableCell>
+                            <TableCell>
+                              <Badge variant="default">
+                                {result.finalScore}
+                              </Badge>
+                            </TableCell>
+                          </TableRow>
+                        );
+                      })}
                     </TableBody>
                   </Table>
                 </CardContent>
@@ -538,10 +688,16 @@ export function InteractivePriorityCalculator({
               <span className="text-3xl">💡</span>
               <div className="flex-1">
                 <div className="text-2xl">
-                  {selectedIdea?.name || "AI Initiative"}
+                  {selectedIdea
+                    ? getTranslatedInitiativeName(
+                        selectedIdea.id,
+                        selectedIdea.name
+                      )
+                    : t("priorityAnalysis.modal.aiInitiativeFallback")}
                 </div>
                 <div className="text-sm text-muted-foreground font-normal mt-1">
-                  {selectedIdea?.department} • Priority Calculator Analysis
+                  {selectedIdea?.department} •{" "}
+                  {t("priorityAnalysis.modal.analysisTitle")}
                 </div>
               </div>
             </DialogTitle>
@@ -553,19 +709,19 @@ export function InteractivePriorityCalculator({
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
                   <h3 className="font-semibold text-blue-900 mb-2">
-                    🏢 Source Department
+                    🏢 {t("priorityAnalysis.modal.sourceDepartment")}
                   </h3>
                   <p className="text-blue-800 font-medium">
                     {selectedIdea.department}
                   </p>
                   <p className="text-blue-600 text-sm mt-1">
-                    Originating Business Unit
+                    {t("priorityAnalysis.modal.originatingUnit")}
                   </p>
                 </div>
 
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4">
                   <h3 className="font-semibold text-green-900 mb-2">
-                    👤 Initiative Owner
+                    👤 {t("priorityAnalysis.modal.initiativeOwner")}
                   </h3>
                   <p className="text-green-800 font-medium">
                     {selectedIdea.id.includes("hr_cv")
@@ -580,18 +736,20 @@ export function InteractivePriorityCalculator({
                       ? "Strategy Team"
                       : "Department Lead"}
                   </p>
-                  <p className="text-green-600 text-sm mt-1">Project Sponsor</p>
+                  <p className="text-green-600 text-sm mt-1">
+                    {t("priorityAnalysis.modal.projectSponsor")}
+                  </p>
                 </div>
 
                 <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
                   <h3 className="font-semibold text-purple-900 mb-2">
-                    📅 Submission Date
+                    📅 {t("priorityAnalysis.modal.submissionDate")}
                   </h3>
                   <p className="text-purple-800 font-medium">
-                    October 6-8, 2025
+                    {t("priorityAnalysis.modal.workshopDate")}
                   </p>
                   <p className="text-purple-600 text-sm mt-1">
-                    AI Workshop Session
+                    {t("priorityAnalysis.modal.workshopSession")}
                   </p>
                 </div>
               </div>
@@ -599,12 +757,12 @@ export function InteractivePriorityCalculator({
               {/* Original Problem & Solution */}
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                 <h3 className="font-semibold text-yellow-900 mb-3">
-                  🎯 Problem & Solution Definition
+                  🎯 {t("priorityAnalysis.modal.problemSolutionDef")}
                 </h3>
                 <div className="space-y-3">
                   <div>
                     <h4 className="font-medium text-yellow-900 mb-1">
-                      Problem Statement:
+                      {t("priorityAnalysis.modal.problemStatement")}
                     </h4>
                     <p className="text-yellow-800 text-sm">
                       {selectedIdea.description.split(".")[0]}.
@@ -612,12 +770,14 @@ export function InteractivePriorityCalculator({
                   </div>
                   <div>
                     <h4 className="font-medium text-yellow-900 mb-1">
-                      Proposed AI Solution:
+                      {t("priorityAnalysis.modal.proposedSolution")}
                     </h4>
                     <p className="text-yellow-800 text-sm">
-                      {selectedIdea.description.includes("AI")
-                        ? selectedIdea.description
-                        : `AI-powered ${selectedIdea.name.toLowerCase()} utilizing machine learning algorithms to automate and optimize the identified processes.`}
+                      {getTranslatedInitiativeDescription(
+                        selectedIdea.id,
+                        selectedIdea.description,
+                        selectedIdea.name
+                      )}
                     </p>
                   </div>
                 </div>
@@ -634,7 +794,7 @@ export function InteractivePriorityCalculator({
                       <div className="flex items-center gap-2">
                         <span className="text-xl">🔧</span>
                         <span className="font-semibold">
-                          Technical Complexity
+                          {t("priorityAnalysis.modal.technicalComplexity")}
                         </span>
                       </div>
                       <Badge variant="outline" className="bg-blue-100">
@@ -642,14 +802,8 @@ export function InteractivePriorityCalculator({
                       </Badge>
                     </div>
                     <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
-                      <strong>Assessment:</strong>{" "}
-                      {selectedIdea.scores.complexity >= 4
-                        ? "Low complexity - can leverage existing tools and infrastructure with minimal custom development."
-                        : selectedIdea.scores.complexity >= 3
-                        ? "Moderate complexity - requires some custom development but uses standard AI/ML approaches."
-                        : selectedIdea.scores.complexity >= 2
-                        ? "High complexity - requires significant custom development, integration challenges, or novel AI approaches."
-                        : "Very high complexity - cutting-edge AI research required, significant technical risks and integration challenges."}
+                      <strong>{t("priorityAnalysis.modal.assessment")}:</strong>{" "}
+                      {getComplexityAssessment(selectedIdea.scores.complexity)}
                     </div>
                   </div>
 
@@ -658,7 +812,7 @@ export function InteractivePriorityCalculator({
                       <div className="flex items-center gap-2">
                         <span className="text-xl">💰</span>
                         <span className="font-semibold">
-                          Investment Required
+                          {t("priorityAnalysis.modal.investmentRequired")}
                         </span>
                       </div>
                       <Badge variant="outline" className="bg-yellow-100">
@@ -666,14 +820,10 @@ export function InteractivePriorityCalculator({
                       </Badge>
                     </div>
                     <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
-                      <strong>Estimated Investment:</strong>{" "}
-                      {selectedIdea.scores.cost >= 4
-                        ? "Low cost (< €50k) - primarily configuration and training costs."
-                        : selectedIdea.scores.cost >= 3
-                        ? "Moderate cost (€50k-200k) - includes software licenses, development, and implementation."
-                        : selectedIdea.scores.cost >= 2
-                        ? "High cost (€200k-500k) - significant development, infrastructure, and change management costs."
-                        : "Very high cost (> €500k) - major enterprise-scale implementation with extensive customization."}
+                      <strong>
+                        {t("priorityAnalysis.modal.estimatedInvestment")}:
+                      </strong>{" "}
+                      {getCostAssessment(selectedIdea.scores.cost)}
                     </div>
                   </div>
 
@@ -681,23 +831,19 @@ export function InteractivePriorityCalculator({
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">📈</span>
-                        <span className="font-semibold">Expected ROI</span>
+                        <span className="font-semibold">
+                          {t("priorityAnalysis.modal.expectedRoi")}
+                        </span>
                       </div>
                       <Badge variant="outline" className="bg-green-100">
                         {selectedIdea.scores.roi}/5
                       </Badge>
                     </div>
                     <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
-                      <strong>Business Impact:</strong>{" "}
-                      {selectedIdea.scores.roi >= 5
-                        ? "Exceptional ROI (€100k+ annually) - major process improvements, significant cost savings, or new revenue streams."
-                        : selectedIdea.scores.roi >= 4
-                        ? "High ROI (€50k-100k annually) - measurable efficiency gains and cost reductions."
-                        : selectedIdea.scores.roi >= 3
-                        ? "Moderate ROI (€25k-50k annually) - process improvements with quantifiable benefits."
-                        : selectedIdea.scores.roi >= 2
-                        ? "Low ROI (€10k-25k annually) - limited quantifiable benefits, mostly qualitative improvements."
-                        : "Minimal ROI (< €10k annually) - primarily strategic or compliance-driven initiative."}
+                      <strong>
+                        {t("priorityAnalysis.modal.businessImpact")}:
+                      </strong>{" "}
+                      {getRoiAssessment(selectedIdea.scores.roi)}
                     </div>
                   </div>
 
@@ -705,21 +851,19 @@ export function InteractivePriorityCalculator({
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2">
                         <span className="text-xl">⚠️</span>
-                        <span className="font-semibold">Risk Assessment</span>
+                        <span className="font-semibold">
+                          {t("priorityAnalysis.modal.riskAssessment")}
+                        </span>
                       </div>
                       <Badge variant="outline" className="bg-red-100">
                         {selectedIdea.scores.risk}/5
                       </Badge>
                     </div>
                     <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
-                      <strong>Risk Factors:</strong>{" "}
-                      {selectedIdea.scores.risk >= 4
-                        ? "Low risk - proven technology, clear implementation path, minimal business disruption."
-                        : selectedIdea.scores.risk >= 3
-                        ? "Moderate risk - standard implementation risks, manageable with proper planning."
-                        : selectedIdea.scores.risk >= 2
-                        ? "High risk - technical uncertainties, potential business disruption, or regulatory concerns."
-                        : "Very high risk - unproven technology, significant business impact, or major compliance implications."}
+                      <strong>
+                        {t("priorityAnalysis.modal.riskFactors")}:
+                      </strong>{" "}
+                      {getRiskAssessment(selectedIdea.scores.risk)}
                     </div>
                   </div>
 
@@ -728,7 +872,7 @@ export function InteractivePriorityCalculator({
                       <div className="flex items-center gap-2">
                         <span className="text-xl">🎯</span>
                         <span className="font-semibold">
-                          Strategic Alignment
+                          {t("priorityAnalysis.calculator.strategicAlignment")}
                         </span>
                       </div>
                       <Badge variant="outline" className="bg-purple-100">
@@ -736,14 +880,12 @@ export function InteractivePriorityCalculator({
                       </Badge>
                     </div>
                     <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
-                      <strong>Strategic Fit:</strong>{" "}
-                      {selectedIdea.scores.strategicAlignment >= 4
-                        ? "High alignment - directly supports key strategic objectives and digital transformation goals."
-                        : selectedIdea.scores.strategicAlignment >= 3
-                        ? "Moderate alignment - supports departmental goals and overall business strategy."
-                        : selectedIdea.scores.strategicAlignment >= 2
-                        ? "Low alignment - peripheral to main strategic objectives, primarily operational benefits."
-                        : "Poor alignment - limited connection to strategic goals, primarily tactical initiative."}
+                      <strong>
+                        {t("priorityAnalysis.modal.strategicFit")}:
+                      </strong>{" "}
+                      {getStrategicAssessment(
+                        selectedIdea.scores.strategicAlignment
+                      )}
                     </div>
                   </div>
                 </div>
@@ -752,14 +894,10 @@ export function InteractivePriorityCalculator({
               {/* Workshop Context */}
               <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
                 <h3 className="font-semibold text-gray-900 mb-2">
-                  🏗️ Workshop Context
+                  🏗️ {t("priorityAnalysis.modal.workshopContext")}
                 </h3>
                 <p className="text-gray-700 text-sm">
-                  This initiative was identified during Duvenbeck's AI Workshop
-                  sessions (October 6-8, 2025) where department heads and key
-                  stakeholders collaborated to identify AI opportunities across
-                  the organization. The scoring reflects collective assessment
-                  by domain experts and strategic leadership.
+                  {t("priorityAnalysis.modal.workshopDescription")}
                 </p>
               </div>
             </div>
@@ -773,9 +911,10 @@ export function InteractivePriorityCalculator({
 // Scenario Comparison Component
 function ScenarioComparison({
   ideas,
-}: {
+}: Readonly<{
   ideas: InteractivePriorityCalculatorProps["ideas"];
-}) {
+}>) {
+  const { t } = useTranslation();
   const scenarios = DuvenbeckPriorityCalculator.getWeightScenarios().slice(
     0,
     4
@@ -789,14 +928,14 @@ function ScenarioComparison({
         scenario.weights
       ).slice(0, 5),
     }));
-  }, [ideas]);
+  }, [ideas, scenarios]);
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Scenario Comparison</CardTitle>
+        <CardTitle>{t("priorityAnalysis.scenarioComparison.title")}</CardTitle>
         <CardDescription>
-          Compare top 5 initiatives across different weighting scenarios
+          {t("priorityAnalysis.scenarioComparison.subtitle")}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -808,23 +947,39 @@ function ScenarioComparison({
                 {scenario.description}
               </p>
               <div className="space-y-2">
-                {scenario.rankings.map((result, index) => (
-                  <div
-                    key={result.id}
-                    className="flex items-center justify-between text-sm"
-                  >
-                    <span className="flex items-center gap-2">
-                      <Badge
-                        variant="outline"
-                        className="w-6 h-6 p-0 flex items-center justify-center text-xs"
-                      >
-                        {index + 1}
-                      </Badge>
-                      {result.name}
-                    </span>
-                    <Badge variant="secondary">{result.finalScore}</Badge>
-                  </div>
-                ))}
+                {scenario.rankings.map((result, index) => {
+                  const idea = ideas.find((i) => i.id === result.id);
+                  function getTranslatedInitiativeName(
+                    id: string,
+                    name: string,
+                    t: (key: string) => string
+                  ):
+                    | import("react").ReactNode
+                    | Iterable<import("react").ReactNode> {
+                    const translationKey = `priorityAnalysis.initiatives.${id}.name`;
+                    const translated = t(translationKey);
+                    return translated !== translationKey ? translated : name;
+                  }
+                  return (
+                    <div
+                      key={result.id}
+                      className="flex items-center justify-between text-sm"
+                    >
+                      <span className="flex items-center gap-2">
+                        <Badge
+                          variant="outline"
+                          className="w-6 h-6 p-0 flex items-center justify-center text-xs"
+                        >
+                          {index + 1}
+                        </Badge>
+                        {idea
+                          ? getTranslatedInitiativeName(idea.id, result.name, t)
+                          : result.name}
+                      </span>
+                      <Badge variant="secondary">{result.finalScore}</Badge>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           ))}
