@@ -3,7 +3,7 @@ export const ideas = {
     {
       date: "2025-10-08",
       department: "IT Shared Services",
-      collaboardLink: "https://web.collaboard.app/share/zljYdszGklt4sRINQ0eOKw",
+      collaboardLink: "https://web.collaboard.app/share/4LFOhXRZX1a9cHjbtC4e6A",
     },
   ],
   ideas: [
@@ -33,7 +33,8 @@ export const ideas = {
       owner: "Benedikt Weikamp",
       priority: "A",
       complexity: 3,
-      complexityNoteKey: "it_shared_services.notes.complexity.data_quality_analysis",
+      complexityNoteKey:
+        "it_shared_services.notes.complexity.data_quality_analysis",
       cost: 3,
       costNoteKey: "it_shared_services.notes.cost.data_quality_analysis",
       roi: 3,
@@ -47,13 +48,16 @@ export const ideas = {
       finalPrio: "C",
       ideaKey: "it_shared_services.ideas.computer_vision_pallet_tracking",
       problemKey: "it_shared_services.problems.computer_vision_pallet_tracking",
-      solutionKey: "it_shared_services.solutions.computer_vision_pallet_tracking",
+      solutionKey:
+        "it_shared_services.solutions.computer_vision_pallet_tracking",
       owner: "Benedikt Weikamp",
       priority: "C",
       complexity: 1,
-      complexityNoteKey: "it_shared_services.notes.complexity.computer_vision_pallet_tracking",
+      complexityNoteKey:
+        "it_shared_services.notes.complexity.computer_vision_pallet_tracking",
       cost: 2,
-      costNoteKey: "it_shared_services.notes.cost.computer_vision_pallet_tracking",
+      costNoteKey:
+        "it_shared_services.notes.cost.computer_vision_pallet_tracking",
       roi: 4,
       roiNote: "",
       risk: 3,
@@ -69,7 +73,8 @@ export const ideas = {
       owner: "Benedikt Weikamp",
       priority: "C",
       complexity: 4,
-      complexityNoteKey: "it_shared_services.notes.complexity.automatic_gate_detection",
+      complexityNoteKey:
+        "it_shared_services.notes.complexity.automatic_gate_detection",
       cost: 3,
       costNoteKey: "it_shared_services.notes.cost.automatic_gate_detection",
       roi: 4,
@@ -83,11 +88,13 @@ export const ideas = {
       finalPrio: "C",
       ideaKey: "it_shared_services.ideas.computer_vision_load_detection",
       problemKey: "it_shared_services.problems.computer_vision_load_detection",
-      solutionKey: "it_shared_services.solutions.computer_vision_load_detection",
+      solutionKey:
+        "it_shared_services.solutions.computer_vision_load_detection",
       owner: "Benedikt Weikamp",
       priority: "C",
       complexity: 3,
-      complexityNoteKey: "it_shared_services.notes.complexity.computer_vision_load_detection",
+      complexityNoteKey:
+        "it_shared_services.notes.complexity.computer_vision_load_detection",
       cost: 2,
       costNoteKey: "",
       roi: 1,
@@ -101,17 +108,20 @@ export const ideas = {
       finalPrio: "A",
       ideaKey: "it_shared_services.ideas.predictive_disposition_pricing",
       problemKey: "it_shared_services.problems.predictive_disposition_pricing",
-      solutionKey: "it_shared_services.solutions.predictive_disposition_pricing",
+      solutionKey:
+        "it_shared_services.solutions.predictive_disposition_pricing",
       owner: "Benedikt Weikamp",
       priority: "B",
       complexity: 2,
-      complexityNoteKey: "it_shared_services.notes.complexity.predictive_disposition_pricing",
+      complexityNoteKey:
+        "it_shared_services.notes.complexity.predictive_disposition_pricing",
       cost: 2,
       costNoteKey: "",
       roi: 5,
       roiNote: "",
       risk: 1,
-      riskNoteKey: "it_shared_services.notes.risk.predictive_disposition_pricing",
+      riskNoteKey:
+        "it_shared_services.notes.risk.predictive_disposition_pricing",
       strategicAlignment: 5,
       strategicNoteKey: "",
     },
@@ -123,7 +133,8 @@ export const ideas = {
       owner: "Simon Zschunke",
       priority: "B",
       complexity: 2,
-      complexityNoteKey: "it_shared_services.notes.complexity.intelligent_kpi_chatbot",
+      complexityNoteKey:
+        "it_shared_services.notes.complexity.intelligent_kpi_chatbot",
       cost: 2,
       costNoteKey: "",
       roi: 1,
@@ -141,7 +152,8 @@ export const ideas = {
       owner: "Simon Zschunke",
       priority: "A",
       complexity: 1,
-      complexityNoteKey: "it_shared_services.notes.complexity.internal_freight_exchange",
+      complexityNoteKey:
+        "it_shared_services.notes.complexity.internal_freight_exchange",
       cost: 2,
       costNoteKey: "",
       roi: 5,
@@ -154,12 +166,15 @@ export const ideas = {
     {
       finalPrio: "A",
       ideaKey: "it_shared_services.ideas.scenario_based_financial_forecasts",
-      problemKey: "it_shared_services.problems.scenario_based_financial_forecasts",
-      solutionKey: "it_shared_services.solutions.scenario_based_financial_forecasts",
+      problemKey:
+        "it_shared_services.problems.scenario_based_financial_forecasts",
+      solutionKey:
+        "it_shared_services.solutions.scenario_based_financial_forecasts",
       owner: "Simon Zschunke",
       priority: "B",
       complexity: 2,
-      complexityNoteKey: "it_shared_services.notes.complexity.scenario_based_financial_forecasts",
+      complexityNoteKey:
+        "it_shared_services.notes.complexity.scenario_based_financial_forecasts",
       cost: 4,
       costNoteKey: "",
       roi: 3,
@@ -177,7 +192,8 @@ export const ideas = {
       owner: "Simon Zschunke",
       priority: "B",
       complexity: 4,
-      complexityNoteKey: "it_shared_services.notes.complexity.predictive_hr_analytics",
+      complexityNoteKey:
+        "it_shared_services.notes.complexity.predictive_hr_analytics",
       cost: 5,
       costNoteKey: "",
       roi: 5,
@@ -195,7 +211,8 @@ export const ideas = {
       owner: "Simon Zschunke",
       priority: "A",
       complexity: 3,
-      complexityNoteKey: "it_shared_services.notes.complexity.telematics_cost_forecast",
+      complexityNoteKey:
+        "it_shared_services.notes.complexity.telematics_cost_forecast",
       cost: 3,
       costNoteKey: "it_shared_services.notes.cost.telematics_cost_forecast",
       roi: 5,

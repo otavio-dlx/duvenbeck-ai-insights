@@ -767,11 +767,11 @@
     "priority": "Priority",
     "noRows": "No prioritization rows found.",
     "sections": {
-      "problem": "🚫 Problem",
-      "solution": "✨ Solution",
-      "questions": "❓ Questions / Topics",
-      "explanation": "📝 Explanation",
-      "content": "📋 Content / Answers"
+      "problem": "Problem",
+      "solution": "Solution",
+      "questions": "Questions / Topics",
+      "explanation": "Explanation",
+      "content": "Content / Answers"
     }
   },
   "modal": {
