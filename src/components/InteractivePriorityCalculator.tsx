@@ -259,11 +259,20 @@ export function InteractivePriorityCalculator({ ideas }: InteractivePriorityCalc
                       {currentRankings.map((result) => {
                         const idea = ideas.find(i => i.id === result.id);
                         return (
-                          <TableRow key={result.id}>
+                          <TableRow 
+                            key={result.id}
+                            className="cursor-pointer hover:bg-muted/50 transition-colors"
+                            onClick={() => {
+                              alert(`${idea?.name}\n\nDepartment: ${idea?.department}\nDescription: ${idea?.description}\n\nScores:\n- Complexity: ${idea?.scores.complexity}/5\n- Cost: ${idea?.scores.cost}/5\n- ROI: ${idea?.scores.roi}/5\n- Risk: ${idea?.scores.risk}/5\n- Strategic: ${idea?.scores.strategicAlignment}/5`);
+                            }}
+                          >
                             <TableCell className="font-medium">#{result.rank}</TableCell>
                             <TableCell>
                               <div>
-                                <div className="font-medium">{result.name}</div>
+                                <div className="font-medium flex items-center gap-2">
+                                  {result.name}
+                                  <span className="text-xs text-muted-foreground">ℹ️</span>
+                                </div>
                                 {idea?.description && (
                                   <div className="text-sm text-muted-foreground line-clamp-2">
                                     {idea.description}
