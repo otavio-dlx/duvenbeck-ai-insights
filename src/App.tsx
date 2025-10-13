@@ -7,6 +7,7 @@ import "@/i18n/config";
 import { Dashboard } from "@/pages/Dashboard";
 import PriorityAnalysisPage from "@/pages/PriorityAnalysis";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 
@@ -31,6 +32,7 @@ const App = () => (
             </Routes>
           </LoginGate>
         </BrowserRouter>
+        <SpeedInsights />
       </TooltipProvider>
     </TaggingProvider>
   </QueryClientProvider>
