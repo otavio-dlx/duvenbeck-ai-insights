@@ -7,6 +7,8 @@ import {
 import { participantsData } from "@/data/participants";
 import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { IdeaRowWithTags } from "./IdeaRowWithTags";
+import { IdeaTagsSection } from "./IdeaTagsSection";
 
 import { LocalizableString, NewFormatIdea } from "@/data/types";
 import { getIdeasFor, getLocalizedString, listDataKeys } from "@/lib/data";
@@ -100,57 +102,6 @@ export const PrioritizationMatrix: React.FC = () => {
     if (priority === "A") return "green";
     if (priority === "B") return "yellow";
     return "red";
-  };
-
-  const getBorderColorClass = (color: string): string => {
-    switch (color) {
-      case "green":
-        return "border-green-500";
-      case "yellow":
-        return "border-yellow-500";
-      case "red":
-        return "border-red-500";
-      case "purple":
-        return "border-purple-500";
-      case "neutral":
-        return "border-gray-300";
-      default:
-        return "border-blue-500";
-    }
-  };
-
-  const getBackgroundColorClass = (color: string): string => {
-    switch (color) {
-      case "green":
-        return "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200";
-      case "yellow":
-        return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200";
-      case "red":
-        return "bg-red-50 text-red-700 dark:bg-red-900 dark:text-red-200";
-      case "purple":
-        return "bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200";
-      case "neutral":
-        return "bg-gray-50 text-gray-700 dark:bg-gray-800 dark:text-gray-200";
-      default:
-        return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200";
-    }
-  };
-
-  const getProgressBarColorClass = (color: string): string => {
-    switch (color) {
-      case "green":
-        return "bg-green-500";
-      case "yellow":
-        return "bg-yellow-500";
-      case "red":
-        return "bg-red-500";
-      case "purple":
-        return "bg-purple-500";
-      case "neutral":
-        return "bg-gray-400";
-      default:
-        return "bg-blue-500";
-    }
   };
 
   const getMetricLevelText = (value: number): string => {
@@ -800,28 +751,17 @@ export const PrioritizationMatrix: React.FC = () => {
               </tr>
             ) : (
               sorted.map((r) => (
-                <tr
+                <IdeaRowWithTags
                   key={`${r.source}-${
                     r.idee ? getLocalizedString(r.idee).slice(0, 30) : ""
                   }-${r.finalPrio}`}
-                  className="border-t hover:bg-muted/50 cursor-pointer transition-colors"
-                  onClick={() =>
-                    r.idee &&
-                    handleIdeaClick(
-                      r.source,
-                      typeof r.idee === "string"
-                        ? r.idee
-                        : JSON.stringify(r.idee)
-                    )
-                  }
-                >
-                  <td className="p-2">{r.sourceDisplay}</td>
-                  <td className="p-2">
-                    {r.idee ? getLocalizedString(r.idee) : ""}
-                  </td>
-                  <td className="p-2">{String(r.finalPrio)}</td>
-                  <td className="p-2">{r.prioritaet}</td>
-                </tr>
+                  source={r.source}
+                  idee={r.idee}
+                  finalPrio={r.finalPrio}
+                  prioritaet={r.prioritaet}
+                  sourceDisplay={r.sourceDisplay}
+                  onIdeaClick={handleIdeaClick}
+                />
               ))
             )}
           </tbody>
@@ -849,6 +789,14 @@ export const PrioritizationMatrix: React.FC = () => {
             )}
           </DialogHeader>
           <div className="overflow-y-auto max-h-[calc(95vh-8rem)] bg-gray-50">
+            {/* AI-Generated Tags Section */}
+            {selectedIdea?.idee && (
+              <div className="p-6 border-b border-border/10">
+                <IdeaTagsSection
+                  ideaText={getLocalizedString(selectedIdea.idee)}
+                />
+              </div>
+            )}
             {projectBrief ? (
               JSON.parse(projectBrief).map(
                 (section: ModalSection, sectionIndex: number) => (
