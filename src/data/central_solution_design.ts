@@ -1,427 +1,71 @@
 export const ideas = {
-  Startseite: [
+  home: [
     {
-      "Unnamed: 0": "Datum:",
-      "Unnamed: 1": "7 Oktober 2025",
-    },
-    {
-      "Unnamed: 0": "Abteilung:",
-      "Unnamed: 1": "Central Solution Design",
-    },
-    {
-      "Unnamed: 0": "Collaboard Link:",
-      "Unnamed: 1": "https://web.collaboard.app/share/TOM6Ub03s6szHeDwbxKHug",
+      date: "2025-10-07",
+      department: "Central Solution Design",
+      collaboardLink: "https://web.collaboard.app/share/TOM6Ub03s6szHeDwbxKHug",
     },
   ],
-  Priorisierungsmatrix: [
+  ideas: [
     {
-    {
-      Kriterium: "Complexity",
-      "Gewichtung (%)": "20",
-      "Detaillierte Definition": "Technical",
-      Bewertungsleitfaden: " operational",
-      "Sonderfälle / Hinweise":
-        " and organizational difficulty of implementation",
+      finalPrio: 1,
+      ideaKey: "central_solution_design.ideas.nine_am_process",
+      problemKey: "central_solution_design.problems.nine_am_process",
+      solutionKey: "central_solution_design.solutions.nine_am_process",
+      owner: "Elias Stadtler / Jonas Ostendorf",
+      priority: "A",
+      complexity: 3,
+      complexityNoteKey:
+        "central_solution_design.notes.complexity.nine_am_process",
+      cost: 4,
+      costNoteKey: "central_solution_design.notes.cost.nine_am_process",
+      roi: 4,
+      roiNoteKey: "central_solution_design.notes.roi.nine_am_process",
+      risk: 5,
+      riskNoteKey: "central_solution_design.notes.risk.nine_am_process",
+      strategicAlignment: 4,
+      strategicNoteKey:
+        "central_solution_design.notes.strategic.nine_am_process",
     },
     {
-      Kriterium:
-        "Complexity = 5 if internal proof-of-concept using standard tools",
-      "Gewichtung (%)": "",
-      "Detaillierte Definition": "",
-      Bewertungsleitfaden: "",
-      "Sonderfälle / Hinweise": "",
+      finalPrio: 2,
+      ideaKey: "central_solution_design.ideas.ftl_precalculation",
+      problemKey: "central_solution_design.problems.ftl_precalculation",
+      solutionKey: "central_solution_design.solutions.ftl_precalculation",
+      owner: "Martin Kemper / Tenderdokumente Elias",
+      priority: "A",
+      complexity: 3,
+      complexityNoteKey:
+        "central_solution_design.notes.complexity.ftl_precalculation",
+      cost: 4,
+      costNoteKey: "central_solution_design.notes.cost.ftl_precalculation",
+      roi: 4,
+      roiNoteKey: "central_solution_design.notes.roi.ftl_precalculation",
+      risk: 4,
+      riskNoteKey: "central_solution_design.notes.risk.ftl_precalculation",
+      strategicAlignment: 4,
+      strategicNoteKey:
+        "central_solution_design.notes.strategic.ftl_precalculation",
     },
     {
-      Kriterium: "Co...(truncated 635 characters)...5 = low",
-      "Gewichtung (%)": " 1 = high)",
-      "Detaillierte Definition":
-        "Projects touching sensitive data or regulatory compliance = 1;",
-      Bewertungsleitfaden: "",
-      "Sonderfälle / Hinweise": "",
-    },
-    {
-      Kriterium: "Low-risk internal POC = 5",
-      "Gewichtung (%)": "",
-      "Detaillierte Definition": "",
-      Bewertungsleitfaden: "",
-      "Sonderfälle / Hinweise": "",
-    },
-    {
-      Kriterium: "Strategic Alignment",
-      "Gewichtung (%)": "20",
-      "Detaillierte Definition":
-        "How well the project supports Duvenbeck’s strategy and business priorities",
-      Bewertungsleitfaden: "1–5 (1 = low",
-      "Sonderfälle / Hinweise": " 5 = high)",
-    },
-    {
-      Kriterium: "Alignment = 1 if only marginally related",
-      "Gewichtung (%)": "",
-      "Detaillierte Definition": "",
-      Bewertungsleitfaden: "",
-      "Sonderfälle / Hinweise": "",
-    },
-    {
-      Kriterium: "",
-      "Gewichtung (%)": "",
-      "Detaillierte Definition": "",
-      Bewertungsleitfaden: "",
-      "Sonderfälle / Hinweise": "",
-    },
-    {
-      Kriterium: "Total",
-      "Gewichtung (%)": "100",
-      "Detaillierte Definition": "",
-      Bewertungsleitfaden: "",
-      "Sonderfälle / Hinweise": "</SHEET>",
-    },
-  ],
-  Priorisierungsmatrix: [
-    {
-      "Unnamed: 0": "Example 1",
-      "Final Prios": "",
-      "Gewichtete Punktzahl": "3.2",
-      Idee: "Standardisierte Lösungsvorlagen",
-      Problem: "Projektlösungen werden oft von Grund auf neu entwickelt",
-      Lösung: " what Zeit und Qualität kostet",
-      Ideenverantwortlicher:
-        "Aufbau einer zentralen Bibl...(truncated 4555 characters)...Überwiegend im FTL-Bereich",
-      "Priorität (A": "Elias Stadtler",
-      " B": "B",
-      " C)": "",
-      Komplexität: "",
-      Erläuterung: "",
-      "Kosten (€)": "",
-      ROI: "",
-      Risiko: "",
-      "Strategische Ausrichtung": "",
-    },
-    {
-      "Unnamed: 0": "",
-      "Final Prios": "",
-      "Gewichtete Punktzahl": "0",
-      Idee: "Pricing-KI",
-      Problem: " die Tarifstrukturen kennt",
-      Lösung: " Simulation verschiedener Deckungsbeiträge",
-      Ideenverantwortlicher: " feedback loop: KI könnte zeigen",
-      "Priorität (A":
-        " welche Preisstrategien in der Vergangenheit zum Erfolg geführt haben",
-      " B": "Preisfindung ist zeitaufwendig (viel Kommunikation mit den DUV Gesellschaften)",
-      " C)": "Sehr komplex",
-      Komplexität: " Interpretation der Ergebnisse vermutlich schwierig",
-      Erläuterung: "",
-      "Kosten (€)": "C",
-      ROI: "",
-      Risiko: "",
-      "Strategische Ausrichtung": "",
-    },
-  ],
-  "Martin Kemper": [
-    {
-      "Unnamed: 0": "",
-      Problem: "Problem",
-      Lösung: "Lösung",
-    },
-    {
-      "Unnamed: 0": "1",
-      Problem:
-        "09:00 Uhr Liste im CRM-System ist in der Erfassung zeitaufwendig und im Nachgang wird nur ein Teil der Informationen wirklich verwendet",
-      Lösung:
-        "Automatisierter Prozeß zur Erfassung der Informationen aus der 09:00 Uhr - Liste (Anlage",
-    },
-    {
-      "Unnamed: 0": "2",
-      Problem:
-        "Beurteilung der Anfragen in der 09:00 Uhr-Liste / Oft Fehlein...(truncated 850 characters)...ng der Ladepunkte / Planung der Lademenge / Kalkulation der Ladepreise",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "6",
-      Problem:
-        "Bei größeren GRP/LTL-Kalkulation / Aufbereitung der Mengengerüste zeitaufwendig",
-      Lösung: "Automatisierung",
-    },
-    {
-      "Unnamed: 0": "7",
-      Problem: "Transportplanungsprozess / teilweise noch zeitaufwendig",
-      Lösung: "Automatisierung",
-    },
-  ],
-  "Elias Stadtler": [
-    {
-      "Unnamed: 0": "",
-      Problem: "Problem",
-      Lösung: "Lösung",
-    },
-    {
-      "Unnamed: 0": "1",
-      Problem: "9h Prozess (gleichbleibende und zeitaufwendige Tätigkeit)",
-      Lösung:
-        "erfassen der Ausschreibungen und Anfragen für den 9h Prozess automatisieren inkl. Auswertung & Hochladen der Ausschreibungsunterlagen",
-    },
-    {
-      "Unnamed: 0": "2",
-      Problem: "fehlende PLZ / Orte / Länderkürzel im Bidsheet des Kunden",
-      Lösung: "Aufbereitung der Daten von Ausschreibungen",
-    },
-    {
-      "Unnamed: 0": "3",
-      Problem:
-        "I...(truncated 244 characters)......Kalkulationstools bei einfachen FTL Kalkulationen (gleichbleibende Grundannahmen)",
-      Lösung: "",
-    },
-    {
-      "Unnamed: 0": "5",
-      Problem:
-        "Tender in Recheck (zeitaufwendig und mit hohem Kommunkiationsbedarf verbunden)",
-      Lösung:
-        "automatisierter Prozess der das Nachfassen von Angeboten beinhaltet",
-    },
-  ],
-  "Sofie Prem": [
-    {
-      "Unnamed: 0": "",
-      Problem: "Problem",
-      Lösung: "Lösung",
-      aufgenommen: "aufgenommen",
-    },
-    {
-      "Unnamed: 0": "1",
-      Problem: "Orte ohne PLZ ",
-      Lösung: "PLZ erkennen und wenn mehrere PLZ möglich sind",
-      aufgenommen: " darauf hinweisen",
-    },
-    {
-      "Unnamed: 0": "2",
-      Problem: "reine PLZ Gebiete (teilweise ohne regionalen Zusammenhang)",
-      Lösung:
-        "Gegenüberstellung der (falls vorhandenen) Volumensdaten und daraufhin den Hauptpunkt definieren (Gewichtung je nach Volumen)",
-      aufgenommen: "x",
-    },
-    {
-      "Unnamed: 0": "3",
-      Problem:
-        "Ausschreibungsdokumente - Risik...(truncated 564 characters)...Identifikation von ähnlichen Routen im Bestand",
-      Lösung: "aufzeigen des KM-Satzes und Kosten ",
-      aufgenommen: "X",
-    },
-    {
-      "Unnamed: 0": "7",
-      Problem: "Identifikation von ähnlichen Routen im Bestand",
-      Lösung: "aufzeigen des KM-Satzes und Kosten ",
-      aufgenommen: "X",
-    },
-    {
-      "Unnamed: 0": "8",
-      Problem:
-        "Erkennen von potentiellen Gegentouren für Bestandslanes (Singles)",
-      Lösung: "Aufzeigen der Bestandstour für Möglichkeit der Kombination",
-      aufgenommen: "X",
-    },
-  ],
-  "Jonas Ostendorf": [
-    {
-      "Unnamed: 0": "",
-      Problem: "Problem",
-      Lösung: "Lösung",
-    },
-    {
-      "Unnamed: 0": "1",
-      Problem: "9 Uhr Prozess beansprucht viele Ressourcen (Personal",
-      Lösung: " Zeit)",
-    },
-    {
-      "Unnamed: 0": "2",
-      Problem: "Vorkalkulation beansprucht viele Ressourcen (Personal",
-      Lösung: " Zeit)",
-    },
-    {
-      "Unnamed: 0": "5",
-      Problem: "Überprüfung von NDAs ist aufwendig (Personal",
-      Lösung: " Zeit)",
-    },
-  ],
-  "Projektbrief 9 Uhr Prozess": [
-    {
-      Idee: "Idee",
-      "Fragen / Themen": "Fragen / Themen",
-      Erläuterung: "Erläuterung",
-      "Inhalte / Antworten": "Inhalte / Antworten",
-    },
-    {
-      Idee: "9 Uhr Prozess",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "Projekt Sponsor",
-      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
-      "Inhalte / Antworten": "Elias Stadtler / Jonas Ostendorf",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "Involvierte Teams",
-      Erläuterung: "Welche Teams sind involviert",
-      "Inhalte / Antworten": "Tendermanagement",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "Potenzielle Konflikte",
-      Erläuterung:
-        "M...(truncated 2448 characters)...r Validierung der Umsetzbarkeit.",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-  ],
-  "Projektbrief Vorkalkulation": [
-    {
-      Idee: "Idee",
-      "Fragen / Themen": "Fragen / Themen",
-      Erläuterung: "Erläuterung",
-      "Inhalte / Antworten": "Inhalte / Antworten",
-    },
-    {
-      Idee: "Automatisierte Vorkalkulation FTL",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "Projekt Sponsor",
-      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
-      "Inhalte / Antworten": "Martin Kemper / Tenderdokumente Elias",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "Involvierte Teams",
-      Erläuterung: "Welche Teams sind involviert",
-      "Inhalte / Antworten": "Tendermanagement",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen":
-        "...(truncated 2372 characters)...ur Validierung der Umsetzbarkeit.",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-  ],
-  "Projektbrief Subfrächter Datenb": [
-    {
-      Idee: "Idee",
-      "Fragen / Themen": "Fragen / Themen",
-      Erläuterung: "Erläuterung",
-      "Inhalte / Antworten": "Inhalte / Antworten",
-    },
-    {
-      Idee: "Subfrächter Datenbank",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "Projekt Sponsor",
-      Erläuterung: "Wer ist verantwortlich bzw. treibende Kraft des Projekts",
-      "Inhalte / Antworten": "Sofie Prem",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "Involvierte Teams",
-      Erläuterung: "Welche Teams sind involviert",
-      "Inhalte / Antworten": "Road Sales",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen": "",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
-    },
-    {
-      Idee: "",
-      "Fragen / Themen":
-        "Potenzielle Konflikt...(truncated 2302 characters)... zur Validierung der Umsetzbarkeit.",
-      Erläuterung: "",
-      "Inhalte / Antworten": "",
+      finalPrio: 3,
+      ideaKey: "central_solution_design.ideas.subcontractor_database",
+      problemKey: "central_solution_design.problems.subcontractor_database",
+      solutionKey: "central_solution_design.solutions.subcontractor_database",
+      owner: "Sofie Prem",
+      priority: "A",
+      complexity: 2,
+      complexityNoteKey:
+        "central_solution_design.notes.complexity.subcontractor_database",
+      cost: 3,
+      costNoteKey: "central_solution_design.notes.cost.subcontractor_database",
+      roi: 3,
+      roiNoteKey: "central_solution_design.notes.roi.subcontractor_database",
+      risk: 5,
+      riskNoteKey: "central_solution_design.notes.risk.subcontractor_database",
+      strategicAlignment: 4,
+      strategicNoteKey:
+        "central_solution_design.notes.strategic.subcontractor_database",
     },
   ],
 };
