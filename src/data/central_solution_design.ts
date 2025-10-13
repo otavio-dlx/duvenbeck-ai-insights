@@ -13,14 +13,8 @@ export const ideas = {
       "Unnamed: 1": "https://web.collaboard.app/share/TOM6Ub03s6szHeDwbxKHug",
     },
   ],
-  Annahmen: [
+  Priorisierungsmatrix: [
     {
-      Kriterium: "Kriterium",
-      "Gewichtung (%)": "Gewichtung (%)",
-      "Detaillierte Definition": "Detaillierte Definition",
-      Bewertungsleitfaden: "Bewertungsleitfaden",
-      "Sonderfälle / Hinweise": "Sonderfälle / Hinweise",
-    },
     {
       Kriterium: "Complexity",
       "Gewichtung (%)": "20",
