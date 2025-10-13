@@ -3,11 +3,37 @@ import { Link } from 'react-router-dom';
 import { InteractivePriorityCalculator } from '@/components/InteractivePriorityCalculator';
 import { getAllIdeasForCalculator } from '@/lib/data-mapper';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Home, Calculator } from 'lucide-react';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { ArrowLeft, Home, Calculator, Info } from 'lucide-react';
 
 export default function PriorityAnalysisPage() {
   // Get all ideas from all departments
   const allIdeas = getAllIdeasForCalculator();
+
+  // Calculate estimated total ROI potential based on scoring
+  const calculateEstimatedROI = (ideas: typeof allIdeas): string => {
+    const totalROI = ideas.reduce((sum, idea) => {
+      // Convert ROI score to estimated value
+      // ROI Scale: 5 = €100k+, 4 = €50-100k, 3 = €25-50k, 2 = €10-25k, 1 = <€10k
+      const roiValue = idea.scores.roi >= 5 ? 100000 :
+                      idea.scores.roi >= 4 ? 75000 :
+                      idea.scores.roi >= 3 ? 37500 :
+                      idea.scores.roi >= 2 ? 17500 :
+                      5000;
+      return sum + roiValue;
+    }, 0);
+
+    // Format as millions with 1 decimal place
+    const millions = totalROI / 1000000;
+    return `€${millions.toFixed(1)}M`;
+  };
+
+  // Calculate high priority initiatives (ROI >= 4 and strategic alignment >= 4)
+  const calculateHighPriorityCount = (ideas: typeof allIdeas): number => {
+    return ideas.filter(idea => 
+      idea.scores.roi >= 4 && idea.scores.strategicAlignment >= 4
+    ).length;
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -62,12 +88,40 @@ export default function PriorityAnalysisPage() {
             <div className="text-sm text-gray-500">Departments Analyzed</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-2xl font-bold text-purple-600">€2.5M+</div>
+            <div className="flex items-center gap-2">
+              <div className="text-2xl font-bold text-purple-600">{calculateEstimatedROI(allIdeas)}</div>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Info className="h-4 w-4 text-gray-400 hover:text-gray-600" />
+                  </TooltipTrigger>
+                  <TooltipContent className="max-w-xs">
+                    <p className="text-sm">
+                      Calculated from ROI scores: 5=€100k+, 4=€50-100k, 3=€25-50k, 2=€10-25k, 1=&lt;€10k per initiative
+                    </p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            </div>
             <div className="text-sm text-gray-500">Estimated Total ROI Potential</div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow">
-            <div className="text-2xl font-bold text-orange-600">
-              {Math.round(allIdeas.length * 0.25)}
+            <div className="flex items-center gap-2">
+              <div className="text-2xl font-bold text-orange-600">
+                {calculateHighPriorityCount(allIdeas)}
+              </div>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Info className="h-4 w-4 text-gray-400 hover:text-gray-600" />
+                  </TooltipTrigger>
+                  <TooltipContent className="max-w-xs">
+                    <p className="text-sm">
+                      Initiatives with ROI ≥ 4 and Strategic Alignment ≥ 4 (high business value + strategic fit)
+                    </p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
             <div className="text-sm text-gray-500">High Priority Initiatives</div>
           </div>
