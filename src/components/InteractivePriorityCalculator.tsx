@@ -6,7 +6,8 @@ import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Info, RotateCcw, Download, TrendingUp, TrendingDown } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Info, RotateCcw, Download, TrendingUp, TrendingDown, ExternalLink } from 'lucide-react';
 import { 
   DuvenbeckPriorityCalculator, 
   WeightingConfig, 
@@ -29,6 +30,7 @@ export function InteractivePriorityCalculator({ ideas }: InteractivePriorityCalc
   const [weights, setWeights] = useState<WeightingConfig>(DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS);
   const [selectedScenario, setSelectedScenario] = useState<string>('custom');
   const [previousRankings, setPreviousRankings] = useState<Array<PriorityResult & { id: string; name: string }> | null>(null);
+  const [selectedIdea, setSelectedIdea] = useState<typeof ideas[0] | null>(null);
 
   // Calculate current rankings
   const currentRankings = useMemo(() => {
@@ -262,16 +264,14 @@ export function InteractivePriorityCalculator({ ideas }: InteractivePriorityCalc
                           <TableRow 
                             key={result.id}
                             className="cursor-pointer hover:bg-muted/50 transition-colors"
-                            onClick={() => {
-                              alert(`${idea?.name}\n\nDepartment: ${idea?.department}\nDescription: ${idea?.description}\n\nScores:\n- Complexity: ${idea?.scores.complexity}/5\n- Cost: ${idea?.scores.cost}/5\n- ROI: ${idea?.scores.roi}/5\n- Risk: ${idea?.scores.risk}/5\n- Strategic: ${idea?.scores.strategicAlignment}/5`);
-                            }}
+                            onClick={() => setSelectedIdea(idea || null)}
                           >
                             <TableCell className="font-medium">#{result.rank}</TableCell>
                             <TableCell>
                               <div>
                                 <div className="font-medium flex items-center gap-2">
                                   {result.name}
-                                  <span className="text-xs text-muted-foreground">ℹ️</span>
+                                  <ExternalLink className="h-3 w-3 text-muted-foreground" />
                                 </div>
                                 {idea?.description && (
                                   <div className="text-sm text-muted-foreground line-clamp-2">
@@ -395,6 +395,205 @@ export function InteractivePriorityCalculator({ ideas }: InteractivePriorityCalc
           </Tabs>
         </div>
       </div>
+
+      {/* Idea Details Modal */}
+      <Dialog open={selectedIdea !== null} onOpenChange={() => setSelectedIdea(null)}>
+        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold flex items-center gap-3">
+              <span className="text-3xl">💡</span>
+              <div className="flex-1">
+                <div className="text-2xl">{selectedIdea?.name || 'AI Initiative'}</div>
+                <div className="text-sm text-muted-foreground font-normal mt-1">
+                  {selectedIdea?.department} • Priority Calculator Analysis
+                </div>
+              </div>
+            </DialogTitle>
+          </DialogHeader>
+          
+          {selectedIdea && (
+            <div className="space-y-6 pt-4">
+              {/* Description */}
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <h3 className="font-semibold text-blue-900 mb-2">📋 Description</h3>
+                <p className="text-blue-800">{selectedIdea.description}</p>
+              </div>
+
+              {/* Current Priority Analysis */}
+              <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-lg p-4">
+                <h3 className="font-semibold text-purple-900 mb-3">🎯 Current Priority Analysis</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-purple-900">
+                      #{currentRankings.find(r => r.id === selectedIdea.id)?.rank || 'N/A'}
+                    </div>
+                    <div className="text-sm text-purple-700">Current Rank</div>
+                  </div>
+                  <div className="text-center">
+                    <div className="text-3xl font-bold text-blue-900">
+                      {Math.round(DuvenbeckPriorityCalculator.calculatePriority(selectedIdea.scores, weights).finalScore)}
+                    </div>
+                    <div className="text-sm text-blue-700">Priority Score</div>
+                  </div>
+                </div>
+                <div className="mt-3 text-center">
+                  <Badge variant={
+                    currentRankings.find(r => r.id === selectedIdea.id)?.category === 'Top Priority' ? 'default' :
+                    currentRankings.find(r => r.id === selectedIdea.id)?.category === 'High Priority' ? 'secondary' :
+                    currentRankings.find(r => r.id === selectedIdea.id)?.category === 'Medium Priority' ? 'outline' : 'destructive'
+                  }>
+                    {currentRankings.find(r => r.id === selectedIdea.id)?.category || 'Not Ranked'}
+                  </Badge>
+                </div>
+              </div>
+
+              {/* Scoring Details */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <h3 className="font-semibold text-lg">📊 Scoring Breakdown</h3>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg border border-blue-200">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">🔧</span>
+                        <span className="font-medium">Complexity</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Badge variant="outline" className="bg-blue-100">
+                          {selectedIdea.scores.complexity}/5
+                        </Badge>
+                        <div className="text-sm text-blue-700">
+                          {selectedIdea.scores.complexity >= 4 ? 'Simple' : 
+                           selectedIdea.scores.complexity >= 3 ? 'Moderate' : 
+                           selectedIdea.scores.complexity >= 2 ? 'Complex' : 'Very Complex'}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between p-3 bg-yellow-50 rounded-lg border border-yellow-200">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">💰</span>
+                        <span className="font-medium">Cost</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Badge variant="outline" className="bg-yellow-100">
+                          {selectedIdea.scores.cost}/5
+                        </Badge>
+                        <div className="text-sm text-yellow-700">
+                          {selectedIdea.scores.cost >= 4 ? 'Low Cost' : 
+                           selectedIdea.scores.cost >= 3 ? 'Moderate' : 
+                           selectedIdea.scores.cost >= 2 ? 'High Cost' : 'Very High Cost'}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg border border-green-200">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">📈</span>
+                        <span className="font-medium">ROI Potential</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Badge variant="outline" className="bg-green-100">
+                          {selectedIdea.scores.roi}/5
+                        </Badge>
+                        <div className="text-sm text-green-700">
+                          {selectedIdea.scores.roi >= 5 ? '€100k+' : 
+                           selectedIdea.scores.roi >= 4 ? '€50-100k' : 
+                           selectedIdea.scores.roi >= 3 ? '€25-50k' : 
+                           selectedIdea.scores.roi >= 2 ? '€10-25k' : '<€10k'}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between p-3 bg-red-50 rounded-lg border border-red-200">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">⚠️</span>
+                        <span className="font-medium">Risk Level</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Badge variant="outline" className="bg-red-100">
+                          {selectedIdea.scores.risk}/5
+                        </Badge>
+                        <div className="text-sm text-red-700">
+                          {selectedIdea.scores.risk >= 4 ? 'Low Risk' : 
+                           selectedIdea.scores.risk >= 3 ? 'Moderate' : 
+                           selectedIdea.scores.risk >= 2 ? 'High Risk' : 'Very High Risk'}
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between p-3 bg-purple-50 rounded-lg border border-purple-200">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">🎯</span>
+                        <span className="font-medium">Strategic Alignment</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Badge variant="outline" className="bg-purple-100">
+                          {selectedIdea.scores.strategicAlignment}/5
+                        </Badge>
+                        <div className="text-sm text-purple-700">
+                          {selectedIdea.scores.strategicAlignment >= 4 ? 'High Alignment' : 
+                           selectedIdea.scores.strategicAlignment >= 3 ? 'Moderate' : 
+                           selectedIdea.scores.strategicAlignment >= 2 ? 'Low Alignment' : 'Misaligned'}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <h3 className="font-semibold text-lg">⚖️ Weighted Analysis</h3>
+                  
+                  {(() => {
+                    const result = DuvenbeckPriorityCalculator.calculatePriority(selectedIdea.scores, weights);
+                    return (
+                      <div className="space-y-3">
+                        <div className="bg-gray-50 border rounded-lg p-3">
+                          <div className="text-sm font-medium mb-2">Current Weighting Impact:</div>
+                          <div className="space-y-2 text-sm">
+                            <div className="flex justify-between">
+                              <span>Complexity ({weights.complexity}%):</span>
+                              <span className="font-mono">{result.breakdown.complexity.weighted.toFixed(1)}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Cost ({weights.cost}%):</span>
+                              <span className="font-mono">{result.breakdown.cost.weighted.toFixed(1)}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>ROI ({weights.roi}%):</span>
+                              <span className="font-mono">{result.breakdown.roi.weighted.toFixed(1)}</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>Risk ({weights.risk}%):</span>
+                              <span className="font-mono">{result.breakdown.risk.weighted.toFixed(1)}</span>
+                            </div>
+                            <div className="flex justify-between border-t pt-2">
+                              <span>Strategic ({weights.strategicAlignment}%):</span>
+                              <span className="font-mono">{result.breakdown.strategicAlignment.weighted.toFixed(1)}</span>
+                            </div>
+                            <div className="flex justify-between border-t pt-2 font-semibold">
+                              <span>Final Score:</span>
+                              <span className="font-mono">{result.finalScore.toFixed(1)}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-3">
+                          <div className="text-sm font-medium text-blue-900 mb-2">💡 Impact Analysis:</div>
+                          <p className="text-sm text-blue-800">
+                            This initiative ranks #{currentRankings.find(r => r.id === selectedIdea.id)?.rank || 'N/A'} out of {currentRankings.length}. 
+                            Adjust the weighting sliders above to see how different strategic priorities would affect this ranking.
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })()}
+                </div>
+              </div>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
