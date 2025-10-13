@@ -3,69 +3,255 @@
     "title": "KI-Workshop Dashboard",
     "subtitle": "Duvenbeck AI Workshop 6-8. Oktober 2025"
   },
-  "compliance": {
+  "contract_logistics": {
     "ideas": {
-      "damage_assessment": "Schadenprüfung",
-      "contract_review": "Vertragsprüfung (Versicherung)",
-      "documentation": "Dokumentation/Administration",
-      "legal_documents": "Erstellung von Schriftsätzen",
-      "questionnaires": "Erstellung von Fragebögen und Gesprächsleitfäden",
-      "contract_templates": "Erstellung von Vertragsvorlagen",
-      "standards_analysis": "Prüfung und Analyse von Standards",
-      "routine_cases": "Kleine, wiederkehrende Fälle und Fragen"
+      "requirements_specification": "Anforderungsspezifikation Zusammenfassung",
+      "target_prices": "Zielpreise",
+      "contract_review": "Vertragsprüfungen/Dokumentenprüfungen"
     },
     "problems": {
-      "damage_assessment": "Haftungsprüfung inkl. 'gutachterliche' Bewertung",
-      "contract_review": "Vertragsprüfung - Haftung & Versicherung inkl. Checkliste",
-      "documentation": "Dokumentation/Administration und Zusammenfassung von E-Mail-Verläufen, Dokumenten, Vertragsprüfungen in Aktensystem jeweils mit Erstellung einer Beschreibung des Inhalts im Aktenablagesystem",
-      "legal_documents": "Erstellung von Schriftsätzen, Klagen, Klageerwiderungen, Anschreiben etc.",
-      "questionnaires": "Erstellung von Fragebögen und Gesprächsleitfäden",
-      "contract_templates": "Erstellung von Vertragsvorlagen, Vorlagen für Richtlinien, Datenschutzhinweise und andere Dokumente sowie Einfügen in bestehende Vorlagen",
-      "standards_analysis": "Prüfung und Analyse von Standards (NDA, CoC, IT-AGB, AVV etc.) sowie auch von nicht standardisierten Verträgen",
-      "routine_cases": "Kleine, wiederkehrende Fälle und Fragen"
+      "requirements_specification": "Zusammenfassung und Interpretation der Anforderungsspezifikation",
+      "target_prices": "Zielpreise machen 50% der Anfragen aus, häufig ohne Gewinn",
+      "contract_review": "Vertragsprüfungen und Dokumentenprüfungen"
     },
     "solutions": {
-      "damage_assessment": "Ist der Schaden erstattungsfähig? Haftungsgrundlagen erfüllt? Bewertung des Schadenausmaßes",
-      "contract_review": "Erstellung Checkliste inkl. Makierung relevante Passagen ggf Vorabprüfung, Übersetzung",
-      "documentation": "Ggf. automatisiertes Zuordnen der Dokumente zu den betreffenden Akten und Auslesen des Inhalts mit Erstellung einer Zusammenfassung",
-      "legal_documents": "Nutzung der Rechercheergebnisse, der Sachverhaltszusammenfasstung etc. zur Erstellung von Texten in juristischer Tonalität unter Hinzuziehung vorgegebener Muster",
-      "questionnaires": "Nach Bereitstellung des Sachverhaltes Aufarbeitung und Entwurf von Fragen",
-      "contract_templates": "Texterstellung auf Grundlage von Stichpunkten und Themenblöcken, Erstellen und Einfügen in vorgegebene Vorlagen",
-      "standards_analysis": "Automatische Prüfung und Zusammenfassung u.a. unter Berücksichtigung vorgegebener Regeln (KI-Lösung von OTRIS)",
-      "routine_cases": "Chatbot"
+      "requirements_specification": "Automatische Information über die wichtigsten Punkte mit 'Filterung' nach Abteilung, Projektbereich",
+      "target_prices": "Automatische Erstellung von Zielpreisen als Indikation",
+      "contract_review": "Automatische Erkennung von größeren Abweichungen vom DUV-Standard"
     },
     "notes": {
       "complexity": {
-        "damage_assessment": "Vertragsprüfung, gesetzliche Haftung, Marktwerte, Schrottwerte, Warenart und Warenfunktion",
-        "contract_review": "Daten für die Checkliste können einfach ausgelesen werden. Nur Versicherungsthemen relevant, nicht der ganze Vertrag. Bereitstellung von Versicherungsumfang möglich.",
-        "documentation": "keine hohe Komplexität, weil: reines Auslesen von vorhandenen Daten; zum Teil Systeme bekannt, die das bereits umsetzen können",
-        "legal_documents": "Erstellung von Verträgen: komplexer; Erstellung von Schriftsätzen und Verarbeitungsbeschreibungen: nicht so komplex",
-        "standards_analysis": "Mittel bis hoch: Abhängig von der Regelvielfalt und Dokumentenstruktur. Die KI muss sowohl juristische Sprache als auch spezifische Unternehmensregeln verstehen und anwenden können.",
-        "routine_cases": "Mittel: Aufbau eines internen Wissenspools, Training der KI auf firmenspezifische Inhalte und laufende Pflege notwendig. Technisch gut umsetzbar mit vorhandenen Lösungen."
+        "requirements_specification": "Erfahrung: Gewichtung der Informationen wesentlich, Sprachen; Formulierung, Genauigkeit der Informationen aber andererseits reine Informationsverarbeitung",
+        "target_prices": "Eingabe von Standardinformationen/Grunddaten analog zu CCT",
+        "contract_review": "Suche nach Schlüsselwörtern, Interpretationshilfe"
       },
       "cost": {
-        "damage_assessment": "gesondertes Programm wird benötigt (vertrauliche Firmendaten enthalten). Mitarbeiteraufwand relativ gering (Reduzierung Arbeitsaufwand). Kostenersparnis Versicherung & Gutachterkosten",
-        "contract_review": "gesondertes Programm wird benötigt (vertrauliche Firmendaten enthalten). Mitarbeiteraufwand relativ gering (Reduzierung Arbeitsaufwand).",
-        "documentation": "abhängig von der Systemlandschaft",
-        "legal_documents": "mittlere bis hohe Investitionskosten; laufende Kosten abhängig von Nutzung und API-Abfragen",
-        "standards_analysis": "Kosten durch OTRIS (Add-On bei OTRIS) relativ gering, da bereits das System vorhanden ist und es sich nur um ein Add-On handelt",
-        "routine_cases": "einmalige Implementierung und kontinuierliche Pflege durch Legal (DUV GPT könnte nach Implementierung genutzt werden)"
+        "requirements_specification": "Geringer Aufwand/Nutzung, Programmieraufwand jedoch gegeben",
+        "target_prices": "Höhere Nutzung, einfache Datenverarbeitung/technische Umsetzung",
+        "contract_review": "Geringer Aufwand/Nutzung, Programmieraufwand jedoch gegeben"
+      },
+      "roi": {
+        "requirements_specification": "Kleiner Personenkreis der damit in Berührung kommt, nur Datenzusammenfassung, Zeitersparnis bei erster Dokumentensichtung",
+        "target_prices": "Reduzierung des Kalkulationsaufwands, Freisetzung von Ressourcen für Projekte",
+        "contract_review": "Kleiner Personenkreis der damit in Berührung kommt, Interpretationshilfe, Zeitersparnis für Entscheidungsträger"
       },
       "risk": {
-        "damage_assessment": "Muss vom Mitarbeiter noch einmal gegengeprüft werden. Verhandlungen immer noch möglich. Teilweise sensible Firmendaten enthalten",
-        "contract_review": "Muss vom Mitarbeiter noch einmal gegengeprüft werden, um Deckungslücken zu vermeiden.",
-        "documentation": "mittleres Risiko, da nur Vorhandenes ausgelesen wird und keine neuen Ergebnisse generiert werden",
-        "legal_documents": "Mittel: Risiken betreffen inhaltliche Richtigkeit, Datenvertraulichkeit bei externer Verarbeitung und Urheberrecht. Durch klare Governance und manuelle Endkontrolle gut beherrschbar",
-        "standards_analysis": "Niedrig bis mittel: Geringes Risiko bei interner Nutzung; bei externer Cloud-Lösung Prüfung von Datenschutz und Datensicherheit erforderlich. Risiko falscher Bewertungen bei unvollständigen Regeln.",
-        "routine_cases": "höheres Risiko: Treffgenauigkeit der Schlagworte fehleranfällig"
+        "requirements_specification": "Ungenauigkeit kann zu Fehlinterpretation führen",
+        "target_prices": "Zielpreis, keine vertragliche Bindung",
+        "contract_review": "Fehlinterpretation kann zu hohen Folgekosten führen, Datensicherheit bei vertraulichen Kundeninformationen?"
       },
       "strategic": {
-        "damage_assessment": "Ersparung von externen und internen Personalaufwänden",
-        "contract_review": "schnellere Rückmeldungen an den Kunden = Kundenzufriedenheit wird verbessert. Ersparnis von Mitarbeiteraufwand",
-        "documentation": "Vereinheitlichung; Reduzierung des administrativen Aufwands",
-        "legal_documents": "Automatisierung, Zeitersparnis, Vereinheitlichung und Standardisierung, Beschleunigung",
-        "standards_analysis": "Sehr gute Passung: Stärkt Qualitätssicherung, Standardisierung und Nachvollziehbarkeit. Unterstützt die digitale Transformation der Rechtsabteilung und fördert Konsistenz.",
-        "routine_cases": "direkte Antwort, schnelle erste Einschätzung, Beschleunigung des Prozesses"
+        "requirements_specification": "Qualitative Entscheidungsunterstützung, Zeitersparnis für Mitarbeiter",
+        "target_prices": "Keine Ressourcenbindung, Konzentration auf wichtige/strategische Projekte",
+        "contract_review": "Risikomanagement"
+      }
+    }
+  },
+  "controlling": {
+    "ideas": {
+      "presentation_creation": "Erstellung Präsentation",
+      "intensive_research": "Zeitintensive Recherche",
+      "fp_analysis": "FP Analyse"
+    },
+    "problems": {
+      "presentation_creation": "MEC, Adhoc PPT ...",
+      "intensive_research": "Zeitintensive Nachforschungen für die Analyse vergangener Umsätze, Jahre/Monate/Quartale, Preise, Vertragssituation etc.",
+      "fp_analysis": "Produktivität eigener Fuhrpark Tour ID"
+    },
+    "solutions": {
+      "presentation_creation": "Automatisierte Erstellung der MEC PPT",
+      "intensive_research": "\"Lexikon\" in dem ich schnell \"nachschlagen\" kann // Chatbot",
+      "fp_analysis": "Automatisierte Erstellung einer Tour-ID, so dass man erkennt, wenn 2 Car_O Touren (oder mehr) zu einem Rundlauf kombiniert wurden. Mithilfe von Fleetboard automatische Analysen der Strecke und Produktivität erstellen. Umfassende Analyse der relevanten FP-KPI"
+    },
+    "notes": {
+      "complexity": {
+        "presentation_creation": "viele verschiedene Datenquellen (z.Bsp: IDL, Lukanet, CAR_O), unterschiedlliche Ebenen der Darstellung (BUKRS <> PC), Abweichungsanalyse wichtiger KPI, Zusammenfassung der Themen anhand vorgegebener PPT-Struktur, auf Company-Level, BU-Level und Group-Level",
+        "intensive_research": "viele verschiedene Datenquellen, Ersterstellung aufwendig, Verlinkung der unterschiedlichen Daten",
+        "fp_analysis": "Analyse der Produktivität bezüglich verschiedener KPI, unterschiedliche Verrechnungspreise erschweren, Planungsgrundlagen bzw. -Annahmen sind nicht identisch, Rundlauferkennung wünschenswert, frühes erkennen von Abweichungen durch teilweise Live-Auswertung"
+      },
+      "cost": {
+        "presentation_creation": "Programmieraufwand, Lizenzen, (ABO)",
+        "intensive_research": "Programmieraufwand, Lizenzen, (ABO), initiales Ausarbeiten",
+        "fp_analysis": "Programmieraufwand, Lizenzen, (ABO)"
+      },
+      "roi": {
+        "presentation_creation": "CO-Unterstützung, Einsparung von Arbeitszeit im Controlling",
+        "intensive_research": "CO-Unterstützung, Einsparung von Arbeitszeit in vielen beteiligten Abteilungen",
+        "fp_analysis": "Optimierung des Fuhrparks, Kostenreduzierung, Erhöhung Umsatz, Vermeidung Leer- und Umwegkilometer"
+      },
+      "risk": {
+        "presentation_creation": "sensible Daten, umfassende Finanzwerte aus allen Bereichen",
+        "intensive_research": "sensible Daten, umfassende Finanzwerte aus allen Bereichen, zusätzlich aus operativen Bereichen",
+        "fp_analysis": "keine hochsensiblen Daten in Anwendung"
+      },
+      "strategic": {
+        "presentation_creation": "Unterstützung zur Kommunikation mit unterschiedlichen Shareholdern",
+        "intensive_research": "vornehmlich interne Nutzung",
+        "fp_analysis": "Strategien entwickeln hinsichtlich Fuhrpark-Nutzung"
+      }
+    }
+  },
+  "compliance": {
+    "ideas": {
+      "damage_claim_review": "Schadenprüfung",
+      "contract_insurance_review": "Vertragsprüfung (Versicherung)",
+      "document_administration": "Dokumentation/Administration und E-Mail-Zusammenfassung",
+      "legal_document_creation": "Erstellung von Schriftsätzen",
+      "contract_analysis": "Prüfung und Analyse von Standards",
+      "recurring_case_chatbot": "Kleine, wiederkehrende Fälle und Fragen"
+    },
+    "problems": {
+      "damage_claim_review": "Haftungsprüfung inkl. \"gutachterliche\" Bewertung",
+      "contract_insurance_review": "Vertragsprüfung - Haftung & Versicherung inkl. Checkliste",
+      "document_administration": "Dokumentation/Administration und Zusammenfassung von E-Mail-Verläufen, Dokumenten, Vertragsprüfungen in Aktensystem jeweils mit Erstellung einer Beschreibung des Inhalts im Aktenablagesystem",
+      "legal_document_creation": "Erstellung von Schriftsätzen, Klagen, Klageerwiderungen, Anschreiben etc.",
+      "contract_analysis": "Prüfung und Analyse von Standards (NDA, CoC, IT-AGB, AVV etc.) sowie auch von nicht standardisierten Verträgen",
+      "recurring_case_chatbot": "Kleine, wiederkehrende Fälle und Fragen"
+    },
+    "solutions": {
+      "damage_claim_review": "Ist der Schaden erstattungsfähig? Haftungsgrundlagen erfüllt? Bewertung des Schadenausmaßes",
+      "contract_insurance_review": "Erstellung Checkliste inkl. Markierung relevante Passagen ggf Vorabprüfung, Übersetzung",
+      "document_administration": "Ggf. automatisiertes Zuordnen der Dokumente zu den betreffenden Akten und Auslesen des Inhalts mit Erstellung einer Zusammenfassung (automatisierte Sachverhaltserfassung)",
+      "legal_document_creation": "Nutzung der Rechercheergebnisse, der Sachverhaltszusammenfassung etc. zur Erstellung von Texten in juristischer Tonalität unter Hinzuziehung vorgegebener Muster u.a. auch aus der beck-online Datenbank",
+      "contract_analysis": "Automatische Prüfung und Zusammenfassung u.a. unter Berücksichtigung vorgegebener Regeln (KI-Lösung von OTRIS)",
+      "recurring_case_chatbot": "Chatbot"
+    },
+    "notes": {
+      "complexity": {
+        "damage_claim_review": "Vertragsprüfung, gesetzliche Haftung, Marktwerte, Schrottwerte, Warenart und Warenfunktion",
+        "contract_insurance_review": "Daten für die Checkliste können einfach ausgelesen werden. Nur Versicherungsthemen relevant, nicht der ganze Vertrag. Bereitstellung von Versicherungsumfang möglich",
+        "document_administration": "Keine hohe Komplexität, weil: reines Auslesen von vorhandenen Daten; zum Teil Systeme bekannt, die das bereits umsetzen können",
+        "legal_document_creation": "Erstellung von Verträgen: komplexer; Erstellung von Schriftsätzen und Verarbeitungsbeschreibungen: nicht so komplex",
+        "contract_analysis": "Mittel bis hoch: Abhängig von der Regelvielfalt und Dokumentenstruktur. Die KI muss sowohl juristische Sprache als auch spezifische Unternehmensregeln verstehen und anwenden können",
+        "recurring_case_chatbot": "Mittel: Aufbau eines internen Wissenspools, Training der KI auf firmenspezifische Inhalte und laufende Pflege notwendig"
+      },
+      "cost": {
+        "damage_claim_review": "Gesondertes Programm wird benötigt (vertrauliche Firmendaten enthalten). Mitarbeiteraufwand relativ gering (Reduzierung Arbeitsaufwand). Kostenersparnis Versicherung & Gutachterkosten",
+        "contract_insurance_review": "Gesondertes Programm wird benötigt (vertrauliche Firmendaten enthalten). Mitarbeiteraufwand relativ gering (Reduzierung Arbeitsaufwand)",
+        "document_administration": "Abhängig von der Systemlandschaft",
+        "legal_document_creation": "Mittlere bis hohe Investitionskosten; laufende Kosten abhängig von Nutzung und API-Abfragen",
+        "contract_analysis": "Kosten durch OTRIS (Add-On bei OTRIS) relativ gering, da bereits das System vorhanden ist und es sich nur um ein Add-On handelt",
+        "recurring_case_chatbot": "Einmalige Implementierung und kontinuierliche Pflege durch Legal (DUV GPT könnte nach Implementierung genutzt werden)"
+      },
+      "roi": {
+        "damage_claim_review": "Kostenersparnis, Zeitersparnis",
+        "contract_insurance_review": "Schnellere Rückmeldungen an den Kunden = Kundenzufriedenheit wird verbessert. Ersparnis von Mitarbeiteraufwand",
+        "document_administration": "Sehr hoch durch Zeitersparnis in Dokumentenablage, Recherche und Fallbearbeitung",
+        "legal_document_creation": "Sehr hoch: erhebliche Zeitersparnis bei wiederkehrenden Aufgaben (z. B. Entwürfe, Stellungnahmen, interne Rückmeldungen). Reduziert Recherchen und Formulierungsaufwand",
+        "contract_analysis": "Hohe Zeitersparnis, sobald implementiert; Erstellung des Playbooks erfordert vorab erhöhten Zeitaufwand",
+        "recurring_case_chatbot": "Relativ hoch: Entlastet das Team bei Routineanfragen, reduziert Bearbeitungszeiten, erhöht Reaktionsgeschwindigkeit"
+      },
+      "risk": {
+        "damage_claim_review": "Muss vom Mitarbeiter noch einmal gegengeprüft werden. Verhandlungen immer noch möglich. Teilweise sensible Firmendaten enthalten",
+        "contract_insurance_review": "Muss vom Mitarbeiter noch einmal gegengeprüft werden, um Deckungslücken zu vermeiden",
+        "document_administration": "Mittleres Risiko, da nur Vorhandenes ausgelesen wird und keine neuen Ergebnisse generiert werden",
+        "legal_document_creation": "Mittel: Risiken betreffen inhaltliche Richtigkeit, Datenvertraulichkeit bei externer Verarbeitung und Urheberrecht. Durch klare Governance und manuelle Endkontrolle gut beherrschbar",
+        "contract_analysis": "Niedrig bis mittel: Geringes Risiko bei interner Nutzung; bei externer Cloud-Lösung Prüfung von Datenschutz und Datensicherheit erforderlich. Risiko falscher Bewertungen bei unvollständigen Regeln",
+        "recurring_case_chatbot": "Höheres Risiko: Treffgenauigkeit der Schlagworte fehleranfällig"
+      },
+      "strategic": {
+        "damage_claim_review": "Ersparung von externen und internen Personalaufwänden",
+        "contract_insurance_review": "Schnellere Rückmeldungen an den Kunden = Kundenzufriedenheit wird verbessert. Ersparnis von Mitarbeiteraufwand",
+        "document_administration": "Vereinheitlichung; Reduzierung des administrativen Aufwands",
+        "legal_document_creation": "Automatisierung, Zeitersparnis, Vereinheitlichung und Standardisierung, Beschleunigung",
+        "contract_analysis": "Sehr gute Passung: Stärkt Qualitätssicherung, Standardisierung und Nachvollziehbarkeit. Unterstützt die digitale Transformation der Rechtsabteilung",
+        "recurring_case_chatbot": "Direkte Antwort, schnelle erste Einschätzung, Beschleunigung des Prozesses"
+      }
+    }
+  },
+  "accounting": {
+    "ideas": {
+      "document_reading": "Automatisiertes Lesen von Dokumenten (Aufträge/Lieferscheine)",
+      "cash_forecast": "Automatisierte Liquiditätsprognose",
+      "chatbot_external": "Chatbot-Lösung für externe Anfragen",
+      "ic_differences": "Automatisierte Analyse von IC-Differenzen"
+    },
+    "problems": {
+      "document_reading": "Manuelles Lesen von Dokumenten",
+      "cash_forecast": "Liquiditätsprognose ist zeitaufwändig aufgrund verschiedener Datenquellen",
+      "chatbot_external": "Kreditorenmahnungen und Rechnungsanfragen erfordern zu viel manuellen Zeitaufwand",
+      "ic_differences": "Auftreten und nachträgliche Klärung von IC-Differenzen"
+    },
+    "solutions": {
+      "document_reading": "Lesen von Transportaufträgen, Lieferscheinen und Verträgen",
+      "cash_forecast": "Automatisierte Integration aller verfügbaren Quellen und logische Bewertung",
+      "chatbot_external": "Diese Standardanfragen könnten einfach von einem Chatbot beantwortet werden",
+      "ic_differences": "Automatisierte Analyse von Differenzen, Entwicklung von Lösungsvorschlägen"
+    },
+    "notes": {
+      "complexity": {
+        "document_reading": "Dokumententyp muss erkannt werden\nRelevante Informationen müssen je nach Dokumententyp gelesen werden\nFür Verträge: Abgleich mit vorgegebenen Parametern\nFür Rechnungen: Vorerfassung/Buchung\nFür Leasing-Dauerrechnungen: Informationsspeicherung in SAP\nFür Transportdokumente: Informationsspeicherung in Car_O",
+        "cash_forecast": "CO-Budget lesen, kategorisieren, zuordnen\nKunden-/Unternehmer-Zuordnung\nKunden-Zahlungsverhalten\nFactoring-Prognose je nach Rechnungsstellung-Status/Geschwindigkeit",
+        "chatbot_external": "Kategorisierung in Kunden/Unternehmer\nklare Informationsabfrage (Referenz/Transportauftrag/Gutschrift-Nummer)\nklare Antwort mit Zahlungsdatum oder Dokumentkopie (Zahlungslauf)",
+        "ic_differences": "Auswertung von Excel-Tabellen aus LucaNet exportiert (Vergleich Ist-Zahlen)"
+      },
+      "cost": {
+        "document_reading": "Hohes Dokumentenvolumen (Transportpapiere)",
+        "cash_forecast": "Implementierungskosten möglicherweise relativ hoch\nlaufende Kosten eher niedrig aufgrund geringer Abfrageintensität",
+        "chatbot_external": "Potenziell höhere Kosten aufgrund vieler Anfragen",
+        "ic_differences": "Monatliche Auswertung, überschaubare Größe der Excel-Tabellen"
+      },
+      "roi": {
+        "document_reading": "Personalreduktion möglich in vielen Bereichen\nZeitersparnisse\nschnellere Liquidität\nhöhere Datenqualität",
+        "cash_forecast": "Liquidität notwendig für Unternehmensführung",
+        "chatbot_external": "Schnelle Antworten\nKundenzufriedenheit\nTransparenz",
+        "ic_differences": "(überschaubare) Reduzierung interner monatlicher Aktivitäten"
+      },
+      "risk": {
+        "document_reading": "Mögliche Fehlinterpretation durch KI",
+        "cash_forecast": "Hohe Komplexität verschiedener Datenquellen",
+        "chatbot_external": "Falsche Informationen können geteilt werden\nAntworten passen möglicherweise nicht zu Unternehmerdaten",
+        "ic_differences": "Kein signifikantes Risiko erkennbar"
+      },
+      "strategic": {
+        "document_reading": "Kostenreduktion in der Verwaltung",
+        "cash_forecast": "Liquidität notwendig für Unternehmensführung",
+        "chatbot_external": "Kostenreduktion in der Verwaltung",
+        "ic_differences": "Unbekannt"
+      }
+    }
+  },
+  "central_solution_design": {
+    "ideas": {
+      "nine_am_process": "9 Uhr Prozess",
+      "ftl_precalculation": "Automatisierte FTL-Vorkalkulation",
+      "subcontractor_database": "Subunternehmer-Datenbank"
+    },
+    "problems": {
+      "nine_am_process": "9 Uhr Prozess erfordert viele Ressourcen (Personal, Zeit)",
+      "ftl_precalculation": "Zeitaufwändig",
+      "subcontractor_database": "Fehlende Informationen"
+    },
+    "solutions": {
+      "nine_am_process": "Workflow zum Abrufen von RFQs / RFIs, Zusammenfassung und Ausfüllen von Feldern im CRM über einen KI-Agent (Tool: Dynamics) / Automatischer Datendownload",
+      "ftl_precalculation": "- Welche Ladungen passen perfekt?\n- Aktuelle Kosten / Bereitstellung von Kosten-KPIs aus Ist-Zahlen / Eigene Daten\n- Automatische Erfassung von Transportinformationen aus Ausschreibungsunterlagen\n- Automatisierte Erstellung von Factsheets für Unternehmen / NDA-Extraktion\n- Korrektur falscher PLZ-Eingaben / Plausibilitätsprüfung\n- Automatische Terminplanung für Kalkulationsabstimmung in Outlook\n- Vorkalkulation auf SharePoint",
+      "subcontractor_database": "Strukturierte Bereitstellung von Informationen / Automatisierte Transportanfragen an Subunternehmer / Preisstruktur etc."
+    },
+    "notes": {
+      "complexity": {
+        "nine_am_process": "Unterstützung vom CRM-Team, Agent muss ins CRM schreiben / Workflow-Tool benötigt Zugang zu Outlook",
+        "ftl_precalculation": "Hängt stark vom Design und Umfang der Funktionalität ab",
+        "subcontractor_database": "Aufbau einer neuen Tabelle in der Datenbank, Erstellung eines neuen Reports im Reporting-System"
+      },
+      "cost": {
+        "nine_am_process": "Anzahl der Token ist überschaubar <1000 Euro pro Jahr / Kauf des Workflow Managers 600 Euro",
+        "ftl_precalculation": "Verarbeitung von Ist-Daten und Kosten-KPIs muss unabhängig von KI erfolgen. Sollte auf bestehendem oder geplantem Reporting-System aufbauen",
+        "subcontractor_database": "Entwicklungskosten in Datenaufbereitung und -bereitstellung / Laufende KI-Kosten überschaubar"
+      },
+      "roi": {
+        "nine_am_process": "Erhöhte Mitarbeiterproduktivität, ca. 3 Stunden pro Tag, aber messbarer Effekt auf Angebotsvolumen, da mehr verarbeitet werden kann",
+        "ftl_precalculation": "Erhöht Kalkulationssicherheit und verbessert Wahrscheinlichkeit der Auftragsvergabe",
+        "subcontractor_database": "Reduzierung von Leerfahrten, was zu besserer Fahrzeugauslastung führt"
+      },
+      "risk": {
+        "nine_am_process": "Datenschutz? Sollte geklärt werden",
+        "ftl_precalculation": "Meist interner Prozess / Aber Datenschutz-Problem",
+        "subcontractor_database": "Interner POC"
+      },
+      "strategic": {
+        "nine_am_process": "Korreliert mit Wachstumszielen",
+        "ftl_precalculation": "Korreliert mit Wachstumszielen",
+        "subcontractor_database": "Korreliert mit Wachstumszielen"
       }
     }
   },
@@ -137,6 +323,112 @@
       "fragen_themen": "Fragen / Themen",
       "erläuterung": "Erläuterung",
       "inhalte_antworten": "Inhalte / Antworten"
+    }
+  },
+  "esg": {
+    "ideas": {
+      "ai_text_creation": "KI-gestützte Texterstellung",
+      "ai_data_collection": "KI-gestützte Datenerfassung",
+      "ai_data_processing": "KI-gestützte Datenverarbeitung",
+      "automatic_customer_calculation": "Automatische Berechnung + Verarbeitung der Kundenanfrage",
+      "automatic_co2_tracking": "Automatische Erfassung aller notwendigen Daten + Berechnung der CO2-Emissionen"
+    },
+    "problems": {
+      "ai_text_creation": "Erstellen von Textbausteinen für die Berichterstattung.",
+      "ai_data_collection": "Erstellen von notwendigen KPIs, sowie das bilden der Datengrundlage",
+      "ai_data_processing": "Zeitaufwändige Erstellung der monatlichen ESG Master KPIs",
+      "automatic_customer_calculation": "Anfrage zur CO2-Bilanzierung auf Transportebene durch Kunden, etc.",
+      "automatic_co2_tracking": "Jährliche Erstellung des Corporate Carbon Footprint (GES CO2) - Scope 3"
+    },
+    "solutions": {
+      "ai_text_creation": "Automatisierte Erstellung der jeweiligen ESRS-Textbausteine",
+      "ai_data_collection": "Unterstützung / Automatisierung der Datensammlung + Datenqualität",
+      "ai_data_processing": "Automatisierte Erstellung der Master KPIs durch Datengrundlage",
+      "automatic_customer_calculation": "Erfassung der Frachtbriefe oder sonstige Parameter zur Berechnung von CO2 pro Transport, Sendung, etc. (Shipzero-Tool)",
+      "automatic_co2_tracking": "Tracking, Berechnung, etc. der Scope 3-Emissionen (meist sehr unklar) für bspw. MA-Anfahrt, Abfälle, etc."
+    },
+    "notes": {
+      "complexity": {
+        "ai_text_creation": "Erstellung von Textbausteinen für die Bericht- erstattung",
+        "ai_data_collection": "Automatisierung einer Vielzahl von Daten",
+        "ai_data_processing": "Automatisierung vieler Daten",
+        "automatic_customer_calculation": "Automatisierung vieler Daten",
+        "automatic_co2_tracking": "Viele unbekannte Parameter müssen erfasst werden; Falls nicht möglich muss eine standardisierte Hochrechnung erfolgen"
+      },
+      "cost": {
+        "ai_text_creation": "Pauschal",
+        "ai_data_collection": "Pauschal",
+        "ai_data_processing": "Pauschal",
+        "automatic_customer_calculation": "Bewertet anhand Vertrag Shipzero",
+        "automatic_co2_tracking": "Pauschal"
+      },
+      "risk": {
+        "ai_text_creation": "Pauschal, da fester Berichtsrahmen noch nicht besteht",
+        "ai_data_collection": "Pauschal, da fester Berichtsrahmen noch nicht besteht",
+        "ai_data_processing": "Master KPIs für intern",
+        "automatic_customer_calculation": "Nicht vorhandene Werte bzw. falsche Berechnungen könnten das Verhältnis zum Kunden beeinflussen",
+        "automatic_co2_tracking": "Fehlende oder falsch berechnete Werte können die CO2-Bilanzierung beeinflussen"
+      },
+      "strategic": {
+        "ai_text_creation": "Gesetzliche Anforderung",
+        "ai_data_collection": "Gesetzliche Anforderung",
+        "ai_data_processing": "Wichtig für die ESG-Strategie",
+        "automatic_customer_calculation": "Zertifizierung notwendig, zudem strategisch wichtig für eine Vielzahl an Stakeholder",
+        "automatic_co2_tracking": "Zahlt auf die obrigen gesetzlichen Anforderungen ein"
+      }
+    }
+  },
+  "hr": {
+    "ideas": {
+      "hr_data_dashboard": "HR-Daten Dashboard/KPI Reporting",
+      "employee_information_dashboard": "Mitarbeiter-Informations-Dashboard",
+      "hr_agent": "HR-Agent für Fragen",
+      "vacation_management": "Urlaubsverwaltung",
+      "email_prioritization": "E-Mail-Priorisierung"
+    },
+    "problems": {
+      "hr_data_dashboard": "Daten (Stammdaten & KPI) müssen aus verschiedenen Systemen abgefragt und zentral zusammengetragen werden und an verschiedene Stakeholder und Shareholder geliefert werden.",
+      "employee_information_dashboard": "Informationen für einen Mitarbeiter als Entscheidungsgrundlage für jegliche personelle Maßnahmen zusammenstellen. Alle notwendigen Informationen zu den nächsten Steps müssen aus unterschiedlichen Systemen (Abrechnungssystem, Personalakte, Zeitinformationssystem, Transfermatrix etc.) geholt werden.",
+      "hr_agent": "Mitarbeitende haben oft keine schnelle Antwort auf HR-Fragen.",
+      "vacation_management": "Urlaub: Urlaubsanfragen Mitarbeiter über Höhe des noch offenen Urlaubs, alle Urlaubsanträge über D3 (in GER) werden manuell ins Zeitinformationsprogramm eingetragen, Urlaubsanträge aus dem D3 in den Dienstplan übernehmen",
+      "email_prioritization": "Priorisierung von E-Mails in Outlook, automatische Erinnerungen an noch nicht bearbeitete E-Mails"
+    },
+    "solutions": {
+      "hr_data_dashboard": "AI Workflow zur Abfrage der Stammdaten und definierten KPI und Zusammenführung/Konsolidierung sowie Bereitstellung als Bericht und Live-Dashboard",
+      "employee_information_dashboard": "Zusammenstellung aller wichtigen Informationen eines Mitarbeiters in einer Übersicht",
+      "hr_agent": "Ein HR-Agent gibt sofortige Auskunft rund um HR-Themen.",
+      "vacation_management": "Ermittlung aktueller Urlaubsstände, automatisierte Übermittlung an MA. Die digitalen Urlaubsanträge müssen im Dienstplan automatisch mit berücksichtigt werden. Das System erfasst die in D3 genehmigten Urlaubsanträge ins Zeiterfassungsprogramm",
+      "email_prioritization": "Bewertung von E-Mails, Antwortvorschläge in Verbindung mit Duvenbeck spezifischem Wissen, Erinnerungen an E-Mails, Priorisierung"
+    },
+    "notes": {
+      "complexity": {
+        "hr_data_dashboard": "sehr kompliziert, aufgrund der unterschiedlichen Spezifika von Land, Business Unit, Standorte, Systeme und Payrollprovider, zudem Komplexität in der Harmonisierung der Daten, wahrscheinlich liegen aktuell nicht alle Daten in den Systemen vor bzw. an unterschiedlichen Stellen",
+        "employee_information_dashboard": "sehr kompliziert, aufgrund der unterschiedlichen Spezifika von Land, Business Unit, Standorte, Systeme und Payrollprovider, wahrscheinlich liegen aktuell nicht alle Daten in den Systemen vor bzw. an unterschiedlichen Stellen",
+        "hr_agent": "landesspezifische Container müssen befüllt werden, ggf. automatisiert befüllt werden, rechtliche Verlässlichkeit, Unterschiede innerhalb eines Landes (Standorte, Tarifbindung), Befüllung gesetzlicher HR-Themen möglicher Anbieter Haufe (für Deutschland)",
+        "vacation_management": "sehr kompliziert, aufgrund der unterschiedlichen Spezifika von Land, Business Unit, Standorte, Systeme und Payrollprovider, zudem Komplexität in der Harmonisierung der Daten, wahrscheinlich liegen aktuell nicht alle Daten in den Systemen vor bzw. an unterschiedlichen Stellen",
+        "email_prioritization": "Komplexität liegt im Training vom Duvenbeck-spezifischen Wissen"
+      },
+      "cost": {
+        "hr_data_dashboard": "Hohe Kosten beim Aufsetzen der Systeme, später bzgl. der laufenden Kosten keine hohen Kosten zu erwarten",
+        "employee_information_dashboard": "Hohe Kosten beim Aufsetzen der Systeme, später bzgl. der laufenden Kosten keine hohen Kosten zu erwarten",
+        "hr_agent": "jährliche Lizenzkosten für unterschiedliche länderspezifische Anbieter, unterschiedliche Sprachpakete berücksichtigen (Länder aber auch Fahrerpersonal innerhalb eines Landes)",
+        "vacation_management": "Hohe Kosten beim Aufsetzen der Systeme, später bzgl. der laufenden Kosten keine hohen Kosten zu erwarten",
+        "email_prioritization": "Kosten für das lokale Hosting, Einmalkosten für den Bau des Workflows, ggf. Serverkosten"
+      },
+      "risk": {
+        "hr_data_dashboard": "aufgrund personenbezogener Daten",
+        "employee_information_dashboard": "aufgrund personenbezogener Daten",
+        "hr_agent": "eher wenig Risiko, da HR die Inhalte steuert",
+        "vacation_management": "aufgrund personenbezogener Daten",
+        "email_prioritization": "Voraussetzung: lokales Hosting, in diesem Fall sind die personenbezogenen Daten geschützt"
+      },
+      "strategic": {
+        "hr_data_dashboard": "entspricht der strategischen Ausrichtung von Duvenbeck",
+        "employee_information_dashboard": "entspricht der strategischen Ausrichtung von Duvenbeck",
+        "hr_agent": "Produktivitätserhöhung, sollte zu einer Digitalisierungsstrategie referieren",
+        "vacation_management": "Produktivitätserhöhung, sollte zu einer Digitalisierungsstrategie referieren",
+        "email_prioritization": "Digitalisierungsstrategie"
+      }
     }
   },
   "common": {
