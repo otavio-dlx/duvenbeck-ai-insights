@@ -1,12 +1,12 @@
 export const ideas = {
-  Startseite: [
+  home: [
     {
       date: "2025-10-07",
       department: "Compliance",
       collaboardLink: "https://web.collaboard.app/share/3P6tjXJczckl3ecL-pXBFw",
     },
   ],
-  Priorisierungsmatrix: [
+  ideas: [
     {
       finalPrio: 1,
       ideaKey: "compliance.ideas.damage_assessment",

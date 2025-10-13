@@ -44,36 +44,72 @@ Before marking a PR ready for review, ensure:
 
 When working with department-specific data and translations:
 
-1. Follow the established translation key structure as seen in the compliance module:
+1. Follow the established translation key structure across all department modules:
 
-   - Use department name as the root key (e.g., `compliance`, `accounting`, etc.)
+   - Use department name as the root key (e.g., `compliance`, `corp_dev`, `accounting`, etc.)
    - Organize content under appropriate subkeys:
      - `ideas`: For initiative titles
      - `problems`: For problem descriptions
      - `solutions`: For solution descriptions
-     - `notes`: For additional context (complexity, cost, risk, etc.)
+     - `notes`: For additional context (complexity, cost, risk, strategic alignment)
 
 2. Translation Key Structure:
 
-   - Use snake_case for key names
+   - Use snake_case for key names and identifiers
    - Follow the pattern: `{department}.{category}.{identifier}`
-   - For nested notes: `{department}.notes.{type}.{identifier}`
+   - For notes/explanations: `{department}.notes.{type}.{identifier}`
+   - Types include: complexity, cost, roi, risk, strategic
 
 3. Implementation:
 
-   - Keep translations in the i18n locales files (en.json, de.json)
-   - Reference translation keys in department data files
-   - Use consistent identifiers across related items
+   - Store all translations in i18n locales files (en.json, de.json)
+   - Use translation keys in department data files instead of direct text
+   - Maintain consistent identifiers across related items (same identifier for idea, problem, solution)
+   - Convert original text to English and store in en.json
+   - Keep original German text in de.json
 
-4. Example Format:
+4. Department Data Structure:
+
    ```typescript
-   {
-     ideaKey: "department.ideas.identifier",
-     problemKey: "department.problems.identifier",
-     solutionKey: "department.solutions.identifier",
-     complexityNoteKey: "department.notes.complexity.identifier"
-   }
+   export const ideas = {
+     home: [
+       {
+         date: string,
+         department: string,
+         collaboardLink: string,
+       },
+     ],
+     ideas: [
+       {
+         finalPrio: string | number,
+         ideaKey: "department.ideas.identifier",
+         problemKey: "department.problems.identifier",
+         solutionKey: "department.solutions.identifier",
+         owner: string,
+         priority: string,
+         complexity: number,
+         complexityNoteKey: "department.notes.complexity.identifier",
+         cost: number,
+         costNoteKey: "department.notes.cost.identifier",
+         roi: number,
+         roiNoteKey: "department.notes.roi.identifier",
+         risk: number,
+         riskNoteKey: "department.notes.risk.identifier",
+         strategicAlignment: number,
+         strategicNoteKey: "department.notes.strategic.identifier",
+       },
+     ],
+   };
    ```
+
+5. Identifier Creation Rules:
+   - Use descriptive, concise identifiers in English
+   - Convert spaces to underscores
+   - Use lowercase
+   - Remove special characters
+   - Examples:
+     - "Market Analysis Automation" → "market_analysis_automation"
+     - "Strategic Scenario Planning" → "strategic_scenario_planning"
 
 ## Testing and verification steps for agents
 

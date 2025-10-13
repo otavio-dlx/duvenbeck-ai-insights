@@ -3,6 +3,82 @@
     "title": "AI Workshop Dashboard",
     "subtitle": "Duvenbeck AI Workshop October 6-8, 2025"
   },
+  "corp_dev": {
+    "ideas": {
+      "market_analysis_automation": "Part A External: Market Analysis Automation",
+      "strategic_scenario_planning": "Strategic Scenario Planning // Corporate Strategy Evaluation and Master Plan of Action Generation",
+      "customer_profitability_analysis": "AS-IS: Customer Review Profitability Analysis",
+      "competition_trend_alerts": "Part A External: Competition Monitoring & Trend Alerts",
+      "dashboard_reporting": "Creation of Dashboard/Reporting on Goal Achievement (KAM Plans, Budget Targets, Operational Performance)",
+      "contract_database": "Contract Database",
+      "product_portfolio_extension": "TO-BE: Product Portfolio Extension: - Analysis of potential product extensions based on existing customers - What business models/products/services need to be built additionally? + Make or Buy Analysis"
+    },
+    "problems": {
+      "market_analysis_automation": "Market and competitive analyses are time-consuming and often not up to date.",
+      "strategic_scenario_planning": "Strategic decisions are often based on incomplete or outdated assumptions.",
+      "customer_profitability_analysis": "Decisions about investments or divestments are complex and require many data points.",
+      "competition_trend_alerts": "New competitors, technologies, or business models are often recognized too late.",
+      "dashboard_reporting": "High effort, no standards, little homogeneous definition in the group",
+      "contract_database": "Renegotiations, deviations TARGET vs ACTUAL in contract",
+      "product_portfolio_extension": "High effort to identify individual service extensions for customers"
+    },
+    "solutions": {
+      "market_analysis_automation": "AI-powered tools aggregate data in real-time and automatically create concise market overviews.",
+      "strategic_scenario_planning": "AI-supported scenario simulations model different strategies and their potential impacts.",
+      "customer_profitability_analysis": "AI evaluates existing projects and investments based on KPIs, risk, and growth potential, and provides recommendations.",
+      "competition_trend_alerts": "AI continuously monitors market trends and competitor activities and creates alerts for relevant changes.",
+      "dashboard_reporting": "Brainstorming and development of standardized templates for all dashboards (Excel + PPT Export)",
+      "contract_database": "Scan of SLAs/contracts and comparison with ACTUAL values in the system",
+      "product_portfolio_extension": "Once database with all customer contracts is available, it's easy to do a gap analysis and check where upscaling is possible or not + Business Solution can be sketched by AI and potential white spots identified."
+    },
+    "notes": {
+      "complexity": {
+        "market_analysis_automation": "Not complex; however, some data is only available in download documents or behind paywalls. Regular updates/extensions of parameters may be necessary",
+        "strategic_scenario_planning": "No complexity. Through stating objectives, possible alternatives can be quickly brainstormed and scenarios evaluated faster",
+        "customer_profitability_analysis": "Many data points needed from various tools (SAP, customer portal, local and central) as well as documented problems and processes to define optimization potential. Financial metrics available but other topics mostly not centrally stored = Many knowledge holders",
+        "competition_trend_alerts": "Not complex; however, some data is only available in download documents or behind paywalls. Regular updates/extensions of parameters may be necessary",
+        "dashboard_reporting": "Many data needed from various tools (SAP, customer portal etc)",
+        "contract_database": "Very high complexity because many TARGET data like volume are only shared sporadically by customers, or only available retrospectively = Simultaneously many documents and contracts not digitized = Basically every contract and all SLAs (which change regularly) would always need to be updated",
+        "product_portfolio_extension": "Once database with all customer contracts is available, it's easy to do a gap analysis and check where upscaling is possible or not + Business Solution can be sketched by AI and potential white spots identified."
+      },
+      "cost": {
+        "market_analysis_automation": "Costs may only be necessary for certain tools/websites (e.g., Orbis). Some licenses already available.",
+        "strategic_scenario_planning": "Cannot be evaluated",
+        "customer_profitability_analysis": "Low costs, only in-house data + irregular queries (1x per quarter per customer ??)",
+        "competition_trend_alerts": "Costs may only be necessary for certain tools/websites (e.g., Orbis). Some licenses already available.",
+        "dashboard_reporting": "Data exports/interfaces etc necessary to generate live real values",
+        "contract_database": "High manual updating/centralization effort",
+        "product_portfolio_extension": "No high costs"
+      },
+      "roi": {
+        "market_analysis_automation": "ROI not measurable as analysis only represents decision support -> Time savings very high",
+        "strategic_scenario_planning": "No ROI; Support in decision-making and faster strategy adjustment due to changed conditions = No long-term strategy workshops potentially necessary = Cost savings + Faster top-down implementation of goals and measures per resort and partially department + Savings in consulting costs",
+        "customer_profitability_analysis": "Low ROI; Helps with quick analysis",
+        "competition_trend_alerts": "ROI not measurable as analysis only represents decision support -> Time savings very high",
+        "dashboard_reporting": "Many FTEs throughout the group busy with reporting tasks + updates. Through automation, especially in controlling, various times can be used more efficiently",
+        "contract_database": "Deviations and potential for renegotiations quickly and potentially proactively identifiable by AI. = Currently only checked if delivered according to contract in case of negative events or P&L result. Bonus-malus agreements are partially checked by customers and transmitted to DUV = Review and correction can be replaced by AI thus freeing resources for other topics",
+        "product_portfolio_extension": "Quick analysis and KAM plans can be created"
+      },
+      "risk": {
+        "market_analysis_automation": "Risk: Reports not being used",
+        "strategic_scenario_planning": "Incorrect questions/info lead to wrong plans and mismatched goals",
+        "customer_profitability_analysis": "High risk if assumptions are incorrect and customer conversations are interpreted negatively",
+        "competition_trend_alerts": "Risk: Reports not being used",
+        "dashboard_reporting": "No risk; Internal data. At most misinterpretation or wrong definitions",
+        "contract_database": "No risk; In-house data",
+        "product_portfolio_extension": "No risk"
+      },
+      "strategic": {
+        "market_analysis_automation": "Data helps in analyzing possible strategic directions and in decision-making/review with shareholders = Data driven",
+        "strategic_scenario_planning": "3-5 different strategy reviews were done in 3 years = Helps with regular updates and readjustments = Securing information from knowledge holders (C-Level fluctuation)",
+        "customer_profitability_analysis": "Necessary; Wanted by CEO and helps achieve goals (EBITDA) as objective decisions can be made about expansion or exit of customer relationships",
+        "competition_trend_alerts": "Data helps in analyzing possible strategic directions and in decision-making/review with shareholders = Data driven",
+        "dashboard_reporting": "To make agile and fast-paced decisions, ZDF is needed at the push of a button = At the same time high reporting effort towards shareholders can be reduced and standardized = M&A necessity = Data and reporting structures necessary for possible shareholder exit",
+        "contract_database": "",
+        "product_portfolio_extension": "Growth, cross-selling and customer development desired and required. Entry barriers with current customer base lower than new acquisition"
+      }
+    }
+  },
   "compliance": {
     "ideas": {
       "damage_assessment": "Damage Assessment",
