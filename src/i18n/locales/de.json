@@ -69,6 +69,388 @@
       }
     }
   },
+  "strategic_kam": {
+    "ideas": {
+      "automated_news_procurement": "Automatisierte Beschaffung von Neuigkeiten und potenziell benötigtem neuen Service",
+      "automated_crm_recommendations": "Automatisierte Empfehlungen und Unterstützung im CRM-System",
+      "ai_contract_review": "KI übernimmt erstmalige Vertragsprüfung"
+    },
+    "problems": {
+      "automated_news_procurement": "Viel manueller Aufwand und Recherche benötigt, um zu erfahren, wie es gesamtwirtschaftlich um einen Kunden steht und welche neue Service Arten er ggf. benötigt",
+      "automated_crm_recommendations": "Hoher manueller Aufwand im CRM System durch die Datenerfassung und Pflege",
+      "ai_contract_review": "KAMs prüfen erstmalige Verträge oder Vertragsverlängerungen auf unakzeptable Passagen und den vertraglich angefragten Leistungsrahmen - sind wir in der Lage diesen zu erfüllen?"
+    },
+    "solutions": {
+      "automated_news_procurement": "KI gestützte Analyse der beschriebenen Punkte, automatisierte Benachrichtigung über Neuigkeiten in jeglicher Richtung",
+      "automated_crm_recommendations": "Die KI gibt Vorschläge im CRM für die Eingabefelder und unterstützt dabei Daten aktuell zu halten (Opportunities etc.). Textfelder werden mit Vorschlägen befüllt, die übernommen oder angepasst werden können (Client Plan)",
+      "ai_contract_review": "Nutzung eines LLM zur Prüfung bestimmter Vertragskonstellationen"
+    },
+    "notes": {
+      "complexity": {
+        "automated_news_procurement": "News-Crawling grundsätzlich einfach. Anbindung an CRM erhöht den Aufwand. Kein Eingriff in kritische Systeme nötig.",
+        "automated_crm_recommendations": "z.B. vorhanden Co-Pilot nutzen",
+        "ai_contract_review": "rechtlich und sprachlich komplex."
+      },
+      "cost": {
+        "automated_news_procurement": "CRM Anbindung/Integration? Lizenzierung?",
+        "automated_crm_recommendations": "Lizenzkosten (je User) kann schnell teuer werden",
+        "ai_contract_review": "KI-Kosten gering, da ein Dokument. rechtliche Validierung ggfs. aufwendig"
+      },
+      "roi": {
+        "automated_news_procurement": "Kosten/Nutzen nicht direkt ableitbar. Annahme: Recherche- und Aufbereitungsaufwand 1h/pro Kunde. Könnte sich auf 15 Minuten reduzieren",
+        "automated_crm_recommendations": "schwer messbar",
+        "ai_contract_review": "Abhängig vom Kunden. Wenn Reaktionszeit lang kein zeitlicher Vorteil. geringere Fehlerquote - Übersehen von relevanten Informationen kann Folgekosten reduzieren"
+      },
+      "risk": {
+        "automated_news_procurement": "Keine sensiblen Kundendaten nötig. Hauptgefahr liegt in Fehleinschätzungen oder \"Halluzinationen\" der KI, aber durch menschliche Validierung kontrollierbar.",
+        "automated_crm_recommendations": "Microsoft wird bereits als CRM genutzt und Co-Pilot ist ein Bestandteil davon. Die Sicherheitsvorkehrungen basieren daher auf den Microsoft Standards, welche wir als sehr hoch bewerten würden.",
+        "ai_contract_review": "Rechtliche Relevanz, potenzielle Fehlinterpretationen, Haftungsfragen. Leistungskatalog, Nutzung sensibler Vertragsdaten (Datenschutzprüfung)"
+      },
+      "strategic": {
+        "automated_news_procurement": "Wachstum",
+        "automated_crm_recommendations": "Transparenz - Basis Tool des Vertriebs. Der Vertrieb hat den größten Einfluss auf die Erfüllung der Duvenbeck Strategie.",
+        "ai_contract_review": "Standardisierung - \"Vermeidung\" von möglichen Aufwänden / Kosten"
+      }
+    }
+  },
+  "road_sales": {
+    "ideas": {
+      "ai_data_automation": "KI & Automatisierung",
+      "automated_quote_creation": "Automatisierte Angebotserstellung",
+      "unified_communication": "Einheitliche Kommunikation",
+      "automated_crm_transfer": "Automatisierte Übertragung ins CRM",
+      "sales_kpi_dashboard": "Vertriebs-KPI-Dashboard",
+      "lead_management_prioritization": "Lead-Management & Priorisierung"
+    },
+    "problems": {
+      "ai_data_automation": "KI sammelt und sortiert Daten",
+      "automated_quote_creation": "Automatisierte Angebotserstellung",
+      "unified_communication": "Informationen zu Kundenkontakten sind über verschiedene Systeme verstreut.",
+      "automated_crm_transfer": "Automatisierte Übertragung ins CRM",
+      "sales_kpi_dashboard": "Vertriebs-KPI-Dashboard",
+      "lead_management_prioritization": "Lead-Management & Priorisierung"
+    },
+    "solutions": {
+      "ai_data_automation": "Automatische Zusammenfassung von Ausschreibungen, Kundendokumenten, E-Mails und Tools im CRM",
+      "automated_quote_creation": "Zentrale Plattform im CRM zur automatischen Kalkulation von Preisen, Margen und Routen",
+      "unified_communication": "Integration aller Kommunikationskanäle (E-Mail, Telefon, Teams) ins CRM für volle Transparenz und Nachverfolgbarkeit.",
+      "automated_crm_transfer": "Automatischer Eintrag von B2B-Daten und Kennzahlen",
+      "sales_kpi_dashboard": "Echtzeit-Überblick über Angebote, Margen, Erfolgsquoten, Kundenbindung (es muss nicht unbedingt in Echtzeit sein, sondern regelmäßig)",
+      "lead_management_prioritization": "KI-basiertes Lead-Scoring im CRM"
+    },
+    "notes": {
+      "complexity": {
+        "ai_data_automation": "Betrifft verschiedene Datenformate mit unterschiedlichen Quellen",
+        "automated_quote_creation": "Matching der Kalkulationslogik zwischen Kunde und unserer Kalk.",
+        "unified_communication": "Alle Anfragen sehr individuell und es gibt nicht eine Plattform, wo alle darauf zugreifen (für intern & extern) - Trichterfunktion",
+        "automated_crm_transfer": "Unterschiedliche Plattformen mit unterschiedlichen Inhalten",
+        "sales_kpi_dashboard": "Hängt von Datenqualität ab; bestimmte Grundvoraussetzungen im CRM oder prozessual müssen erst angepasst werden",
+        "lead_management_prioritization": "Wenn wir Scoring-Modell definieren und es auch im CRM zur Verfügung steht"
+      },
+      "cost": {
+        "ai_data_automation": "individuelle Betrachtung jeder Anfrage und tägliche Frequenz",
+        "automated_quote_creation": "individuelle Betrachtung jeder Anfrage und tägliche Frequenz",
+        "unified_communication": "Die Frequenz ist hier bei den Abfragen sehr hoch",
+        "automated_crm_transfer": "individuelle Betrachtung jeder Anfrage und tägliche Frequenz",
+        "sales_kpi_dashboard": "Einmaliger Invest über einen bestimmten Zeitraum möglich",
+        "lead_management_prioritization": "Es werden nicht viele Leads erstellt und wir müssen eine Check-Liste erstellen, damit der Abgleich stattfinden kann"
+      },
+      "roi": {
+        "ai_data_automation": "einfacher",
+        "automated_quote_creation": "sehr zeitintensiv, daher ROI hoch",
+        "unified_communication": "Würde den Aufwand zeitlich reduzieren",
+        "automated_crm_transfer": "Entlang des Prozesses gibt es viele Stakeholder, die Daten ins CRM manuell eintragen",
+        "sales_kpi_dashboard": "Sinnvolle Ergänzung im Sales",
+        "lead_management_prioritization": "Wir haben keinen Innendienst oder extreme viele Field Sales-Mitarbeiter"
+      },
+      "risk": {
+        "ai_data_automation": "Interne Abschätzung, bevor es nach außen kommuniziert wird",
+        "automated_quote_creation": "Hohes Risiko, wenn falsche Analysen durchgeführt werden",
+        "unified_communication": "-",
+        "automated_crm_transfer": "Wenn die Daten falsch übernommen werden, dann zieht sich das durch wie ein roter Faden und das Ergebnis ist dann auch falsch",
+        "sales_kpi_dashboard": "Dient als Denkanstoß",
+        "lead_management_prioritization": "Ansprache kann erfolgen und es entsteht dadurch kein Nachteil"
+      },
+      "strategic": {
+        "ai_data_automation": "Siehe ROI",
+        "automated_quote_creation": "Siehe ROI",
+        "unified_communication": "Siehe ROI",
+        "automated_crm_transfer": "Siehe ROI",
+        "sales_kpi_dashboard": "Siehe ROI",
+        "lead_management_prioritization": "Siehe ROI"
+      }
+    }
+  },
+  "qehs": {
+    "ideas": {
+      "document_audit_automation": "Dokumenten- und Audit-Automatisierung",
+      "training_management": "Schulungs- und Trainingsmanagement",
+      "fake_carrier_detection": "Fake Carrier Erkennung"
+    },
+    "problems": {
+      "document_audit_automation": "Die Vorbereitung auf Audits und Zertifizierungen ist zeitaufwendig und papierintensiv.",
+      "training_management": "Pflichtschulungen sind schwer nachzuverfolgen, und Inhalte werden oft nicht personalisiert vermittelt.",
+      "fake_carrier_detection": "Eingereichte Subunternehmer-Dokumente (z.B. EU-Lizenz, Versicherung) sind oft fehlerhaft, veraltet oder gefälscht"
+    },
+    "solutions": {
+      "document_audit_automation": "KI organisiert, aktualisiert und überprüft Dokumente automatisch auf Vollständigkeit und Compliance. KI wertet vergangene interne & externe Auditabweichungen aus, erkennt Muster (z.B. Fehlerhäufung in Prozessen) und zeigt systematische Schwachstellen auf. Wird dann anschließend im Rahmen der Auditplanung berücksichtigt (Erstellung einer Checkliste mit Planung etc.) KI prüft, ob lokale Dokumente die richtige Vorlage nutzen, inhaltlich normkonform und vollständig sind – inkl. formaler & inhaltlicher Analyse (vorgelagertes Dokumentenaudit)",
+      "training_management": "KI-Systeme verwalten Trainingspläne, erinnern automatisch an Termine und passen Inhalte an Risikoprofile an. KI erstellt zielgruppenspezifische Schulungen (z.B. Avatare, Videos) automatisch auf Basis von Normanforderungen & unternehmensspezifischen Inhalten (ggf. auch aus gesetzlichen Anforderungen)",
+      "fake_carrier_detection": "KI prüft Subunterlagen auf Plausibilität, Auffälligkeiten und formale Richtigkeit – unterstützt so aktiv bei der Fake-Carrier-Prävention und stoppt deren Einsatz (via TMS). Backgroundchecks, Betrugsversche erkennen etc."
+    },
+    "notes": {
+      "complexity": {
+        "document_audit_automation": "Höhere Komplexität durch viele Dokumentenarten & Normbezüge",
+        "training_management": "Schulungssysteme teilweise im Unternehmern implementiert, noch nicht vollumfänglich. Inhalte müssen teilweise erst noch erstellt und standardisiert werden. Unternehmensstruktur/Hierachie muss vorhanden sein",
+        "fake_carrier_detection": "Technisch anspruchsvoll durch TMS-Anbindung & externe Datenabgleiche und verscheidene TMS Systeme in der DUV-Welt"
+      },
+      "cost": {
+        "document_audit_automation": "Mittlere bis höhere Kosten für KI-Prüfung & Auditdatenanbindung (DMS, Imansys etc.)",
+        "training_management": "Mittlere Investition für KI-basierte Inhalte & Lernpfade",
+        "fake_carrier_detection": "Höhere Kosten für Tools, Datenbanken, evtl. Behörden-Schnittstellen"
+      },
+      "roi": {
+        "document_audit_automation": "Sehr hoher Nutzen: bessere Auditvorbereitung, Zeitersparnis, systematische Risikoanalyse",
+        "training_management": "Weniger Aufwand, bessere Wirksamkeit, sichere Nachweiskette für Audits",
+        "fake_carrier_detection": "Enorme Risikominimierung (Betrug, Bußgelder, Reputationsschäden)"
+      },
+      "risk": {
+        "document_audit_automation": "Mittleres Risiko bei Analysefehlern – aber intern gut steuerbar",
+        "training_management": "Moderates Risiko, Inhalte können intern getestet und angepasst werden",
+        "fake_carrier_detection": "Risiko bei Falsch-Erkennung (z. B. legitimer Carrier wird blockiert), rechtliche Absicherung notwendig, Schadensregulierungsrisiko"
+      },
+      "strategic": {
+        "document_audit_automation": "Unterstützt aktiv Zertifizierungen, IMS-Qualität & Standardisierung",
+        "training_management": "Direkt normrelevant (z.B. ISO, Legal Compliance), verbessert Fachkompetenz im Unternehmen und Einhaltung Gestezlicher Vorgaben",
+        "fake_carrier_detection": "Hoch relevant für Supply Chain Sicherheit, TAPA/ISO 28000, Kundenanforderungen"
+      }
+    }
+  },
+  "marketing_communications": {
+    "ideas": {
+      "media_analysis_industry": "Medien-Analysen in der Branche",
+      "kpi_data_monitoring": "Monitoring: KPI/ Datenanalyse",
+      "campaign_performance_analysis": "Kampagnen-Performance-Analyse",
+      "brand_training_assistant": "Q Gate mit Training Assistent",
+      "image_generation": "Bild-Generierung"
+    },
+    "problems": {
+      "media_analysis_industry": "Leserschaft der Fachmedien ändert sich permanent, es ist schwierig on track zu bleiben",
+      "kpi_data_monitoring": "KPIs fehlen, verschiedene Bereiche (Pressemitteilungen, Wettbewerb, internes Feedbacktool, etc.)",
+      "campaign_performance_analysis": "Die Auswertung von Marketingkampagnen erfolgt oft manuell und verzögert.",
+      "brand_training_assistant": "Brand Training - fehlendes oder unsaubere CD Anwendung",
+      "image_generation": "Größere Auswahl an relevanten Pressebildern unter Berücksichtigung der neuen CI, für die Pressemappe mit den Rechten bei Duvenbeck"
+    },
+    "solutions": {
+      "media_analysis_industry": "Medien-Daten-Bank Auswertung nach speziellen Kriterien",
+      "kpi_data_monitoring": "Erweiterte Funktionen zu Google Alerts, Auflistung aus anderen Plattformen und Übersichts-Darstellung von Kommentaren, Interaktionen, Verbreitung, Tonalität",
+      "campaign_performance_analysis": "KI analysiert Kampagnendaten in Echtzeit, erkennt Trends und schlägt Optimierungen vor.",
+      "brand_training_assistant": "Trainings & Feedback",
+      "image_generation": "Wir geben Vorgaben und ein Bilder-Generierungs-Tool erstellt Vorschläge"
+    },
+    "notes": {
+      "complexity": {
+        "media_analysis_industry": "abhängig von diversen externen Plattformen, keine einzelne Master-Data-Quelle",
+        "kpi_data_monitoring": "abhängig von diversen externen Plattformen, keine einzelne Master-Data-Quelle",
+        "campaign_performance_analysis": "Verschiedene Medien werden für Kampagnen genutzt (z.B. MS Dynamics, Agenturen haben verschiedene Analytic Tools, LinkedIn Paid)",
+        "brand_training_assistant": "Marketing Style Guide integrieren",
+        "image_generation": "mit den passenden Tools vermutlich einfach umzusetzen"
+      },
+      "cost": {
+        "media_analysis_industry": "ähnliche Anbieter wie bei Idee 4",
+        "kpi_data_monitoring": "Medienmonitoring: 900€ monatlich/ 11 kEUR p.a., Printmonitoring ggf. extra (Anbieter: Cision, Meltwater)",
+        "campaign_performance_analysis": "Kosten sind abhängig vom Kanal und wie oft Kampagnen gefahren werden und wie groß die Zielgruppe ist (Fixkosten - wenn durch Agentur, variable Kosten - wenn DUV es selber auf Medien schaltet)",
+        "brand_training_assistant": "Style Guide wird der KI als eine Datenquelle zur Verfügung gestellt",
+        "image_generation": "Marektingbilder sind sehr teuer, aufgrund von Lizenzkosten, die abhängig sind von Medien und Einsatz in Ländern sowie von der Frequenz (1-maliger Einsatz, mehrmaliger), PR Bilder sind günstiger, ABER Urheberrecht ist ein großes Thema (PR Bilder dürfen nicht als Marketingbild verwendet werden)"
+      },
+      "roi": {
+        "media_analysis_industry": "Gezieltes Ansprechen der relevanten Fachmedien, um die Zielgruppen zu erreichen - Outcomes sind sofort verfügbar und die weiteren Handlungen können je genauer die Kampagne, umso besser erreichst du die Zielgruppe und umso besser Geringer Aufwand, Hoher Mehrwert: Einfache Anfragen Einmaliges Shooting im Jahr: Langfristigkeit, die Bilder sind definitiv on brand, Lizenzen (Rechte) sind kein Thema",
+        "kpi_data_monitoring": "Outcomes sind sofort verfügbar und die weiteren Handlungen können je genauer die Kampagne, umso besser erreichst du die Zielgruppe und umso besser werden Geringer Aufwand, Hoher Mehrwert: Einfache Anfragen Einmaliges Shooting im Jahr: Langfristigkeit, die Bilder sind definitiv on brand, Lizenzen (Rechte) sind kein Thema",
+        "campaign_performance_analysis": "je genauer die Kampagne, umso besser erreichst du die Zielgruppe und umso besser der Outcome",
+        "brand_training_assistant": "Geringer Aufwand, Hoher Mehrwert: Einfache Anfragen werden abgefangen und belasten die Marketing Ressource nicht, die Organisation wird selbstständiger und hat einen Selbstlerneffekt",
+        "image_generation": "Einmaliges Shooting im Jahr: Langfristigkeit, die Bilder sind definitiv on brand, Lizenzen (Rechte) sind kein Thema"
+      },
+      "risk": {
+        "media_analysis_industry": "Recherche ohne sensible Daten",
+        "kpi_data_monitoring": "Recherche ohne sensible Daten",
+        "campaign_performance_analysis": "Kundendaten sind durch NDA geschützt, der Outcome ist annonymisiert, daher unkritisch | interne Verwendung",
+        "brand_training_assistant": "Keine sensiblen Daten",
+        "image_generation": "die rechtliche Seite der Bild-Generierung wird aus unserer Informationssicht als sehr kritisch bewertet + die Qualität der generierten Bilder"
+      },
+      "strategic": {
+        "media_analysis_industry": "Aufbau langfristiger Beziehungen (Fachmedien kommen auf uns zu für Themen, Verbreitung der Marke dadurch einfacher/ zum Meinungsführer am Markt werden)",
+        "kpi_data_monitoring": "Strategien können angepasst werden",
+        "campaign_performance_analysis": "Bessere Kampagnenoptimierung und Zielgruppenerreichung",
+        "brand_training_assistant": "Schont Ressourcen, die für strageische Themen eingesetzt werden kann + Markenidentifikation",
+        "image_generation": "Konsistente Markenidentität in der visuellen Kommunikation"
+      }
+    }
+  },
+  "it_shared_services": {
+    "ideas": {
+      "ai_assisted_workflow": "KI-gestützte Arbeitsweise / Wiki-Hilfe [Copilot]",
+      "data_quality_analysis": "Automatische Datenqualitätsanalyse",
+      "computer_vision_pallet_tracking": "Computer Vision-gestützte Palettenverfolgung",
+      "automatic_gate_detection": "Automatische Torbelegungs-Erkennung",
+      "computer_vision_load_detection": "Computer Vision-Ladungserkennung",
+      "predictive_disposition_pricing": "Predictive Disposition & Preisplanung",
+      "intelligent_kpi_chatbot": "Intelligente KPI-Abfrage über Chatbot",
+      "internal_freight_exchange": "Interne Frachtbörse mit KI-Disposition",
+      "scenario_based_financial_forecasts": "Szenariobasierte Finanzprognosen",
+      "predictive_hr_analytics": "Predictive HR-Analytics",
+      "telematics_cost_forecast": "Telematikbasierte Kostenprognose"
+    },
+    "problems": {
+      "ai_assisted_workflow": "[Allgemein] – Fehlende ChatGPT-Oberfläche für Teammitglieder",
+      "data_quality_analysis": "[Allgemein] – Fehlerhafte oder unvollständige Datenbestände",
+      "computer_vision_pallet_tracking": "[Lager] – Fehlende Übersicht über Palettenbewegungen",
+      "automatic_gate_detection": "[Lager] – Fehlende Transparenz über Hallentor-Belegung",
+      "computer_vision_load_detection": "[Lager] – Keine Übersicht über LKW-Füllstände",
+      "predictive_disposition_pricing": "[Disposition] – Fehlende Prognosen zu Bedarf und Kosten",
+      "intelligent_kpi_chatbot": "[Reporting] – Fehlende Orientierung bei Berichtsstrukturen",
+      "internal_freight_exchange": "[Disposition] – Dezentrale Tourenplanung in einzelnen Gesellschaften",
+      "scenario_based_financial_forecasts": "[Finanzen] – Langwierige, schätzungsbasierte Planung",
+      "predictive_hr_analytics": "[HR] – Unerwartete Mitarbeiterfluktuation",
+      "telematics_cost_forecast": "[Fuhrpark] – Hohe und unvorhersehbare Betriebskosten"
+    },
+    "solutions": {
+      "ai_assisted_workflow": "Einführung einer nutzbaren ChatGPT-GUI zur Beschleunigung allgemeiner Aufgaben",
+      "data_quality_analysis": "Fehleranalyse Datenstamm (Erkennung von Falscheingaben)",
+      "computer_vision_pallet_tracking": "CV: Automatisierte Palettenverfolgung im Lager, damit keine Klebeetiketten mehr benötigt werden. Heute bleiben Paletten stehen die keiner mehr \"auf dem Schirm\" hat. Ggfls. kann so auch eine falsche Verladung verhindert werden",
+      "automatic_gate_detection": "CV: Kennzeichenerkennung am Hallentor um die Torbelegung automatisch zu erkennen",
+      "computer_vision_load_detection": "CV: Ladungserkennung im LKW. Füllgrad, Beladereihenfolge, Ladungssicherung",
+      "predictive_disposition_pricing": "Dispo: Lernen aus Vergangenheitsdaten. Was passiert zyklisch? Werksferien, Urlaubszeiten, Weihnachten, Ostern. LKW Beschaffung ggfls. schwerer zu manchen Zeiten, Überangebot an LKW zu anderen Zeiten. Wichtig für Preisverhandlungen und Planung. Wissen bisher nur in den Köpfen der Disponenten, verlässt ein Disponent das Unternehmen ist das Wissen weg.",
+      "intelligent_kpi_chatbot": "Ich frage den Bot wie die Kennzahl für einen Bereich lautet",
+      "internal_freight_exchange": "Sowas wie eine interne Frachtenbörse mit einer empfehlung auf welchen LKW die Sendung am besten disponiert werden könnte",
+      "scenario_based_financial_forecasts": "Über einen Vorschlag von Werten für die Zukunft der sich Anhand von unterschiedlichen Szenarien Daten für die Zukunft prognostiziert",
+      "predictive_hr_analytics": "Prognostizieren von Mitarbeiteraustritten",
+      "telematics_cost_forecast": "Man könnte Telematikdaten für eine Zustandsprognose nutzen und Kosten Prognostizieren"
+    },
+    "notes": {
+      "complexity": {
+        "data_quality_analysis": "Abseits von Regelbasierten Algorithmen gibt es viele mögliche Probleme im Zusammenhang mit Stammdaten. Gibt es die Adresse wirklich? Ist diese vielleicht ganz neu und noch in keiner Karte enthalten? Schreibweisen von Daten können zu Problemen führen wenn unterschiedliche Sprachen ins Spiel kommen, nicht nur bei Adressen.",
+        "computer_vision_pallet_tracking": "Ein Hallentor bedient nicht nur einen LKW Standplatz sondern oft zwei. Man muss erkennen welcher Stapler nun welchen LKW entlädt. Darüberhinaus muss man wissen was auf dem LKW liegt und das System muss eine \"Vorstellung\" davon haben wie das was auf dem LKW liegt wohl aussehen müsste. Dieses lässt sich für eine erste Version mit Manueller Zuarbeit beheben, dennoch bleibt das Problem der Kameraausleuchtung in der Halle problematisch. Wann wenn eine Palette im toten Winkel abgestellt wird? Was wenn Ware außerhalb der Halle abgestellt wird?",
+        "automatic_gate_detection": "Kennzeichenerkennung funktioniert heute schon z.B. in Parkhäusern. Probleme kann es geben wenn an einem LKW Trailer mehrere Kennzeichenähnliche Schilder angebracht sind. Hier muss das richtige zum Abgleich mit den Systemdaten gefunden werden.",
+        "computer_vision_load_detection": "Da mehrere Paletten hintereinander auf dem LKW stehen sind auch bei Seitenbeladung nicht alle durch nur eine Kamera sichtbar. Zusätzlich müsste die Tiefe relativ zum Trailer erkannt werden. Hierfür werden eventuell mehrere Kameras benötigt.",
+        "predictive_disposition_pricing": "Die heute zur Verfügung stehenden Daten müssen aufwändig bereinigt werden bevor eine Analyse stattfinden kann, da diese derzeit kaum zu gebrauchen sind. Darüber hinaus muss sehr genau modeliert werden was man eigentlich wissen möchte. Ein reiner LLM basierter Ansatz wird hier vermutlich nicht funktionieren.",
+        "intelligent_kpi_chatbot": "Kennzahlen werden in der Tat teils unterschiedlich gemessen, Aufbau eines zentralen Datenpools von Kennzahlen bereits in Arbeit, darauf lassen sich aber keine Daten aktuell trainieren. Berichte sind teils fragmentiert, Niederlassungsspezifisch, unterschiedliche Reporting - Systeme",
+        "internal_freight_exchange": "Single File in Caro nicht vorhanden. Aufträge werden intern kopiert, anstatt als einen Auftrag über mehrere Firmen zu disponieren. Akzeptanz bei Disponenten könnte schwierig sein. Jeder macht sein Ding. Stammdaten werden nicht konsistent gepflegt, viele Dubletten in den Adressen. Geocodierung müsste geprüft werden.",
+        "scenario_based_financial_forecasts": "Welche Einflussfaktoren gibt es? Interne können ggfls. bestimmt werden, externe schwierig Vorauszusagen. Kosten und Erlös Forecasting sollten jedoch mit Sales und CRM schon möglich sein. Nicht alle Bereiche werden Treiberbasiert und Datenbankgestützt geplant.",
+        "predictive_hr_analytics": "Es gibt noch keine zentrale HR Datenbank die konsistent gehalten wird. Allerdings werden Daten aus Gesellschaften vereinheitlicht in einer Datenbank. Einflussfaktoren ( Feature - Engineering ) könnte schwierig werden, wenn nicht alle Attribute gepflegt werden",
+        "telematics_cost_forecast": "Fuhrpark Telematikdaten wie Reifendrücke, Einsatzschwere, Fahrernote und Reparaturdaten werden bereits erfasst. Jedoch könnte es schwierig werden, einzelne Rechnungspositionen der Kategorie Reifen, Motor usw. zuzuordnen. Die Datenqualität könnte insgesamt eher schlecht sein, wenn SAP Eingangsrechnungen nicht korrekt gebucht werden"
+      },
+      "cost": {
+        "data_quality_analysis": "Es müssen viele Personen an den Themen mitarbeiten. Zusätzlich müssen viele Regeln deviniert werden wie mit welchen Daten umzugehen ist. Die Kosten entstehen hier hauptsächlich auf personeller Ebene",
+        "computer_vision_pallet_tracking": "Viel Hardwareaufwand, Kameras, Rechner mit entsprechender Hardware um viele Bilder und kurzer Zeit auszuwerten. Personalaufwand bei der Entwicklung",
+        "automatic_gate_detection": "Hardware mit Kamera recht billig zu machen, einzig die Hardware zur Auswertung könnte etwas teurer ausfallen. Software durch bereits vorhandene Bibliotheken nicht sehr problematisch. (OpenCV, Pytesseract)",
+        "telematics_cost_forecast": "Aufgrund der Datenmenge eher höhere Kosten. Wenn der Agent hinzugenommen wird dann wird dieser vermutlich öfters am Tag eine Prüfung der Daten vornehmen"
+      },
+      "risk": {
+        "predictive_disposition_pricing": "Fällt die Einschätzung falsch aus produziert man mehrkosten durch falsch engekauften Fuhrpark"
+      }
+    }
+  },
+  "it_platform_services": {
+    "ideas": {
+      "ticket_quality_prioritization": "Anfragequalität Tickets und Priorisierung",
+      "meeting_minutes": "Meeting Minutes",
+      "c_level_communication": "Kommunikation / Transparenz (C-Level)",
+      "colleague_communication": "Kommunikation / Transparenz (Kollegen)",
+      "self_service_it_assistant": "Self-Service-IT-Assistenz (Chatbot)",
+      "roadmap_creation": "Roadmap erstellung",
+      "project_tracking": "Projekt Tracking",
+      "automated_ticket_classification": "Automatisierte IT-Ticket-Klassifizierung"
+    },
+    "problems": {
+      "ticket_quality_prioritization": "Viele unsortierte und schlecht eingestellte Tickets im Serviceportal / Zuteilung und Priorisierung von Tickets",
+      "meeting_minutes": "Auto Protokollierung von Meetings und deren Versand an alle Teilnehmer",
+      "c_level_communication": "Kommunikation in Richtung C-Level: Einfach verständliche Präsentationen von komplexen Sachlagen zur Entscheidungsvorlage",
+      "colleague_communication": "Kommunikation in Richtung Kollegen: Einfach verständliche Präsentationen, damit die Mitarbeiter die Security Vorgaben und Regularien nachvollziehen können",
+      "self_service_it_assistant": "Mitarbeitende warten oft lange auf einfache IT-Hilfestellungen (z. B. Passwort-Reset, VPN-Zugang).",
+      "roadmap_creation": "Generieren einer Roadmap aus den verschiedenen Projekten",
+      "project_tracking": "Automatisiertes Tracking von Projektfortschritten Bei Duvenbeck",
+      "automated_ticket_classification": "Support-Tickets müssen manuell kategorisiert werden, was die Bearbeitungszeit verlängert."
+    },
+    "solutions": {
+      "ticket_quality_prioritization": "Verbesserung der Qualität durch Agent der Rückfragen stellt. Bewertung von Tickets hinsichtlich der dringlichkeit und automatische Zuteilung an entsprechende Teams / IT Chatbot bietet Lösungen an",
+      "meeting_minutes": "Automatische Transkription während eines Meetings und Zusammenfassung",
+      "c_level_communication": "Automatisiertes erstellen von Präsentationen auf Basis von Webrecherche und oder internen Daten",
+      "colleague_communication": "Automatisiertes erstellen von Präsentationen auf Basis von Webrecherche und oder internen Daten",
+      "self_service_it_assistant": "Bereitstellung eines interaktiven IT-Chatbots im Digital Workplace, der Standardanfragen direkt löst oder weiterleitet.",
+      "roadmap_creation": "Rodmapgenerierung aus Projekten heraus",
+      "project_tracking": "Regelmäßige automatisierte Abfragen bei den Workstream Leads",
+      "automated_ticket_classification": "Einführung eines KI-Moduls im Ticketsystem, das Anfragen automatisch klassifiziert, priorisiert und dem richtigen Team zuweist."
+    },
+    "notes": {
+      "complexity": {
+        "ticket_quality_prioritization": "Vorhandene Ticketsystem muss lediglich durch Kategorisierungen neu sortiert werden, wodurch Tickets direkt zugeordnet werden",
+        "meeting_minutes": "Mit Copilot abbildbar",
+        "c_level_communication": "Mit Copilot abbildbar",
+        "colleague_communication": "Mit Copilot abbildbar",
+        "self_service_it_assistant": "Agent muss auf Doku zugreifen. Zugriff auf Allgemeine Informationen. Webform im Serviceportal",
+        "roadmap_creation": "KI muss Daten aus den Tools extrahieren. Primär Planview",
+        "project_tracking": "KI muss Daten aus den Tools extrahieren. Primär Planview"
+      },
+      "cost": {
+        "ticket_quality_prioritization": "Ticketsystem ist vorhanden. Kosten enstehen durch Input zur AI und der Berechnung. Interner Programmieraufwand",
+        "meeting_minutes": "Nur geringe Kosten, da ausgewählte Mitarbeiter freigeschaltet werden (ca. 30€)",
+        "c_level_communication": "Nur geringe Kosten, da ausgewählte Mitarbeiter freigeschaltet werden (ca. 30€)",
+        "colleague_communication": "Nur geringe Kosten, da ausgewählte Mitarbeiter freigeschaltet werden (ca. 30€)",
+        "self_service_it_assistant": "Vermutlich wenige Transaktionen. Ggf. Interner Aufwand Bereitstellung an Informationen und Softwareentwickler",
+        "roadmap_creation": "Vermutlich wenige Transaktionen. Anzahl Workstream Leade überschaubar. Ggf. Aufwand Softwarehersteller Planview für Schnittstelle",
+        "project_tracking": "Vermutlich wenige Transaktionen. Anzahl Workstream Leade überschaubar. Ggf. Aufwand Softwarehersteller Planview für Schnittstelle"
+      },
+      "roi": {
+        "ticket_quality_prioritization": "Zeiterssparnis, wodurch sich die Mitarbeiter auf wesentliche Arbeiten konzentrieren können",
+        "meeting_minutes": "große Zeitersparnis und verbesserte Dokumentation, Nachverfolgung, Aufgabentracking, etc.",
+        "c_level_communication": "Zeitersparniss für eine \"kleine\" Nutzergruppe",
+        "colleague_communication": "Zeitersparniss für eine \"kleine\" Nutzergruppe",
+        "self_service_it_assistant": "Reduzierung von Anfragen fürs Servicedesk. Schnelle Hilfe für die Operative die Anfragen stellt.",
+        "roadmap_creation": "Zeitersparniss für eine \"kleine\" Nutzergruppe",
+        "project_tracking": "Zeitersparniss für eine \"kleine\" Nutzergruppe"
+      },
+      "risk": {
+        "ticket_quality_prioritization": "Tickets könnten falsch zugeordnet werden Die Abarbeitung könnte falsch sein Tickets müssen nachkontrolliert werden",
+        "meeting_minutes": "Geringes Risiko",
+        "c_level_communication": "Risiko bei der Recherche, Ergebnisse müssen validiert werden",
+        "colleague_communication": "Risiko bei der Recherche, Ergebnisse müssen validiert werden",
+        "self_service_it_assistant": "Wenn Lösung bnicht Hilfreich wird die Anfrage wieder an den Helpdesk gegeben",
+        "roadmap_creation": "Geringes Risiko",
+        "project_tracking": "Geringes Risiko"
+      },
+      "strategic": {
+        "ticket_quality_prioritization": "Produktivitäts-/ Qualitätssteigerung",
+        "meeting_minutes": "Produktivitäts-/ Qualitätssteigerung",
+        "c_level_communication": "Produktivitäts-/ Qualitätssteigerung",
+        "colleague_communication": "Produktivitäts-/ Qualitätssteigerung",
+        "self_service_it_assistant": "Produktivitäts-/ Qualitätssteigerung",
+        "roadmap_creation": "Qualitätssteigerung / Priorisierung und Darstellung von Fortschritten / Portfoliomanagement",
+        "project_tracking": "Qualitätssteigerung / Priorisierung und Ressourcen Planung"
+      }
+    }
+  },
+  "it_business_solution_road": {
+    "ideas": {
+      "automated_route_optimization": "Automatisierte Tourenoptimierung",
+      "unified_road_reporting": "Einheitliches Reporting für Road-Operations",
+      "meeting_agent": "Meeting Agent",
+      "edi_mapping": "EDI Mapping",
+      "edi_testing": "EDI Testing"
+    },
+    "problems": {
+      "automated_route_optimization": "Tourenplanung erfolgt teilweise manuell und berücksichtigt nicht immer Echtzeitdaten wie Verkehr oder Fahrzeiten.",
+      "unified_road_reporting": "KPI-Reports (z. B. Auslastung, Leerfahrten, Pünktlichkeit) sind uneinheitlich und schwer vergleichbar.",
+      "meeting_agent": "Zusammenfassung von Meetings und Strukturierung von anstehenden Aufgaben",
+      "edi_mapping": "Aufwand, die Kunden EDI Informationen in andere Formate zu transformieren, die unser WMS verarbeiten kann (Kunde, Lobster)",
+      "edi_testing": "Much time to create many test message for different Business Cases"
+    },
+    "solutions": {
+      "automated_route_optimization": "Einführung eines KI-gestützten Tools zur dynamischen Tourenplanung, das Verkehr, Maut, Lenkzeiten und Auftragspriorität berücksichtigt.",
+      "unified_road_reporting": "Aufbau eines zentralen Road-Dashboards mit standardisierten Kennzahlen und automatischer Datenerfassung.",
+      "meeting_agent": "Automatische Zusammenfassung und Dokumentation der Aufgaben zu den jeweiligen Teams (Microsoft Copilot/ Facilitator)",
+      "edi_mapping": "Vorschläge durch AI zum Mapping, sodass der Mensch zum Controller wird und die KI überprüft, aber das Mapping nicht mehr manuell selbst durchführen muss",
+      "edi_testing": "Creation of test message to definied business cases to have quality start ups of projects"
+    }
+  },
   "auth": {
     "password": "Passwort",
     "login": "Anmelden",
