@@ -56,12 +56,19 @@ export const Dashboard = () => {
 
   // Calculate metrics and department data
   const { metrics, departmentData } = useMemo(() => {
-    const departments = [...new Set(participantsData.map((p) => p.groupName))];
+    const allDepartments = [
+      ...new Set(participantsData.map((p) => p.groupName)),
+    ];
+
+    // Filter departments based on selection
+    const departmentsToProcess =
+      selectedDepartment === "all" ? allDepartments : [selectedDepartment];
+
     const ideasByDept: { [key: string]: number } = {};
     let totalIdeasCount = 0;
 
     // Load ideas for each department
-    departments.forEach((dept) => {
+    departmentsToProcess.forEach((dept) => {
       try {
         // Mapeamento explícito de todos os departamentos para seus arquivos de dados
         const deptMappings: { [key: string]: string[] } = {
@@ -206,7 +213,7 @@ export const Dashboard = () => {
       .slice(0, 10);
 
     return { metrics, departmentData };
-  }, [filteredParticipants]);
+  }, [filteredParticipants, selectedDepartment]);
 
   const dayData = useMemo(() => {
     const day1Count = participantsData.filter((p) => p.day1).length;
@@ -467,7 +474,10 @@ export const Dashboard = () => {
                       <h3 className="font-semibold mb-4">
                         Department Workspaces
                       </h3>
-                      <DynamicCollaboards />
+                      <DynamicCollaboards
+                        selectedDepartment={selectedDepartment}
+                        selectedDay={selectedDay}
+                      />
                     </div>
                   </CardContent>
                 </Card>
@@ -479,7 +489,10 @@ export const Dashboard = () => {
                     <CardTitle>{t("nav.prioritization")}</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <PrioritizationMatrix />
+                    <PrioritizationMatrix
+                      selectedDepartment={selectedDepartment}
+                      selectedDay={selectedDay}
+                    />
                   </CardContent>
                 </Card>
               </TabsContent>
@@ -535,7 +548,15 @@ export const Dashboard = () => {
 };
 
 // Top-level component to discover collaboard links from datasets
-export function DynamicCollaboards(): JSX.Element {
+interface DynamicCollaboardsProps {
+  readonly selectedDepartment?: string;
+  readonly selectedDay?: string;
+}
+
+export function DynamicCollaboards({
+  selectedDepartment = "all",
+  selectedDay = "all",
+}: DynamicCollaboardsProps): JSX.Element {
   const [links, setLinks] = useState<
     Array<{
       key: string;
@@ -593,10 +614,18 @@ export function DynamicCollaboards(): JSX.Element {
         }
       }
 
-      // Sort by department name
-      found.sort((a, b) => a.department.localeCompare(b.department));
+      // Filter by selected department
+      let filteredFound = found;
+      if (selectedDepartment !== "all") {
+        filteredFound = found.filter(
+          (item) => item.department === selectedDepartment
+        );
+      }
 
-      if (mounted) setLinks(found);
+      // Sort by department name
+      filteredFound.sort((a, b) => a.department.localeCompare(b.department));
+
+      if (mounted) setLinks(filteredFound);
     }
 
     discover();
@@ -604,7 +633,7 @@ export function DynamicCollaboards(): JSX.Element {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [selectedDepartment]);
 
   if (links.length === 0)
     return (

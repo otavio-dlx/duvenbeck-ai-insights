@@ -80,7 +80,15 @@ interface ModalSection {
   icon?: string;
 }
 
-export const PrioritizationMatrix: React.FC = () => {
+interface PrioritizationMatrixProps {
+  selectedDepartment?: string;
+  selectedDay?: string;
+}
+
+export const PrioritizationMatrix: React.FC<PrioritizationMatrixProps> = ({
+  selectedDepartment = "all",
+  selectedDay = "all",
+}) => {
   const { t } = useTranslation();
   const [rows, setRows] = useState<Row[]>([]);
   const [sortBy, setSortBy] = useState<keyof Row | "source">("finalPrio");
@@ -595,7 +603,43 @@ export const PrioritizationMatrix: React.FC = () => {
       const keys = await listDataKeys();
       const acc: Row[] = [];
 
-      for (const k of keys) {
+      // Department mapping for filtering
+      const deptMappings: { [key: string]: string[] } = {
+        ESG: ["esg"],
+        HR: ["hr"],
+        "Marketing & Communication": ["marketing_communications"],
+        "Corporate Development": ["corp_dev"],
+        Compliance: ["compliance"],
+        Legal: ["legal"],
+        Controlling: ["controlling"],
+        "Group Accounting I": ["group_accounting"],
+        "Business Solution PCL": ["business_solution_pcl"],
+        "Road Sales SE": ["road_sales_se"],
+        "IT Shared Services": ["it_shared_services"],
+        "Solution Design": ["solution_design"],
+        "Platform Services / Digital Workplace": ["platform_services"],
+        "Security Management": ["security_management"],
+        "Contract Logistics": ["contract_logistics"],
+        "Information Security": ["information_security"],
+        "Strategic KAM": ["strategic_kam"],
+        CRM: ["crm"],
+        QEHS: ["qehs"],
+        Insurance: ["insurance"],
+        "Central Solution Design": ["central_solution_design"],
+      };
+
+      // Filter keys based on selected department
+      let keysToProcess = keys;
+      if (selectedDepartment !== "all") {
+        const deptKeys = deptMappings[selectedDepartment] || [
+          selectedDepartment.toLowerCase().replace(/[^a-z0-9]/g, "_"),
+        ];
+        keysToProcess = keys.filter((k) =>
+          deptKeys.some((deptKey) => k.toLowerCase().includes(deptKey))
+        );
+      }
+
+      for (const k of keysToProcess) {
         const data = await getIdeasFor(k);
         if (!data) continue;
 
@@ -661,7 +705,7 @@ export const PrioritizationMatrix: React.FC = () => {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [selectedDepartment]);
 
   // Attach display names
   const withDisplay = useMemo<DisplayRow[]>(() => {
