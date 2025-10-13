@@ -1,9 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { InteractivePriorityCalculator } from '@/components/InteractivePriorityCalculator';
-import { getAllIdeasForCalculator } from '@/lib/data-mapper';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft, Home, Calculator } from 'lucide-react';
+import { InteractivePriorityCalculator } from "@/components/InteractivePriorityCalculator";
+import { Button } from "@/components/ui/button";
+import { getAllIdeasForCalculator } from "@/lib/data-mapper";
+import { ArrowLeft, Calculator, Home } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function PriorityAnalysisPage() {
   // Get all ideas from all departments
@@ -21,10 +20,13 @@ export default function PriorityAnalysisPage() {
                 Back to Dashboard
               </Button>
             </Link>
-            
+
             {/* Breadcrumb */}
             <div className="flex items-center text-sm text-gray-500">
-              <Link to="/" className="hover:text-gray-700 flex items-center gap-1">
+              <Link
+                to="/"
+                className="hover:text-gray-700 flex items-center gap-1 cursor-pointer"
+              >
                 <Home className="h-4 w-4" />
                 Dashboard
               </Link>
@@ -43,9 +45,10 @@ export default function PriorityAnalysisPage() {
             Priority Calculator
           </h1>
           <p className="text-gray-600 max-w-4xl">
-            Interactive priority calculator based on the official Duvenbeck scoring matrix. 
-            Adjust weighting criteria to perform sensitivity analysis and identify the most 
-            strategic AI initiatives across all departments.
+            Interactive priority calculator based on the official Duvenbeck
+            scoring matrix. Adjust weighting criteria to perform sensitivity
+            analysis and identify the most strategic AI initiatives across all
+            departments.
           </p>
         </div>
 
@@ -55,10 +58,14 @@ export default function PriorityAnalysisPage() {
         {/* Usage Instructions */}
         <div className="mt-8">
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 className="font-medium text-blue-900 mb-2">How to Use the Calculator</h3>
+            <h3 className="font-medium text-blue-900 mb-2">
+              How to Use the Calculator
+            </h3>
             <p className="text-sm text-blue-700">
-              Adjust the weighting sliders above to reflect your strategic priorities. The ranking will update automatically 
-              to show which initiatives align best with your chosen criteria. Use the scenario buttons for common prioritization approaches.
+              Adjust the weighting sliders above to reflect your strategic
+              priorities. The ranking will update automatically to show which
+              initiatives align best with your chosen criteria. Use the scenario
+              buttons for common prioritization approaches.
             </p>
           </div>
         </div>
