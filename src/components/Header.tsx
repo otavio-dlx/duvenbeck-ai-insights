@@ -6,11 +6,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Languages, LogOut } from 'lucide-react';
+import { Languages, LogOut, Calculator, BarChart3 } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '@/assets/logo.png';
 
 export const Header = () => {
   const { t, i18n } = useTranslation();
+  const location = useLocation();
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
@@ -30,6 +32,30 @@ export const Header = () => {
             <h1 className="text-lg font-semibold text-foreground">{t('app.title')}</h1>
             <p className="text-xs text-muted-foreground">{t('app.subtitle')}</p>
           </div>
+          
+          {/* Navigation Menu */}
+          <nav className="hidden md:flex items-center gap-1 ml-8">
+            <Link to="/">
+              <Button 
+                variant={location.pathname === '/' ? 'default' : 'ghost'} 
+                size="sm" 
+                className="gap-2"
+              >
+                <BarChart3 className="h-4 w-4" />
+                Dashboard
+              </Button>
+            </Link>
+            <Link to="/priority-analysis">
+              <Button 
+                variant={location.pathname === '/priority-analysis' ? 'default' : 'ghost'} 
+                size="sm" 
+                className="gap-2"
+              >
+                <Calculator className="h-4 w-4" />
+                Priority Analysis
+              </Button>
+            </Link>
+          </nav>
         </div>
         
         <div className="flex items-center gap-2">

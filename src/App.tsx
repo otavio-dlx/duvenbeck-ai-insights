@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LoginGate } from "@/components/LoginGate";
 import { Dashboard } from "@/pages/Dashboard";
+import PriorityAnalysisPage from "@/pages/PriorityAnalysis";
 import NotFound from "./pages/NotFound";
 import "@/i18n/config";
 
@@ -19,6 +20,7 @@ const App = () => (
         <LoginGate>
           <Routes>
             <Route path="/" element={<Dashboard />} />
+            <Route path="/priority-analysis" element={<PriorityAnalysisPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
