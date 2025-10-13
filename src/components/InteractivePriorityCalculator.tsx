@@ -319,9 +319,15 @@ export function InteractivePriorityCalculator({
         <div className="lg:col-span-2">
           <Tabs defaultValue="rankings" className="w-full">
             <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="rankings">Rankings</TabsTrigger>
-              <TabsTrigger value="breakdown">Detailed Breakdown</TabsTrigger>
-              <TabsTrigger value="scenarios">Scenario Comparison</TabsTrigger>
+              <TabsTrigger value="rankings" className="cursor-pointer">
+                Rankings
+              </TabsTrigger>
+              <TabsTrigger value="breakdown" className="cursor-pointer">
+                Detailed Breakdown
+              </TabsTrigger>
+              <TabsTrigger value="scenarios" className="cursor-pointer">
+                Scenario Comparison
+              </TabsTrigger>
             </TabsList>
 
             {/* Rankings Tab */}
