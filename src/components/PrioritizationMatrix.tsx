@@ -5,38 +5,25 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { participantsData } from "@/data/participants";
-import { getIdeasFor, listDataKeys } from "@/lib/data";
 import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import { TranslatedString } from "@/data/types";
-import { getLocalizedString } from "@/lib/data";
+import { LocalizableString, NewFormatIdea } from "@/data/types";
+import { getIdeasFor, getLocalizedString, listDataKeys } from "@/lib/data";
 
 type Row = {
   source: string;
-  idee?: TranslatedString;
+  idee?: LocalizableString;
   finalPrio?: string | number;
-  gewichtetePunktzahl?: number | string;
   prioritaet?: string;
 };
 
 type DisplayRow = Row & { sourceDisplay: string };
 
-type ProjectInfo = {
-  fragen?: string;
-  erlauterung?: string;
-  inhalte?: string;
-  problem?: string;
-  losung?: string;
-  additional?: Record<string, string>;
-};
-
 export const PrioritizationMatrix: React.FC = () => {
   const { t } = useTranslation();
   const [rows, setRows] = useState<Row[]>([]);
-  const [sortBy, setSortBy] = useState<keyof Row | "source">(
-    "gewichtetePunktzahl"
-  );
+  const [sortBy, setSortBy] = useState<keyof Row | "source">("finalPrio");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("desc");
   const [selectedIdea, setSelectedIdea] = useState<{
     source: string;
@@ -55,115 +42,82 @@ export const PrioritizationMatrix: React.FC = () => {
     const data = await getIdeasFor(source);
     if (!data) return;
 
-    // Initialize project info
-    type ProjectInfo = {
-      fragen?: string;
-      erlauterung?: string;
-      inhalte?: string;
-      problem?: string;
-      losung?: string;
-      additional?: Record<string, string>;
-    };
+    // Check for new format first (structured ideas array)
+    const newFormatIdeas = (data as { ideas?: NewFormatIdea[] }).ideas;
+    if (Array.isArray(newFormatIdeas)) {
+      const matchingIdea = newFormatIdeas.find((idea) => idea.ideaKey === idee);
 
-    const projectInfo: ProjectInfo = {};
+      if (matchingIdea) {
+        // Use translation keys to get localized content
+        const formattedSections = [
+          {
+            title: t("matrix.sections.problem"),
+            content: getLocalizedString(matchingIdea.problemKey),
+          },
+          {
+            title: t("matrix.sections.solution"),
+            content: getLocalizedString(matchingIdea.solutionKey),
+          },
+        ];
 
-    // Look through all sections in the data
-    Object.entries(data).forEach(([section, content]) => {
-      if (!Array.isArray(content)) return;
-
-      content.forEach((item: Record<string, unknown>) => {
-        const itemIdee = item["Idee"] || item["Unnamed: 0"];
-        if (itemIdee && normalize(String(itemIdee)) === normalize(idee)) {
-          // Found a matching item, collect relevant information
-          projectInfo.fragen = String(item["Fragen / Themen"] || "");
-          projectInfo.erlauterung = String(item["Erläuterung"] || "");
-          projectInfo.inhalte = String(item["Inhalte / Antworten"] || "");
-          projectInfo.problem = String(item["Problem"] || "");
-          projectInfo.losung = String(item["Lösung"] || item["Solution"] || "");
-
-          // Collect any additional relevant fields
-          Object.entries(item).forEach(([key, value]) => {
-            if (
-              value &&
-              !key.startsWith("Unnamed") &&
-              ![
-                "Idee",
-                "Fragen / Themen",
-                "Erläuterung",
-                "Inhalte / Antworten",
-                "Problem",
-                "Lösung",
-                "Solution",
-              ].includes(key)
-            ) {
-              if (!projectInfo.additional) projectInfo.additional = {};
-              projectInfo.additional[key] = String(value);
-            }
+        // Add complexity note if available
+        if (matchingIdea.complexityNoteKey) {
+          formattedSections.push({
+            title: "Complexity Note",
+            content: getLocalizedString(matchingIdea.complexityNoteKey),
           });
         }
-      });
-    });
 
-    // Format the sections for display
-    const formattedSections = [];
+        // Add cost note if available
+        if (matchingIdea.costNoteKey) {
+          formattedSections.push({
+            title: "Cost Note",
+            content: getLocalizedString(matchingIdea.costNoteKey),
+          });
+        }
 
-    const sections = [
-      {
-        key: "problem",
-        title: t("matrix.sections.problem"),
-        content: projectInfo.problem
-          ? getLocalizedString(projectInfo.problem)
-          : "",
-      },
-      {
-        key: "losung",
-        title: t("matrix.sections.solution"),
-        content: projectInfo.losung
-          ? getLocalizedString(projectInfo.losung)
-          : "",
-      },
-      {
-        key: "fragen",
-        title: t("matrix.sections.questions"),
-        content: projectInfo.fragen
-          ? getLocalizedString(projectInfo.fragen)
-          : "",
-      },
-      {
-        key: "erlauterung",
-        title: t("matrix.sections.explanation"),
-        content: projectInfo.erlauterung
-          ? getLocalizedString(projectInfo.erlauterung)
-          : "",
-      },
-      {
-        key: "inhalte",
-        title: t("matrix.sections.content"),
-        content: projectInfo.inhalte
-          ? getLocalizedString(projectInfo.inhalte)
-          : "",
-      },
-    ];
+        // Add ROI note (handle both legacy roiNote and new roiNoteKey)
+        if (matchingIdea.roiNoteKey) {
+          formattedSections.push({
+            title: "ROI Note",
+            content: getLocalizedString(matchingIdea.roiNoteKey),
+          });
+        } else if (matchingIdea.roiNote) {
+          formattedSections.push({
+            title: "ROI Note",
+            content: matchingIdea.roiNote,
+          });
+        }
 
-    sections.forEach((section) => {
-      if (section.content) {
-        formattedSections.push({
-          title: section.title,
-          content: section.content,
-        });
+        // Add risk note if available
+        if (matchingIdea.riskNoteKey) {
+          formattedSections.push({
+            title: "Risk Note",
+            content: getLocalizedString(matchingIdea.riskNoteKey),
+          });
+        }
+
+        // Add strategic note if available
+        if (matchingIdea.strategicNoteKey) {
+          formattedSections.push({
+            title: "Strategic Note",
+            content: getLocalizedString(matchingIdea.strategicNoteKey),
+          });
+        }
+
+        setProjectBrief(JSON.stringify(formattedSections));
       }
-    });
-
-    if (projectInfo.additional) {
-      Object.entries(projectInfo.additional).forEach(([key, value]) => {
-        formattedSections.push({
-          title: key,
-          content: value,
-        });
-      });
+    } else {
+      // Placeholder for old format - we'll skip detailed project briefs for now
+      const placeholderSections = [
+        {
+          title: "Information",
+          content:
+            "Project details are not available for this department yet. Please check back after the data migration is complete.",
+        },
+      ];
+      setProjectBrief(JSON.stringify(placeholderSections));
     }
-
-    setProjectBrief(JSON.stringify(formattedSections));
   };
 
   // Precompute participant names for fuzzy matching
@@ -186,41 +140,34 @@ export const PrioritizationMatrix: React.FC = () => {
         const data = await getIdeasFor(k);
         if (!data) continue;
 
+        // Check for new format (structured ideas array)
+        const newFormatIdeas = (data as { ideas?: NewFormatIdea[] }).ideas;
+        if (Array.isArray(newFormatIdeas)) {
+          for (const idea of newFormatIdeas) {
+            if (!idea.ideaKey) continue; // Skip invalid entries
+
+            acc.push({
+              source: k,
+              idee: idea.ideaKey,
+              finalPrio: idea.finalPrio || "",
+              prioritaet: idea.priority || "",
+            });
+          }
+          continue; // Skip old format processing for this department
+        }
+
+        // Fall back to old format (Priorisierungsmatrix) - simplified placeholder
         const maybeMatrix = (data as { [key: string]: unknown })[
           "Priorisierungsmatrix"
         ];
-        if (!Array.isArray(maybeMatrix)) continue;
-
-        for (const r of maybeMatrix as Array<Record<string, unknown>>) {
-          const stringifyValue = (v: unknown) => {
-            if (v == null) return "";
-            if (
-              typeof v === "string" ||
-              typeof v === "number" ||
-              typeof v === "boolean"
-            )
-              return String(v);
-            try {
-              return JSON.stringify(v);
-            } catch {
-              return Object.prototype.toString.call(v);
-            }
-          };
-
-          const ideeRaw = stringifyValue(r["Idee"] ?? r["Unnamed: 0"] ?? "");
-          // Skip empty ideas or those that are just headers
-          if (!ideeRaw.trim() || ideeRaw === "Idee") continue;
-
+        if (Array.isArray(maybeMatrix)) {
+          // For now, we'll show a placeholder for old format departments
+          // This will encourage migration to the new format
           acc.push({
             source: k,
-            idee: ideeRaw,
-            finalPrio: stringifyValue(
-              r["Final prio"] ?? r["Final Prios"] ?? ""
-            ),
-            gewichtetePunktzahl: stringifyValue(
-              r["Gewichtete Punktzahl"] ?? ""
-            ),
-            prioritaet: stringifyValue(r["Priorität (A, B, C)"] ?? ""),
+            idee: "Data migration needed for this department",
+            finalPrio: "N/A",
+            prioritaet: "N/A",
           });
         }
       }
@@ -309,14 +256,13 @@ export const PrioritizationMatrix: React.FC = () => {
               {header("source", t("matrix.source"))}
               {header("idee", t("matrix.idea"))}
               {header("finalPrio", t("matrix.finalPrio"))}
-              {header("gewichtetePunktzahl", t("matrix.weightedScore"))}
               {header("prioritaet", t("matrix.priority"))}
             </tr>
           </thead>
           <tbody>
             {sorted.length === 0 ? (
               <tr>
-                <td className="p-2" colSpan={5}>
+                <td className="p-2" colSpan={4}>
                   {t("matrix.noRows")}
                 </td>
               </tr>
@@ -337,7 +283,6 @@ export const PrioritizationMatrix: React.FC = () => {
                     {r.idee ? getLocalizedString(r.idee) : ""}
                   </td>
                   <td className="p-2">{String(r.finalPrio)}</td>
-                  <td className="p-2">{String(r.gewichtetePunktzahl)}</td>
                   <td className="p-2">{r.prioritaet}</td>
                 </tr>
               ))

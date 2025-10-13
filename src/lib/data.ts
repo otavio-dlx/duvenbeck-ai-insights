@@ -2,85 +2,34 @@
 // Uses Vite's `import.meta.glob` to lazily import all modules that export `ideas`.
 
 import i18next from "i18next";
-import { MatrixRow, TranslatedString } from "../data/types";
+import { LocalizableString, TranslatedString } from "../data/types";
 
 type IdeasModule = {
   ideas: Record<string, unknown>;
 };
 
-export function getLocalizedString(str: TranslatedString | string): string {
-  if (typeof str === "string") return str;
+export function getLocalizedString(str: LocalizableString): string {
+  if (typeof str === "string") {
+    // Check if it's a translation key (contains dots)
+    if (str.includes(".")) {
+      const translation = i18next.t(str);
+      // If translation is the same as the key, it means translation wasn't found
+      if (translation !== str) {
+        return translation;
+      }
+      console.warn(`Translation key not found: ${str}`);
+      return str;
+    }
+    // If it's just a plain string, return as is
+    return str;
+  }
+
+  // Handle TranslatedString objects (old format)
   const currentLang = i18next.language;
   return str[currentLang as keyof TranslatedString] || str.de || str.en || "";
 }
 
-export function processMatrixRow(
-  row: Record<string, unknown>,
-  source: string
-): MatrixRow | null {
-  const getString = (key: string): string => {
-    const value = row[key];
-    return typeof value === "string" ? value : "";
-  };
-
-  const getNumber = (key: string): number => {
-    const value = row[key];
-    return typeof value === "number" ? value : 0;
-  };
-
-  // Skip rows where Idee is empty or equals "Idee" (header row)
-  const idea = getString("Idee");
-  if (!idea || idea === "Idee") {
-    return null;
-  }
-
-  // Create the matrix row
-  return {
-    id: getString("Unnamed: 0"),
-    source,
-    idea: {
-      de: idea,
-      en: getString("Idea") || idea,
-    },
-    problem: {
-      de: getString("Problem"),
-      en: getString("Problem_EN") || getString("Problem"),
-    },
-    solution: {
-      de: getString("Lösung"),
-      en: getString("Solution") || getString("Lösung"),
-    },
-    owner: getString("Ideenverantwortlicher"),
-    priority: getString("Priorität (A, B, C)"),
-    complexity: getNumber("Komplexität"),
-    explanation: {
-      de: getString("Erläuterung"),
-      en: getString("Explanation") || getString("Erläuterung"),
-    },
-    cost: getNumber("Kosten (€)"),
-    costExplanation: {
-      de: getString("Erläuterung.1"),
-      en: getString("CostExplanation") || getString("Erläuterung.1"),
-    },
-    roi: getNumber("ROI"),
-    roiExplanation: {
-      de: getString("Erläuterung.2"),
-      en: getString("ROIExplanation") || getString("Erläuterung.2"),
-    },
-    risk: getNumber("Risiko"),
-    riskExplanation: {
-      de: getString("Erläuterung.3"),
-      en: getString("RiskExplanation") || getString("Erläuterung.3"),
-    },
-    strategicAlignment: getNumber("Strategische Ausrichtung"),
-    strategyExplanation: {
-      de: getString("Erläuterung.4"),
-      en: getString("StrategyExplanation") || getString("Erläuterung.4"),
-    },
-    finalPriority: getString("Final prio") || getString("Final Prios"),
-    weightedScore: getNumber("Gewichtete Punktzahl"),
-  };
-}
+// Removed processMatrixRow function - focusing on new format only
 
 export async function loadAllData(): Promise<Record<string, IdeasModule>> {
   // Keep for compatibility: load all data (not used by new on-demand helpers)
