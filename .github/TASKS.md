@@ -82,3 +82,20 @@ If you take one of these tasks, please create a branch from `main`, keep commits
 **Branch:** `feature/priority-explanation-icon`
 **Labels:** `feature`, `enhancement`, `ux`, `documentation`
 **ETA:** 1-2 days
+
+## ✅ Recently Completed
+
+### Fix Total Ideas Metric Showing Zero
+
+**Description:** The total ideas metric in the dashboard was showing 0 instead of counting the actual number of ideas across all departments.
+
+**Root Cause:** The data import logic was incorrectly accessing the module structure. Each department file exports an `ideas` object with `home` and `ideas` properties, but the code was trying to access `module.ideas` directly instead of `module.ideas.ideas`.
+
+**Solution:** Updated the Dashboard.tsx file to correctly access the nested ideas array structure: `moduleData?.ideas` where `moduleData` is the imported `ideas` object from each department file.
+
+**Files Changed:**
+
+- `src/pages/Dashboard.tsx` - Fixed the type definitions and data access pattern
+
+**Status:** ✅ **Completed** (October 13, 2025)
+**Labels:** `bug`, `dashboard`, `metrics`

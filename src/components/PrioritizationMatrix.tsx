@@ -967,12 +967,8 @@ export const PrioritizationMatrix: React.FC = () => {
                                       { length: metric.maxValue },
                                       (_, i) => {
                                         const isActive = i < metric.value;
-                                        const activeColor =
-                                          metric.color === "red"
-                                            ? "bg-red-500"
-                                            : "bg-gray-400";
                                         const barColor = isActive
-                                          ? activeColor
+                                          ? "bg-red-500"
                                           : "bg-gray-200";
 
                                         return (

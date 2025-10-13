@@ -99,11 +99,13 @@ export const Dashboard = () => {
         deptFiles.forEach(([_, module]) => {
           // Define a type for the expected module structure
           type IdeasModule = {
-            ideas?:
-              | Record<string, unknown>
-              | Array<{ finalPrio?: string | number; ideaKey?: string }>;
+            ideas?: {
+              home?: unknown[];
+              ideas?: Array<{ finalPrio?: string | number; ideaKey?: string }>;
+            };
           };
-          const ideas = (module as IdeasModule).ideas;
+          const moduleData = (module as IdeasModule).ideas;
+          const ideas = moduleData?.ideas;
 
           // Check for new format first (structured ideas array)
           if (Array.isArray(ideas)) {
@@ -120,62 +122,63 @@ export const Dashboard = () => {
             return; // Skip old format processing
           }
 
-          // Fall back to old format (Priorisierungsmatrix)
+          // Fall back to old format (Priorisierungsmatrix) - check the full module data
+          const fullModuleData = moduleData as Record<string, unknown>;
           if (
-            ideas &&
-            typeof ideas === "object" &&
-            "Priorisierungsmatrix" in ideas &&
-            Array.isArray(ideas.Priorisierungsmatrix)
+            fullModuleData &&
+            typeof fullModuleData === "object" &&
+            "Priorisierungsmatrix" in fullModuleData &&
+            Array.isArray(fullModuleData.Priorisierungsmatrix)
           ) {
             // Count ideas from the Priorisierungsmatrix
-            const matrixIdeas = ideas.Priorisierungsmatrix.filter(
-              (item: Record<string, unknown>) => {
-                if (!item || typeof item !== "object") return false;
+            const matrixIdeas = (
+              fullModuleData.Priorisierungsmatrix as Record<string, unknown>[]
+            ).filter((item: Record<string, unknown>) => {
+              if (!item || typeof item !== "object") return false;
 
-                // Skip empty rows
-                if (Object.values(item).every((val) => !val)) return false;
+              // Skip empty rows
+              if (Object.values(item).every((val) => !val)) return false;
 
-                // Skip header rows
-                if (
-                  Object.values(item).some(
-                    (val) =>
-                      typeof val === "string" &&
-                      ["Priorisierungsmatrix", "Titel"].includes(val)
-                  )
+              // Skip header rows
+              if (
+                Object.values(item).some(
+                  (val) =>
+                    typeof val === "string" &&
+                    ["Priorisierungsmatrix", "Titel"].includes(val)
                 )
-                  return false;
+              )
+                return false;
 
-                // Check for Problem and/or Solution fields
-                const hasValidContent = Object.entries(item).some(
-                  ([key, value]) => {
-                    if (
-                      !value ||
-                      typeof value !== "string" ||
-                      value.trim().length === 0
-                    )
-                      return false;
+              // Check for Problem and/or Solution fields
+              const hasValidContent = Object.entries(item).some(
+                ([key, value]) => {
+                  if (
+                    !value ||
+                    typeof value !== "string" ||
+                    value.trim().length === 0
+                  )
+                    return false;
 
-                    const problemField =
-                      key === "Problem" ||
-                      key.toLowerCase().includes("problem") ||
-                      key === "Unnamed: 1";
+                  const problemField =
+                    key === "Problem" ||
+                    key.toLowerCase().includes("problem") ||
+                    key === "Unnamed: 1";
 
-                    const solutionField =
-                      key === "Lösung" ||
-                      key === "Lösung." ||
-                      key.toLowerCase().includes("losung") ||
-                      key.toLowerCase().includes("solution") ||
-                      key === "Unnamed: 2";
+                  const solutionField =
+                    key === "Lösung" ||
+                    key === "Lösung." ||
+                    key.toLowerCase().includes("losung") ||
+                    key.toLowerCase().includes("solution") ||
+                    key === "Unnamed: 2";
 
-                    return (
-                      (problemField || solutionField) && value.trim().length > 0
-                    );
-                  }
-                );
+                  return (
+                    (problemField || solutionField) && value.trim().length > 0
+                  );
+                }
+              );
 
-                return hasValidContent;
-              }
-            );
+              return hasValidContent;
+            });
 
             const count = matrixIdeas.length;
             ideasByDept[dept] = (ideasByDept[dept] || 0) + count;
