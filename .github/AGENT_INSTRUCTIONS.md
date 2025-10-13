@@ -40,6 +40,41 @@ Before marking a PR ready for review, ensure:
 - Verify that all changes comply with the original requirements and provide a good user experience, including clear calls-to-action (CTAs) when appropriate.
 - Reuse existing components whenever possible to maintain consistency, unless there's a specific need for a new component.
 
+## Translation Pattern Guidelines
+
+When working with department-specific data and translations:
+
+1. Follow the established translation key structure as seen in the compliance module:
+
+   - Use department name as the root key (e.g., `compliance`, `accounting`, etc.)
+   - Organize content under appropriate subkeys:
+     - `ideas`: For initiative titles
+     - `problems`: For problem descriptions
+     - `solutions`: For solution descriptions
+     - `notes`: For additional context (complexity, cost, risk, etc.)
+
+2. Translation Key Structure:
+
+   - Use snake_case for key names
+   - Follow the pattern: `{department}.{category}.{identifier}`
+   - For nested notes: `{department}.notes.{type}.{identifier}`
+
+3. Implementation:
+
+   - Keep translations in the i18n locales files (en.json, de.json)
+   - Reference translation keys in department data files
+   - Use consistent identifiers across related items
+
+4. Example Format:
+   ```typescript
+   {
+     ideaKey: "department.ideas.identifier",
+     problemKey: "department.problems.identifier",
+     solutionKey: "department.solutions.identifier",
+     complexityNoteKey: "department.notes.complexity.identifier"
+   }
+   ```
+
 ## Testing and verification steps for agents
 
 - Install dependencies using the project's package manager (pnpm or npm). Example (local dev):

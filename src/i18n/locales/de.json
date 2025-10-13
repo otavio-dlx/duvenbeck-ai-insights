@@ -3,6 +3,72 @@
     "title": "KI-Workshop Dashboard",
     "subtitle": "Duvenbeck AI Workshop 6-8. Oktober 2025"
   },
+  "compliance": {
+    "ideas": {
+      "damage_assessment": "Schadenprüfung",
+      "contract_review": "Vertragsprüfung (Versicherung)",
+      "documentation": "Dokumentation/Administration",
+      "legal_documents": "Erstellung von Schriftsätzen",
+      "questionnaires": "Erstellung von Fragebögen und Gesprächsleitfäden",
+      "contract_templates": "Erstellung von Vertragsvorlagen",
+      "standards_analysis": "Prüfung und Analyse von Standards",
+      "routine_cases": "Kleine, wiederkehrende Fälle und Fragen"
+    },
+    "problems": {
+      "damage_assessment": "Haftungsprüfung inkl. 'gutachterliche' Bewertung",
+      "contract_review": "Vertragsprüfung - Haftung & Versicherung inkl. Checkliste",
+      "documentation": "Dokumentation/Administration und Zusammenfassung von E-Mail-Verläufen, Dokumenten, Vertragsprüfungen in Aktensystem jeweils mit Erstellung einer Beschreibung des Inhalts im Aktenablagesystem",
+      "legal_documents": "Erstellung von Schriftsätzen, Klagen, Klageerwiderungen, Anschreiben etc.",
+      "questionnaires": "Erstellung von Fragebögen und Gesprächsleitfäden",
+      "contract_templates": "Erstellung von Vertragsvorlagen, Vorlagen für Richtlinien, Datenschutzhinweise und andere Dokumente sowie Einfügen in bestehende Vorlagen",
+      "standards_analysis": "Prüfung und Analyse von Standards (NDA, CoC, IT-AGB, AVV etc.) sowie auch von nicht standardisierten Verträgen",
+      "routine_cases": "Kleine, wiederkehrende Fälle und Fragen"
+    },
+    "solutions": {
+      "damage_assessment": "Ist der Schaden erstattungsfähig? Haftungsgrundlagen erfüllt? Bewertung des Schadenausmaßes",
+      "contract_review": "Erstellung Checkliste inkl. Makierung relevante Passagen ggf Vorabprüfung, Übersetzung",
+      "documentation": "Ggf. automatisiertes Zuordnen der Dokumente zu den betreffenden Akten und Auslesen des Inhalts mit Erstellung einer Zusammenfassung",
+      "legal_documents": "Nutzung der Rechercheergebnisse, der Sachverhaltszusammenfasstung etc. zur Erstellung von Texten in juristischer Tonalität unter Hinzuziehung vorgegebener Muster",
+      "questionnaires": "Nach Bereitstellung des Sachverhaltes Aufarbeitung und Entwurf von Fragen",
+      "contract_templates": "Texterstellung auf Grundlage von Stichpunkten und Themenblöcken, Erstellen und Einfügen in vorgegebene Vorlagen",
+      "standards_analysis": "Automatische Prüfung und Zusammenfassung u.a. unter Berücksichtigung vorgegebener Regeln (KI-Lösung von OTRIS)",
+      "routine_cases": "Chatbot"
+    },
+    "notes": {
+      "complexity": {
+        "damage_assessment": "Vertragsprüfung, gesetzliche Haftung, Marktwerte, Schrottwerte, Warenart und Warenfunktion",
+        "contract_review": "Daten für die Checkliste können einfach ausgelesen werden. Nur Versicherungsthemen relevant, nicht der ganze Vertrag. Bereitstellung von Versicherungsumfang möglich.",
+        "documentation": "keine hohe Komplexität, weil: reines Auslesen von vorhandenen Daten; zum Teil Systeme bekannt, die das bereits umsetzen können",
+        "legal_documents": "Erstellung von Verträgen: komplexer; Erstellung von Schriftsätzen und Verarbeitungsbeschreibungen: nicht so komplex",
+        "standards_analysis": "Mittel bis hoch: Abhängig von der Regelvielfalt und Dokumentenstruktur. Die KI muss sowohl juristische Sprache als auch spezifische Unternehmensregeln verstehen und anwenden können.",
+        "routine_cases": "Mittel: Aufbau eines internen Wissenspools, Training der KI auf firmenspezifische Inhalte und laufende Pflege notwendig. Technisch gut umsetzbar mit vorhandenen Lösungen."
+      },
+      "cost": {
+        "damage_assessment": "gesondertes Programm wird benötigt (vertrauliche Firmendaten enthalten). Mitarbeiteraufwand relativ gering (Reduzierung Arbeitsaufwand). Kostenersparnis Versicherung & Gutachterkosten",
+        "contract_review": "gesondertes Programm wird benötigt (vertrauliche Firmendaten enthalten). Mitarbeiteraufwand relativ gering (Reduzierung Arbeitsaufwand).",
+        "documentation": "abhängig von der Systemlandschaft",
+        "legal_documents": "mittlere bis hohe Investitionskosten; laufende Kosten abhängig von Nutzung und API-Abfragen",
+        "standards_analysis": "Kosten durch OTRIS (Add-On bei OTRIS) relativ gering, da bereits das System vorhanden ist und es sich nur um ein Add-On handelt",
+        "routine_cases": "einmalige Implementierung und kontinuierliche Pflege durch Legal (DUV GPT könnte nach Implementierung genutzt werden)"
+      },
+      "risk": {
+        "damage_assessment": "Muss vom Mitarbeiter noch einmal gegengeprüft werden. Verhandlungen immer noch möglich. Teilweise sensible Firmendaten enthalten",
+        "contract_review": "Muss vom Mitarbeiter noch einmal gegengeprüft werden, um Deckungslücken zu vermeiden.",
+        "documentation": "mittleres Risiko, da nur Vorhandenes ausgelesen wird und keine neuen Ergebnisse generiert werden",
+        "legal_documents": "Mittel: Risiken betreffen inhaltliche Richtigkeit, Datenvertraulichkeit bei externer Verarbeitung und Urheberrecht. Durch klare Governance und manuelle Endkontrolle gut beherrschbar",
+        "standards_analysis": "Niedrig bis mittel: Geringes Risiko bei interner Nutzung; bei externer Cloud-Lösung Prüfung von Datenschutz und Datensicherheit erforderlich. Risiko falscher Bewertungen bei unvollständigen Regeln.",
+        "routine_cases": "höheres Risiko: Treffgenauigkeit der Schlagworte fehleranfällig"
+      },
+      "strategic": {
+        "damage_assessment": "Ersparung von externen und internen Personalaufwänden",
+        "contract_review": "schnellere Rückmeldungen an den Kunden = Kundenzufriedenheit wird verbessert. Ersparnis von Mitarbeiteraufwand",
+        "documentation": "Vereinheitlichung; Reduzierung des administrativen Aufwands",
+        "legal_documents": "Automatisierung, Zeitersparnis, Vereinheitlichung und Standardisierung, Beschleunigung",
+        "standards_analysis": "Sehr gute Passung: Stärkt Qualitätssicherung, Standardisierung und Nachvollziehbarkeit. Unterstützt die digitale Transformation der Rechtsabteilung und fördert Konsistenz.",
+        "routine_cases": "direkte Antwort, schnelle erste Einschätzung, Beschleunigung des Prozesses"
+      }
+    }
+  },
   "auth": {
     "password": "Passwort",
     "login": "Anmelden",
