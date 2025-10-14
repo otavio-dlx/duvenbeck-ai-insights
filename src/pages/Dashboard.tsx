@@ -1,7 +1,6 @@
 import { FilterPanel } from "@/components/FilterPanel";
 import { Header } from "@/components/Header";
 import { MetricCard } from "@/components/MetricCard";
-import { PrioritizationMatrix } from "@/components/PrioritizationMatrix";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { participantsData } from "@/data/participants";
@@ -293,13 +292,10 @@ export const Dashboard = () => {
           {/* Main Content */}
           <div className="lg:col-span-3 space-y-6">
             <Tabs defaultValue="processes" className="w-full">
-              <TabsList className="grid w-full grid-cols-4 lg:w-auto bg-muted">
+              <TabsList className="grid w-full grid-cols-3 lg:w-auto bg-muted">
                 <TabsTrigger value="overview">{t("nav.overview")}</TabsTrigger>
                 <TabsTrigger value="processes">
                   {t("nav.processes")}
-                </TabsTrigger>
-                <TabsTrigger value="prioritization">
-                  {t("nav.prioritization")}
                 </TabsTrigger>
                 <TabsTrigger value="participants">
                   {t("nav.participants")}
@@ -479,20 +475,6 @@ export const Dashboard = () => {
                         selectedDay={selectedDay}
                       />
                     </div>
-                  </CardContent>
-                </Card>
-              </TabsContent>
-
-              <TabsContent value="prioritization" className="space-y-6 mt-6">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>{t("nav.prioritization")}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <PrioritizationMatrix
-                      selectedDepartment={selectedDepartment}
-                      selectedDay={selectedDay}
-                    />
                   </CardContent>
                 </Card>
               </TabsContent>

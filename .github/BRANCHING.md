@@ -11,8 +11,6 @@ This document explains the branching strategy for the duvenbeck-ai-insights repo
 
 - Feature branches: `feat/<short-description>` e.g. `feat/prioritization-matrix`
 - Bugfix branches: `fix/<short-description>` e.g. `fix/overview-label-visibility`
-- Chore branches: `chore/<short-description>` for non-functional changes
-- Hotfixes: `hotfix/<short-description>` when urgent fixes are needed in `main`
 
 ## Pull requests
 

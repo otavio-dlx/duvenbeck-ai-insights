@@ -44,6 +44,7 @@ import {
 import { Download, ExternalLink, Info, RotateCcw } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { IdeaTagsSection } from "./IdeaTagsSection";
 
 interface InteractivePriorityCalculatorProps {
   ideas: Array<{
@@ -53,6 +54,64 @@ interface InteractivePriorityCalculatorProps {
     department: string;
     scores: DuvenbeckScoringCriteria;
   }>;
+}
+
+// Define interfaces for modal section types
+interface ModalStat {
+  label: string;
+  value: string;
+  icon: string;
+  color: "blue" | "green" | "yellow" | "red" | "purple" | "neutral";
+}
+
+interface ModalMetric {
+  id: string;
+  label: string;
+  value: number;
+  maxValue: number;
+  note?: string;
+  icon: string;
+  color: "blue" | "green" | "yellow" | "red" | "purple" | "neutral";
+  description: string;
+}
+
+interface ModalItem {
+  label: string;
+  value: string;
+  description?: string;
+}
+
+interface ModalSection {
+  type:
+    | "hero"
+    | "quickStats"
+    | "twoColumn"
+    | "metricsGrid"
+    | "summary"
+    | "additionalInfo"
+    | "placeholder";
+  title?: string;
+  subtitle?: string;
+  priority?: string;
+  finalPrio?: string | number;
+  description?: string;
+  stats?: ModalStat[];
+  metrics?: ModalMetric[];
+  items?: ModalItem[];
+  leftSection?: {
+    title: string;
+    content: string;
+    icon: string;
+    bgColor: string;
+  };
+  rightSection?: {
+    title: string;
+    content: string;
+    icon: string;
+    bgColor: string;
+  };
+  content?: string;
+  icon?: string;
 }
 
 export function InteractivePriorityCalculator({
@@ -152,6 +211,156 @@ export function InteractivePriorityCalculator({
   const [selectedIdea, setSelectedIdea] = useState<(typeof ideas)[0] | null>(
     null
   );
+  const [projectBrief, setProjectBrief] = useState<string>("");
+
+  // Helper functions for color mappings and modal data creation
+  const getPriorityColor = (priority: string): "green" | "yellow" | "red" => {
+    if (priority === "A") return "green";
+    if (priority === "B") return "yellow";
+    return "red";
+  };
+
+  const getMetricLevelText = (value: number): string => {
+    if (value > 3) return "High";
+    if (value > 1) return "Medium";
+    return "Low";
+  };
+
+  // Helper function to create modal sections adapted for InteractivePriorityCalculator data
+  const createModalSections = (idea: (typeof ideas)[0]): ModalSection[] => {
+    return [
+      {
+        type: "quickStats",
+        title: t("modal.quickOverview"),
+        stats: [
+          {
+            label: t("modal.owner"),
+            value: idea.id.includes("hr_cv")
+              ? "Sarah Martinez"
+              : idea.id.includes("compliance")
+              ? "Muriel Berning"
+              : idea.id.includes("it_")
+              ? "Robin Giesen"
+              : idea.id.includes("marketing")
+              ? "Marketing Team"
+              : idea.id.includes("corp_dev")
+              ? "Strategy Team"
+              : "Department Lead",
+            icon: "",
+            color: "blue",
+          },
+          {
+            label: t("priorityAnalysis.rankings.department"),
+            value: idea.department,
+            icon: "",
+            color: "green",
+          },
+          {
+            label: t("priorityAnalysis.rankings.score"),
+            value: String(
+              DuvenbeckPriorityCalculator.rankIdeas([idea], weights)[0]
+                ?.finalScore || 0
+            ),
+            icon: "",
+            color: "purple",
+          },
+        ],
+      },
+      {
+        type: "twoColumn",
+        leftSection: {
+          title: t("priorityAnalysis.modal.problemStatement"),
+          content:
+            idea.description?.split(".")[0] + "." || t("modal.noDataAvailable"),
+          icon: "",
+          bgColor: "red",
+        },
+        rightSection: {
+          title: t("priorityAnalysis.modal.proposedSolution"),
+          content: getTranslatedInitiativeDescription(
+            idea.id,
+            idea.description || "",
+            idea.name
+          ),
+          icon: "",
+          bgColor: "neutral",
+        },
+      },
+      {
+        type: "metricsGrid",
+        title: t("modal.projectMetrics"),
+        description: t("modal.metricsDescription"),
+        metrics: [
+          {
+            id: "complexity",
+            label: t("modal.complexity"),
+            value: idea.scores.complexity,
+            maxValue: 5,
+            icon: "",
+            color: "neutral",
+            description: t("modal.complexityDesc"),
+          },
+          {
+            id: "cost",
+            label: t("modal.cost"),
+            value: idea.scores.cost,
+            maxValue: 5,
+            icon: "",
+            color: "red",
+            description: t("modal.costDesc"),
+          },
+          {
+            id: "roi",
+            label: t("modal.roi"),
+            value: idea.scores.roi,
+            maxValue: 5,
+            icon: "",
+            color: "neutral",
+            description: t("modal.roiDesc"),
+          },
+          {
+            id: "risk",
+            label: t("modal.risk"),
+            value: idea.scores.risk,
+            maxValue: 5,
+            icon: "",
+            color: "red",
+            description: t("modal.riskDesc"),
+          },
+          {
+            id: "strategic",
+            label: t("modal.strategicAlignment"),
+            value: idea.scores.strategicAlignment,
+            maxValue: 5,
+            icon: "",
+            color: "neutral",
+            description: t("modal.strategicDesc"),
+          },
+        ],
+      },
+      {
+        type: "summary",
+        title: t("modal.projectSummary"),
+        items: [
+          {
+            label: t("modal.implementationComplexity"),
+            value: `${idea.scores.complexity}/5`,
+            description: getComplexityAssessment(idea.scores.complexity),
+          },
+          {
+            label: t("modal.investmentLevel"),
+            value: `${idea.scores.cost}/5`,
+            description: getCostAssessment(idea.scores.cost),
+          },
+          {
+            label: t("modal.expectedReturn"),
+            value: `${idea.scores.roi}/5`,
+            description: getRoiAssessment(idea.scores.roi),
+          },
+        ],
+      },
+    ];
+  };
 
   // Calculate current rankings
   const currentRankings = useMemo(() => {
@@ -537,7 +746,16 @@ export function InteractivePriorityCalculator({
                           <TableRow
                             key={result.id}
                             className="cursor-pointer hover:bg-muted/50 transition-colors"
-                            onClick={() => setSelectedIdea(idea || null)}
+                            onClick={() => {
+                              const idea = ideas.find(
+                                (i) => i.id === result.id
+                              );
+                              if (idea) {
+                                setSelectedIdea(idea);
+                                const modalSections = createModalSections(idea);
+                                setProjectBrief(JSON.stringify(modalSections));
+                              }
+                            }}
                           >
                             <TableCell className="font-medium">
                               #{result.rank}
@@ -743,226 +961,274 @@ export function InteractivePriorityCalculator({
         open={selectedIdea !== null}
         onOpenChange={() => setSelectedIdea(null)}
       >
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-          <DialogHeader>
-            <DialogTitle className="text-2xl font-bold flex items-center gap-3">
-              <span className="text-3xl">💡</span>
-              <div className="flex-1">
-                <div className="text-2xl">
-                  {selectedIdea
-                    ? getTranslatedInitiativeName(
-                        selectedIdea.id,
-                        selectedIdea.name
-                      )
-                    : t("priorityAnalysis.modal.aiInitiativeFallback")}
-                </div>
-                <div className="text-sm text-muted-foreground font-normal mt-1">
-                  {selectedIdea?.department} •{" "}
-                  {t("priorityAnalysis.modal.analysisTitle")}
-                </div>
-              </div>
+        <DialogContent className="max-w-6xl max-h-[95vh] p-0 gap-0 bg-white">
+          <DialogHeader className="p-8 pb-6 border-b border-gray-200 bg-white">
+            <DialogTitle className="text-3xl font-bold text-gray-900 leading-tight">
+              {selectedIdea
+                ? getTranslatedInitiativeName(
+                    selectedIdea.id,
+                    selectedIdea.name
+                  )
+                : ""}
             </DialogTitle>
+            {selectedIdea?.department && (
+              <div className="mt-3 flex items-center gap-2">
+                <div className="h-1 w-8 bg-red-500 rounded"></div>
+                <span className="text-sm text-gray-600 font-medium">
+                  {selectedIdea.department}
+                </span>
+              </div>
+            )}
           </DialogHeader>
-
-          {selectedIdea && (
-            <div className="space-y-6 pt-4">
-              {/* Source Information - Who submitted this and when */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-blue-900 mb-2">
-                    🏢 {t("priorityAnalysis.modal.sourceDepartment")}
-                  </h3>
-                  <p className="text-blue-800 font-medium">
-                    {selectedIdea.department}
-                  </p>
-                  <p className="text-blue-600 text-sm mt-1">
-                    {t("priorityAnalysis.modal.originatingUnit")}
-                  </p>
-                </div>
-
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-green-900 mb-2">
-                    👤 {t("priorityAnalysis.modal.initiativeOwner")}
-                  </h3>
-                  <p className="text-green-800 font-medium">
-                    {selectedIdea.id.includes("hr_cv")
-                      ? "Sarah Martinez"
-                      : selectedIdea.id.includes("compliance")
-                      ? "Muriel Berning"
-                      : selectedIdea.id.includes("it_")
-                      ? "Robin Giesen"
-                      : selectedIdea.id.includes("marketing")
-                      ? "Marketing Team"
-                      : selectedIdea.id.includes("corp_dev")
-                      ? "Strategy Team"
-                      : "Department Lead"}
-                  </p>
-                  <p className="text-green-600 text-sm mt-1">
-                    {t("priorityAnalysis.modal.projectSponsor")}
-                  </p>
-                </div>
-
-                <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                  <h3 className="font-semibold text-purple-900 mb-2">
-                    📅 {t("priorityAnalysis.modal.submissionDate")}
-                  </h3>
-                  <p className="text-purple-800 font-medium">
-                    {t("priorityAnalysis.modal.workshopDate")}
-                  </p>
-                  <p className="text-purple-600 text-sm mt-1">
-                    {t("priorityAnalysis.modal.workshopSession")}
-                  </p>
-                </div>
+          <div className="overflow-y-auto max-h-[calc(95vh-8rem)] bg-gray-50">
+            {/* AI-Generated Tags Section */}
+            {selectedIdea && (
+              <div className="p-6 border-b border-border/10">
+                <IdeaTagsSection
+                  ideaText={getTranslatedInitiativeName(
+                    selectedIdea.id,
+                    selectedIdea.name
+                  )}
+                />
               </div>
+            )}
+            {projectBrief ? (
+              JSON.parse(projectBrief).map(
+                (section: ModalSection, sectionIndex: number) => (
+                  <div
+                    key={`section-${section.type}-${sectionIndex}`}
+                    className={`${section.type !== "hero" ? "p-6" : ""} ${
+                      section.type !== "hero" ? "border-b border-border/10" : ""
+                    }`}
+                  >
+                    {/* Quick Stats Section */}
+                    {section.type === "quickStats" && (
+                      <div className="bg-gray-50 rounded-lg p-6 mb-6">
+                        <h3 className="text-xl font-bold mb-6 text-gray-900">
+                          {section.title}
+                        </h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                          {section.stats?.map(
+                            (stat: ModalStat, idx: number) => (
+                              <div
+                                key={`stat-${stat.label}-${stat.value}-${idx}`}
+                                className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+                              >
+                                <div className="text-center">
+                                  <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                                    {stat.label}
+                                  </div>
+                                  <div
+                                    className={`text-2xl font-bold ${
+                                      stat.color === "red"
+                                        ? "text-red-600"
+                                        : "text-gray-900"
+                                    }`}
+                                  >
+                                    {stat.value}
+                                  </div>
+                                </div>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </div>
+                    )}
 
-              {/* Original Problem & Solution */}
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-                <h3 className="font-semibold text-yellow-900 mb-3">
-                  🎯 {t("priorityAnalysis.modal.problemSolutionDef")}
-                </h3>
-                <div className="space-y-3">
-                  <div>
-                    <h4 className="font-medium text-yellow-900 mb-1">
-                      {t("priorityAnalysis.modal.problemStatement")}
-                    </h4>
-                    <p className="text-yellow-800 text-sm">
-                      {selectedIdea.description.split(".")[0]}.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 className="font-medium text-yellow-900 mb-1">
-                      {t("priorityAnalysis.modal.proposedSolution")}
-                    </h4>
-                    <p className="text-yellow-800 text-sm">
-                      {getTranslatedInitiativeDescription(
-                        selectedIdea.id,
-                        selectedIdea.description,
-                        selectedIdea.name
+                    {/* Two Column Layout for Problem/Solution */}
+                    {section.type === "twoColumn" && (
+                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                        <div className="bg-white rounded-lg p-6 border-l-4 border-red-500 shadow-sm">
+                          <div className="flex items-center mb-4">
+                            <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
+                            <h3 className="text-lg font-bold text-red-700">
+                              {section.leftSection?.title}
+                            </h3>
+                          </div>
+                          <p className="text-sm leading-relaxed text-gray-700 whitespace-pre-line">
+                            {section.leftSection?.content}
+                          </p>
+                        </div>
+                        <div className="bg-white rounded-lg p-6 border-l-4 border-gray-300 shadow-sm">
+                          <div className="flex items-center mb-4">
+                            <div className="w-3 h-3 bg-gray-400 rounded-full mr-3"></div>
+                            <h3 className="text-lg font-bold text-gray-700">
+                              {section.rightSection?.title}
+                            </h3>
+                          </div>
+                          <p className="text-sm leading-relaxed text-gray-700 whitespace-pre-line">
+                            {section.rightSection?.content}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Metrics Grid */}
+                    {section.type === "metricsGrid" && (
+                      <div className="mb-8">
+                        <div className="mb-6">
+                          <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                            {section.title}
+                          </h3>
+                          {section.description && (
+                            <p className="text-gray-600 text-sm leading-relaxed">
+                              {section.description}
+                            </p>
+                          )}
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                          {section.metrics?.map(
+                            (metric: ModalMetric, idx: number) => (
+                              <div
+                                key={`metric-${metric.id}`}
+                                className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200"
+                              >
+                                <div className="mb-4">
+                                  <div className="flex items-center justify-between mb-2">
+                                    <h4 className="font-semibold text-lg text-gray-900">
+                                      {metric.label}
+                                    </h4>
+                                    <div
+                                      className={`px-3 py-1 rounded-full text-sm font-bold ${
+                                        metric.color === "red"
+                                          ? "bg-red-50 text-red-700 border border-red-200"
+                                          : "bg-gray-50 text-gray-700 border border-gray-200"
+                                      }`}
+                                    >
+                                      {metric.value}/{metric.maxValue}
+                                    </div>
+                                  </div>
+                                  <p className="text-xs text-gray-500 leading-relaxed">
+                                    {metric.description}
+                                  </p>
+                                </div>
+
+                                {/* Progress Bar */}
+                                <div className="mb-4">
+                                  <div className="flex gap-1 mb-3">
+                                    {Array.from(
+                                      { length: metric.maxValue },
+                                      (_, i) => {
+                                        const isActive = i < metric.value;
+                                        const barColor = isActive
+                                          ? "bg-red-500"
+                                          : "bg-gray-200";
+
+                                        return (
+                                          <div
+                                            key={i}
+                                            className={`flex-1 h-2 rounded-full ${barColor}`}
+                                          />
+                                        );
+                                      }
+                                    )}
+                                  </div>
+                                  <div className="text-xs text-gray-500 text-center font-medium">
+                                    {getMetricLevelText(metric.value)}
+                                  </div>
+                                </div>
+
+                                {/* Note */}
+                                {metric.note && (
+                                  <div className="pt-4 border-t border-gray-100">
+                                    <p className="text-xs text-gray-600 leading-relaxed">
+                                      {metric.note}
+                                    </p>
+                                  </div>
+                                )}
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Summary Section */}
+                    {section.type === "summary" && (
+                      <div className="bg-gray-50 rounded-lg p-6 mb-6">
+                        <h3 className="text-xl font-bold mb-6 text-gray-900">
+                          {section.title}
+                        </h3>
+                        <div className="space-y-4">
+                          {section.items?.map(
+                            (item: ModalItem, idx: number) => (
+                              <div
+                                key={`summary-${item.label}-${idx}`}
+                                className="flex items-start gap-4 p-4 bg-white rounded-lg border border-gray-200 shadow-sm"
+                              >
+                                <div className="flex-shrink-0 w-16 text-center">
+                                  <div className="text-lg font-bold text-red-600">
+                                    {item.value}
+                                  </div>
+                                  <div className="text-xs text-gray-500 font-medium">
+                                    {item.label}
+                                  </div>
+                                </div>
+                                <div className="flex-1 pt-1">
+                                  <p className="text-sm text-gray-600 leading-relaxed">
+                                    {item.description}
+                                  </p>
+                                </div>
+                              </div>
+                            )
+                          )}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Additional Information Section */}
+                    {section.type === "additionalInfo" &&
+                      section.items &&
+                      section.items.length > 0 && (
+                        <div className="mb-6">
+                          <h3 className="text-xl font-bold mb-6 text-gray-900">
+                            {section.title}
+                          </h3>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {section.items?.map(
+                              (item: ModalItem, idx: number) => (
+                                <div
+                                  key={`additional-${item.label}-${idx}`}
+                                  className="p-4 bg-white rounded-lg border border-gray-200 shadow-sm"
+                                >
+                                  <h4 className="font-semibold text-sm mb-2 text-gray-900">
+                                    {item.label}
+                                  </h4>
+                                  <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-line">
+                                    {item.value}
+                                  </p>
+                                </div>
+                              )
+                            )}
+                          </div>
+                        </div>
                       )}
-                    </p>
+
+                    {/* Placeholder Section */}
+                    {section.type === "placeholder" && (
+                      <div className="flex items-start gap-4 p-6 bg-gray-50 border border-gray-200 rounded-lg mx-6">
+                        <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+                        <div>
+                          <h3 className="font-semibold mb-2 text-gray-900">
+                            {section.title}
+                          </h3>
+                          <p className="text-sm leading-relaxed text-gray-600">
+                            {section.content}
+                          </p>
+                        </div>
+                      </div>
+                    )}
                   </div>
+                )
+              )
+            ) : (
+              <div className="p-6">
+                <div className="text-center text-gray-500">
+                  No data available for this idea.
                 </div>
               </div>
-
-              {/* Detailed Scoring Rationale */}
-              <div className="space-y-4">
-                <h3 className="font-semibold text-lg">
-                  � Detailed Scoring Rationale
-                </h3>
-                <div className="grid grid-cols-1 gap-4">
-                  <div className="border border-blue-200 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xl">🔧</span>
-                        <span className="font-semibold">
-                          {t("priorityAnalysis.modal.technicalComplexity")}
-                        </span>
-                      </div>
-                      <Badge variant="outline" className="bg-blue-100">
-                        {selectedIdea.scores.complexity}/5
-                      </Badge>
-                    </div>
-                    <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
-                      <strong>{t("priorityAnalysis.modal.assessment")}:</strong>{" "}
-                      {getComplexityAssessment(selectedIdea.scores.complexity)}
-                    </div>
-                  </div>
-
-                  <div className="border border-yellow-200 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xl">💰</span>
-                        <span className="font-semibold">
-                          {t("priorityAnalysis.modal.investmentRequired")}
-                        </span>
-                      </div>
-                      <Badge variant="outline" className="bg-yellow-100">
-                        {selectedIdea.scores.cost}/5
-                      </Badge>
-                    </div>
-                    <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
-                      <strong>
-                        {t("priorityAnalysis.modal.estimatedInvestment")}:
-                      </strong>{" "}
-                      {getCostAssessment(selectedIdea.scores.cost)}
-                    </div>
-                  </div>
-
-                  <div className="border border-green-200 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xl">📈</span>
-                        <span className="font-semibold">
-                          {t("priorityAnalysis.modal.expectedRoi")}
-                        </span>
-                      </div>
-                      <Badge variant="outline" className="bg-green-100">
-                        {selectedIdea.scores.roi}/5
-                      </Badge>
-                    </div>
-                    <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
-                      <strong>
-                        {t("priorityAnalysis.modal.businessImpact")}:
-                      </strong>{" "}
-                      {getRoiAssessment(selectedIdea.scores.roi)}
-                    </div>
-                  </div>
-
-                  <div className="border border-red-200 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xl">⚠️</span>
-                        <span className="font-semibold">
-                          {t("priorityAnalysis.modal.riskAssessment")}
-                        </span>
-                      </div>
-                      <Badge variant="outline" className="bg-red-100">
-                        {selectedIdea.scores.risk}/5
-                      </Badge>
-                    </div>
-                    <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
-                      <strong>
-                        {t("priorityAnalysis.modal.riskFactors")}:
-                      </strong>{" "}
-                      {getRiskAssessment(selectedIdea.scores.risk)}
-                    </div>
-                  </div>
-
-                  <div className="border border-purple-200 rounded-lg p-4">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-2">
-                        <span className="text-xl">🎯</span>
-                        <span className="font-semibold">
-                          {t("priorityAnalysis.calculator.strategicAlignment")}
-                        </span>
-                      </div>
-                      <Badge variant="outline" className="bg-purple-100">
-                        {selectedIdea.scores.strategicAlignment}/5
-                      </Badge>
-                    </div>
-                    <div className="text-sm text-gray-700 bg-gray-50 p-3 rounded">
-                      <strong>
-                        {t("priorityAnalysis.modal.strategicFit")}:
-                      </strong>{" "}
-                      {getStrategicAssessment(
-                        selectedIdea.scores.strategicAlignment
-                      )}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Workshop Context */}
-              <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  🏗️ {t("priorityAnalysis.modal.workshopContext")}
-                </h3>
-                <p className="text-gray-700 text-sm">
-                  {t("priorityAnalysis.modal.workshopDescription")}
-                </p>
-              </div>
-            </div>
-          )}
+            )}
+          </div>
         </DialogContent>
       </Dialog>
     </div>
