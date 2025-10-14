@@ -43,7 +43,7 @@ import {
   WeightingConfig,
 } from "@/lib/priority-calculator";
 import { Download, ExternalLink, Info, RotateCcw } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   CartesianGrid,
@@ -1325,56 +1325,8 @@ function InsightsBubbleChart({
   // Load tags for all ideas - REMOVED to prevent infinite loop
   // Tags will be loaded when needed in the modal
 
-  // Prepare data for visualization
-  const chartData = useMemo(() => {
-    const data = ideas.map((idea) => {
-      const ranking = rankings.find((r) => r.id === idea.id);
-
-      return {
-        id: idea.id,
-        name: getTranslatedInitiativeName(idea.id, idea.name),
-        department: idea.department,
-        x: idea.scores[xAxis],
-        y: idea.scores[yAxis],
-        z: ranking?.finalScore || 0,
-        category: ranking?.category || "Low Priority",
-        rank: ranking?.rank || 0,
-        tags: [], // Empty for now to prevent infinite loop
-        primaryTag: "No Tags",
-        idea: idea,
-      };
-    });
-
-    return data;
-  }, [ideas, rankings, xAxis, yAxis, getTranslatedInitiativeName]);
-
-  // Group data based on selected grouping
-  const groupedData = useMemo(() => {
-    const groups = new Map<string, typeof chartData>();
-
-    chartData.forEach((item) => {
-      const groupKey = getGroupKey(item, groupBy);
-
-      if (!groups.has(groupKey)) {
-        groups.set(groupKey, []);
-      }
-      const groupItems = groups.get(groupKey);
-      if (groupItems) {
-        groupItems.push(item);
-      }
-    });
-
-    const result = Array.from(groups.entries()).map(([group, items]) => ({
-      group,
-      items,
-      color: getGroupColor(group, groupBy),
-    }));
-
-    return result;
-  }, [chartData, groupBy, getGroupKey]);
-
   // Color mapping for different groups
-  const getGroupColor = (group: string, groupType: GroupingOption): string => {
+  const getGroupColor = useCallback((group: string, groupType: GroupingOption): string => {
     const colorMaps = {
       department: {
         "Human Resources": "#ef4444",
@@ -1424,7 +1376,55 @@ function InsightsBubbleChart({
     };
 
     return (colorMaps[groupType] as Record<string, string>)[group] || "#64748b";
-  };
+  }, []);
+
+  // Prepare data for visualization
+  const chartData = useMemo(() => {
+    const data = ideas.map((idea) => {
+      const ranking = rankings.find((r) => r.id === idea.id);
+
+      return {
+        id: idea.id,
+        name: getTranslatedInitiativeName(idea.id, idea.name),
+        department: idea.department,
+        x: idea.scores[xAxis],
+        y: idea.scores[yAxis],
+        z: ranking?.finalScore || 0,
+        category: ranking?.category || "Low Priority",
+        rank: ranking?.rank || 0,
+        tags: [], // Empty for now to prevent infinite loop
+        primaryTag: "No Tags",
+        idea: idea,
+      };
+    });
+
+    return data;
+  }, [ideas, rankings, xAxis, yAxis, getTranslatedInitiativeName]);
+
+  // Group data based on selected grouping
+  const groupedData = useMemo(() => {
+    const groups = new Map<string, typeof chartData>();
+
+    chartData.forEach((item) => {
+      const groupKey = getGroupKey(item, groupBy);
+
+      if (!groups.has(groupKey)) {
+        groups.set(groupKey, []);
+      }
+      const groupItems = groups.get(groupKey);
+      if (groupItems) {
+        groupItems.push(item);
+      }
+    });
+
+    const result = Array.from(groups.entries()).map(([group, items]) => ({
+      group,
+      items,
+      color: getGroupColor(group, groupBy),
+    }));
+
+    return result;
+  }, [chartData, groupBy, getGroupKey, getGroupColor]);
 
   const axisLabels = {
     complexity: t("priorityAnalysis.calculator.complexity"),
