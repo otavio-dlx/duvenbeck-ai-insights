@@ -1326,57 +1326,62 @@ function InsightsBubbleChart({
   // Tags will be loaded when needed in the modal
 
   // Color mapping for different groups
-  const getGroupColor = useCallback((group: string, groupType: GroupingOption): string => {
-    const colorMaps = {
-      department: {
-        "Human Resources": "#ef4444",
-        IT: "#3b82f6",
-        Marketing: "#10b981",
-        Compliance: "#f59e0b",
-        "Corporate Development": "#8b5cf6",
-        Controlling: "#06b6d4",
-        "Road Sales": "#f97316",
-        "Strategic KAM": "#84cc16",
-        ESG: "#14b8a6",
-        QEHS: "#6366f1",
-        Accounting: "#ec4899",
-        "Contract Logistics": "#64748b",
-      },
-      category: {
-        "Top Priority": "#22c55e",
-        "High Priority": "#3b82f6",
-        "Medium Priority": "#f59e0b",
-        "Low Priority": "#ef4444",
-      },
-      complexity: {
-        "Low Complexity": "#22c55e",
-        "Medium Complexity": "#f59e0b",
-        "High Complexity": "#ef4444",
-      },
-      roi: {
-        "High ROI": "#22c55e",
-        "Medium ROI": "#f59e0b",
-        "Low ROI": "#ef4444",
-      },
-      risk: {
-        "Low Risk": "#22c55e",
-        "Medium Risk": "#f59e0b",
-        "High Risk": "#ef4444",
-      },
-      cost: {
-        "Low Cost": "#22c55e",
-        "Medium Cost": "#f59e0b",
-        "High Cost": "#ef4444",
-      },
-      strategicAlignment: {
-        "High Strategic": "#22c55e",
-        "Medium Strategic": "#f59e0b",
-        "Low Strategic": "#ef4444",
-      },
-    };
+  const getGroupColor = useCallback(
+    (group: string, groupType: GroupingOption): string => {
+      const colorMaps = {
+        department: {
+          "Human Resources": "#ef4444",
+          IT: "#3b82f6",
+          Marketing: "#10b981",
+          Compliance: "#f59e0b",
+          "Corporate Development": "#8b5cf6",
+          Controlling: "#06b6d4",
+          "Road Sales": "#f97316",
+          "Strategic KAM": "#84cc16",
+          ESG: "#14b8a6",
+          QEHS: "#6366f1",
+          Accounting: "#ec4899",
+          "Contract Logistics": "#64748b",
+        },
+        category: {
+          "Top Priority": "#22c55e",
+          "High Priority": "#3b82f6",
+          "Medium Priority": "#f59e0b",
+          "Low Priority": "#ef4444",
+        },
+        complexity: {
+          "Low Complexity": "#22c55e",
+          "Medium Complexity": "#f59e0b",
+          "High Complexity": "#ef4444",
+        },
+        roi: {
+          "High ROI": "#22c55e",
+          "Medium ROI": "#f59e0b",
+          "Low ROI": "#ef4444",
+        },
+        risk: {
+          "Low Risk": "#22c55e",
+          "Medium Risk": "#f59e0b",
+          "High Risk": "#ef4444",
+        },
+        cost: {
+          "Low Cost": "#22c55e",
+          "Medium Cost": "#f59e0b",
+          "High Cost": "#ef4444",
+        },
+        strategicAlignment: {
+          "High Strategic": "#22c55e",
+          "Medium Strategic": "#f59e0b",
+          "Low Strategic": "#ef4444",
+        },
+      };
 
-    return (colorMaps[groupType] as Record<string, string>)[group] || "#64748b";
-  }, []);
+      return (
+        (colorMaps[groupType] as Record<string, string>)[group] || "#64748b"
+      );
+    },
+    []
+  );
 
   // Prepare data for visualization
   const chartData = useMemo(() => {
