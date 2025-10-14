@@ -1,5 +1,6 @@
 import { getTranslatedText } from "@/utils/translationUtils";
 import { GoogleGenerativeAI } from "@google/generative-ai";
+import { QdrantClient } from "@qdrant/js-client-rest";
 
 // Import all data files
 import * as accountingData from "@/data/accounting";
@@ -42,8 +43,13 @@ interface SearchResult {
 export class RAGService {
   private readonly genAI: GoogleGenerativeAI;
   private readonly apiKey: string;
+  private readonly qdrantClient: QdrantClient | null = null;
+  private readonly qdrantUrl: string;
+  private readonly qdrantApiKey: string;
+  private readonly collectionName = "duvenbeck_workshop_ideas";
   private documents: VectorDocument[] = [];
   private isInitialized = false;
+  private readonly useQdrant: boolean;
 
   constructor() {
     this.apiKey =
@@ -51,7 +57,28 @@ export class RAGService {
       import.meta.env.GEMINI_API_KEY ||
       "";
 
+    this.qdrantUrl = import.meta.env.VITE_QDRANT_URL || "";
+    this.qdrantApiKey = import.meta.env.VITE_QDRANT_API_KEY || "";
+
     this.genAI = new GoogleGenerativeAI(this.apiKey);
+
+    // Initialize Qdrant client if credentials are available
+    if (this.qdrantUrl && this.qdrantApiKey) {
+      try {
+        this.qdrantClient = new QdrantClient({
+          url: this.qdrantUrl,
+          apiKey: this.qdrantApiKey,
+        });
+        this.useQdrant = true;
+        console.log("Qdrant client initialized successfully");
+      } catch (error) {
+        console.error("Failed to initialize Qdrant client:", error);
+        this.useQdrant = false;
+      }
+    } else {
+      console.log("Qdrant credentials not found, using in-memory search");
+      this.useQdrant = false;
+    }
   }
 
   private readonly departmentDataSources = {
@@ -126,8 +153,8 @@ export class RAGService {
         this.departmentDataSources
       )) {
         console.log(`Processing department: ${departmentName}`);
-        const dataObj = data as { ideas?: NewFormatIdea[] };
-        const ideas = dataObj.ideas || [];
+        const dataObj = data as { ideas?: { ideas?: NewFormatIdea[] } };
+        const ideas = dataObj.ideas?.ideas || [];
         console.log(`Found ${ideas.length} ideas in ${departmentName}`);
 
         for (const idea of ideas) {
@@ -193,8 +220,6 @@ export class RAGService {
       console.log("Starting RAG service initialization...");
 
       if (!this.isInitialized) {
-        console.log("Initializing in-memory document collection...");
-
         // Check if API key is available
         if (!this.apiKey) {
           throw new Error(
@@ -203,11 +228,30 @@ export class RAGService {
         }
         console.log("API key found:", this.apiKey.substring(0, 10) + "...");
 
-        this.documents = await this.prepareDocuments();
+        if (this.useQdrant && this.qdrantClient) {
+          // Check if Qdrant collection exists
+          try {
+            const collectionInfo = await this.qdrantClient.getCollection(
+              this.collectionName
+            );
+            console.log(
+              `Qdrant collection found with ${collectionInfo.points_count} points`
+            );
+          } catch {
+            console.warn(
+              "Qdrant collection not found, falling back to in-memory search"
+            );
+            // Fall back to in-memory if collection doesn't exist
+            console.log("Initializing in-memory document collection...");
+            this.documents = await this.prepareDocuments();
+          }
+        } else {
+          console.log("Initializing in-memory document collection...");
+          this.documents = await this.prepareDocuments();
+        }
+
         this.isInitialized = true;
-        console.log(
-          `Successfully initialized with ${this.documents.length} documents`
-        );
+        console.log("RAG service initialization completed successfully");
       } else {
         console.log("RAG service already initialized");
       }
@@ -217,48 +261,105 @@ export class RAGService {
     }
   }
 
+  private async searchWithQdrant(
+    query: string,
+    limit: number
+  ): Promise<SearchResult[]> {
+    if (!this.qdrantClient) {
+      return [];
+    }
+
+    try {
+      // Generate embedding for the query
+      const model = this.genAI.getGenerativeModel({
+        model: "text-embedding-004",
+      });
+      const result = await model.embedContent(query);
+      const queryEmbedding = result.embedding.values;
+
+      // Search in Qdrant
+      const searchResult = await this.qdrantClient.search(this.collectionName, {
+        vector: queryEmbedding,
+        limit,
+      });
+
+      // Convert Qdrant results to our format
+      return searchResult.map((item) => ({
+        id: item.id.toString(),
+        score: item.score || 0,
+        payload: {
+          text: (item.payload?.text as string) || "",
+          department: (item.payload?.department as string) || "",
+          ideaKey: (item.payload?.ideaKey as string) || "",
+          owner: (item.payload?.owner as string) || "",
+          priority: (item.payload?.priority as string) || "",
+          finalPrio: (item.payload?.finalPrio as string | number) || "",
+          type:
+            (item.payload?.type as "idea" | "problem" | "solution") || "idea",
+        },
+      }));
+    } catch (error) {
+      console.error("Qdrant search failed:", error);
+      return [];
+    }
+  }
+
+  private async searchInMemory(
+    query: string,
+    limit: number
+  ): Promise<SearchResult[]> {
+    const queryLower = query.toLowerCase();
+    const results: SearchResult[] = [];
+
+    // Search through documents for text matches
+    for (const doc of this.documents) {
+      const textLower = doc.text.toLowerCase();
+      const words = queryLower.split(/\s+/);
+      let score = 0;
+
+      for (const word of words) {
+        if (textLower.includes(word)) {
+          score += 1;
+          if (textLower.includes(queryLower)) {
+            score += 2;
+          }
+        }
+      }
+
+      if (score > 0) {
+        results.push({
+          id: doc.id,
+          score: score / words.length,
+          payload: {
+            text: doc.text,
+            ...doc.metadata,
+          },
+        });
+      }
+    }
+
+    results.sort((a, b) => b.score - a.score);
+    return results.slice(0, limit);
+  }
+
   async searchSimilar(
     query: string,
     limit: number = 5
   ): Promise<SearchResult[]> {
     try {
-      // Simple text-based search for now
-      const queryLower = query.toLowerCase();
-      const results: SearchResult[] = [];
-
-      // Search through documents for text matches
-      for (const doc of this.documents) {
-        const textLower = doc.text.toLowerCase();
-
-        // Calculate a simple relevance score based on keyword matches
-        const words = queryLower.split(/\s+/);
-        let score = 0;
-
-        for (const word of words) {
-          if (textLower.includes(word)) {
-            score += 1;
-            // Boost score for exact phrase matches
-            if (textLower.includes(queryLower)) {
-              score += 2;
-            }
-          }
+      // Use Qdrant if available and initialized
+      if (this.useQdrant && this.qdrantClient) {
+        const results = await this.searchWithQdrant(query, limit);
+        if (results.length > 0) {
+          return results;
         }
-
-        if (score > 0) {
-          results.push({
-            id: doc.id,
-            score: score / words.length, // Normalize score
-            payload: {
-              text: doc.text,
-              ...doc.metadata,
-            },
-          });
-        }
+        console.log(
+          "Qdrant returned no results, falling back to in-memory search"
+        );
       }
 
-      // Sort by score and return top results
-      results.sort((a, b) => b.score - a.score);
-      return results.slice(0, limit);
+      // Fallback to in-memory search
+      return await this.searchInMemory(query, limit);
     } catch (error) {
       console.error("Error searching documents:", error);
       return [];
