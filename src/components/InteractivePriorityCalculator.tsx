@@ -178,10 +178,9 @@ export function InteractivePriorityCalculator({
     ideaId: string,
     fallbackName: string
   ) => {
-    const translationKey = `priorityAnalysis.initiatives.${ideaId}.name`;
-    const translated = t(translationKey);
-    // If translation key doesn't exist, t() returns the key itself
-    return translated !== translationKey ? translated : fallbackName;
+    // The name should already be translated by the data-mapper
+    // Just return the fallback name which is the already-translated name
+    return fallbackName;
   };
 
   const getTranslatedInitiativeDescription = (
@@ -189,16 +188,9 @@ export function InteractivePriorityCalculator({
     fallbackDescription: string,
     initiativeName: string
   ) => {
-    const translationKey = `priorityAnalysis.initiatives.${ideaId}.description`;
-    const translated = t(translationKey);
-    // If translation key doesn't exist, t() returns the key itself
-    if (translated !== translationKey) {
-      return translated;
-    }
-    // If no specific translation exists, use the AI-powered solution pattern
-    return t("priorityAnalysis.modal.aiPoweredSolution", {
-      name: initiativeName.toLowerCase(),
-    });
+    // The description should already be translated by the data-mapper
+    // Just return the fallback description which is the already-translated description
+    return fallbackDescription;
   };
   const [weights, setWeights] = useState<WeightingConfig>(
     DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS
@@ -223,6 +215,12 @@ export function InteractivePriorityCalculator({
     if (ideaId.includes("marketing")) return "Marketing Team";
     if (ideaId.includes("corp_dev")) return "Strategy Team";
     return "Department Lead";
+  };
+
+  // Helper function to map department names to display names
+  const getDepartmentDisplayName = (department: string): string => {
+    // For now, return the original department name to see what's actually being displayed
+    return department;
   };
 
   // Helper function to get badge variant based on score
@@ -260,7 +258,7 @@ export function InteractivePriorityCalculator({
           },
           {
             label: t("priorityAnalysis.rankings.department"),
-            value: idea.department,
+            value: getDepartmentDisplayName(idea.department),
             icon: "",
             color: "green",
           },
@@ -454,7 +452,7 @@ export function InteractivePriorityCalculator({
               ? getTranslatedInitiativeName(idea.id, result.name)
               : result.name
           }"`,
-          idea?.department || "",
+          idea ? getDepartmentDisplayName(idea.department) : "",
           result.finalScore,
           result.category,
           result.breakdown.complexity.score,
@@ -791,7 +789,11 @@ export function InteractivePriorityCalculator({
                                 )}
                               </div>
                             </TableCell>
-                            <TableCell>{idea?.department}</TableCell>
+                            <TableCell>
+                              {idea
+                                ? getDepartmentDisplayName(idea.department)
+                                : ""}
+                            </TableCell>
                             <TableCell>
                               <Badge
                                 variant={getScoreBadgeVariant(
@@ -824,6 +826,7 @@ export function InteractivePriorityCalculator({
               <InsightsBubbleChart
                 ideas={ideas}
                 rankings={currentRankings}
+                getDepartmentDisplayName={getDepartmentDisplayName}
                 onIdeaClick={(idea) => {
                   setSelectedIdea(idea);
                   const modalSections = createModalSections(idea);
@@ -859,7 +862,7 @@ export function InteractivePriorityCalculator({
               <div className="mt-3 flex items-center gap-2">
                 <div className="h-1 w-8 bg-red-500 rounded"></div>
                 <span className="text-sm text-gray-600 font-medium">
-                  {selectedIdea.department}
+                  {getDepartmentDisplayName(selectedIdea.department)}
                 </span>
               </div>
             )}
@@ -1129,6 +1132,7 @@ interface CustomTooltipProps {
   xAxis: AxisOption;
   yAxis: AxisOption;
   t: (key: string) => string;
+  getDepartmentDisplayName: (department: string) => string;
 }
 
 function CustomTooltip({
@@ -1138,13 +1142,16 @@ function CustomTooltip({
   xAxis,
   yAxis,
   t,
+  getDepartmentDisplayName,
 }: Readonly<CustomTooltipProps>) {
   if (active && payload?.length && payload[0]?.payload) {
     const data = payload[0].payload;
     return (
       <div className="bg-white p-3 border border-gray-200 rounded-lg shadow-lg">
         <p className="font-semibold">{data.name}</p>
-        <p className="text-sm text-gray-600">{data.department}</p>
+        <p className="text-sm text-gray-600">
+          {getDepartmentDisplayName(data.department)}
+        </p>
         <p className="text-sm">
           {axisLabels[xAxis]}: {data.x}/5
         </p>
@@ -1224,12 +1231,14 @@ interface InsightsBubbleChartProps {
     department: string;
     scores: DuvenbeckScoringCriteria;
   }) => void;
+  getDepartmentDisplayName: (department: string) => string;
 }
 
 function InsightsBubbleChart({
   ideas,
   rankings,
   onIdeaClick,
+  getDepartmentDisplayName,
 }: Readonly<InsightsBubbleChartProps>) {
   const { t } = useTranslation();
   const [groupBy, setGroupBy] = useState<GroupingOption>("department");
@@ -1254,9 +1263,10 @@ function InsightsBubbleChart({
         xAxis={xAxis}
         yAxis={yAxis}
         t={t}
+        getDepartmentDisplayName={getDepartmentDisplayName}
       />
     );
-  }, [t, xAxis, yAxis]);
+  }, [t, xAxis, yAxis, getDepartmentDisplayName]);
 
   // Helper function to translate initiative names (local to this component)
   const getTranslatedInitiativeName = useMemo(() => {
@@ -1330,18 +1340,21 @@ function InsightsBubbleChart({
     (group: string, groupType: GroupingOption): string => {
       const colorMaps = {
         department: {
-          "Human Resources": "#ef4444",
-          IT: "#3b82f6",
-          Marketing: "#10b981",
+          HR: "#ef4444",
+          "IT Platform Services / Digital Workplace": "#3b82f6",
+          "IT Shared Services": "#2563eb",
+          "IT Business Solution Road/ PCL": "#1d4ed8",
+          "Marketing & Communications": "#10b981",
           Compliance: "#f59e0b",
           "Corporate Development": "#8b5cf6",
           Controlling: "#06b6d4",
-          "Road Sales": "#f97316",
+          "Road Sales SE": "#f97316",
           "Strategic KAM": "#84cc16",
           ESG: "#14b8a6",
           QEHS: "#6366f1",
           Accounting: "#ec4899",
           "Contract Logistics": "#64748b",
+          "Central Solution Design": "#78716c",
         },
         category: {
           "Top Priority": "#22c55e",

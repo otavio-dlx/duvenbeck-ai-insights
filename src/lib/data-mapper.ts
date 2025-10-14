@@ -56,7 +56,11 @@ export async function getAllIdeasForCalculator() {
         try {
           const departmentData = await getIdeasFor(key);
           if (departmentData?.ideas && Array.isArray(departmentData.ideas)) {
-            const departmentName = formatDepartmentName(key);
+            // Get the actual department name from the data instead of formatting the key
+            const actualDepartmentName = departmentData.home?.[0]?.department;
+            const departmentName =
+              actualDepartmentName || formatDepartmentName(key);
+
             const ideas = departmentData.ideas as NewFormatIdea[];
 
             const enhancedIdeas = ideas.map(
