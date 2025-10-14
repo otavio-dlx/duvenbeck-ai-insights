@@ -844,6 +844,8 @@
     "title": "Prioritäts-Rechner",
     "subtitle": "Interaktiver Prioritäts-Rechner basierend auf der offiziellen Duvenbeck Bewertungsmatrix. Passen Sie die Gewichtungskriterien an, um Sensitivitätsanalysen durchzuführen und die strategischsten AI-Initiativen aller Abteilungen zu identifizieren.",
     "backToDashboard": "Zurück zum Dashboard",
+    "loading": "Lade AI-Initiativen...",
+    "retry": "Erneut versuchen",
     "howToUse": "Bedienungsanleitung",
     "instructions": "Passen Sie die Gewichtungsregler oben an, um Ihre strategischen Prioritäten widerzuspiegeln. Das Ranking wird automatisch aktualisiert, um zu zeigen, welche Initiativen am besten zu Ihren gewählten Kriterien passen. Verwenden Sie die Szenario-Schaltflächen für gängige Priorisierungsansätze.",
     "calculator": {
@@ -866,6 +868,7 @@
     "tabs": {
       "rankings": "Rangliste",
       "breakdown": "Detaillierte Aufschlüsselung",
+      "insights": "Interaktive Einblicke",
       "scenarios": "Szenario-Vergleich"
     },
     "rankings": {
@@ -893,6 +896,27 @@
     "scenarioComparison": {
       "title": "Szenario-Vergleich",
       "subtitle": "Vergleichen Sie die Top-5-Initiativen verschiedener Gewichtungsszenarien"
+    },
+    "insights": {
+      "title": "Interaktive Einblicke-Visualisierung",
+      "subtitle": "Erkunden Sie Initiative-Beziehungen durch dynamische Blasendiagramme mit mehreren Gruppierungsoptionen",
+      "groupBy": "Gruppieren nach",
+      "xAxis": "X-Achse",
+      "yAxis": "Y-Achse",
+      "groupOptions": {
+        "department": "Abteilung",
+        "category": "Prioritätskategorie",
+        "complexity": "Komplexitätsstufe",
+        "roi": "ROI-Stufe",
+        "risk": "Risikostufe",
+        "cost": "Kostenstufe",
+        "strategic": "Strategische Ausrichtung"
+      },
+      "legend": "Gruppen-Legende",
+      "keyInsights": "Wichtige Erkenntnisse",
+      "bubbleSize": "Die Blasengröße repräsentiert die Gesamtpriorität",
+      "clickBubble": "Klicken Sie auf eine Blase für detaillierte Initiative-Informationen",
+      "groupingHelps": "Verschiedene Gruppierungen zeigen Muster und Beziehungen zwischen Initiativen auf"
     },
     "categories": {
       "topPriority": "Höchste Priorität",

@@ -920,6 +920,8 @@
     "title": "Priority Calculator",
     "subtitle": "Interactive priority calculator based on the official Duvenbeck scoring matrix. Adjust weighting criteria to perform sensitivity analysis and identify the most strategic AI initiatives across all departments.",
     "backToDashboard": "Back to Dashboard",
+    "loading": "Loading AI initiatives...",
+    "retry": "Retry",
     "howToUse": "How to Use the Calculator",
     "instructions": "Adjust the weighting sliders above to reflect your strategic priorities. The ranking will update automatically to show which initiatives align best with your chosen criteria. Use the scenario buttons for common prioritization approaches.",
     "calculator": {
@@ -942,6 +944,7 @@
     "tabs": {
       "rankings": "Rankings",
       "breakdown": "Detailed Breakdown",
+      "insights": "Interactive Insights",
       "scenarios": "Scenario Comparison"
     },
     "rankings": {
@@ -969,6 +972,27 @@
     "scenarioComparison": {
       "title": "Scenario Comparison",
       "subtitle": "Compare top 5 initiatives across different weighting scenarios"
+    },
+    "insights": {
+      "title": "Interactive Insights Visualization",
+      "subtitle": "Explore initiative relationships through dynamic bubble charts with multiple grouping options",
+      "groupBy": "Group By",
+      "xAxis": "X-Axis",
+      "yAxis": "Y-Axis",
+      "groupOptions": {
+        "department": "Department",
+        "category": "Priority Category",
+        "complexity": "Complexity Level",
+        "roi": "ROI Level",
+        "risk": "Risk Level",
+        "cost": "Cost Level",
+        "strategic": "Strategic Alignment"
+      },
+      "legend": "Group Legend",
+      "keyInsights": "Key Insights",
+      "bubbleSize": "Bubble size represents the overall priority score",
+      "clickBubble": "Click any bubble to view detailed initiative information",
+      "groupingHelps": "Different groupings reveal patterns and relationships between initiatives"
     },
     "categories": {
       "topPriority": "Top Priority",

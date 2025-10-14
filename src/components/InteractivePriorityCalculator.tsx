@@ -36,6 +36,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
+import { Tag } from "@/contexts/TaggingContext";
 import {
   DuvenbeckPriorityCalculator,
   DuvenbeckScoringCriteria,
@@ -44,6 +45,17 @@ import {
 import { Download, ExternalLink, Info, RotateCcw } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import {
+  CartesianGrid,
+  Legend,
+  Tooltip as RechartsTooltip,
+  ResponsiveContainer,
+  Scatter,
+  ScatterChart,
+  XAxis,
+  YAxis,
+  ZAxis,
+} from "recharts";
 import { IdeaTagsSection } from "./IdeaTagsSection";
 
 interface InteractivePriorityCalculatorProps {
@@ -161,22 +173,6 @@ export function InteractivePriorityCalculator({
     return t("priorityAnalysis.modal.roiLevels.minimal");
   };
 
-  // Helper function to get risk assessment
-  const getRiskAssessment = (score: number) => {
-    if (score >= 4) return t("priorityAnalysis.modal.riskLevels.low");
-    if (score >= 3) return t("priorityAnalysis.modal.riskLevels.moderate");
-    if (score >= 2) return t("priorityAnalysis.modal.riskLevels.high");
-    return t("priorityAnalysis.modal.riskLevels.veryHigh");
-  };
-
-  // Helper function to get strategic alignment assessment
-  const getStrategicAssessment = (score: number) => {
-    if (score >= 4) return t("priorityAnalysis.modal.strategicLevels.high");
-    if (score >= 3) return t("priorityAnalysis.modal.strategicLevels.moderate");
-    if (score >= 2) return t("priorityAnalysis.modal.strategicLevels.low");
-    return t("priorityAnalysis.modal.strategicLevels.poor");
-  };
-
   // Helper functions to get translated initiative names and descriptions
   const getTranslatedInitiativeName = (
     ideaId: string,
@@ -213,17 +209,40 @@ export function InteractivePriorityCalculator({
   );
   const [projectBrief, setProjectBrief] = useState<string>("");
 
-  // Helper functions for color mappings and modal data creation
-  const getPriorityColor = (priority: string): "green" | "yellow" | "red" => {
-    if (priority === "A") return "green";
-    if (priority === "B") return "yellow";
-    return "red";
-  };
-
   const getMetricLevelText = (value: number): string => {
     if (value > 3) return "High";
     if (value > 1) return "Medium";
     return "Low";
+  };
+
+  // Helper function to get idea owner based on ID
+  const getIdeaOwner = (ideaId: string): string => {
+    if (ideaId.includes("hr_cv")) return "Sarah Martinez";
+    if (ideaId.includes("compliance")) return "Muriel Berning";
+    if (ideaId.includes("it_")) return "Robin Giesen";
+    if (ideaId.includes("marketing")) return "Marketing Team";
+    if (ideaId.includes("corp_dev")) return "Strategy Team";
+    return "Department Lead";
+  };
+
+  // Helper function to get badge variant based on score
+  const getScoreBadgeVariant = (
+    score: number
+  ): "default" | "secondary" | "outline" | "destructive" => {
+    if (score >= 80) return "default";
+    if (score >= 65) return "secondary";
+    if (score >= 45) return "outline";
+    return "destructive";
+  };
+
+  // Helper function to get badge variant based on category
+  const getCategoryBadgeVariant = (
+    category: string
+  ): "default" | "secondary" | "outline" | "destructive" => {
+    if (category === "Top Priority") return "default";
+    if (category === "High Priority") return "secondary";
+    if (category === "Medium Priority") return "outline";
+    return "destructive";
   };
 
   // Helper function to create modal sections adapted for InteractivePriorityCalculator data
@@ -235,17 +254,7 @@ export function InteractivePriorityCalculator({
         stats: [
           {
             label: t("modal.owner"),
-            value: idea.id.includes("hr_cv")
-              ? "Sarah Martinez"
-              : idea.id.includes("compliance")
-              ? "Muriel Berning"
-              : idea.id.includes("it_")
-              ? "Robin Giesen"
-              : idea.id.includes("marketing")
-              ? "Marketing Team"
-              : idea.id.includes("corp_dev")
-              ? "Strategy Team"
-              : "Department Lead",
+            value: getIdeaOwner(idea.id),
             icon: "",
             color: "blue",
           },
@@ -607,7 +616,7 @@ export function InteractivePriorityCalculator({
                 {t("priorityAnalysis.tabs.rankings")}
               </TabsTrigger>
               <TabsTrigger value="breakdown" className="cursor-pointer">
-                {t("priorityAnalysis.tabs.breakdown")}
+                {t("priorityAnalysis.tabs.insights")}
               </TabsTrigger>
               <TabsTrigger value="scenarios" className="cursor-pointer">
                 {t("priorityAnalysis.tabs.scenarios")}
@@ -785,30 +794,18 @@ export function InteractivePriorityCalculator({
                             <TableCell>{idea?.department}</TableCell>
                             <TableCell>
                               <Badge
-                                variant={
-                                  result.finalScore >= 80
-                                    ? "default"
-                                    : result.finalScore >= 65
-                                    ? "secondary"
-                                    : result.finalScore >= 45
-                                    ? "outline"
-                                    : "destructive"
-                                }
+                                variant={getScoreBadgeVariant(
+                                  result.finalScore
+                                )}
                               >
                                 {result.finalScore}
                               </Badge>
                             </TableCell>
                             <TableCell>
                               <Badge
-                                variant={
-                                  result.category === "Top Priority"
-                                    ? "default"
-                                    : result.category === "High Priority"
-                                    ? "secondary"
-                                    : result.category === "Medium Priority"
-                                    ? "outline"
-                                    : "destructive"
-                                }
+                                variant={getCategoryBadgeVariant(
+                                  result.category
+                                )}
                               >
                                 {translateCategory(result.category)}
                               </Badge>
@@ -822,130 +819,17 @@ export function InteractivePriorityCalculator({
               </Card>
             </TabsContent>
 
-            {/* Detailed Breakdown Tab */}
+            {/* Interactive Insights Tab */}
             <TabsContent value="breakdown">
-              <Card>
-                <CardHeader>
-                  <CardTitle>{t("priorityAnalysis.breakdown.title")}</CardTitle>
-                  <CardDescription>
-                    {t("priorityAnalysis.breakdown.subtitle")}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead>
-                          {t("priorityAnalysis.breakdown.initiative")}
-                        </TableHead>
-                        <TableHead>
-                          {t("priorityAnalysis.calculator.complexity")}
-                        </TableHead>
-                        <TableHead>
-                          {t("priorityAnalysis.calculator.cost")}
-                        </TableHead>
-                        <TableHead>
-                          {t("priorityAnalysis.calculator.roi")}
-                        </TableHead>
-                        <TableHead>
-                          {t("priorityAnalysis.calculator.risk")}
-                        </TableHead>
-                        <TableHead>
-                          {t("priorityAnalysis.calculator.strategicAlignment")}
-                        </TableHead>
-                        <TableHead>
-                          {t("priorityAnalysis.breakdown.total")}
-                        </TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {currentRankings.slice(0, 10).map((result) => {
-                        const idea = ideas.find((i) => i.id === result.id);
-                        return (
-                          <TableRow key={result.id}>
-                            <TableCell className="font-medium">
-                              {idea
-                                ? getTranslatedInitiativeName(
-                                    idea.id,
-                                    result.name
-                                  )
-                                : result.name}
-                            </TableCell>
-                            <TableCell>
-                              <div className="text-center">
-                                <div>{result.breakdown.complexity.score}</div>
-                                <div className="text-xs text-muted-foreground">
-                                  (
-                                  {Math.round(
-                                    result.breakdown.complexity.weighted * 20
-                                  )}
-                                  )
-                                </div>
-                              </div>
-                            </TableCell>
-                            <TableCell>
-                              <div className="text-center">
-                                <div>{result.breakdown.cost.score}</div>
-                                <div className="text-xs text-muted-foreground">
-                                  (
-                                  {Math.round(
-                                    result.breakdown.cost.weighted * 20
-                                  )}
-                                  )
-                                </div>
-                              </div>
-                            </TableCell>
-                            <TableCell>
-                              <div className="text-center">
-                                <div>{result.breakdown.roi.score}</div>
-                                <div className="text-xs text-muted-foreground">
-                                  (
-                                  {Math.round(
-                                    result.breakdown.roi.weighted * 20
-                                  )}
-                                  )
-                                </div>
-                              </div>
-                            </TableCell>
-                            <TableCell>
-                              <div className="text-center">
-                                <div>{result.breakdown.risk.score}</div>
-                                <div className="text-xs text-muted-foreground">
-                                  (
-                                  {Math.round(
-                                    result.breakdown.risk.weighted * 20
-                                  )}
-                                  )
-                                </div>
-                              </div>
-                            </TableCell>
-                            <TableCell>
-                              <div className="text-center">
-                                <div>
-                                  {result.breakdown.strategicAlignment.score}
-                                </div>
-                                <div className="text-xs text-muted-foreground">
-                                  (
-                                  {Math.round(
-                                    result.breakdown.strategicAlignment
-                                      .weighted * 20
-                                  )}
-                                  )
-                                </div>
-                              </div>
-                            </TableCell>
-                            <TableCell>
-                              <Badge variant="default">
-                                {result.finalScore}
-                              </Badge>
-                            </TableCell>
-                          </TableRow>
-                        );
-                      })}
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
+              <InsightsBubbleChart
+                ideas={ideas}
+                rankings={currentRankings}
+                onIdeaClick={(idea) => {
+                  setSelectedIdea(idea);
+                  const modalSections = createModalSections(idea);
+                  setProjectBrief(JSON.stringify(modalSections));
+                }}
+              />
             </TabsContent>
 
             {/* Scenario Comparison Tab */}
@@ -1232,6 +1116,526 @@ export function InteractivePriorityCalculator({
         </DialogContent>
       </Dialog>
     </div>
+  );
+}
+
+// Custom tooltip component for the scatter chart
+interface CustomTooltipProps {
+  active?: boolean;
+  payload?: Array<{
+    payload?: ChartDataItem;
+  }>;
+  axisLabels: Record<AxisOption, string>;
+  xAxis: AxisOption;
+  yAxis: AxisOption;
+  t: (key: string) => string;
+}
+
+function CustomTooltip({
+  active,
+  payload,
+  axisLabels,
+  xAxis,
+  yAxis,
+  t,
+}: Readonly<CustomTooltipProps>) {
+  if (active && payload?.length && payload[0]?.payload) {
+    const data = payload[0].payload;
+    return (
+      <div className="bg-white p-3 border border-gray-200 rounded-lg shadow-lg">
+        <p className="font-semibold">{data.name}</p>
+        <p className="text-sm text-gray-600">{data.department}</p>
+        <p className="text-sm">
+          {axisLabels[xAxis]}: {data.x}/5
+        </p>
+        <p className="text-sm">
+          {axisLabels[yAxis]}: {data.y}/5
+        </p>
+        <p className="text-sm">
+          {t("priorityAnalysis.rankings.score")}: {data.z}
+        </p>
+        <p className="text-sm">
+          {t("priorityAnalysis.rankings.rank")}: #{data.rank}
+        </p>
+      </div>
+    );
+  }
+  return null;
+}
+
+// Type definitions for Insights Bubble Chart
+type GroupingOption =
+  | "department"
+  | "category"
+  | "complexity"
+  | "roi"
+  | "risk"
+  | "cost"
+  | "strategicAlignment";
+type AxisOption = "complexity" | "cost" | "roi" | "risk" | "strategicAlignment";
+
+interface ChartDataItem {
+  id: string;
+  name: string;
+  department: string;
+  x: number;
+  y: number;
+  z: number;
+  category: string;
+  rank: number;
+  tags: Tag[]; // Keep as array but will be empty initially
+  primaryTag: string;
+  idea: {
+    id: string;
+    name: string;
+    description?: string;
+    department: string;
+    scores: DuvenbeckScoringCriteria;
+  };
+}
+
+// Insights Bubble Chart Component
+interface InsightsBubbleChartProps {
+  ideas: Array<{
+    id: string;
+    name: string;
+    description?: string;
+    department: string;
+    scores: DuvenbeckScoringCriteria;
+  }>;
+  rankings: Array<{
+    id: string;
+    name: string;
+    finalScore: number;
+    category: string;
+    rank: number;
+    breakdown: {
+      complexity: { score: number; weighted: number };
+      cost: { score: number; weighted: number };
+      roi: { score: number; weighted: number };
+      risk: { score: number; weighted: number };
+      strategicAlignment: { score: number; weighted: number };
+    };
+  }>;
+  onIdeaClick: (idea: {
+    id: string;
+    name: string;
+    description?: string;
+    department: string;
+    scores: DuvenbeckScoringCriteria;
+  }) => void;
+}
+
+function InsightsBubbleChart({
+  ideas,
+  rankings,
+  onIdeaClick,
+}: Readonly<InsightsBubbleChartProps>) {
+  const { t } = useTranslation();
+  const [groupBy, setGroupBy] = useState<GroupingOption>("department");
+  const [xAxis, setXAxis] = useState<AxisOption>("complexity");
+  const [yAxis, setYAxis] = useState<AxisOption>("strategicAlignment");
+
+  // Create a memoized tooltip content function
+  const tooltipContent = useMemo(() => {
+    const axisLabels = {
+      complexity: t("priorityAnalysis.calculator.complexity"),
+      cost: t("priorityAnalysis.calculator.cost"),
+      roi: t("priorityAnalysis.calculator.roi"),
+      risk: t("priorityAnalysis.calculator.risk"),
+      strategicAlignment: t("priorityAnalysis.calculator.strategicAlignment"),
+    };
+
+    return (props: { active?: boolean; payload?: unknown[] }) => (
+      <CustomTooltip
+        active={props.active}
+        payload={props.payload as Array<{ payload?: ChartDataItem }>}
+        axisLabels={axisLabels}
+        xAxis={xAxis}
+        yAxis={yAxis}
+        t={t}
+      />
+    );
+  }, [t, xAxis, yAxis]);
+
+  // Helper function to translate initiative names (local to this component)
+  const getTranslatedInitiativeName = useMemo(() => {
+    return (ideaId: string, fallbackName: string) => {
+      const translationKey = `priorityAnalysis.initiatives.${ideaId}.name`;
+      const translated = t(translationKey);
+      return translated !== translationKey ? translated : fallbackName;
+    };
+  }, [t]);
+
+  // Helper functions for grouping
+  const getComplexityGroup = (value: number): string => {
+    if (value >= 4) return "Low Complexity";
+    if (value >= 3) return "Medium Complexity";
+    return "High Complexity";
+  };
+
+  const getRoiGroup = (value: number): string => {
+    if (value >= 4) return "High ROI";
+    if (value >= 3) return "Medium ROI";
+    return "Low ROI";
+  };
+
+  const getRiskGroup = (value: number): string => {
+    if (value >= 4) return "Low Risk";
+    if (value >= 3) return "Medium Risk";
+    return "High Risk";
+  };
+
+  const getCostGroup = (value: number): string => {
+    if (value >= 4) return "Low Cost";
+    if (value >= 3) return "Medium Cost";
+    return "High Cost";
+  };
+
+  const getStrategicGroup = (value: number): string => {
+    if (value >= 4) return "High Strategic";
+    if (value >= 3) return "Medium Strategic";
+    return "Low Strategic";
+  };
+
+  // Helper function to determine group key based on grouping option
+  const getGroupKey = useMemo(() => {
+    return (item: ChartDataItem, groupBy: GroupingOption): string => {
+      switch (groupBy) {
+        case "department":
+          return item.department;
+        case "category":
+          return item.category;
+        case "complexity":
+          return getComplexityGroup(item.x);
+        case "roi":
+          return getRoiGroup(item.y);
+        case "risk":
+          return getRiskGroup(item.idea.scores.risk);
+        case "cost":
+          return getCostGroup(item.idea.scores.cost);
+        case "strategicAlignment":
+          return getStrategicGroup(item.idea.scores.strategicAlignment);
+        default:
+          return "Other";
+      }
+    };
+  }, []);
+
+  // Load tags for all ideas - REMOVED to prevent infinite loop
+  // Tags will be loaded when needed in the modal
+
+  // Prepare data for visualization
+  const chartData = useMemo(() => {
+    const data = ideas.map((idea) => {
+      const ranking = rankings.find((r) => r.id === idea.id);
+
+      return {
+        id: idea.id,
+        name: getTranslatedInitiativeName(idea.id, idea.name),
+        department: idea.department,
+        x: idea.scores[xAxis],
+        y: idea.scores[yAxis],
+        z: ranking?.finalScore || 0,
+        category: ranking?.category || "Low Priority",
+        rank: ranking?.rank || 0,
+        tags: [], // Empty for now to prevent infinite loop
+        primaryTag: "No Tags",
+        idea: idea,
+      };
+    });
+
+    return data;
+  }, [ideas, rankings, xAxis, yAxis, getTranslatedInitiativeName]);
+
+  // Group data based on selected grouping
+  const groupedData = useMemo(() => {
+    const groups = new Map<string, typeof chartData>();
+
+    chartData.forEach((item) => {
+      const groupKey = getGroupKey(item, groupBy);
+
+      if (!groups.has(groupKey)) {
+        groups.set(groupKey, []);
+      }
+      const groupItems = groups.get(groupKey);
+      if (groupItems) {
+        groupItems.push(item);
+      }
+    });
+
+    const result = Array.from(groups.entries()).map(([group, items]) => ({
+      group,
+      items,
+      color: getGroupColor(group, groupBy),
+    }));
+
+    return result;
+  }, [chartData, groupBy, getGroupKey]);
+
+  // Color mapping for different groups
+  const getGroupColor = (group: string, groupType: GroupingOption): string => {
+    const colorMaps = {
+      department: {
+        "Human Resources": "#ef4444",
+        IT: "#3b82f6",
+        Marketing: "#10b981",
+        Compliance: "#f59e0b",
+        "Corporate Development": "#8b5cf6",
+        Controlling: "#06b6d4",
+        "Road Sales": "#f97316",
+        "Strategic KAM": "#84cc16",
+        ESG: "#14b8a6",
+        QEHS: "#6366f1",
+        Accounting: "#ec4899",
+        "Contract Logistics": "#64748b",
+      },
+      category: {
+        "Top Priority": "#22c55e",
+        "High Priority": "#3b82f6",
+        "Medium Priority": "#f59e0b",
+        "Low Priority": "#ef4444",
+      },
+      complexity: {
+        "Low Complexity": "#22c55e",
+        "Medium Complexity": "#f59e0b",
+        "High Complexity": "#ef4444",
+      },
+      roi: {
+        "High ROI": "#22c55e",
+        "Medium ROI": "#f59e0b",
+        "Low ROI": "#ef4444",
+      },
+      risk: {
+        "Low Risk": "#22c55e",
+        "Medium Risk": "#f59e0b",
+        "High Risk": "#ef4444",
+      },
+      cost: {
+        "Low Cost": "#22c55e",
+        "Medium Cost": "#f59e0b",
+        "High Cost": "#ef4444",
+      },
+      strategicAlignment: {
+        "High Strategic": "#22c55e",
+        "Medium Strategic": "#f59e0b",
+        "Low Strategic": "#ef4444",
+      },
+    };
+
+    return (colorMaps[groupType] as Record<string, string>)[group] || "#64748b";
+  };
+
+  const axisLabels = {
+    complexity: t("priorityAnalysis.calculator.complexity"),
+    cost: t("priorityAnalysis.calculator.cost"),
+    roi: t("priorityAnalysis.calculator.roi"),
+    risk: t("priorityAnalysis.calculator.risk"),
+    strategicAlignment: t("priorityAnalysis.calculator.strategicAlignment"),
+  };
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>{t("priorityAnalysis.insights.title")}</CardTitle>
+        <CardDescription>
+          {t("priorityAnalysis.insights.subtitle")}
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
+        {/* Controls */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+          <div>
+            <label className="text-sm font-medium mb-2 block">
+              {t("priorityAnalysis.insights.groupBy")}
+            </label>
+            <Select
+              value={groupBy}
+              onValueChange={(value: GroupingOption) => setGroupBy(value)}
+            >
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="department">
+                  {t("priorityAnalysis.insights.groupOptions.department")}
+                </SelectItem>
+                <SelectItem value="category">
+                  {t("priorityAnalysis.insights.groupOptions.category")}
+                </SelectItem>
+                <SelectItem value="complexity">
+                  {t("priorityAnalysis.insights.groupOptions.complexity")}
+                </SelectItem>
+                <SelectItem value="roi">
+                  {t("priorityAnalysis.insights.groupOptions.roi")}
+                </SelectItem>
+                <SelectItem value="risk">
+                  {t("priorityAnalysis.insights.groupOptions.risk")}
+                </SelectItem>
+                <SelectItem value="cost">
+                  {t("priorityAnalysis.insights.groupOptions.cost")}
+                </SelectItem>
+                <SelectItem value="strategicAlignment">
+                  {t("priorityAnalysis.insights.groupOptions.strategic")}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div>
+            <label className="text-sm font-medium mb-2 block">
+              {t("priorityAnalysis.insights.xAxis")}
+            </label>
+            <Select
+              value={xAxis}
+              onValueChange={(value: AxisOption) => setXAxis(value)}
+            >
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="complexity">
+                  {axisLabels.complexity}
+                </SelectItem>
+                <SelectItem value="cost">{axisLabels.cost}</SelectItem>
+                <SelectItem value="roi">{axisLabels.roi}</SelectItem>
+                <SelectItem value="risk">{axisLabels.risk}</SelectItem>
+                <SelectItem value="strategicAlignment">
+                  {axisLabels.strategicAlignment}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div>
+            <label className="text-sm font-medium mb-2 block">
+              {t("priorityAnalysis.insights.yAxis")}
+            </label>
+            <Select
+              value={yAxis}
+              onValueChange={(value: AxisOption) => setYAxis(value)}
+            >
+              <SelectTrigger>
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="complexity">
+                  {axisLabels.complexity}
+                </SelectItem>
+                <SelectItem value="cost">{axisLabels.cost}</SelectItem>
+                <SelectItem value="roi">{axisLabels.roi}</SelectItem>
+                <SelectItem value="risk">{axisLabels.risk}</SelectItem>
+                <SelectItem value="strategicAlignment">
+                  {axisLabels.strategicAlignment}
+                </SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+
+        {/* Chart */}
+        <div className="h-96 w-full">
+          {chartData.length === 0 ? (
+            <div className="flex items-center justify-center h-full bg-gray-50 rounded border-2 border-dashed border-gray-300">
+              <div className="text-center">
+                <p className="text-gray-500">
+                  No data available for visualization
+                </p>
+                <p className="text-sm text-gray-400 mt-1">
+                  Ideas: {ideas.length}, Rankings: {rankings.length}
+                </p>
+              </div>
+            </div>
+          ) : (
+            <ResponsiveContainer width="100%" height="100%">
+              <ScatterChart
+                margin={{ top: 20, right: 20, bottom: 60, left: 60 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis
+                  type="number"
+                  dataKey="x"
+                  name={axisLabels[xAxis]}
+                  domain={[0, 5]}
+                  ticks={[0, 1, 2, 3, 4, 5]}
+                  label={{
+                    value: axisLabels[xAxis],
+                    position: "insideBottom",
+                    offset: -10,
+                  }}
+                />
+                <YAxis
+                  type="number"
+                  dataKey="y"
+                  name={axisLabels[yAxis]}
+                  domain={[0, 5]}
+                  ticks={[0, 1, 2, 3, 4, 5]}
+                  label={{
+                    value: axisLabels[yAxis],
+                    angle: -90,
+                    position: "insideLeft",
+                  }}
+                />
+                <ZAxis type="number" dataKey="z" range={[50, 400]} />
+                <RechartsTooltip
+                  cursor={{ strokeDasharray: "3 3" }}
+                  content={tooltipContent}
+                />
+                <Legend />
+
+                {groupedData.map(({ group, items, color }) => (
+                  <Scatter
+                    key={group}
+                    name={group}
+                    data={items}
+                    fill={color}
+                    onClick={(data) => {
+                      if (data?.idea) {
+                        onIdeaClick(data.idea);
+                      }
+                    }}
+                    style={{ cursor: "pointer" }}
+                  />
+                ))}
+              </ScatterChart>
+            </ResponsiveContainer>
+          )}
+        </div>
+
+        {/* Legend and insights */}
+        <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <h4 className="font-semibold mb-3">
+              {t("priorityAnalysis.insights.legend")}
+            </h4>
+            <div className="space-y-2">
+              {groupedData.map(({ group, items, color }) => (
+                <div key={group} className="flex items-center gap-2">
+                  <div
+                    className="w-4 h-4 rounded-full"
+                    style={{ backgroundColor: color }}
+                  />
+                  <span className="text-sm">
+                    {group} ({items.length})
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-3">
+              {t("priorityAnalysis.insights.keyInsights")}
+            </h4>
+            <div className="text-sm text-gray-600 space-y-1">
+              <p>• {t("priorityAnalysis.insights.bubbleSize")}</p>
+              <p>• {t("priorityAnalysis.insights.clickBubble")}</p>
+              <p>• {t("priorityAnalysis.insights.groupingHelps")}</p>
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 }
 

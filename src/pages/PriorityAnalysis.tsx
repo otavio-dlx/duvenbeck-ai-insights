@@ -2,14 +2,82 @@ import { Header } from "@/components/Header";
 import { InteractivePriorityCalculator } from "@/components/InteractivePriorityCalculator";
 import { Button } from "@/components/ui/button";
 import { getAllIdeasForCalculator } from "@/lib/data-mapper";
+import { DuvenbeckScoringCriteria } from "@/lib/priority-calculator";
 import { ArrowLeft } from "lucide-react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
+interface Idea {
+  id: string;
+  name: string;
+  description: string;
+  department: string;
+  scores: DuvenbeckScoringCriteria;
+}
+
 export default function PriorityAnalysisPage() {
   const { t } = useTranslation();
-  // Get all ideas from all departments
-  const allIdeas = getAllIdeasForCalculator();
+  const [allIdeas, setAllIdeas] = useState<Idea[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadIdeas = async () => {
+      try {
+        setLoading(true);
+        const ideas = await getAllIdeasForCalculator();
+        setAllIdeas(ideas);
+      } catch (err) {
+        console.error("Failed to load ideas:", err);
+        setError("Failed to load ideas");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadIdeas();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
+        <Header />
+        <main className="container py-6 space-y-6">
+          <div className="flex items-center justify-center py-20">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+              <p className="text-muted-foreground">
+                {t("priorityAnalysis.loading")}
+              </p>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
+        <Header />
+        <main className="container py-6 space-y-6">
+          <div className="flex items-center justify-center py-20">
+            <div className="text-center">
+              <p className="text-red-600">{error}</p>
+              <Button
+                onClick={() => window.location.reload()}
+                className="mt-4"
+                variant="outline"
+              >
+                {t("priorityAnalysis.retry")}
+              </Button>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
