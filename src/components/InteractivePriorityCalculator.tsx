@@ -39,17 +39,9 @@ import {
 import {
   DuvenbeckPriorityCalculator,
   DuvenbeckScoringCriteria,
-  PriorityResult,
   WeightingConfig,
 } from "@/lib/priority-calculator";
-import {
-  Download,
-  ExternalLink,
-  Info,
-  RotateCcw,
-  TrendingDown,
-  TrendingUp,
-} from "lucide-react";
+import { Download, ExternalLink, Info, RotateCcw } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
@@ -157,9 +149,6 @@ export function InteractivePriorityCalculator({
     DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS
   );
   const [selectedScenario, setSelectedScenario] = useState<string>("custom");
-  const [previousRankings, setPreviousRankings] = useState<Array<
-    PriorityResult & { id: string; name: string }
-  > | null>(null);
   const [selectedIdea, setSelectedIdea] = useState<(typeof ideas)[0] | null>(
     null
   );
@@ -200,7 +189,6 @@ export function InteractivePriorityCalculator({
       });
     }
 
-    setPreviousRankings(currentRankings);
     setWeights(newWeights);
     setSelectedScenario("custom");
   };
@@ -211,7 +199,6 @@ export function InteractivePriorityCalculator({
 
     const scenario = scenarios.find((s) => s.name === scenarioName);
     if (scenario) {
-      setPreviousRankings(currentRankings);
       setWeights(scenario.weights);
       setSelectedScenario(scenarioName);
     }
@@ -219,7 +206,6 @@ export function InteractivePriorityCalculator({
 
   // Reset to default weights
   const resetWeights = () => {
-    setPreviousRankings(currentRankings);
     setWeights(DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS);
     setSelectedScenario("Default (Balanced)");
   };
@@ -271,20 +257,6 @@ export function InteractivePriorityCalculator({
     }.csv`;
     a.click();
     URL.revokeObjectURL(url);
-  };
-
-  // Get ranking change indicator
-  const getRankingChange = (currentRank: number, ideaId: string) => {
-    if (!previousRankings) return null;
-
-    const previousRank = previousRankings.find((r) => r.id === ideaId)?.rank;
-    if (!previousRank || previousRank === currentRank) return null;
-
-    if (previousRank > currentRank) {
-      return <TrendingUp className="h-4 w-4 text-green-500" />;
-    } else {
-      return <TrendingDown className="h-4 w-4 text-red-500" />;
-    }
   };
 
   const totalWeight = Object.values(weights).reduce((sum, w) => sum + w, 0);
@@ -447,22 +419,114 @@ export function InteractivePriorityCalculator({
                     <TableHeader>
                       <TableRow>
                         <TableHead className="w-12">
-                          {t("priorityAnalysis.rankings.rank")}
+                          <div className="flex items-center gap-1">
+                            {t("priorityAnalysis.rankings.rank")}
+                            <TooltipProvider>
+                              <Tooltip>
+                                <TooltipTrigger>
+                                  <Info className="h-3 w-3 text-muted-foreground" />
+                                </TooltipTrigger>
+                                <TooltipContent
+                                  side="bottom"
+                                  className="max-w-xs"
+                                >
+                                  <p className="text-xs">
+                                    {t(
+                                      "priorityAnalysis.rankings.tooltips.rank"
+                                    )}
+                                  </p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          </div>
                         </TableHead>
                         <TableHead>
-                          {t("priorityAnalysis.rankings.aiInitiative")}
+                          <div className="flex items-center gap-1">
+                            {t("priorityAnalysis.rankings.aiInitiative")}
+                            <TooltipProvider>
+                              <Tooltip>
+                                <TooltipTrigger>
+                                  <Info className="h-3 w-3 text-muted-foreground" />
+                                </TooltipTrigger>
+                                <TooltipContent
+                                  side="bottom"
+                                  className="max-w-xs"
+                                >
+                                  <p className="text-xs">
+                                    {t(
+                                      "priorityAnalysis.rankings.tooltips.aiInitiative"
+                                    )}
+                                  </p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          </div>
                         </TableHead>
                         <TableHead>
-                          {t("priorityAnalysis.rankings.department")}
+                          <div className="flex items-center gap-1">
+                            {t("priorityAnalysis.rankings.department")}
+                            <TooltipProvider>
+                              <Tooltip>
+                                <TooltipTrigger>
+                                  <Info className="h-3 w-3 text-muted-foreground" />
+                                </TooltipTrigger>
+                                <TooltipContent
+                                  side="bottom"
+                                  className="max-w-xs"
+                                >
+                                  <p className="text-xs">
+                                    {t(
+                                      "priorityAnalysis.rankings.tooltips.department"
+                                    )}
+                                  </p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          </div>
                         </TableHead>
                         <TableHead>
-                          {t("priorityAnalysis.rankings.score")}
+                          <div className="flex items-center gap-1">
+                            {t("priorityAnalysis.rankings.score")}
+                            <TooltipProvider>
+                              <Tooltip>
+                                <TooltipTrigger>
+                                  <Info className="h-3 w-3 text-muted-foreground" />
+                                </TooltipTrigger>
+                                <TooltipContent
+                                  side="bottom"
+                                  className="max-w-xs"
+                                >
+                                  <p className="text-xs">
+                                    {t(
+                                      "priorityAnalysis.rankings.tooltips.score"
+                                    )}
+                                  </p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          </div>
                         </TableHead>
                         <TableHead>
-                          {t("priorityAnalysis.rankings.category")}
-                        </TableHead>
-                        <TableHead className="w-12">
-                          {t("priorityAnalysis.rankings.change")}
+                          <div className="flex items-center gap-1">
+                            {t("priorityAnalysis.rankings.category")}
+                            <TooltipProvider>
+                              <Tooltip>
+                                <TooltipTrigger>
+                                  <Info className="h-3 w-3 text-muted-foreground" />
+                                </TooltipTrigger>
+                                <TooltipContent
+                                  side="bottom"
+                                  className="max-w-xs"
+                                >
+                                  <p className="text-xs">
+                                    {t(
+                                      "priorityAnalysis.rankings.tooltips.category"
+                                    )}
+                                  </p>
+                                </TooltipContent>
+                              </Tooltip>
+                            </TooltipProvider>
+                          </div>
                         </TableHead>
                       </TableRow>
                     </TableHeader>
@@ -530,9 +594,6 @@ export function InteractivePriorityCalculator({
                               >
                                 {translateCategory(result.category)}
                               </Badge>
-                            </TableCell>
-                            <TableCell>
-                              {getRankingChange(result.rank, result.id)}
                             </TableCell>
                           </TableRow>
                         );

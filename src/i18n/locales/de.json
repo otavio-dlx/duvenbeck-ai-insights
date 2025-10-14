@@ -876,7 +876,13 @@
       "department": "Abteilung",
       "score": "Punkte",
       "category": "Kategorie",
-      "change": "Änderung"
+      "tooltips": {
+        "rank": "Position in der Prioritäts-Rangliste basierend auf dem gewichteten Bewertungsalgorithmus",
+        "aiInitiative": "Name und Beschreibung der vorgeschlagenen AI-Initiative, die während des Workshops identifiziert wurde",
+        "department": "Die Geschäftseinheit oder Abteilung, die diesen AI-Initiative-Vorschlag eingebracht hat",
+        "score": "Berechnete Prioritätspunktzahl (0-100) basierend auf der gewichteten Kombination aller Bewertungskriterien",
+        "category": "Automatisch zugewiesene Prioritätskategorie basierend auf der berechneten Punktzahl (Top: 80+, Hoch: 65+, Mittel: 45+, Niedrig: <45)"
+      }
     },
     "breakdown": {
       "title": "Detaillierte Bewertungsaufschlüsselung",

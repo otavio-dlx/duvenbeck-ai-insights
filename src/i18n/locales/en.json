@@ -952,7 +952,13 @@
       "department": "Department",
       "score": "Score",
       "category": "Category",
-      "change": "Change"
+      "tooltips": {
+        "rank": "Position in the priority ranking based on the weighted scoring algorithm",
+        "aiInitiative": "Name and description of the proposed AI initiative identified during the workshop",
+        "department": "The business unit or department that originated this AI initiative proposal",
+        "score": "Calculated priority score (0-100) based on the weighted combination of all scoring criteria",
+        "category": "Priority category automatically assigned based on the calculated score (Top: 80+, High: 65+, Medium: 45+, Low: <45)"
+      }
     },
     "breakdown": {
       "title": "Detailed Scoring Breakdown",
