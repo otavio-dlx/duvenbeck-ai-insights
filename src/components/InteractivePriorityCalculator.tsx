@@ -1567,7 +1567,7 @@ function InsightsBubbleChart({
           ) : (
             <ResponsiveContainer width="100%" height="100%">
               <ScatterChart
-                margin={{ top: 20, right: 20, bottom: 60, left: 60 }}
+                margin={{ top: 20, right: 20, bottom: 80, left: 60 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis
@@ -1599,7 +1599,6 @@ function InsightsBubbleChart({
                   cursor={{ strokeDasharray: "3 3" }}
                   content={tooltipContent}
                 />
-                <Legend />
 
                 {groupedData.map(({ group, items, color }) => (
                   <Scatter

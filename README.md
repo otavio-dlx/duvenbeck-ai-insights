@@ -71,3 +71,9 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+
+Qdrant:
+
+curl \
+ -X GET 'https://8959e9b0-ec49-4675-86ba-2fa8a597acd0.europe-west3-0.gcp.cloud.qdrant.io:6333' \
+ --header 'api-key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.wEhKxw4ekc03-fcun-YbMg3tvGdNkCCGSbIeunYfE_g'
