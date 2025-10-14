@@ -87,29 +87,29 @@ export class RAGService {
   private createSimpleEmbedding(text: string): number[] {
     // Create a simple 768-dimension vector based on text characteristics
     const vector = new Array(768).fill(0);
-    
+
     // Use text length, character codes, and word patterns to create a unique vector
     const words = text.toLowerCase().split(/\s+/);
     const textLength = text.length;
-    
+
     for (let i = 0; i < Math.min(words.length, 768); i++) {
       const word = words[i];
       let value = 0;
-      
+
       // Generate a value based on character codes and position
       for (let j = 0; j < word.length; j++) {
         value += word.charCodeAt(j) * (j + 1);
       }
-      
+
       // Normalize and set the vector value
       vector[i] = (value / textLength) * 0.1;
     }
-    
+
     // Add some variance based on text characteristics
     vector[0] = textLength / 1000;
     vector[1] = words.length / 100;
     vector[2] = text.match(/[.!?]/g)?.length || 0 / 10;
-    
+
     return vector;
   }
 
@@ -133,8 +133,10 @@ export class RAGService {
         for (const idea of ideas) {
           // Use the keys directly as text for now to avoid translation issues
           const ideaText = idea.ideaKey || `Idea from ${departmentName}`;
-          const problemText = idea.problemKey || `Problem from ${departmentName}`;
-          const solutionText = idea.solutionKey || `Solution from ${departmentName}`;
+          const problemText =
+            idea.problemKey || `Problem from ${departmentName}`;
+          const solutionText =
+            idea.solutionKey || `Solution from ${departmentName}`;
 
           // Create separate documents for idea, problem, and solution
           documents.push(
@@ -189,19 +191,23 @@ export class RAGService {
   async initializeCollection(): Promise<void> {
     try {
       console.log("Starting RAG service initialization...");
-      
+
       if (!this.isInitialized) {
         console.log("Initializing in-memory document collection...");
-        
+
         // Check if API key is available
         if (!this.apiKey) {
-          throw new Error("Gemini API key is missing. Please check your environment variables.");
+          throw new Error(
+            "Gemini API key is missing. Please check your environment variables."
+          );
         }
         console.log("API key found:", this.apiKey.substring(0, 10) + "...");
-        
+
         this.documents = await this.prepareDocuments();
         this.isInitialized = true;
-        console.log(`Successfully initialized with ${this.documents.length} documents`);
+        console.log(
+          `Successfully initialized with ${this.documents.length} documents`
+        );
       } else {
         console.log("RAG service already initialized");
       }
@@ -223,11 +229,11 @@ export class RAGService {
       // Search through documents for text matches
       for (const doc of this.documents) {
         const textLower = doc.text.toLowerCase();
-        
+
         // Calculate a simple relevance score based on keyword matches
         const words = queryLower.split(/\s+/);
         let score = 0;
-        
+
         for (const word of words) {
           if (textLower.includes(word)) {
             score += 1;
@@ -237,7 +243,7 @@ export class RAGService {
             }
           }
         }
-        
+
         if (score > 0) {
           results.push({
             id: doc.id,
