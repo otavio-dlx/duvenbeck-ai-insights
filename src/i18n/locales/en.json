@@ -943,6 +943,38 @@
       "risk": {
         "predictive_disposition_pricing": "If the assessment is wrong, additional costs are produced through incorrectly purchased fleet"
       }
+    },
+    "projectBriefs": {
+      "telematics_cost_forecast": {
+        "sponsor": "GF",
+        "teams": "Fleet, BI",
+        "conflicts": "",
+        "resources": "ML algorithm, Fleet, Accounting, IT, AI Agent",
+        "dataAvailability": "Repair data, Fleetboard, Vehicle master data",
+        "genaiConsiderations": "Prototype with few trucks. Check simulated data against actual data. Repair data clustered by repair type.\nAgent sends timely information when e.g. a tire goes flat or anomalies are present in the data\n\nLarge amounts of data\nUsers compare reports with messages from the agent. Mutual checking of all telemetry data (e.g. tire pressures)",
+        "timeline": "asap",
+        "comments": "Data quality could be partially poor for recorded repair data. Input processes would need to be questioned"
+      },
+      "internal_freight_exchange": {
+        "sponsor": "GF",
+        "teams": "Disposition, Fleet, BI, Master data",
+        "conflicts": "Intervenes in ongoing planning processes",
+        "resources": "Dispatchers, TMS data",
+        "dataAvailability": "Fleetboard, TMS data\nCurrent TMS data necessary for search",
+        "genaiConsiderations": "Similar tours to the entered order can be found\nWhat-if analysis\n\nTransactions would need to be recorded promptly",
+        "timeline": "",
+        "comments": ""
+      },
+      "automatic_gate_detection": {
+        "sponsor": "GF",
+        "teams": "DevOps, Branch xy",
+        "conflicts": "",
+        "resources": "Developer, Hardware for scanning, Hardware for detection/evaluation",
+        "dataAvailability": "",
+        "genaiConsiderations": "Prototype/Pilot: Test at one gate with one device\nData protection: License plates are scanned and stored\nScalability: High",
+        "timeline": "",
+        "comments": ""
+      }
     }
   },
   "it_platform_services": {

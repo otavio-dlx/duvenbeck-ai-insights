@@ -933,6 +933,38 @@
       "risk": {
         "predictive_disposition_pricing": "Fällt die Einschätzung falsch aus produziert man mehrkosten durch falsch engekauften Fuhrpark"
       }
+    },
+    "projectBriefs": {
+      "telematics_cost_forecast": {
+        "sponsor": "GF",
+        "teams": "Fuhrpark, BI",
+        "conflicts": "",
+        "resources": "ML Algorithmus, Fuhrpark, Buchhaltung, IT, AI Agent",
+        "dataAvailability": "Reparaturdaten, Fleetboard, Stammdaten Fahrzeug",
+        "genaiConsiderations": "Prototyp mit wenigen LKW. Simulierte Daten gegenüber Ist-Daten prüfen. Reparaturdaten nach Reparaturart geclustert. \nAgent schickt zeitnah eine Info wenn z.B. ein Reifen platt geht oder Auffälligkeiten in den Daten vorhanden sind\n\nViele Daten\nNutzer gleichen Berichte mit den Nachrichten aus dem Agent ab. Gegenseitige Prüfung aller Telemetriedaten (z.B. Reifendrücke)",
+        "timeline": "asap",
+        "comments": "Datenqualität könnte teilweise schlecht sein bei den erfassten Reparaturdaten. Eingabeprozesse müssten hinterfragt werden"
+      },
+      "internal_freight_exchange": {
+        "sponsor": "GF",
+        "teams": "Disposition, Fuhrpark, BI, Stammdaten",
+        "conflicts": "greift in die laufenden Planungsprozesse ein",
+        "resources": "Disponenten, TMS Daten",
+        "dataAvailability": "Fleetboard, TMS Daten\nAktuelle TMS Daten für Suche notwendig",
+        "genaiConsiderations": "Ähnliche Touren zu dem eingegebenen Auftrag können gefunden werden\nWas wäre wenn Analyse\n\nTransaktionen müssten zeitnah erfasst sein",
+        "timeline": "",
+        "comments": ""
+      },
+      "automatic_gate_detection": {
+        "sponsor": "GF",
+        "teams": "DevOps, Niederlassung xy",
+        "conflicts": "",
+        "resources": "Entwickler, Hardware zum Scannen, Hardware zum Erkennen/Auswerten",
+        "dataAvailability": "",
+        "genaiConsiderations": "Prototyp/Pilot: Test an einem Tor mit einem Gerät\nDatenschutz: Kennzeichen werden gescannt und gespeichert\nSkalierbarkeit: Hoch",
+        "timeline": "",
+        "comments": ""
+      }
     }
   },
   "it_platform_services": {
