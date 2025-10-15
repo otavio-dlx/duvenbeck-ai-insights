@@ -87,14 +87,22 @@ export const ideas = {
       strategicAlignment: 1,
       strategicNoteKey: null,
       projectBrief: {
-        sponsor: "it_shared_services.projectBriefs.automatic_gate_detection.sponsor",
-        teams: "it_shared_services.projectBriefs.automatic_gate_detection.teams",
-        conflicts: "it_shared_services.projectBriefs.automatic_gate_detection.conflicts",
-        resources: "it_shared_services.projectBriefs.automatic_gate_detection.resources",
-        dataAvailability: "it_shared_services.projectBriefs.automatic_gate_detection.dataAvailability",
-        genaiConsiderations: "it_shared_services.projectBriefs.automatic_gate_detection.genaiConsiderations",
-        timeline: "it_shared_services.projectBriefs.automatic_gate_detection.timeline",
-        comments: "it_shared_services.projectBriefs.automatic_gate_detection.comments",
+        sponsor:
+          "it_shared_services.projectBriefs.automatic_gate_detection.sponsor",
+        teams:
+          "it_shared_services.projectBriefs.automatic_gate_detection.teams",
+        conflicts:
+          "it_shared_services.projectBriefs.automatic_gate_detection.conflicts",
+        resources:
+          "it_shared_services.projectBriefs.automatic_gate_detection.resources",
+        dataAvailability:
+          "it_shared_services.projectBriefs.automatic_gate_detection.dataAvailability",
+        genaiConsiderations:
+          "it_shared_services.projectBriefs.automatic_gate_detection.genaiConsiderations",
+        timeline:
+          "it_shared_services.projectBriefs.automatic_gate_detection.timeline",
+        comments:
+          "it_shared_services.projectBriefs.automatic_gate_detection.comments",
       },
     },
     {
@@ -179,14 +187,22 @@ export const ideas = {
       strategicAlignment: 5,
       strategicNoteKey: null,
       projectBrief: {
-        sponsor: "it_shared_services.projectBriefs.internal_freight_exchange.sponsor",
-        teams: "it_shared_services.projectBriefs.internal_freight_exchange.teams",
-        conflicts: "it_shared_services.projectBriefs.internal_freight_exchange.conflicts",
-        resources: "it_shared_services.projectBriefs.internal_freight_exchange.resources",
-        dataAvailability: "it_shared_services.projectBriefs.internal_freight_exchange.dataAvailability",
-        genaiConsiderations: "it_shared_services.projectBriefs.internal_freight_exchange.genaiConsiderations",
-        timeline: "it_shared_services.projectBriefs.internal_freight_exchange.timeline",
-        comments: "it_shared_services.projectBriefs.internal_freight_exchange.comments",
+        sponsor:
+          "it_shared_services.projectBriefs.internal_freight_exchange.sponsor",
+        teams:
+          "it_shared_services.projectBriefs.internal_freight_exchange.teams",
+        conflicts:
+          "it_shared_services.projectBriefs.internal_freight_exchange.conflicts",
+        resources:
+          "it_shared_services.projectBriefs.internal_freight_exchange.resources",
+        dataAvailability:
+          "it_shared_services.projectBriefs.internal_freight_exchange.dataAvailability",
+        genaiConsiderations:
+          "it_shared_services.projectBriefs.internal_freight_exchange.genaiConsiderations",
+        timeline:
+          "it_shared_services.projectBriefs.internal_freight_exchange.timeline",
+        comments:
+          "it_shared_services.projectBriefs.internal_freight_exchange.comments",
       },
     },
     {
@@ -250,14 +266,22 @@ export const ideas = {
       strategicAlignment: 5,
       strategicNoteKey: null,
       projectBrief: {
-        sponsor: "it_shared_services.projectBriefs.telematics_cost_forecast.sponsor",
-        teams: "it_shared_services.projectBriefs.telematics_cost_forecast.teams",
-        conflicts: "it_shared_services.projectBriefs.telematics_cost_forecast.conflicts",
-        resources: "it_shared_services.projectBriefs.telematics_cost_forecast.resources",
-        dataAvailability: "it_shared_services.projectBriefs.telematics_cost_forecast.dataAvailability",
-        genaiConsiderations: "it_shared_services.projectBriefs.telematics_cost_forecast.genaiConsiderations",
-        timeline: "it_shared_services.projectBriefs.telematics_cost_forecast.timeline",
-        comments: "it_shared_services.projectBriefs.telematics_cost_forecast.comments",
+        sponsor:
+          "it_shared_services.projectBriefs.telematics_cost_forecast.sponsor",
+        teams:
+          "it_shared_services.projectBriefs.telematics_cost_forecast.teams",
+        conflicts:
+          "it_shared_services.projectBriefs.telematics_cost_forecast.conflicts",
+        resources:
+          "it_shared_services.projectBriefs.telematics_cost_forecast.resources",
+        dataAvailability:
+          "it_shared_services.projectBriefs.telematics_cost_forecast.dataAvailability",
+        genaiConsiderations:
+          "it_shared_services.projectBriefs.telematics_cost_forecast.genaiConsiderations",
+        timeline:
+          "it_shared_services.projectBriefs.telematics_cost_forecast.timeline",
+        comments:
+          "it_shared_services.projectBriefs.telematics_cost_forecast.comments",
       },
     },
   ],
