@@ -94,6 +94,38 @@
         "target_prices": "No resource binding, concentration on important/strategic projects",
         "contract_review": "Risk management"
       }
+    },
+    "projectBriefs": {
+      "requirements_specification": {
+        "sponsor": "TRI / TBA",
+        "teams": "SD / BD / IT",
+        "conflicts": "IT resources",
+        "resources": "Personnel, Budget, Technology",
+        "dataAvailability": "Requirements specifications are available",
+        "genaiConsiderations": "Data protection due to customer documents, structure and scope of documents, correct definition of keywords + continuous development",
+        "timeline": "End of 2026",
+        "comments": "Legal clarification of data protection"
+      },
+      "target_prices": {
+        "sponsor": "TBA / TRI",
+        "teams": "SD / IT",
+        "conflicts": "IT resources",
+        "resources": "Personnel, Budget, Technology",
+        "dataAvailability": "Data available",
+        "genaiConsiderations": "Data protection\nCost breakdown, resource overview",
+        "timeline": "Q2 / 2026",
+        "comments": ""
+      },
+      "contract_review": {
+        "sponsor": "TRI / TBA / Legal",
+        "teams": "SD / BD / Legal / IT",
+        "conflicts": "IT resources",
+        "resources": "Personnel, Budget, Technology",
+        "dataAvailability": "DUV standard contract\nSample contract",
+        "genaiConsiderations": "Data protection due to customer documents, structure and scope of documents, correct definition of keywords + continuous development",
+        "timeline": "Mid 2027",
+        "comments": "Legal clarification of data protection"
+      }
     }
   },
   "corp_dev": {

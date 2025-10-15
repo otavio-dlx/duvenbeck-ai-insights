@@ -27,6 +27,24 @@ export const ideas = {
       strategicAlignment: 2,
       strategicNoteKey:
         "contract_logistics.notes.strategic.requirements_specification",
+      projectBrief: {
+        projectSponsorKey:
+          "contract_logistics.projectBriefs.requirements_specification.sponsor",
+        involvedTeamsKey:
+          "contract_logistics.projectBriefs.requirements_specification.teams",
+        potentialConflictsKey:
+          "contract_logistics.projectBriefs.requirements_specification.conflicts",
+        requiredResourcesKey:
+          "contract_logistics.projectBriefs.requirements_specification.resources",
+        dataAvailabilityKey:
+          "contract_logistics.projectBriefs.requirements_specification.dataAvailability",
+        genaiConsiderationsKey:
+          "contract_logistics.projectBriefs.requirements_specification.genaiConsiderations",
+        timelineKey:
+          "contract_logistics.projectBriefs.requirements_specification.timeline",
+        additionalCommentsKey:
+          "contract_logistics.projectBriefs.requirements_specification.comments",
+      },
     },
     {
       finalPrio: "1",
@@ -46,6 +64,23 @@ export const ideas = {
       riskNoteKey: "contract_logistics.notes.risk.target_prices",
       strategicAlignment: 5,
       strategicNoteKey: "contract_logistics.notes.strategic.target_prices",
+      projectBrief: {
+        projectSponsorKey:
+          "contract_logistics.projectBriefs.target_prices.sponsor",
+        involvedTeamsKey:
+          "contract_logistics.projectBriefs.target_prices.teams",
+        potentialConflictsKey:
+          "contract_logistics.projectBriefs.target_prices.conflicts",
+        requiredResourcesKey:
+          "contract_logistics.projectBriefs.target_prices.resources",
+        dataAvailabilityKey:
+          "contract_logistics.projectBriefs.target_prices.dataAvailability",
+        genaiConsiderationsKey:
+          "contract_logistics.projectBriefs.target_prices.genaiConsiderations",
+        timelineKey: "contract_logistics.projectBriefs.target_prices.timeline",
+        additionalCommentsKey:
+          "contract_logistics.projectBriefs.target_prices.comments",
+      },
     },
     {
       finalPrio: "3",
@@ -65,6 +100,24 @@ export const ideas = {
       riskNoteKey: "contract_logistics.notes.risk.contract_review",
       strategicAlignment: 4,
       strategicNoteKey: "contract_logistics.notes.strategic.contract_review",
+      projectBrief: {
+        projectSponsorKey:
+          "contract_logistics.projectBriefs.contract_review.sponsor",
+        involvedTeamsKey:
+          "contract_logistics.projectBriefs.contract_review.teams",
+        potentialConflictsKey:
+          "contract_logistics.projectBriefs.contract_review.conflicts",
+        requiredResourcesKey:
+          "contract_logistics.projectBriefs.contract_review.resources",
+        dataAvailabilityKey:
+          "contract_logistics.projectBriefs.contract_review.dataAvailability",
+        genaiConsiderationsKey:
+          "contract_logistics.projectBriefs.contract_review.genaiConsiderations",
+        timelineKey:
+          "contract_logistics.projectBriefs.contract_review.timeline",
+        additionalCommentsKey:
+          "contract_logistics.projectBriefs.contract_review.comments",
+      },
     },
   ],
 };

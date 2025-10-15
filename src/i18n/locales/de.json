@@ -50,6 +50,38 @@
         "target_prices": "Keine Ressourcenbindung, Konzentration auf wichtige/strategische Projekte",
         "contract_review": "Risikomanagement"
       }
+    },
+    "projectBriefs": {
+      "requirements_specification": {
+        "sponsor": "TRI / TBA",
+        "teams": "SD / BD / IT",
+        "conflicts": "IT-Ressourcen",
+        "resources": "Personal, Budget, Technologie",
+        "dataAvailability": "Lastenhefte sind vorhanden",
+        "genaiConsiderations": "Datenschutz da Kundendokumente, Aufbau und Umfang der Dokumente richtige Definition der Schlagworte + permanente Weiterentwicklung",
+        "timeline": "Ende 2026",
+        "comments": "rechtliche Klärung des Datenschutzes"
+      },
+      "target_prices": {
+        "sponsor": "TBA / TRI",
+        "teams": "SD / IT",
+        "conflicts": "IT-Ressourcen",
+        "resources": "Personal, Budget, Technologie",
+        "dataAvailability": "Daten vorhanden",
+        "genaiConsiderations": "Datenschutz\nKostenaufschlüsselung, Ressourcen-Aufstellung",
+        "timeline": "Q2 / 2026",
+        "comments": ""
+      },
+      "contract_review": {
+        "sponsor": "TRI / TBA / Legal",
+        "teams": "SD / BD / Legal / IT",
+        "conflicts": "IT-Ressourcen",
+        "resources": "Personal, Budget, Technologie",
+        "dataAvailability": "Mustervertrag DUV\nBeispielvertrag",
+        "genaiConsiderations": "Datenschutz da Kundendokumente, Aufbau und Umfang der Dokumente richtige Definition der Schlagworte + permanente Weiterentwicklung",
+        "timeline": "Mitte 2027",
+        "comments": "rechtliche Klärung des Datenschutzes"
+      }
     }
   },
   "controlling": {
