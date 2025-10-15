@@ -371,6 +371,38 @@
       "chatbot_external": "These standard inquiries could be easily answered by a chatbot",
       "ic_differences": "Automated analysis of differences, development of solution proposals"
     },
+    "projectBriefs": {
+      "document_reading": {
+        "sponsor": "Annette Gziello",
+        "teams": "Finance + others",
+        "conflicts": "Project work vs. daily business",
+        "resources": "",
+        "dataAvailability": "Various documents such as invoices, transport papers, contracts, etc.",
+        "genaiConsiderations": "",
+        "timeline": "",
+        "comments": "Very general project\ncan be divided into sub-projects\ne.g. delivery note analysis for billing\ncontract analysis for different departments\ninvoice receipt workflow\nstorage of leasing data\ndepending on the document type, different characteristics of further use of the determined data\ndifferent follow-up workflows\nAdobe already has a similar process, which could be used as a reference."
+      },
+      "chatbot_external": {
+        "sponsor": "Wadim Soroka",
+        "teams": "Accounting + Billing",
+        "conflicts": "Project work vs. daily business",
+        "resources": "",
+        "dataAvailability": "ERP and TMS data",
+        "genaiConsiderations": "",
+        "timeline": "",
+        "comments": "Interpret information content from emails, derive and create to-dos.\nDepending on the topic, further downstream workflows can emerge from this"
+      },
+      "cash_forecast": {
+        "sponsor": "Wadim Soroka",
+        "teams": "Treasury, Controlling, Finance",
+        "conflicts": "Project work vs. daily business",
+        "resources": "",
+        "dataAvailability": "ERP and TMS, electronic banking (Coupa)",
+        "genaiConsiderations": "",
+        "timeline": "",
+        "comments": "Plausibility check of data with e.g. traffic light system"
+      }
+    },
     "notes": {
       "complexity": {
         "document_reading": "Document type must be recognized\nRelevant information must be read depending on document type\nFor contracts: checking against specified parameters\nFor invoices: pre-recording/booking\nFor leasing permanent invoices: information storage in SAP\nFor transport documents: information storage in Car_O",

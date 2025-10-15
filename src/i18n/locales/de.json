@@ -361,6 +361,38 @@
       "chatbot_external": "Diese Standardanfragen könnten einfach von einem Chatbot beantwortet werden",
       "ic_differences": "Automatisierte Analyse von Differenzen, Entwicklung von Lösungsvorschlägen"
     },
+    "projectBriefs": {
+      "document_reading": {
+        "sponsor": "Annette Gziello",
+        "teams": "Finance + weitere",
+        "conflicts": "Projektarbeit vs. Tagesgeschäft",
+        "resources": "",
+        "dataAvailability": "Diverse Dokumente wie z.B. Rechnugen, Transportapiere, Verträge, etc..",
+        "genaiConsiderations": "",
+        "timeline": "",
+        "comments": "Sehr allgemeines Projekt\nkann ich Unterprojekte aufgeteilt werden\nz.B. Lieferscheinalayse für Abrechnung\nVertragsanalyse für unterschiedliche Abteilungen\nRechnungseingangsworkflow\nSpeicherung von Leasingdaten\nje nach Dokumentenart unterschiedliche Ausprägung der Weiterverwendung der ermittelten Daten\nUnterschiedliche Anschlussworkflows\nAdobe hat bereits ein ähnliches Verfahren, daran könnte man sich anlehnen."
+      },
+      "chatbot_external": {
+        "sponsor": "Wadim Soroka",
+        "teams": "Buchhaltung + Abrechnung",
+        "conflicts": "Projektarbeit vs. Tagesgeschäft",
+        "resources": "",
+        "dataAvailability": "ERP und TMS Daten",
+        "genaiConsiderations": "",
+        "timeline": "",
+        "comments": "Informationsgehalt aus Mails interpretieren, ableiten und to do´s bilden.\nJe nach Thema können daraus weitere nachgelagerte Workflows entstehen"
+      },
+      "cash_forecast": {
+        "sponsor": "Wadim Soroka",
+        "teams": "Treasury, Controlling, Finance",
+        "conflicts": "Projektarbeit vs. Tagesgeschäft",
+        "resources": "",
+        "dataAvailability": "ERP und TMS , electronic banking (Coupa)",
+        "genaiConsiderations": "",
+        "timeline": "",
+        "comments": "Plausibilitätsprüfung der Daten mit z.B. Ampelsystem"
+      }
+    },
     "notes": {
       "complexity": {
         "document_reading": "Dokumententyp muss erkannt werden\nRelevante Informationen müssen je nach Dokumententyp gelesen werden\nFür Verträge: Abgleich mit vorgegebenen Parametern\nFür Rechnungen: Vorerfassung/Buchung\nFür Leasing-Dauerrechnungen: Informationsspeicherung in SAP\nFür Transportdokumente: Informationsspeicherung in Car_O",
