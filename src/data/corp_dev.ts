@@ -12,7 +12,7 @@ export const ideas = {
       ideaKey: "corp_dev.ideas.market_analysis_automation",
       problemKey: "corp_dev.problems.market_analysis_automation",
       solutionKey: "corp_dev.solutions.market_analysis_automation",
-      owner: "",
+      owner: "Corporate Development",
       priority: "A",
       complexity: 4,
       complexityNoteKey: "corp_dev.notes.complexity.market_analysis_automation",
@@ -24,6 +24,14 @@ export const ideas = {
       riskNoteKey: "corp_dev.notes.risk.market_analysis_automation",
       strategicAlignment: 3,
       strategicNoteKey: "corp_dev.notes.strategic.market_analysis_automation",
+      projectBrief: {
+        involvedTeamsKey: "corp_dev.projectBriefs.market_analysis_automation.involvedTeams",
+        potentialConflictsKey: "corp_dev.projectBriefs.market_analysis_automation.potentialConflicts",
+        dataAvailabilityKey: "corp_dev.projectBriefs.market_analysis_automation.dataAvailability",
+        genaiConsiderationsKey: "corp_dev.projectBriefs.market_analysis_automation.genaiConsiderations",
+        timelineKey: "corp_dev.projectBriefs.market_analysis_automation.timeline",
+        additionalCommentsKey: "corp_dev.projectBriefs.market_analysis_automation.additionalComments"
+      }
     },
     {
       finalPrio: "6",
@@ -33,8 +41,7 @@ export const ideas = {
       owner: "",
       priority: "A",
       complexity: 5,
-      complexityNoteKey:
-        "corp_dev.notes.complexity.strategic_scenario_planning",
+      complexityNoteKey: "corp_dev.notes.complexity.strategic_scenario_planning",
       cost: 3,
       costNoteKey: "corp_dev.notes.cost.strategic_scenario_planning",
       roi: 3,
@@ -43,6 +50,7 @@ export const ideas = {
       riskNoteKey: "corp_dev.notes.risk.strategic_scenario_planning",
       strategicAlignment: 4,
       strategicNoteKey: "corp_dev.notes.strategic.strategic_scenario_planning",
+      projectBrief: null
     },
     {
       finalPrio: "3-A",
@@ -52,8 +60,7 @@ export const ideas = {
       owner: "",
       priority: "A",
       complexity: 3,
-      complexityNoteKey:
-        "corp_dev.notes.complexity.customer_profitability_analysis",
+      complexityNoteKey: "corp_dev.notes.complexity.customer_profitability_analysis",
       cost: 4,
       costNoteKey: "corp_dev.notes.cost.customer_profitability_analysis",
       roi: 2,
@@ -61,8 +68,8 @@ export const ideas = {
       risk: 2,
       riskNoteKey: "corp_dev.notes.risk.customer_profitability_analysis",
       strategicAlignment: 5,
-      strategicNoteKey:
-        "corp_dev.notes.strategic.customer_profitability_analysis",
+      strategicNoteKey: "corp_dev.notes.strategic.customer_profitability_analysis",
+      projectBrief: null
     },
     {
       finalPrio: "1-B",
@@ -81,13 +88,14 @@ export const ideas = {
       riskNoteKey: "corp_dev.notes.risk.competition_trend_alerts",
       strategicAlignment: 3,
       strategicNoteKey: "corp_dev.notes.strategic.competition_trend_alerts",
+      projectBrief: null
     },
     {
       finalPrio: "2",
       ideaKey: "corp_dev.ideas.dashboard_reporting",
       problemKey: "corp_dev.problems.dashboard_reporting",
       solutionKey: "corp_dev.solutions.dashboard_reporting",
-      owner: "",
+      owner: "CEO + COO + CIO",
       priority: "A",
       complexity: 3,
       complexityNoteKey: "corp_dev.notes.complexity.dashboard_reporting",
@@ -99,6 +107,14 @@ export const ideas = {
       riskNoteKey: "corp_dev.notes.risk.dashboard_reporting",
       strategicAlignment: 5,
       strategicNoteKey: "corp_dev.notes.strategic.dashboard_reporting",
+      projectBrief: {
+        involvedTeamsKey: "corp_dev.projectBriefs.dashboard_reporting.involvedTeams",
+        potentialConflictsKey: "corp_dev.projectBriefs.dashboard_reporting.potentialConflicts",
+        dataAvailabilityKey: "corp_dev.projectBriefs.dashboard_reporting.dataAvailability",
+        genaiConsiderationsKey: "corp_dev.projectBriefs.dashboard_reporting.genaiConsiderations",
+        timelineKey: "corp_dev.projectBriefs.dashboard_reporting.timeline",
+        additionalCommentsKey: "corp_dev.projectBriefs.dashboard_reporting.additionalComments"
+      }
     },
     {
       finalPrio: "3-B",
@@ -117,6 +133,16 @@ export const ideas = {
       riskNoteKey: "corp_dev.notes.risk.contract_database",
       strategicAlignment: 3,
       strategicNoteKey: "corp_dev.notes.strategic.contract_database",
+      projectBrief: {
+        projectSponsorKey: "corp_dev.projectBriefs.contract_database.projectSponsor",
+        involvedTeamsKey: "corp_dev.projectBriefs.contract_database.involvedTeams",
+        potentialConflictsKey: "corp_dev.projectBriefs.contract_database.potentialConflicts",
+        requiredResourcesKey: "corp_dev.projectBriefs.contract_database.requiredResources",
+        dataAvailabilityKey: "corp_dev.projectBriefs.contract_database.dataAvailability",
+        genaiConsiderationsKey: "corp_dev.projectBriefs.contract_database.genaiConsiderations",
+        timelineKey: "corp_dev.projectBriefs.contract_database.timeline",
+        additionalCommentsKey: "corp_dev.projectBriefs.contract_database.additionalComments"
+      }
     },
     {
       finalPrio: "5",
@@ -126,8 +152,7 @@ export const ideas = {
       owner: "",
       priority: "A",
       complexity: 4,
-      complexityNoteKey:
-        "corp_dev.notes.complexity.product_portfolio_extension",
+      complexityNoteKey: "corp_dev.notes.complexity.product_portfolio_extension",
       cost: 4,
       costNoteKey: "corp_dev.notes.cost.product_portfolio_extension",
       roi: 4,
@@ -136,6 +161,7 @@ export const ideas = {
       riskNoteKey: "corp_dev.notes.risk.product_portfolio_extension",
       strategicAlignment: 5,
       strategicNoteKey: "corp_dev.notes.strategic.product_portfolio_extension",
+      projectBrief: null
     },
   ],
 };
