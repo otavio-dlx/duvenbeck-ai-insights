@@ -24,6 +24,22 @@ export const ideas = {
       riskNoteKey: "road_sales.notes.risk.ai_data_automation",
       strategicAlignment: 3,
       strategicNoteKey: "road_sales.notes.strategic.ai_data_automation",
+      projectBrief: {
+        projectSponsorKey:
+          "road_sales.projectBriefs.ai_data_automation.sponsor",
+        involvedTeamsKey: "road_sales.projectBriefs.ai_data_automation.teams",
+        potentialConflictsKey:
+          "road_sales.projectBriefs.ai_data_automation.conflicts",
+        requiredResourcesKey:
+          "road_sales.projectBriefs.ai_data_automation.resources",
+        dataAvailabilityKey:
+          "road_sales.projectBriefs.ai_data_automation.dataAvailability",
+        genaiConsiderationsKey:
+          "road_sales.projectBriefs.ai_data_automation.genaiConsiderations",
+        timelineKey: "road_sales.projectBriefs.ai_data_automation.timeline",
+        additionalCommentsKey:
+          "road_sales.projectBriefs.ai_data_automation.comments",
+      },
     },
     {
       finalPrio: 2,
@@ -42,6 +58,24 @@ export const ideas = {
       riskNoteKey: "road_sales.notes.risk.automated_quote_creation",
       strategicAlignment: 4,
       strategicNoteKey: "road_sales.notes.strategic.automated_quote_creation",
+      projectBrief: {
+        projectSponsorKey:
+          "road_sales.projectBriefs.automated_quote_creation.sponsor",
+        involvedTeamsKey:
+          "road_sales.projectBriefs.automated_quote_creation.teams",
+        potentialConflictsKey:
+          "road_sales.projectBriefs.automated_quote_creation.conflicts",
+        requiredResourcesKey:
+          "road_sales.projectBriefs.automated_quote_creation.resources",
+        dataAvailabilityKey:
+          "road_sales.projectBriefs.automated_quote_creation.dataAvailability",
+        genaiConsiderationsKey:
+          "road_sales.projectBriefs.automated_quote_creation.genaiConsiderations",
+        timelineKey:
+          "road_sales.projectBriefs.automated_quote_creation.timeline",
+        additionalCommentsKey:
+          "road_sales.projectBriefs.automated_quote_creation.comments",
+      },
     },
     {
       finalPrio: 3,
@@ -60,6 +94,23 @@ export const ideas = {
       riskNoteKey: "road_sales.notes.risk.unified_communication",
       strategicAlignment: 2,
       strategicNoteKey: "road_sales.notes.strategic.unified_communication",
+      projectBrief: {
+        projectSponsorKey:
+          "road_sales.projectBriefs.unified_communication.sponsor",
+        involvedTeamsKey:
+          "road_sales.projectBriefs.unified_communication.teams",
+        potentialConflictsKey:
+          "road_sales.projectBriefs.unified_communication.conflicts",
+        requiredResourcesKey:
+          "road_sales.projectBriefs.unified_communication.resources",
+        dataAvailabilityKey:
+          "road_sales.projectBriefs.unified_communication.dataAvailability",
+        genaiConsiderationsKey:
+          "road_sales.projectBriefs.unified_communication.genaiConsiderations",
+        timelineKey: "road_sales.projectBriefs.unified_communication.timeline",
+        additionalCommentsKey:
+          "road_sales.projectBriefs.unified_communication.comments",
+      },
     },
     {
       finalPrio: 4,

@@ -26,6 +26,24 @@ export const ideas = {
       strategicAlignment: 4,
       strategicNoteKey:
         "central_solution_design.notes.strategic.nine_am_process",
+      projectBrief: {
+        projectSponsorKey:
+          "central_solution_design.projectBriefs.nine_am_process.sponsor",
+        involvedTeamsKey:
+          "central_solution_design.projectBriefs.nine_am_process.teams",
+        potentialConflictsKey:
+          "central_solution_design.projectBriefs.nine_am_process.conflicts",
+        requiredResourcesKey:
+          "central_solution_design.projectBriefs.nine_am_process.resources",
+        dataAvailabilityKey:
+          "central_solution_design.projectBriefs.nine_am_process.dataAvailability",
+        genaiConsiderationsKey:
+          "central_solution_design.projectBriefs.nine_am_process.genaiConsiderations",
+        timelineKey:
+          "central_solution_design.projectBriefs.nine_am_process.timeline",
+        additionalCommentsKey:
+          "central_solution_design.projectBriefs.nine_am_process.comments",
+      },
     },
     {
       finalPrio: 2,
@@ -46,6 +64,24 @@ export const ideas = {
       strategicAlignment: 4,
       strategicNoteKey:
         "central_solution_design.notes.strategic.ftl_precalculation",
+      projectBrief: {
+        projectSponsorKey:
+          "central_solution_design.projectBriefs.ftl_precalculation.sponsor",
+        involvedTeamsKey:
+          "central_solution_design.projectBriefs.ftl_precalculation.teams",
+        potentialConflictsKey:
+          "central_solution_design.projectBriefs.ftl_precalculation.conflicts",
+        requiredResourcesKey:
+          "central_solution_design.projectBriefs.ftl_precalculation.resources",
+        dataAvailabilityKey:
+          "central_solution_design.projectBriefs.ftl_precalculation.dataAvailability",
+        genaiConsiderationsKey:
+          "central_solution_design.projectBriefs.ftl_precalculation.genaiConsiderations",
+        timelineKey:
+          "central_solution_design.projectBriefs.ftl_precalculation.timeline",
+        additionalCommentsKey:
+          "central_solution_design.projectBriefs.ftl_precalculation.comments",
+      },
     },
     {
       finalPrio: 3,
@@ -66,6 +102,24 @@ export const ideas = {
       strategicAlignment: 4,
       strategicNoteKey:
         "central_solution_design.notes.strategic.subcontractor_database",
+      projectBrief: {
+        projectSponsorKey:
+          "central_solution_design.projectBriefs.subcontractor_database.sponsor",
+        involvedTeamsKey:
+          "central_solution_design.projectBriefs.subcontractor_database.teams",
+        potentialConflictsKey:
+          "central_solution_design.projectBriefs.subcontractor_database.conflicts",
+        requiredResourcesKey:
+          "central_solution_design.projectBriefs.subcontractor_database.resources",
+        dataAvailabilityKey:
+          "central_solution_design.projectBriefs.subcontractor_database.dataAvailability",
+        genaiConsiderationsKey:
+          "central_solution_design.projectBriefs.subcontractor_database.genaiConsiderations",
+        timelineKey:
+          "central_solution_design.projectBriefs.subcontractor_database.timeline",
+        additionalCommentsKey:
+          "central_solution_design.projectBriefs.subcontractor_database.comments",
+      },
     },
   ],
 };

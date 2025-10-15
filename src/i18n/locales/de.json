@@ -50,6 +50,38 @@
         "target_prices": "Keine Ressourcenbindung, Konzentration auf wichtige/strategische Projekte",
         "contract_review": "Risikomanagement"
       }
+    },
+    "projectBriefs": {
+      "requirements_specification": {
+        "sponsor": "TRI / TBA",
+        "teams": "SD / BD / IT",
+        "conflicts": "IT-Ressourcen",
+        "resources": "Personal, Budget, Technologie",
+        "dataAvailability": "Lastenhefte sind vorhanden",
+        "genaiConsiderations": "Datenschutz da Kundendokumente, Aufbau und Umfang der Dokumente richtige Definition der Schlagworte + permanente Weiterentwicklung",
+        "timeline": "Ende 2026",
+        "comments": "rechtliche Klärung des Datenschutzes"
+      },
+      "target_prices": {
+        "sponsor": "TBA / TRI",
+        "teams": "SD / IT",
+        "conflicts": "IT-Ressourcen",
+        "resources": "Personal, Budget, Technologie",
+        "dataAvailability": "Daten vorhanden",
+        "genaiConsiderations": "Datenschutz\nKostenaufschlüsselung, Ressourcen-Aufstellung",
+        "timeline": "Q2 / 2026",
+        "comments": ""
+      },
+      "contract_review": {
+        "sponsor": "TRI / TBA / Legal",
+        "teams": "SD / BD / Legal / IT",
+        "conflicts": "IT-Ressourcen",
+        "resources": "Personal, Budget, Technologie",
+        "dataAvailability": "Mustervertrag DUV\nBeispielvertrag",
+        "genaiConsiderations": "Datenschutz da Kundendokumente, Aufbau und Umfang der Dokumente richtige Definition der Schlagworte + permanente Weiterentwicklung",
+        "timeline": "Mitte 2027",
+        "comments": "rechtliche Klärung des Datenschutzes"
+      }
     }
   },
   "controlling": {
@@ -67,6 +99,38 @@
       "presentation_creation": "Automatisierte Erstellung der MEC PPT",
       "intensive_research": "\"Lexikon\" in dem ich schnell \"nachschlagen\" kann // Chatbot",
       "fp_analysis": "Automatisierte Erstellung einer Tour-ID, so dass man erkennt, wenn 2 Car_O Touren (oder mehr) zu einem Rundlauf kombiniert wurden. Mithilfe von Fleetboard automatische Analysen der Strecke und Produktivität erstellen. Umfassende Analyse der relevanten FP-KPI"
+    },
+    "projectBriefs": {
+      "fp_analysis": {
+        "sponsor": "Johanna Blanke/ Angelika Scheicher",
+        "teams": "Controlling, FP-Disposition, DUVIS-Team",
+        "conflicts": "- Ressourcenüberschneidung: DUVIS-Team, FP-Disposition, Controlling\n - Implementierung neues TMS\n - nicht an allen Standorten wird (die gleiche) Telematik eingesetzt",
+        "resources": "Personal, Budget, Technologie",
+        "dataAvailability": "FP-Produktivität: GPS-Daten der LKW/ Reisedaten vorhanden / Daten der Fahrerkarte vorhanden--> Definition für die Abweichungsanalyse festlegen\nTour ID: Reiseübergreifende Tour-ID bisher nicht vorhanden",
+        "genaiConsiderations": "Meilenstein: Validierung der Umsetzbarkeit:\nSkalierbarkeit: 80% des Fuhrparks nutzt das gleiche Telematiksystem / \nTour ID: Umstellung TMS in den kommenden zwei Jahren, daher in dieser Zeit keine einheitliche Nutzung des TMS",
+        "timeline": "",
+        "comments": ""
+      },
+      "presentation_creation": {
+        "sponsor": "Jan Braukmüller",
+        "teams": "Controlling, IT, HR, Sales, ESG, PMI, M&A",
+        "conflicts": "Ressourcenüberschneidungen gibt es in allen Abteilungen",
+        "resources": "Personal, Budget, Technologie",
+        "dataAvailability": "Muss mit allen involvierten Teams geprüft und definiert werden\n- IDL, Lucanet, etc.",
+        "genaiConsiderations": "Meilenstein: Validierung der Umsetzbarkeit: zuerst an einer BU testen (z.B. PCL)\nSkalierbarkeit: vor allem im M&A erstmal nicht zu 100% möglich",
+        "timeline": "",
+        "comments": ""
+      },
+      "intensive_research": {
+        "sponsor": "Maximilian Göckener",
+        "teams": "Legal, Sales, SL, CO, HR, SAP, Facility, FP, Treasury, IT",
+        "conflicts": "- Ressourcenüberschneidungen gibt es in allen Abteilungen\n - Konflikte zwischen den Abteilungen hinsichtlich Datenschutz",
+        "resources": "Personal, Budget, Technologie",
+        "dataAvailability": "Muss mit allen involvierten Teams geprüft und definiert werden",
+        "genaiConsiderations": "Meilenstein: Validierung der Umsetzbarkeit / Definition welche Daten zur Verfügung gestellt werden sollen/ dürfen\nDatenschutz: wer darf welche Informationen erhalten",
+        "timeline": "",
+        "comments": ""
+      }
     },
     "notes": {
       "complexity": {
@@ -329,6 +393,38 @@
       "chatbot_external": "Diese Standardanfragen könnten einfach von einem Chatbot beantwortet werden",
       "ic_differences": "Automatisierte Analyse von Differenzen, Entwicklung von Lösungsvorschlägen"
     },
+    "projectBriefs": {
+      "document_reading": {
+        "sponsor": "Annette Gziello",
+        "teams": "Finance + weitere",
+        "conflicts": "Projektarbeit vs. Tagesgeschäft",
+        "resources": "",
+        "dataAvailability": "Diverse Dokumente wie z.B. Rechnugen, Transportapiere, Verträge, etc..",
+        "genaiConsiderations": "",
+        "timeline": "",
+        "comments": "Sehr allgemeines Projekt\nkann ich Unterprojekte aufgeteilt werden\nz.B. Lieferscheinalayse für Abrechnung\nVertragsanalyse für unterschiedliche Abteilungen\nRechnungseingangsworkflow\nSpeicherung von Leasingdaten\nje nach Dokumentenart unterschiedliche Ausprägung der Weiterverwendung der ermittelten Daten\nUnterschiedliche Anschlussworkflows\nAdobe hat bereits ein ähnliches Verfahren, daran könnte man sich anlehnen."
+      },
+      "chatbot_external": {
+        "sponsor": "Wadim Soroka",
+        "teams": "Buchhaltung + Abrechnung",
+        "conflicts": "Projektarbeit vs. Tagesgeschäft",
+        "resources": "",
+        "dataAvailability": "ERP und TMS Daten",
+        "genaiConsiderations": "",
+        "timeline": "",
+        "comments": "Informationsgehalt aus Mails interpretieren, ableiten und to do´s bilden.\nJe nach Thema können daraus weitere nachgelagerte Workflows entstehen"
+      },
+      "cash_forecast": {
+        "sponsor": "Wadim Soroka",
+        "teams": "Treasury, Controlling, Finance",
+        "conflicts": "Projektarbeit vs. Tagesgeschäft",
+        "resources": "",
+        "dataAvailability": "ERP und TMS , electronic banking (Coupa)",
+        "genaiConsiderations": "",
+        "timeline": "",
+        "comments": "Plausibilitätsprüfung der Daten mit z.B. Ampelsystem"
+      }
+    },
     "notes": {
       "complexity": {
         "document_reading": "Dokumententyp muss erkannt werden\nRelevante Informationen müssen je nach Dokumententyp gelesen werden\nFür Verträge: Abgleich mit vorgegebenen Parametern\nFür Rechnungen: Vorerfassung/Buchung\nFür Leasing-Dauerrechnungen: Informationsspeicherung in SAP\nFür Transportdokumente: Informationsspeicherung in Car_O",
@@ -404,6 +500,38 @@
         "ftl_precalculation": "Korreliert mit Wachstumszielen",
         "subcontractor_database": "Korreliert mit Wachstumszielen"
       }
+    },
+    "projectBriefs": {
+      "nine_am_process": {
+        "sponsor": "Elias Stadtler / Jonas Ostendorf",
+        "teams": "Tendermanagement, CRM-Team, IT",
+        "conflicts": "Synergien zwischen 9 Uhr Prozess und Vorkalkulation; keine (potenziellen) Konflikte bekannt",
+        "resources": "Personal: - ein FTE Tendermanagement / Business Analytics\nBudget: - < 1.000 € KI-Agent, ~600 € Workflow - Plattform (pro Jahr)\nTechnologien: - CRM - n8n - Claude (Anthropic) - Outlook",
+        "dataAvailability": "Es müssen keine Daten bereitgestellt werden, historische Ausschreibungen sind verfügbar.",
+        "genaiConsiderations": "Prototyp-Meilenstein: Test in der CRM Sandbox\nPilot-Design: POC in der Sandbox durch Sales Mitarbeiter\nEthik und Datenschutz: Zu klären, ob Kundeninformationen verarbeitet werden dürfen\nSkalierbarkeit: n8n für andere Prozesse möglich, sonst: Prozess könnte ausgeweitet werden um weitere Teilprozesse\nChange Management: Schulungen zur Verwaltung des Workflows und Nutzung der Lösung, ggf. imanSys eLearning",
+        "timeline": "MVP bis Ende Oktober / Anfang November 2025 (abhängig von Berechtigungen durch IT / CRM), POC Ende 2025 / Anfang 2026, Implementierung Q1 2026",
+        "comments": "Sehr starke Synergien zum Projekt Vorkalkulation, großer Effekt auf strategische Ziele wie Angebotsvolumen"
+      },
+      "ftl_precalculation": {
+        "sponsor": "Martin Kemper / Tenderdokumente Elias",
+        "teams": "Tendermanagement, Road Sales, CRM, Legal, IT-BI",
+        "conflicts": "Synergien zwischen 9 Uhr Prozess und Vorkalkulation; keine (potenziellen) Konflikte bekannt",
+        "resources": "Personal: - ein FTE Tendermanagement\nBudget: - < 1.000 € KI-Agent, ~600 € Workflow Plattform (pro Jahr)\nTechnologien: - CRM (+ SharePoint) - n8n - Claude (Anthropic) - IDL / CarO (Berichtssystem) - Excel - Outlook",
+        "dataAvailability": "Transportdaten in CarO sind vorhanden, historische NDAs sind vorhanden",
+        "genaiConsiderations": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: z. B. anonymisierte Daten\nSkalierbarkeit: Prozess könnte ausgeweitet werden um weitere Teilprozesse\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+        "timeline": "tbd, im Anschluss an den 9 Uhr Prozess (ca. 4 - 6 Monate)",
+        "comments": "Sehr starke Synergien zum Projekt Vorkalkulation, großer Effekt auf strategische Ziele wie Angebotsvolumen"
+      },
+      "subcontractor_database": {
+        "sponsor": "Sofie Prem",
+        "teams": "Road Sales, IT-BI, Business Analytics, Dispo",
+        "conflicts": "nicht bekannt",
+        "resources": "Personal: - IT Personal muss durch die IT ermittelt werden, andere Bereiche nur beratend gefragt (keine Kernaufgabe)\nBudget: - einmalige Entwicklungskosten, Abschätzung durch IT-BI; KI-Kosten + Workflow (<2.000 € p. a.)\nTechnologien: - n8n - Claude (Anthropic) - IDL / CarO (Berichtssystem) - Excel (+ VBA)",
+        "dataAvailability": "Transportdaten sind in CarO verfügbar, Timocom und Transporeon Anbindung",
+        "genaiConsiderations": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+        "timeline": "Sehr stark abhängig vom Zeitplan der IT-BI, im Laufe des Jahres 2026",
+        "comments": ""
+      }
     }
   },
   "strategic_kam": {
@@ -421,6 +549,28 @@
       "automated_news_procurement": "KI gestützte Analyse der beschriebenen Punkte, automatisierte Benachrichtigung über Neuigkeiten in jeglicher Richtung",
       "automated_crm_recommendations": "Die KI gibt Vorschläge im CRM für die Eingabefelder und unterstützt dabei Daten aktuell zu halten (Opportunities etc.). Textfelder werden mit Vorschlägen befüllt, die übernommen oder angepasst werden können (Client Plan)",
       "ai_contract_review": "Nutzung eines LLM zur Prüfung bestimmter Vertragskonstellationen"
+    },
+    "projectBriefs": {
+      "automated_news_procurement": {
+        "sponsor": "Sales Leader KAM",
+        "teams": "KAM, IT",
+        "conflicts": "Budgets und Kapazitäten müssen für IT-Entwicklung und externe Tools freigegeben werden. Ggf. Abhängigkeit von Anbietern (Vendor Lock-In) oder Datenqualität externer Quellen. Bisher haben wir unsere Kunden sehr individuell betreut - zukünftig sollte es ein standardisierter Prozess sein.",
+        "resources": "Entwickler für die Implementierung von Schnittstellen zu News-Aggregatoren und CRM. Lizenz für News-API oder vergleichbare Dienste. Schulungsbudget für interne Nutzung.",
+        "dataAvailability": "Öffentliche Nachrichtenquellen und Branchenberichte sind frei verfügbar. Geschützte Kundendaten und Vertragsinformationen: Sehr hohe Sensibilität (intern strukturiert).",
+        "genaiConsiderations": "Prototyping: Einfache Umsetzung möglich - News-Crawler + Zusammenfassung\nMVP: CRM-Anbindung für Echtzeit-Benachrichtigungen ggf. komplexer\nScalability: Keine großen Bedenken\nEthics: KI kann \"Halluzinieren\" -> Mitarbeitenden zur Validierung eine Person zuordnen, die einen Bezug zu den Kunden hat/die Kunden kennt. Sicherstellen, dass Datenschutzanforderungen eingehalten werden (was wird wo verarbeitet?)\nChange Management: Mehraufwand vor kurzfristigem Nutzen - Weiterführung nur noch mit standardisierten Prozess zu machen, was möglicherweise von einigen Mitarbeitenden abgelehnt wird.",
+        "timeline": "2026/2027",
+        "comments": ""
+      },
+      "automated_crm_recommendations": {
+        "sponsor": "CRM-Team",
+        "teams": "Sales, CRM, IT",
+        "conflicts": "Intern: Schulungs- und Akzeptanzproblem bei Vertriebsmitarbeitenden, falls CRM-Tool als zu komplex oder einschränkend wahrgenommen wird. Datenqualität: Vorschläge der KI können nur so gut sein wie die im System gespeicherten Daten. Abteilungsübergreifende Datenpflege erforderlich.",
+        "resources": "Lizenz für CRM mit KI-Unterstützung (z. B. Microsoft Copilot for Sales). IT-Ressourcen für Customizing und Schnittstellenanbindung. Change Management: Training, Best Practices und interne Kommunikation zur Akzeptanzsteigerung.",
+        "dataAvailability": "CRM-Daten (Kontaktdaten, Opportunities, Aktivitäten): Aktuell vorhanden, aber Qualität variiert. Historische Datensätze aus Vertriebsaktivitäten: Je länger der Zeitraum, desto besser die KI-Vorhersagen.",
+        "genaiConsiderations": "Prototyping: MVP mit Copilot leicht umsetzbar, da Produkt bereits kommerziell verfügbar ist.\nMVP: Integration in bestehende Salesforce-Umgebung und Definition von Use Cases (z. B. Client Plans)\nScalability: Lizenzen können bei wachsender Nutzung skaliert werden (hohe Kosten je User)\nEthics: Interne Sensibilität bzgl. KI-basierter Vorschläge -> Transparenz schaffen; Sicherstellen, dass die KI nicht diskriminierende oder verzerrte Empfehlungen macht.\nChange Management: Klare Kommunikation, dass die KI nur als \"Assistent\" dient, aber der Vertrieb die Kontrolle behält. Regelmäßige Feedback-Schleifen mit Usern etablieren. Schulungen und Best Practice Sharing notwendig.",
+        "timeline": "Open",
+        "comments": ""
+      }
     },
     "notes": {
       "complexity": {
@@ -516,6 +666,38 @@
         "sales_kpi_dashboard": "Siehe ROI",
         "lead_management_prioritization": "Siehe ROI"
       }
+    },
+    "projectBriefs": {
+      "ai_data_automation": {
+        "sponsor": "CIO / CDO",
+        "teams": "IT, Security & jeweilige Fachtabteilung",
+        "conflicts": "Jede Fachabteilung muss den Input zur Bewertung geben und dann muss das für alle priorisiert werden, Datenhoheit zwischen Abteilungen, Priorisierung von IT-Ressourcen",
+        "resources": "Schwer abschätzbare Personalmenge und Budget erst mal unbekannt, KI-Tool für Datenaggregation, Schnittstellen zu CRM und weiteren Systemen, Budget für Entwicklung",
+        "dataAvailability": "Jede Fachabteilung muss eine Check-Liste inkl. Kategorien erstellen | seitens Sales: Ausschreibungsunterlagen, Kundendokumente, E-Mails vorhanden, aber unstrukturiert",
+        "genaiConsiderations": "Mögliche Einschätzung: Prototyp für Datenaggregation, Pilot mit ausgewählten Ausschreibungen, Datenschutz",
+        "timeline": "2026 / 2027",
+        "comments": "Hohe Effizienzsteigerung, reduziert manuelle Arbeit"
+      },
+      "automated_quote_creation": {
+        "sponsor": "CCO",
+        "teams": "Die jeweilige Fachtabteilung (Central & Site Solution Design); business analytics & VP KAM",
+        "conflicts": "Anpassung bestehender Prozesse, Akzeptanz bei Vertrieb / Tender Management",
+        "resources": "CRM-Entwicklung, Tool-Integration",
+        "dataAvailability": "Preislisten, Margen, eigene Kalkulationsdatei und Routeninformationen (Quelle sehr unterschiedlich) vorhanden",
+        "genaiConsiderations": "Pilot mit ausgewählten Kunden (z.B. Relabes-Ausschreibung von OEM)",
+        "timeline": "2026",
+        "comments": "Kritisch für Geschwindigkeit im Angebotsprozess"
+      },
+      "unified_communication": {
+        "sponsor": "CCO",
+        "teams": "Sales Support, CRM, Kundenportal = Product Owner; Vertrieb; Marketing & Communication",
+        "conflicts": "Integration verschiedener Systeme, Datenschutz bei Kommunikationsdaten",
+        "resources": "Budget für Schnittstellen zwischen Kommunikationssystemen der Duvenbeck Welt; Technologie: Auswahl einer Plattform (Entscheidung für ein bestehendes oder Erwerb einer neuen Plattform?)",
+        "dataAvailability": "Kommunikationsdaten verteilt auf mehrere Systeme",
+        "genaiConsiderations": "Pilot mit ausgewählten Kanälen und User / Fachabteilung, DSGVO-konforme Verarbeitung",
+        "timeline": "Offen",
+        "comments": "Erhöht Transparenz und Nachverfolgbarkeit, reduziert Informationsverluste"
+      }
     }
   },
   "qehs": {
@@ -560,6 +742,38 @@
         "training_management": "Direkt normrelevant (z.B. ISO, Legal Compliance), verbessert Fachkompetenz im Unternehmen und Einhaltung Gestezlicher Vorgaben",
         "fake_carrier_detection": "Hoch relevant für Supply Chain Sicherheit, TAPA/ISO 28000, Kundenanforderungen"
       }
+    },
+    "projectBriefs": {
+      "fake_carrier_detection": {
+        "sponsor": "COO",
+        "teams": "IMS-Carrier, Cooperate Security, operative Niederlassungen",
+        "conflicts": "Datenabgleich mit Externen (Datenschutz), Blockieren legitimer Carrier, rechtliche Klärung bei False Positives, Konflikt mit den operativen Häusern, weil zentrale den Einsatz der Subunternehmer überstimmt",
+        "resources": "Personal, Budget, IT-Ressource für Programmierung zu Anbindung TMS",
+        "dataAvailability": "Subunternehmerdaten, Teilweise vorhanden, viele manuell → muss automatisiert nutzbar gemacht werdenund müssen aktuell sein",
+        "genaiConsiderations": "Prototyp: Abgleich mit bekannten Fake-Carriern aus Vergangenheit (Blacklist-Modell)\nPilot-Design: Live-Test in einer Region bzw. Standort\nEthik & Datenschutz: Klare Regelung für Umgang mit Falsch-Erkennung, keine personenbezogenen Daten ohne Schutzmaßnahmen\nSkalierbarkeit: Vollständig skalierbar bei stabiler TMS-Anbindung unter Berücksichtigung unterschiedlicher TMS Systeme\nChange Management: Transparente Kommunikation an Disposition/Standorte, Eskalationsstufen bei Sperrungen",
+        "timeline": "Pilotierung innerhalb 3-6 Monate anschließend Implementierung aller Standort/TMS Systeme",
+        "comments": "Komplexe Interaktionen mit vielen DUV Zentral Bereichen/opertaiven Standorte"
+      },
+      "document_audit_automation": {
+        "sponsor": "CXO",
+        "teams": "QEHS, ISD, Security, ggfs. Legal (für Legal Complaince Audits)",
+        "conflicts": "Schnittstellenprobleme zwischen lokaler und zentraler Dokumentation, unterschiedliche Auditansätze, fehlende Standardisierung",
+        "resources": "Personal, Budget, Technologie",
+        "dataAvailability": "Vorhanden, Normbezüge und Audits zentral vorhanden, lokale Daten müssten ggfs. Zentral (DMS) abgelegt werden",
+        "genaiConsiderations": "Prototyp: Pilot für 1–2 Standorte/Normen mit definiertem Dokumentensatz\nPilot-Design: Testlauf mit Auditorenteam (Vorher-/Nachher-Vergleich)\nEthik & Datenschutz: Keine sensiblen personenbezogenen Daten – ggf. Revisionsvermerke anonymisieren\nSkalierbarkeit: t.b.d\nChange Management: Schulung der Auditoren & Standorte zur neuen Arbeitsweise",
+        "timeline": "Pilotierung innerhalb 3-6 Monate anschließend Implementierung aller Normen",
+        "comments": "DUV weit"
+      },
+      "training_management": {
+        "sponsor": "CXO, CPO",
+        "teams": "HR, QEHS, ISD, Security, opertaive Niederlasungen die Schulungen erstellen",
+        "conflicts": "Uneinheitliche Schulungsinhalte/-standards, lokale vs. zentrale Zuständigkeiten, Sprachbarriere - Übersetzungen",
+        "resources": "Personal, Budget, Technologie",
+        "dataAvailability": "Bisherige Schulungsdokumente (Excel, PowerPoint etc.) vorhandenm müssen teilweise neu generiert werden, Mitarbeiterprfofile und Rollen teilweise nicht ganz klar - Hierachie etc.",
+        "genaiConsiderations": "Prototyp: Test mit 1 Schulung (z. B. Subunternehmereinsatz) für eine Zielgruppe\nPilot-Design: Feedbackrunde nach erstem Schulungsmodul\nEthik & Datenschutz: Rollenbezogene Daten nur anonymisiert, KI-Feedback ohne personenbezogene Nachverfolgung\nSkalierbarkeit: Inhalte skalierbar pro Standort & Rolle\nChange Management: Schulungsersteller & Fachbereiche einbinden, frühzeitig testen",
+        "timeline": "Pilotierung innerhalb 1-3 Monate anschließend Implementierung auf weitere Schulungen",
+        "comments": ""
+      }
     }
   },
   "marketing_communications": {
@@ -600,8 +814,8 @@
         "image_generation": "Marektingbilder sind sehr teuer, aufgrund von Lizenzkosten, die abhängig sind von Medien und Einsatz in Ländern sowie von der Frequenz (1-maliger Einsatz, mehrmaliger), PR Bilder sind günstiger, ABER Urheberrecht ist ein großes Thema (PR Bilder dürfen nicht als Marketingbild verwendet werden)"
       },
       "roi": {
-        "media_analysis_industry": "Gezieltes Ansprechen der relevanten Fachmedien, um die Zielgruppen zu erreichen - Outcomes sind sofort verfügbar und die weiteren Handlungen können je genauer die Kampagne, umso besser erreichst du die Zielgruppe und umso besser Geringer Aufwand, Hoher Mehrwert: Einfache Anfragen Einmaliges Shooting im Jahr: Langfristigkeit, die Bilder sind definitiv on brand, Lizenzen (Rechte) sind kein Thema",
-        "kpi_data_monitoring": "Outcomes sind sofort verfügbar und die weiteren Handlungen können je genauer die Kampagne, umso besser erreichst du die Zielgruppe und umso besser werden Geringer Aufwand, Hoher Mehrwert: Einfache Anfragen Einmaliges Shooting im Jahr: Langfristigkeit, die Bilder sind definitiv on brand, Lizenzen (Rechte) sind kein Thema",
+        "media_analysis_industry": "Gezieltes Ansprechen der relevanten Fachmedien, um die Zielgruppen zu erreichen - Aufbau langfristiger Beziehungen (Fachmedien kommen auf uns zu für Themen, Verbreitung der Marke dadurch einfacher/ zum Meinungsführer am Markt werden)",
+        "kpi_data_monitoring": "Outcomes sind sofort verfügbar und die weiteren Handlungen können angepasst werden, Strategien können angepasst werden",
         "campaign_performance_analysis": "je genauer die Kampagne, umso besser erreichst du die Zielgruppe und umso besser der Outcome",
         "brand_training_assistant": "Geringer Aufwand, Hoher Mehrwert: Einfache Anfragen werden abgefangen und belasten die Marketing Ressource nicht, die Organisation wird selbstständiger und hat einen Selbstlerneffekt",
         "image_generation": "Einmaliges Shooting im Jahr: Langfristigkeit, die Bilder sind definitiv on brand, Lizenzen (Rechte) sind kein Thema"
@@ -619,6 +833,41 @@
         "campaign_performance_analysis": "Bessere Kampagnenoptimierung und Zielgruppenerreichung",
         "brand_training_assistant": "Schont Ressourcen, die für strageische Themen eingesetzt werden kann + Markenidentifikation",
         "image_generation": "Konsistente Markenidentität in der visuellen Kommunikation"
+      }
+    },
+    "projectBriefs": {
+      "media_analysis_industry": {
+        "projectSponsor": "Anastasia Nartschenko",
+        "projectLead": "Melanie Mosler",
+        "involvedTeams": "Marketing, AI Team",
+        "potentialConflicts": "Priorisierung von Ressourcen zwischen Marketing und AI Team",
+        "requiredResources": "Personal (Data Analyst, Projektmanager), Budget für Tools, KI-Technologie (eine große Analyse, die in bestimmten Zeiträumen wiederholt wird)",
+        "dataAvailability": "Daten müssen durch Marketing auf Basis von Erfahrungen geliefert werden: Themen, Analyserichtung, Branchen, Newsrichtung (z.B. Unternehmens News, Produkt News, Personalankündigungen etc.), Zielgruppe, Zeitraum",
+        "genaiConsiderations": "Prototyp-Meilensteine: KI-Modell für Datenanalyse \nPilot-Design: Nutzerzentrierte Dashboards für Marketing\nEthik & Datenschutz: keine sensiblen Daten\nSkalierbarkeit: nicht nötig, da nur für zentrales Marketing Team\nChange Management: Schulungen für Marketing-Teams",
+        "timeline": "Q4 2025: Prototyp & Datenintegration\nQ1 2026: Pilotphase\nQ2 2026: Rollout",
+        "additionalComments": "Fokus auf Mehrwert: Trend-Analysen, Wettbewerbsbeobachtung, Content-Strategie"
+      },
+      "kpi_data_monitoring": {
+        "projectSponsor": "Anastasia Nartschenko",
+        "projectLead": "Melanie Mosler",
+        "involvedTeams": "Marketing, AI Team",
+        "potentialConflicts": "Unterschiedliche KPI-Definitionen zwischen Abteilungen, Priorisierung von Ressourcen zwischen Marketing und AI Team",
+        "requiredResources": "Personal (Data Analyst, Projektmanager), Budget für Tools, KI-Technologie (dauerhaftes Monitoring)",
+        "dataAvailability": "Pressemitteilungen, Social-Media-Daten, interne Feedbacktools, Wettbewerbsdaten",
+        "genaiConsiderations": "Prototyp-Meilensteine: KI-gestützte KPI-Dashboards\nPilot-Design: Iterative Tests mit Marketing-Teams\nEthik & Datenschutz: keine sensiblen Daten\nSkalierbarkeit: Integration in bestehende BI-Systeme\nChange Management: Schulungen für Marketing-Teams",
+        "timeline": "2026",
+        "additionalComments": "Ziel: Einheitliche KPI-Übersicht für Marketing & PR, inkl. Tonalitätsanalyse und Reichweitenbewertung"
+      },
+      "campaign_performance_analysis": {
+        "projectSponsor": "Anastasia Nartschenko",
+        "projectLead": "Melanie Mosler",
+        "involvedTeams": "Marketing, AI Team, Fachabteilungen wie Sales, HR, etc als Auftraggeber (KPIs definieren für messbare Performance)",
+        "potentialConflicts": "Abhängigkeit von Daten aus verschiedenen Plattformen, Datenschutz bei Kundendaten",
+        "requiredResources": "Personal (Data Scientist, Marketing Analyst), Budget für KI-Tools, Cloud-Infrastruktur",
+        "dataAvailability": "Kampagnendaten aus CRM, Social Media, Google Ads, interne Marketingdaten",
+        "genaiConsiderations": "Prototyp-Meilensteine: KI-Modell für Echtzeit-Analyse\nPilot-Design: Dashboard mit Trend-Alerts\nEthik & Datenschutz: DSGVO-konforme Verarbeitung, Anonymisierung\nSkalierbarkeit: Integration in Marketing-Automation-Systeme\nChange Management: Schulungen für Marketing-Teams + Fachabteilungen",
+        "timeline": null,
+        "additionalComments": "Ziel: Echtzeit-Optimierung von Kampagnen, ROI-Steigerung, datengetriebene Entscheidungen"
       }
     }
   },
@@ -684,6 +933,38 @@
       "risk": {
         "predictive_disposition_pricing": "Fällt die Einschätzung falsch aus produziert man mehrkosten durch falsch engekauften Fuhrpark"
       }
+    },
+    "projectBriefs": {
+      "telematics_cost_forecast": {
+        "sponsor": "GF",
+        "teams": "Fuhrpark, BI",
+        "conflicts": "",
+        "resources": "ML Algorithmus, Fuhrpark, Buchhaltung, IT, AI Agent",
+        "dataAvailability": "Reparaturdaten, Fleetboard, Stammdaten Fahrzeug",
+        "genaiConsiderations": "Prototyp mit wenigen LKW. Simulierte Daten gegenüber Ist-Daten prüfen. Reparaturdaten nach Reparaturart geclustert. \nAgent schickt zeitnah eine Info wenn z.B. ein Reifen platt geht oder Auffälligkeiten in den Daten vorhanden sind\n\nViele Daten\nNutzer gleichen Berichte mit den Nachrichten aus dem Agent ab. Gegenseitige Prüfung aller Telemetriedaten (z.B. Reifendrücke)",
+        "timeline": "asap",
+        "comments": "Datenqualität könnte teilweise schlecht sein bei den erfassten Reparaturdaten. Eingabeprozesse müssten hinterfragt werden"
+      },
+      "internal_freight_exchange": {
+        "sponsor": "GF",
+        "teams": "Disposition, Fuhrpark, BI, Stammdaten",
+        "conflicts": "greift in die laufenden Planungsprozesse ein",
+        "resources": "Disponenten, TMS Daten",
+        "dataAvailability": "Fleetboard, TMS Daten\nAktuelle TMS Daten für Suche notwendig",
+        "genaiConsiderations": "Ähnliche Touren zu dem eingegebenen Auftrag können gefunden werden\nWas wäre wenn Analyse\n\nTransaktionen müssten zeitnah erfasst sein",
+        "timeline": "",
+        "comments": ""
+      },
+      "automatic_gate_detection": {
+        "sponsor": "GF",
+        "teams": "DevOps, Niederlassung xy",
+        "conflicts": "",
+        "resources": "Entwickler, Hardware zum Scannen, Hardware zum Erkennen/Auswerten",
+        "dataAvailability": "",
+        "genaiConsiderations": "Prototyp/Pilot: Test an einem Tor mit einem Gerät\nDatenschutz: Kennzeichen werden gescannt und gespeichert\nSkalierbarkeit: Hoch",
+        "timeline": "",
+        "comments": ""
+      }
     }
   },
   "it_platform_services": {
@@ -716,6 +997,38 @@
       "roadmap_creation": "Rodmapgenerierung aus Projekten heraus",
       "project_tracking": "Regelmäßige automatisierte Abfragen bei den Workstream Leads",
       "automated_ticket_classification": "Einführung eines KI-Moduls im Ticketsystem, das Anfragen automatisch klassifiziert, priorisiert und dem richtigen Team zuweist."
+    },
+    "projectBriefs": {
+      "ticket_quality_prioritization": {
+        "sponsor": "Jakub",
+        "teams": "IT/ Entwicklung/ Produkt Owner/ PMO",
+        "conflicts": "Keine Ressourcen/ keine Akzeptanz für das Projekt",
+        "resources": "Interner Entwicklungsaufwand",
+        "dataAvailability": "Bestehende Ticketsystem-Daten, historische Ticketverläufe, Kategorisierungen,",
+        "genaiConsiderations": "- Prototyp: Klassifizierung und Priorisierung von Tickets\n- Pilot: Test mit ausgewählten Teams\n- Datenschutz: Ticketinhalte anonymisieren\n- Integration in Serviceportal",
+        "timeline": "- Grob Planung bis November 25\n- Erstellung bis Dezember 25\n- Implementierung - Q2 26\n- Kontrolle/ Bug - Q3 26",
+        "comments": "Fokus auf Qualität und Effizienz, kontinuierliches Feedback der Nutzer, Nachkontrolle durch Service Desk"
+      },
+      "meeting_minutes": {
+        "sponsor": "Jakub",
+        "teams": "Workplace + Dienstleister",
+        "conflicts": "Ressourcen/ Datenschutz",
+        "resources": "Copilot-Lizenzen (~30 € pro Nutzer), IT-Support",
+        "dataAvailability": "Meeting-Inhalte, Teilnehmerlisten",
+        "genaiConsiderations": "- Copilot POC\n- Festlegen für wen macht das Sinn\n- Nachgelagert das Thema DataGovernance inm M365",
+        "timeline": "- Start POC Oktober 25\n- Abschluss Januar 25\n- Implementierung - Q1 26",
+        "comments": "Hohe Zeitersparnis, bessere Nachverfolgbarkeit, Aufgabenverfolgung"
+      },
+      "communication_transparency": {
+        "sponsor": "Jakub",
+        "teams": "Workplace/ Corporate Development/ Dienstleister",
+        "conflicts": "Ressourcen",
+        "resources": "Copilot-Lizenzen (~30 € pro Nutzer), IT-Support",
+        "dataAvailability": "Interne Datenquellen, Webrecherche",
+        "genaiConsiderations": "- Copilot POC\n- Festlegen für wen macht das Sinn",
+        "timeline": "- Start POC Oktober 25\n- Abschluss Januar 25\n- Implementierung - Q1 26",
+        "comments": "Abgrenzung des Scopes \nZeitplan nur für Out of the Box Copilot Freischaltung in Powerpoint"
+      }
     },
     "notes": {
       "complexity": {
@@ -948,12 +1261,31 @@
         "automatic_customer_calculation": "Nicht vorhandene Werte bzw. falsche Berechnungen könnten das Verhältnis zum Kunden beeinflussen",
         "automatic_co2_tracking": "Fehlende oder falsch berechnete Werte können die CO2-Bilanzierung beeinflussen"
       },
+      "roi": {
+        "ai_text_creation": "u.a. Bericht wird voraussichtlich 2027 Bestandteil der jährlichen Berichterstattung + Kundenanforderung",
+        "ai_data_collection": "u.a. Bericht wird voraussichtlich 2027 Bestandteil der jährlichen Berichterstattung + Kundenanforderung",
+        "ai_data_processing": "Eher qualitativer Benefit",
+        "automatic_customer_calculation": "u.a. wichtig für Neukunden- geschäfte",
+        "automatic_co2_tracking": "u.a. wichtig für Neukunden- geschäfte"
+      },
       "strategic": {
         "ai_text_creation": "Gesetzliche Anforderung",
         "ai_data_collection": "Gesetzliche Anforderung",
         "ai_data_processing": "Wichtig für die ESG-Strategie",
         "automatic_customer_calculation": "Zertifizierung notwendig, zudem strategisch wichtig für eine Vielzahl an Stakeholder",
         "automatic_co2_tracking": "Zahlt auf die obrigen gesetzlichen Anforderungen ein"
+      }
+    },
+    "projectBriefs": {
+      "automatic_customer_calculation": {
+        "projectSponsor": "C-Board / ESG",
+        "involvedTeams": "ESG / IT / PMO / SALES",
+        "potentialConflicts": "Mit IT möglich; bspw: Integration von Tool durch Schnittstelle (Integration-Team der IT bedient schon andere interne Interessen)",
+        "requiredResources": "Projekt-Team: ca. 4 MA, Budget inkl. MA + Technologie im Projektzeitraum ~ 150.000€ (?)",
+        "dataAvailability": "Parameter in Frachtbriefen vorhanden, Bereitstellung von Umrechnungsfaktoren + zertifizierter Berechnungsmethodik notwendig",
+        "genaiConsiderations": "Nutzerzentierte Testphasen mit Feedbackschleifen",
+        "timeline": "Modul zur Berechnung der Transportemissionen soll bis Ende 2025 abgeschlossen sein, \nMilestone 1: Datenbereitstellung seitens DUV bis 11/2025\nMilestone 2: Datenintegration in bestehende Technologie bis Mitte 12/2025\nMilestone 3: Testphase der ersten Daten-Runs + anschließende Optimierung bis Ende 12/2025",
+        "additionalComments": null
       }
     }
   },
@@ -1001,12 +1333,51 @@
         "vacation_management": "aufgrund personenbezogener Daten",
         "email_prioritization": "Voraussetzung: lokales Hosting, in diesem Fall sind die personenbezogenen Daten geschützt"
       },
+      "roi": {
+        "hr_data_dashboard": "Ein HR Dashboard auf der jeweiligen Organisationsebene führt zu einer deutlichen besseren Entscheidungsgrundlage für das operative HR Management --> stark verbessertes Berichtswesen, Shareholder und Stakeholder Satisfaction, dies entspricht einem Führungstool, das uns heute noch nicht zur Verfügung steht, dies führt auch zur Risikominimierung, Frühwarnsysteme, Personaleinsatzplanung",
+        "employee_information_dashboard": "Ein HR Dashboard auf der jeweiligen Organisationsebene führt zu einer deutlichen besseren Entscheidungsgrundlage für das operative HR Management --> stark verbessertes Berichtswesen, Shareholder und Stakeholder Satisfaction, dies entspricht einem Führungstool, das uns heute noch nicht zur Verfügung steht, dies führt auch zur Risikominimierung, Frühwarnsysteme, Personaleinsatzplanung --> bildet die Grundlage für ein konsolidiertes HR Dashboard / Stammdatenmanagement",
+        "hr_agent": "ROI sehr abhängig von der Größe des Landes (Mitarbeiteranzahl), Anteil Blue Collar (eher hoher ROI) und white Collar Bereich, Standort mit hoher Fluktuation --> hoher ROI)",
+        "vacation_management": "Management von Urlaubsrückstellungen, fließt in Management von Zeitarbeit mit ein, sofern Urlaubsphasen durch Zeitarbeit kompensiert werden (betriftt vor allem blue collar in der PCL)",
+        "email_prioritization": "Zeitersparnis, damit Produktivitätserhöhung"
+      },
       "strategic": {
         "hr_data_dashboard": "entspricht der strategischen Ausrichtung von Duvenbeck",
         "employee_information_dashboard": "entspricht der strategischen Ausrichtung von Duvenbeck",
         "hr_agent": "Produktivitätserhöhung, sollte zu einer Digitalisierungsstrategie referieren",
         "vacation_management": "Produktivitätserhöhung, sollte zu einer Digitalisierungsstrategie referieren",
         "email_prioritization": "Digitalisierungsstrategie"
+      }
+    },
+    "projectBriefs": {
+      "hr_data_dashboard": {
+        "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
+        "involvedTeams": "zentrales HR Management, Ansprechpartner für Payrollprovider in den Ländern (auf Seite Duvenbeck und auf der Seite des Payrollproviders), IT, Corporate Development, Finance bzgl. Reporting",
+        "potentialConflicts": "Datenharmonisierung / Begriffsdefinitionen (Bsp. FTE; Absence Status etc.)",
+        "requiredResources": null,
+        "dataAvailability": "Basis Datawarehouse ist vorhanden, aktuell Erweiterung der Datenabfrage, Tabelle Datenscope kann anschließend zur Verfügung gestellt werden",
+        "genaiConsiderations": "lokales Hosting notwendig, Rollenkonzept / Zugriffsrechte / Berichtswesen hinsichtlich des HR Dashboards",
+        "timeline": "Q1 2026 für den ersten Piloten, Rollout im Verlauf Q4 2026",
+        "additionalComments": null
+      },
+      "employee_information_dashboard": {
+        "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
+        "involvedTeams": "zentrales HR Management, Ansprechpartner für Payrollprovider in den Ländern (auf Seite Duvenbeck und auf der Seite des Payrollproviders), IT, Corporate Development, Finance bzgl. Reporting",
+        "potentialConflicts": "Datenharmonisierung / Begriffsdefinitionen (Bsp. FTE; Absence Status etc.)",
+        "requiredResources": null,
+        "dataAvailability": "Basis Datawarehouse ist vorhanden, aktuell Erweiterung der Datenabfrage, Tabelle Datenscope kann anschließend zur Verfügung gestellt werden",
+        "genaiConsiderations": "lokales Hosting notwendig, Rollenkonzept / Zugriffsrechte / Berichtswesen hinsichtlich des HR Dashboards",
+        "timeline": "Q2 2026 für den ersten Piloten, Rollout im Verlauf Q4 2026",
+        "additionalComments": "Abhängig zur Einführung von SAP Success Factors (SF kann solch ein Mitarbeiterstammdatenblatt zur Verfügung stellen)"
+      },
+      "hr_agent": {
+        "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
+        "involvedTeams": "Legal, IT, Regionale HR Verantwortliche, Supplier für die gesetzlichen Inhalte",
+        "potentialConflicts": "potenzielle Ressourcenkonflikte",
+        "requiredResources": null,
+        "dataAvailability": "Vorab Entscheidung über Umfang des HR Chatbots (welche Fragen sollen abgedeckt werden) \nSupplier liefern gesetzliche Daten, regionale HR Verantwortliche müssen Duvenbeck-spezifische Daten liefern,",
+        "genaiConsiderations": "lokales Hosting notwendig, \nlandesspezifische Container bzw. jedes Land/ Region / Standort hat spezifische Chatbot-Inhalte,\nEntscheidung über eingesetzte Fremdsprachen,\nEntscheidung über Text, Sprach oder Video - Chatbot",
+        "timeline": "Q3 2026 für Pilot",
+        "additionalComments": "Skalierbarkeit auf einen Onboarding Chatbot und auf Themen die außerhalb von HR liegen (Beispiel Pannenhilfe für Fahrer)"
       }
     }
   },

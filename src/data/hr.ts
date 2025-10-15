@@ -19,12 +19,26 @@ export const ideas = {
       cost: 4,
       costNoteKey: "hr.notes.cost.hr_data_dashboard",
       roi: 5,
-      roiNote:
-        "Ein HR Dashboard auf der jeweiligen Organisationsebene führt zu einer deutlichen besseren Entscheidungsgrundlage für das operative HR Management --> stark verbessertes Berichtswesen, Shareholder und Stakeholder Satisfaction, dies entspricht einem Führungstool, das uns heute noch nicht zur Verfügung steht, dies führt auch zur Risikominimierung, Frühwarnsysteme, Personaleinsatzplanung",
+      roiNoteKey: "hr.notes.roi.hr_data_dashboard",
       risk: 1,
       riskNoteKey: "hr.notes.risk.hr_data_dashboard",
       strategicAlignment: 5,
       strategicNoteKey: "hr.notes.strategic.hr_data_dashboard",
+      projectBrief: {
+        projectSponsorKey: "hr.projectBriefs.hr_data_dashboard.projectSponsor",
+        involvedTeamsKey: "hr.projectBriefs.hr_data_dashboard.involvedTeams",
+        potentialConflictsKey:
+          "hr.projectBriefs.hr_data_dashboard.potentialConflicts",
+        requiredResourcesKey:
+          "hr.projectBriefs.hr_data_dashboard.requiredResources",
+        dataAvailabilityKey:
+          "hr.projectBriefs.hr_data_dashboard.dataAvailability",
+        genaiConsiderationsKey:
+          "hr.projectBriefs.hr_data_dashboard.genaiConsiderations",
+        timelineKey: "hr.projectBriefs.hr_data_dashboard.timeline",
+        additionalCommentsKey:
+          "hr.projectBriefs.hr_data_dashboard.additionalComments",
+      },
     },
     {
       finalPrio: 2,
@@ -38,31 +52,56 @@ export const ideas = {
       cost: 4,
       costNoteKey: "hr.notes.cost.employee_information_dashboard",
       roi: 5,
-      roiNote:
-        "Ein HR Dashboard auf der jeweiligen Organisationsebene führt zu einer deutlichen besseren Entscheidungsgrundlage für das operative HR Management --> stark verbessertes Berichtswesen, Shareholder und Stakeholder Satisfaction, dies entspricht einem Führungstool, das uns heute noch nicht zur Verfügung steht, dies führt auch zur Risikominimierung, Frühwarnsysteme, Personaleinsatzplanung --> bildet die Grundlage für ein konsolidiertes HR Dashboard / Stammdatenmanagement",
+      roiNoteKey: "hr.notes.roi.employee_information_dashboard",
       risk: 1,
       riskNoteKey: "hr.notes.risk.employee_information_dashboard",
       strategicAlignment: 5,
       strategicNoteKey: "hr.notes.strategic.employee_information_dashboard",
+      projectBrief: {
+        projectSponsorKey:
+          "hr.projectBriefs.employee_information_dashboard.projectSponsor",
+        involvedTeamsKey:
+          "hr.projectBriefs.employee_information_dashboard.involvedTeams",
+        potentialConflictsKey:
+          "hr.projectBriefs.employee_information_dashboard.potentialConflicts",
+        requiredResourcesKey:
+          "hr.projectBriefs.employee_information_dashboard.requiredResources",
+        dataAvailabilityKey:
+          "hr.projectBriefs.employee_information_dashboard.dataAvailability",
+        genaiConsiderationsKey:
+          "hr.projectBriefs.employee_information_dashboard.genaiConsiderations",
+        timelineKey: "hr.projectBriefs.employee_information_dashboard.timeline",
+        additionalCommentsKey:
+          "hr.projectBriefs.employee_information_dashboard.additionalComments",
+      },
     },
     {
       finalPrio: 3,
       ideaKey: "hr.ideas.hr_agent",
       problemKey: "hr.problems.hr_agent",
       solutionKey: "hr.solutions.hr_agent",
-      owner: "John Smith",
+      owner: "",
       priority: "A",
       complexity: 1,
       complexityNoteKey: "hr.notes.complexity.hr_agent",
       cost: 4,
       costNoteKey: "hr.notes.cost.hr_agent",
       roi: 4,
-      roiNote:
-        "ROI sehr abhängig von der Größe des Landes (Mitarbeiteranzahl), Anteil Blue Collar (eher hoher ROI) und white Collar Bereich, Standort mit hoher Fluktuation --> hoher ROI)",
+      roiNoteKey: "hr.notes.roi.hr_agent",
       risk: 4,
       riskNoteKey: "hr.notes.risk.hr_agent",
       strategicAlignment: 3,
       strategicNoteKey: "hr.notes.strategic.hr_agent",
+      projectBrief: {
+        projectSponsorKey: "hr.projectBriefs.hr_agent.projectSponsor",
+        involvedTeamsKey: "hr.projectBriefs.hr_agent.involvedTeams",
+        potentialConflictsKey: "hr.projectBriefs.hr_agent.potentialConflicts",
+        requiredResourcesKey: "hr.projectBriefs.hr_agent.requiredResources",
+        dataAvailabilityKey: "hr.projectBriefs.hr_agent.dataAvailability",
+        genaiConsiderationsKey: "hr.projectBriefs.hr_agent.genaiConsiderations",
+        timelineKey: "hr.projectBriefs.hr_agent.timeline",
+        additionalCommentsKey: "hr.projectBriefs.hr_agent.additionalComments",
+      },
     },
     {
       finalPrio: 4,
@@ -76,12 +115,12 @@ export const ideas = {
       cost: 3,
       costNoteKey: "hr.notes.cost.vacation_management",
       roi: 3,
-      roiNote:
-        "Management von Urlaubsrückstellungen, fließt in Management von Zeitarbeit mit ein, sofern Urlaubsphasen durch Zeitarbeit kompensiert werden (betriftt vor allem blue collar in der PCL)",
+      roiNoteKey: "hr.notes.roi.vacation_management",
       risk: 1,
       riskNoteKey: "hr.notes.risk.vacation_management",
       strategicAlignment: 3,
       strategicNoteKey: "hr.notes.strategic.vacation_management",
+      projectBrief: null,
     },
     {
       finalPrio: 5,
@@ -95,11 +134,12 @@ export const ideas = {
       cost: 2,
       costNoteKey: "hr.notes.cost.email_prioritization",
       roi: 3,
-      roiNote: "Zeitersparnis, damit Produktivitätserhöhung",
+      roiNoteKey: "hr.notes.roi.email_prioritization",
       risk: 4,
       riskNoteKey: "hr.notes.risk.email_prioritization",
       strategicAlignment: 3,
       strategicNoteKey: "hr.notes.strategic.email_prioritization",
+      projectBrief: null,
     },
   ],
 };
