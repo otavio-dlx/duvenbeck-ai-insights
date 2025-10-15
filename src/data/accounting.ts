@@ -27,13 +27,18 @@ export const ideas = {
       projectBrief: {
         projectSponsorKey: "accounting.projectBriefs.document_reading.sponsor",
         involvedTeamsKey: "accounting.projectBriefs.document_reading.teams",
-        potentialConflictsKey: "accounting.projectBriefs.document_reading.conflicts",
-        requiredResourcesKey: "accounting.projectBriefs.document_reading.resources",
-        dataAvailabilityKey: "accounting.projectBriefs.document_reading.dataAvailability",
-        genaiConsiderationsKey: "accounting.projectBriefs.document_reading.genaiConsiderations",
+        potentialConflictsKey:
+          "accounting.projectBriefs.document_reading.conflicts",
+        requiredResourcesKey:
+          "accounting.projectBriefs.document_reading.resources",
+        dataAvailabilityKey:
+          "accounting.projectBriefs.document_reading.dataAvailability",
+        genaiConsiderationsKey:
+          "accounting.projectBriefs.document_reading.genaiConsiderations",
         timelineKey: "accounting.projectBriefs.document_reading.timeline",
-        additionalCommentsKey: "accounting.projectBriefs.document_reading.comments"
-      }
+        additionalCommentsKey:
+          "accounting.projectBriefs.document_reading.comments",
+      },
     },
     {
       finalPrio: 3,
@@ -55,13 +60,18 @@ export const ideas = {
       projectBrief: {
         projectSponsorKey: "accounting.projectBriefs.cash_forecast.sponsor",
         involvedTeamsKey: "accounting.projectBriefs.cash_forecast.teams",
-        potentialConflictsKey: "accounting.projectBriefs.cash_forecast.conflicts",
-        requiredResourcesKey: "accounting.projectBriefs.cash_forecast.resources",
-        dataAvailabilityKey: "accounting.projectBriefs.cash_forecast.dataAvailability",
-        genaiConsiderationsKey: "accounting.projectBriefs.cash_forecast.genaiConsiderations",
+        potentialConflictsKey:
+          "accounting.projectBriefs.cash_forecast.conflicts",
+        requiredResourcesKey:
+          "accounting.projectBriefs.cash_forecast.resources",
+        dataAvailabilityKey:
+          "accounting.projectBriefs.cash_forecast.dataAvailability",
+        genaiConsiderationsKey:
+          "accounting.projectBriefs.cash_forecast.genaiConsiderations",
         timelineKey: "accounting.projectBriefs.cash_forecast.timeline",
-        additionalCommentsKey: "accounting.projectBriefs.cash_forecast.comments"
-      }
+        additionalCommentsKey:
+          "accounting.projectBriefs.cash_forecast.comments",
+      },
     },
     {
       finalPrio: 2,
@@ -83,13 +93,18 @@ export const ideas = {
       projectBrief: {
         projectSponsorKey: "accounting.projectBriefs.chatbot_external.sponsor",
         involvedTeamsKey: "accounting.projectBriefs.chatbot_external.teams",
-        potentialConflictsKey: "accounting.projectBriefs.chatbot_external.conflicts",
-        requiredResourcesKey: "accounting.projectBriefs.chatbot_external.resources",
-        dataAvailabilityKey: "accounting.projectBriefs.chatbot_external.dataAvailability",
-        genaiConsiderationsKey: "accounting.projectBriefs.chatbot_external.genaiConsiderations",
+        potentialConflictsKey:
+          "accounting.projectBriefs.chatbot_external.conflicts",
+        requiredResourcesKey:
+          "accounting.projectBriefs.chatbot_external.resources",
+        dataAvailabilityKey:
+          "accounting.projectBriefs.chatbot_external.dataAvailability",
+        genaiConsiderationsKey:
+          "accounting.projectBriefs.chatbot_external.genaiConsiderations",
         timelineKey: "accounting.projectBriefs.chatbot_external.timeline",
-        additionalCommentsKey: "accounting.projectBriefs.chatbot_external.comments"
-      }
+        additionalCommentsKey:
+          "accounting.projectBriefs.chatbot_external.comments",
+      },
     },
     {
       finalPrio: 4,
@@ -108,7 +123,7 @@ export const ideas = {
       riskNoteKey: "accounting.notes.risk.ic_differences",
       strategicAlignment: 3,
       strategicNoteKey: "accounting.notes.strategic.ic_differences",
-      projectBrief: null
+      projectBrief: null,
     },
   ],
 };
