@@ -4,6 +4,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { TaggingProvider } from "@/contexts/TaggingContext";
 import "@/i18n/config";
+import ChatPage from "@/pages/ChatPage";
 import { Dashboard } from "@/pages/Dashboard";
 import PriorityAnalysisPage from "@/pages/PriorityAnalysis";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -27,6 +28,7 @@ const App = () => (
                 path="/priority-analysis"
                 element={<PriorityAnalysisPage />}
               />
+              <Route path="/chat" element={<ChatPage />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

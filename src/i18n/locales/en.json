@@ -3,6 +3,11 @@
     "title": "AI Workshop Dashboard",
     "subtitle": "Duvenbeck AI Workshop October 6-8, 2025"
   },
+  "chat": {
+    "title": "AI Assistant",
+    "welcome_message": "Hello! I'm your AI assistant for the Duvenbeck workshop data. I can help you find information about ideas, priorities, and insights from all departments. What would you like to know?",
+    "input_placeholder": "Ask me about the workshop data..."
+  },
   "controlling": {
     "ideas": {
       "presentation_creation": "Presentation Creation",
@@ -726,7 +731,8 @@
     "assumptions": "Assumptions",
     "prioritization": "Prioritization Matrix",
     "projectBriefs": "Project Briefs",
-    "participants": "Participants"
+    "participants": "Participants",
+    "chat": "Chat"
   },
   "filters": {
     "title": "Filters",

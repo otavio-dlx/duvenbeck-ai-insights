@@ -3,6 +3,11 @@
     "title": "KI-Workshop Dashboard",
     "subtitle": "Duvenbeck AI Workshop 6-8. Oktober 2025"
   },
+  "chat": {
+    "title": "KI-Assistent",
+    "welcome_message": "Hallo! Ich bin Ihr KI-Assistent für die Duvenbeck Workshop-Daten. Ich kann Ihnen dabei helfen, Informationen über Ideen, Prioritäten und Erkenntnisse aus allen Abteilungen zu finden. Was möchten Sie wissen?",
+    "input_placeholder": "Fragen Sie mich zu den Workshop-Daten..."
+  },
   "contract_logistics": {
     "ideas": {
       "requirements_specification": "Anforderungsspezifikation Zusammenfassung",
@@ -650,7 +655,8 @@
     "assumptions": "Annahmen",
     "prioritization": "Priorisierungsmatrix",
     "projectBriefs": "Projektbriefe",
-    "participants": "Teilnehmer"
+    "participants": "Teilnehmer",
+    "chat": "Chat"
   },
   "filters": {
     "title": "Filter",
