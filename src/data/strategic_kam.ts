@@ -26,6 +26,16 @@ export const ideas = {
       strategicAlignment: 5,
       strategicNoteKey:
         "strategic_kam.notes.strategic.automated_news_procurement",
+      projectBrief: {
+        projectSponsorKey: "strategic_kam.projectBriefs.automated_news_procurement.sponsor",
+        involvedTeamsKey: "strategic_kam.projectBriefs.automated_news_procurement.teams",
+        potentialConflictsKey: "strategic_kam.projectBriefs.automated_news_procurement.conflicts",
+        requiredResourcesKey: "strategic_kam.projectBriefs.automated_news_procurement.resources",
+        dataAvailabilityKey: "strategic_kam.projectBriefs.automated_news_procurement.dataAvailability",
+        genaiConsiderationsKey: "strategic_kam.projectBriefs.automated_news_procurement.genaiConsiderations",
+        timelineKey: "strategic_kam.projectBriefs.automated_news_procurement.timeline",
+        additionalCommentsKey: "strategic_kam.projectBriefs.automated_news_procurement.comments"
+      }
     },
     {
       finalPrio: 2,
@@ -46,6 +56,16 @@ export const ideas = {
       strategicAlignment: 4,
       strategicNoteKey:
         "strategic_kam.notes.strategic.automated_crm_recommendations",
+      projectBrief: {
+        projectSponsorKey: "strategic_kam.projectBriefs.automated_crm_recommendations.sponsor",
+        involvedTeamsKey: "strategic_kam.projectBriefs.automated_crm_recommendations.teams",
+        potentialConflictsKey: "strategic_kam.projectBriefs.automated_crm_recommendations.conflicts",
+        requiredResourcesKey: "strategic_kam.projectBriefs.automated_crm_recommendations.resources",
+        dataAvailabilityKey: "strategic_kam.projectBriefs.automated_crm_recommendations.dataAvailability",
+        genaiConsiderationsKey: "strategic_kam.projectBriefs.automated_crm_recommendations.genaiConsiderations",
+        timelineKey: "strategic_kam.projectBriefs.automated_crm_recommendations.timeline",
+        additionalCommentsKey: "strategic_kam.projectBriefs.automated_crm_recommendations.comments"
+      }
     },
     {
       finalPrio: 3,
@@ -64,6 +84,7 @@ export const ideas = {
       riskNoteKey: "strategic_kam.notes.risk.ai_contract_review",
       strategicAlignment: 3,
       strategicNoteKey: "strategic_kam.notes.strategic.ai_contract_review",
+      projectBrief: null
     },
   ],
 };

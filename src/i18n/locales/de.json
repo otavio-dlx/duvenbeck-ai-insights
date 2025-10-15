@@ -486,6 +486,28 @@
       "automated_crm_recommendations": "Die KI gibt Vorschläge im CRM für die Eingabefelder und unterstützt dabei Daten aktuell zu halten (Opportunities etc.). Textfelder werden mit Vorschlägen befüllt, die übernommen oder angepasst werden können (Client Plan)",
       "ai_contract_review": "Nutzung eines LLM zur Prüfung bestimmter Vertragskonstellationen"
     },
+    "projectBriefs": {
+      "automated_news_procurement": {
+        "sponsor": "Sales Leader KAM",
+        "teams": "KAM, IT",
+        "conflicts": "Budgets und Kapazitäten müssen für IT-Entwicklung und externe Tools freigegeben werden. Ggf. Abhängigkeit von Anbietern (Vendor Lock-In) oder Datenqualität externer Quellen. Bisher haben wir unsere Kunden sehr individuell betreut - zukünftig sollte es ein standardisierter Prozess sein.",
+        "resources": "Entwickler für die Implementierung von Schnittstellen zu News-Aggregatoren und CRM. Lizenz für News-API oder vergleichbare Dienste. Schulungsbudget für interne Nutzung.",
+        "dataAvailability": "Öffentliche Nachrichtenquellen und Branchenberichte sind frei verfügbar. Geschützte Kundendaten und Vertragsinformationen: Sehr hohe Sensibilität (intern strukturiert).",
+        "genaiConsiderations": "Prototyping: Einfache Umsetzung möglich - News-Crawler + Zusammenfassung\nMVP: CRM-Anbindung für Echtzeit-Benachrichtigungen ggf. komplexer\nScalability: Keine großen Bedenken\nEthics: KI kann \"Halluzinieren\" -> Mitarbeitenden zur Validierung eine Person zuordnen, die einen Bezug zu den Kunden hat/die Kunden kennt. Sicherstellen, dass Datenschutzanforderungen eingehalten werden (was wird wo verarbeitet?)\nChange Management: Mehraufwand vor kurzfristigem Nutzen - Weiterführung nur noch mit standardisierten Prozess zu machen, was möglicherweise von einigen Mitarbeitenden abgelehnt wird.",
+        "timeline": "2026/2027",
+        "comments": ""
+      },
+      "automated_crm_recommendations": {
+        "sponsor": "CRM-Team",
+        "teams": "Sales, CRM, IT",
+        "conflicts": "Intern: Schulungs- und Akzeptanzproblem bei Vertriebsmitarbeitenden, falls CRM-Tool als zu komplex oder einschränkend wahrgenommen wird. Datenqualität: Vorschläge der KI können nur so gut sein wie die im System gespeicherten Daten. Abteilungsübergreifende Datenpflege erforderlich.",
+        "resources": "Lizenz für CRM mit KI-Unterstützung (z. B. Microsoft Copilot for Sales). IT-Ressourcen für Customizing und Schnittstellenanbindung. Change Management: Training, Best Practices und interne Kommunikation zur Akzeptanzsteigerung.",
+        "dataAvailability": "CRM-Daten (Kontaktdaten, Opportunities, Aktivitäten): Aktuell vorhanden, aber Qualität variiert. Historische Datensätze aus Vertriebsaktivitäten: Je länger der Zeitraum, desto besser die KI-Vorhersagen.",
+        "genaiConsiderations": "Prototyping: MVP mit Copilot leicht umsetzbar, da Produkt bereits kommerziell verfügbar ist.\nMVP: Integration in bestehende Salesforce-Umgebung und Definition von Use Cases (z. B. Client Plans)\nScalability: Lizenzen können bei wachsender Nutzung skaliert werden (hohe Kosten je User)\nEthics: Interne Sensibilität bzgl. KI-basierter Vorschläge -> Transparenz schaffen; Sicherstellen, dass die KI nicht diskriminierende oder verzerrte Empfehlungen macht.\nChange Management: Klare Kommunikation, dass die KI nur als \"Assistent\" dient, aber der Vertrieb die Kontrolle behält. Regelmäßige Feedback-Schleifen mit Usern etablieren. Schulungen und Best Practice Sharing notwendig.",
+        "timeline": "Open",
+        "comments": ""
+      }
+    },
     "notes": {
       "complexity": {
         "automated_news_procurement": "News-Crawling grundsätzlich einfach. Anbindung an CRM erhöht den Aufwand. Kein Eingriff in kritische Systeme nötig.",

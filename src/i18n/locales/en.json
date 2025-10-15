@@ -496,6 +496,28 @@
       "automated_crm_recommendations": "AI provides suggestions in CRM for input fields and supports keeping data current (opportunities etc.). Text fields are filled with suggestions that can be adopted or adjusted (Client Plan)",
       "ai_contract_review": "Use of LLM for reviewing specific contract constellations"
     },
+    "projectBriefs": {
+      "automated_news_procurement": {
+        "sponsor": "Sales Leader KAM",
+        "teams": "KAM, IT",
+        "conflicts": "Budgets and capacities must be approved for IT development and external tools. Possible dependency on vendors (vendor lock-in) or data quality of external sources. So far, we have served our customers very individually - in the future, it should be a standardized process.",
+        "resources": "Developers for implementing interfaces to news aggregators and CRM. License for news API or comparable services. Training budget for internal use.",
+        "dataAvailability": "Public news sources and industry reports are freely available. Protected customer data and contract information: Very high sensitivity (internally structured).",
+        "genaiConsiderations": "Prototyping: Simple implementation possible - news crawler + summary\nMVP: CRM integration for real-time notifications possibly more complex\nScalability: No major concerns\nEthics: AI can \"hallucinate\" -> assign a person for validation who has a relationship with the customers/knows the customers. Ensure data protection requirements are met (what is processed where?)\nChange Management: More effort before short-term benefit - continuation only with standardized process, which may be rejected by some employees.",
+        "timeline": "2026/2027",
+        "comments": ""
+      },
+      "automated_crm_recommendations": {
+        "sponsor": "CRM Team",
+        "teams": "Sales, CRM, IT",
+        "conflicts": "Internally: Training and acceptance problem among sales staff if CRM tool is perceived as too complex or restrictive. Data quality: AI suggestions can only be as good as the data stored in the system. Cross-departmental data maintenance required.",
+        "resources": "License for CRM with AI support (e.g., Microsoft Copilot for Sales). IT resources for customizing and interface integration. Change management: training, best practices and internal communication to increase acceptance.",
+        "dataAvailability": "CRM data (contact data, opportunities, activities): Currently available, but quality varies. Historical datasets from sales activities: The longer the period, the better the AI predictions.",
+        "genaiConsiderations": "Prototyping: MVP with Copilot easy to implement as the product is already commercially available.\nMVP: Integration into existing Salesforce environment and definition of use cases (e.g., client plans)\nScalability: Licenses can be scaled with growing use (high costs per user)\nEthics: Internal sensitivity regarding AI-based suggestions -> create transparency; ensure AI does not make discriminatory or biased recommendations.\nChange Management: Clear communication that AI only serves as an \"assistant\", but sales retains control. Establish regular feedback loops with users. Training and best practice sharing necessary.",
+        "timeline": "Open",
+        "comments": ""
+      }
+    },
     "notes": {
       "complexity": {
         "automated_news_procurement": "News crawling fundamentally simple. Connection to CRM increases effort. No intervention in critical systems necessary.",
