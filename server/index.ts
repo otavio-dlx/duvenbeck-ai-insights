@@ -60,7 +60,7 @@ app.post("/api/rag/search", async (req, res) => {
     console.log(`Found ${searchResponse.length} results from Qdrant`);
 
     // Format results
-    const results = searchResponse.map((point: any) => ({
+    const results = searchResponse.map((point) => ({
       id: point.id,
       score: point.score,
       payload: point.payload,
