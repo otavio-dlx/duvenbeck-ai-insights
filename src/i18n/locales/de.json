@@ -103,7 +103,9 @@
       "document_administration": "Dokumentation/Administration und E-Mail-Zusammenfassung",
       "legal_document_creation": "Erstellung von Schriftsätzen",
       "contract_analysis": "Prüfung und Analyse von Standards",
-      "recurring_case_chatbot": "Kleine, wiederkehrende Fälle und Fragen"
+      "recurring_case_chatbot": "Kleine, wiederkehrende Fälle und Fragen",
+      "meeting_summarization": "Verhandlungszusammenfassung / Gesprächszusammenfassung / Meetingzusammenfassung",
+      "risk_analysis_automation": "Risikoanalysen (Datenschutz)"
     },
     "problems": {
       "damage_claim_review": "Haftungsprüfung inkl. \"gutachterliche\" Bewertung",
@@ -111,7 +113,9 @@
       "document_administration": "Dokumentation/Administration und Zusammenfassung von E-Mail-Verläufen, Dokumenten, Vertragsprüfungen in Aktensystem jeweils mit Erstellung einer Beschreibung des Inhalts im Aktenablagesystem",
       "legal_document_creation": "Erstellung von Schriftsätzen, Klagen, Klageerwiderungen, Anschreiben etc.",
       "contract_analysis": "Prüfung und Analyse von Standards (NDA, CoC, IT-AGB, AVV etc.) sowie auch von nicht standardisierten Verträgen",
-      "recurring_case_chatbot": "Kleine, wiederkehrende Fälle und Fragen"
+      "recurring_case_chatbot": "Kleine, wiederkehrende Fälle und Fragen",
+      "meeting_summarization": "Verhandlungszusammenfassung / Gesprächszusammenfassung / Meetingzusammenfassung",
+      "risk_analysis_automation": "Risikoanalysen (Datenschutz)"
     },
     "solutions": {
       "damage_claim_review": "Ist der Schaden erstattungsfähig? Haftungsgrundlagen erfüllt? Bewertung des Schadenausmaßes",
@@ -119,7 +123,9 @@
       "document_administration": "Ggf. automatisiertes Zuordnen der Dokumente zu den betreffenden Akten und Auslesen des Inhalts mit Erstellung einer Zusammenfassung (automatisierte Sachverhaltserfassung)",
       "legal_document_creation": "Nutzung der Rechercheergebnisse, der Sachverhaltszusammenfassung etc. zur Erstellung von Texten in juristischer Tonalität unter Hinzuziehung vorgegebener Muster u.a. auch aus der beck-online Datenbank",
       "contract_analysis": "Automatische Prüfung und Zusammenfassung u.a. unter Berücksichtigung vorgegebener Regeln (KI-Lösung von OTRIS)",
-      "recurring_case_chatbot": "Chatbot"
+      "recurring_case_chatbot": "Chatbot",
+      "meeting_summarization": "Automatisierte Mitschrift / Zusammenfassung",
+      "risk_analysis_automation": "automatisierte Risikoanalyse"
     },
     "notes": {
       "complexity": {
@@ -128,7 +134,9 @@
         "document_administration": "Keine hohe Komplexität, weil: reines Auslesen von vorhandenen Daten; zum Teil Systeme bekannt, die das bereits umsetzen können",
         "legal_document_creation": "Erstellung von Verträgen: komplexer; Erstellung von Schriftsätzen und Verarbeitungsbeschreibungen: nicht so komplex",
         "contract_analysis": "Mittel bis hoch: Abhängig von der Regelvielfalt und Dokumentenstruktur. Die KI muss sowohl juristische Sprache als auch spezifische Unternehmensregeln verstehen und anwenden können",
-        "recurring_case_chatbot": "Mittel: Aufbau eines internen Wissenspools, Training der KI auf firmenspezifische Inhalte und laufende Pflege notwendig"
+        "recurring_case_chatbot": "Mittel: Aufbau eines internen Wissenspools, Training der KI auf firmenspezifische Inhalte und laufende Pflege notwendig",
+        "meeting_summarization": "Weniger komplex: Spracherkennung, Themenanalyse und Zusammenfassung sind technisch gut beherrschbar. Zusätzliche Anforderungen an rechtssichere Speicherung und ggf. Mehrsprachigkeit",
+        "risk_analysis_automation": "Relativ komplex: Playbooks müssen vorab erstellt werden; Entwicklung von Ergebnissen und Bewertungen"
       },
       "cost": {
         "damage_claim_review": "Gesondertes Programm wird benötigt (vertrauliche Firmendaten enthalten). Mitarbeiteraufwand relativ gering (Reduzierung Arbeitsaufwand). Kostenersparnis Versicherung & Gutachterkosten",
@@ -136,7 +144,9 @@
         "document_administration": "Abhängig von der Systemlandschaft",
         "legal_document_creation": "Mittlere bis hohe Investitionskosten; laufende Kosten abhängig von Nutzung und API-Abfragen",
         "contract_analysis": "Kosten durch OTRIS (Add-On bei OTRIS) relativ gering, da bereits das System vorhanden ist und es sich nur um ein Add-On handelt",
-        "recurring_case_chatbot": "Einmalige Implementierung und kontinuierliche Pflege durch Legal (DUV GPT könnte nach Implementierung genutzt werden)"
+        "recurring_case_chatbot": "Einmalige Implementierung und kontinuierliche Pflege durch Legal (DUV GPT könnte nach Implementierung genutzt werden)",
+        "meeting_summarization": "Mittel: Abhängig von der Lösung (z.B. interne KI, MS Copilot, Drittanbieter). Laufende Kosten gering, wenn bestehende Systeme genutzt werden",
+        "risk_analysis_automation": "Mittel: Initialer Aufwand für Systemanbindung und Parametrisierung, danach geringe laufende Kosten"
       },
       "roi": {
         "damage_claim_review": "Kostenersparnis, Zeitersparnis",
@@ -144,7 +154,9 @@
         "document_administration": "Sehr hoch durch Zeitersparnis in Dokumentenablage, Recherche und Fallbearbeitung",
         "legal_document_creation": "Sehr hoch: erhebliche Zeitersparnis bei wiederkehrenden Aufgaben (z. B. Entwürfe, Stellungnahmen, interne Rückmeldungen). Reduziert Recherchen und Formulierungsaufwand",
         "contract_analysis": "Hohe Zeitersparnis, sobald implementiert; Erstellung des Playbooks erfordert vorab erhöhten Zeitaufwand",
-        "recurring_case_chatbot": "Relativ hoch: Entlastet das Team bei Routineanfragen, reduziert Bearbeitungszeiten, erhöht Reaktionsgeschwindigkeit"
+        "recurring_case_chatbot": "Relativ hoch: Entlastet das Team bei Routineanfragen, reduziert Bearbeitungszeiten, erhöht Reaktionsgeschwindigkeit",
+        "meeting_summarization": "Relativ hoch: Spart erheblich Zeit bei der Nachbereitung und verbessert Dokumentationsqualität. Reduziert Risiko, dass wesentliche Punkte verloren gehen",
+        "risk_analysis_automation": "Hoch: Deutliche Zeitersparnis bei Risikoanalysen und DSFA-Vorbereitung, verbesserte Nachvollziehbarkeit und geringere Fehleranfälligkeit"
       },
       "risk": {
         "damage_claim_review": "Muss vom Mitarbeiter noch einmal gegengeprüft werden. Verhandlungen immer noch möglich. Teilweise sensible Firmendaten enthalten",
@@ -152,7 +164,9 @@
         "document_administration": "Mittleres Risiko, da nur Vorhandenes ausgelesen wird und keine neuen Ergebnisse generiert werden",
         "legal_document_creation": "Mittel: Risiken betreffen inhaltliche Richtigkeit, Datenvertraulichkeit bei externer Verarbeitung und Urheberrecht. Durch klare Governance und manuelle Endkontrolle gut beherrschbar",
         "contract_analysis": "Niedrig bis mittel: Geringes Risiko bei interner Nutzung; bei externer Cloud-Lösung Prüfung von Datenschutz und Datensicherheit erforderlich. Risiko falscher Bewertungen bei unvollständigen Regeln",
-        "recurring_case_chatbot": "Höheres Risiko: Treffgenauigkeit der Schlagworte fehleranfällig"
+        "recurring_case_chatbot": "Höheres Risiko: Treffgenauigkeit der Schlagworte fehleranfällig",
+        "meeting_summarization": "Mittleres Risiko bei datenschutzkonformer Verwendung kontrollierbar",
+        "risk_analysis_automation": "Menschliche Kontrolle bleibt erforderlich, Ergebnisqualität abhängig von Datenbasis und Parametern, Datenschutzkonformität der eingesetzten KI muss gewährleistet sein"
       },
       "strategic": {
         "damage_claim_review": "Ersparung von externen und internen Personalaufwänden",
@@ -160,7 +174,139 @@
         "document_administration": "Vereinheitlichung; Reduzierung des administrativen Aufwands",
         "legal_document_creation": "Automatisierung, Zeitersparnis, Vereinheitlichung und Standardisierung, Beschleunigung",
         "contract_analysis": "Sehr gute Passung: Stärkt Qualitätssicherung, Standardisierung und Nachvollziehbarkeit. Unterstützt die digitale Transformation der Rechtsabteilung",
-        "recurring_case_chatbot": "Direkte Antwort, schnelle erste Einschätzung, Beschleunigung des Prozesses"
+        "recurring_case_chatbot": "Direkte Antwort, schnelle erste Einschätzung, Beschleunigung des Prozesses",
+        "meeting_summarization": "Vereinheitlichung Dokumentation, Erhöhung Digitalisierung und Qualität",
+        "risk_analysis_automation": "Direkte Unterstützung der Rechenschaftspflicht nach Art. 5 Abs. 2 DSGVO"
+      }
+    },
+    "projectBriefs": {
+      "damage_claim_review": {
+        "involvedTeams": "Claim / Insurance",
+        "potentialConflicts": "keine",
+        "dataAvailability": "Schadenunterlagen (Bilder, Schadenprotokoll, Wertnachweise, etc.) / rechtl. Grundlagen + Fachwissen",
+        "genaiConsiderations": "Zugriff auf bestehende Schadensoftware, um ein entsprechendes Gutachten zu erstellen.",
+        "timeline": null,
+        "additionalComments": null
+      },
+      "legal_document_creation": {
+        "involvedTeams": "Legal, Compliance & Datenschutz",
+        "potentialConflicts": "Andere Fachabteilungen als Nutzende von Vorlagen",
+        "dataAvailability": "Gewünschte Aufbau und Inhalte müssen vorgegeben werden, Vorlagen müssen bereitgestellt werden, Sachverhaltszusammenfassungen müssen bereitgestellt werden",
+        "genaiConsiderations": "LLM-Tool erforderlich, richtige Verwendung/Formulierung von Promts und Auswahl passender Promts",
+        "timeline": null,
+        "additionalComments": null
+      },
+      "recurring_case_chatbot": {
+        "involvedTeams": "Legal, Datenschutz",
+        "potentialConflicts": "Insurance, Claim-Management, Accounting",
+        "dataAvailability": "Bereitstellung von Informationen und Antworten in Form von Playbooks; Für die Bewertung und Beantwortung der Fragen erforderliche Dokumente und Informationen aus den Fachabteilungen",
+        "genaiConsiderations": "Frage-Antwort-Modell nach einfachen wenn-dann-Vorgaben",
+        "timeline": null,
+        "additionalComments": null
+      }
+    }
+  },
+  "corp_dev": {
+    "ideas": {
+      "market_analysis_automation": "Teil A Externe: Marktanalyse-Automatisierung",
+      "strategic_scenario_planning": "Strategische Szenario-Planung // Unternehmensstrategie Bewertunge und geneierung Master Plan of Action",
+      "customer_profitability_analysis": "IST: Kunden Review Profitabilitäts analyse",
+      "competition_trend_alerts": "Teil A Externe: Wettbewerbsbeobachtung & Trend-Alerts",
+      "dashboard_reporting": "Erstellung Dashboard/Reporting über Zielerreichungsgrad (KAM-Pläne, Budgetvorgaben, Operative Leistungsfähigkeit)",
+      "contract_database": "Contract Data Base",
+      "product_portfolio_extension": "SOLL: Erweiterung von Produktprotfolio: - Analyse potentieller Produkterweiterungen auf Basis vorhandener Kunden - Was für Business Modelle/Produkte/Services müssen zusätzlich aufgebaut werden? + Analyse Make or Buy"
+    },
+    "problems": {
+      "market_analysis_automation": "Markt- und Wettbewerbsanalysen sind zeitaufwendig und oft nicht aktuell.",
+      "strategic_scenario_planning": "Strategische Entscheidungen basieren häufig auf unvollständigen oder veralteten Annahmen.",
+      "customer_profitability_analysis": "Entscheidungen über Investitionen oder Desinvestitionen sind komplex und erfordern viele Datenpunkte.",
+      "competition_trend_alerts": "Neue Wettbewerber, Technologien oder Geschäftsmodelle werden oft zu spät erkannt.",
+      "dashboard_reporting": "Hoher Aufwand, Keine Standards, Wenig homogene Definition in der Gruppe",
+      "contract_database": "Nachverhanldungen, Abweichungen SOLL - IST im Vertrag",
+      "product_portfolio_extension": "Hoher Aufwand individuelle Leistungserweiterungen bei Kunden zu identifizieren"
+    },
+    "solutions": {
+      "market_analysis_automation": "KI-gestützte Tools aggregieren Daten in Echtzeit und erstellen automatisch prägnante Marktübersichten.",
+      "strategic_scenario_planning": "KI-gestützte Szenario-Simulationen modellieren verschiedene Strategien und ihre potenziellen Auswirkungen.",
+      "customer_profitability_analysis": "KI bewertet bestehende Projekte und Investitionen anhand von KPIs, Risiko und Wachstumspotenzial und gibt Empfehlungen.",
+      "competition_trend_alerts": "KI überwacht kontinuierlich Markttrends und Wettbewerberaktivitäten und erstellt Alerts für relevante Veränderungen.",
+      "dashboard_reporting": "Brainstorming und aufbau standartisierter Templates wie alle Dashboards (Excel + PPT Export) aussehen sollen",
+      "contract_database": "Scan der SLA/Verträge und abgleich mit IST-Werten im System",
+      "product_portfolio_extension": ""
+    },
+    "notes": {
+      "complexity": {
+        "market_analysis_automation": "Nicht komplex; zT sind Daten jedoch nur in Downloads-Dokumente oder hinter Pay-Walls ausführlich verfügbar. Ggf reglelmäßiger Update/Erweiterung der Parameter notwendig",
+        "strategic_scenario_planning": "Keine Komplexität. Durch Nennung der Ziele können mögliche Alternativen schnell gebrainstormed werden und Szenarien schneller bewertung",
+        "customer_profitability_analysis": "Viele Daten notwendig aus diversen Tools (SAP, Kundenportal, Local und Zentral) sowie dokumentierte Problemstellungen und Prozesse um die Optimierungspotential zu definieren. Finanz-Kennzahlen vorhanden aber sonstige Themen meit nicht zentral gespeichert = Viele Wissenträger",
+        "competition_trend_alerts": "Nicht komplex; zT sind Daten jedoch nur in Downloads-Dokumente oder hinter Pay-Walls ausführlich verfügbar. Ggf reglelmäßiger Update/Erweiterung der Parameter notwendig",
+        "dashboard_reporting": "Viele Daten notwendig aus diversen Tools (SAP, Kundenportal etc)",
+        "contract_database": "Sehr hohe komplexität weil viele SOLL Daten wie VOlumen sporadisch nur von Kunden geteilt werden, oder nur retroperspektivisch verfügbar sind = Gleichzeitig viele Dokumente und Vertäge nicht digitalisiert = Grundsätzlich müsste jeder Vertrag und alle SLA (die sich regelmäßig ändern) immer Upgedates werden",
+        "product_portfolio_extension": "Sobald Datenbank mit allen kundenverträgen verfübar ist ist es leicht eine Gap Analyse zu machen und zu prüfen wo ubgescalt werden kann oder nicht + Gleichzeitig kann Business Solution durch KI skizziert und ggf. white-spots identifizeirt werden."
+      },
+      "cost": {
+        "market_analysis_automation": "Kosten ggf. nur für bestimmte Tools/Websites (zb Orbis) notwendig. Einige Lizenzen bereits vorhanden.",
+        "strategic_scenario_planning": "kann nicht bewertet werden",
+        "customer_profitability_analysis": "Geringe Kosten, Nur Inhouse Daten + unregelmäßige Abfragen (1x Pro Quartal pro Kunde ??)",
+        "competition_trend_alerts": "Kosten ggf. nur für bestimmte Tools/Websites (zb Orbis) notwendig. Einige Lizenzen bereits vorhanden.",
+        "dashboard_reporting": "Datenexporte/Schnittstellen etc notwendig um Live-Realwerte zu generieren",
+        "contract_database": "Hoher manueller Nachtragungs/Zentralisierungsaufwand",
+        "product_portfolio_extension": "Keine hohen Kosten"
+      },
+      "roi": {
+        "market_analysis_automation": "ROI nicht messbar da Analyse nur Entscheidugnshilfen darstellen -> Zeitersparnis sehr hoch",
+        "strategic_scenario_planning": "Kein ROI; Unterstützung in Entscheidungsfindung sowie schnellere Adjustierung der Strategie aufgrund verändertet Rahmenbedingungen = Keine langtätigen Strategieworkshop ggf. notwendig = Kosteneinsparung + Schnellere Top-Down runterbrechung der Ziele und Maßnahmen pro Resort und zT Department + Einsparung von Beraterkosten",
+        "customer_profitability_analysis": "Geringer ROI; Hilft bei der schnellen Analyse ob",
+        "competition_trend_alerts": "ROI nicht messbar da Analyse nur Entscheidugnshilfen darstellen -> Zeitersparnis sehr hoch",
+        "dashboard_reporting": "Viele FTE in der ganzen Gruppe beschäftigt mit Reportingaugstellungen + Update. Durch Automatisierung können insb im Controlling div. Zeiten effizienter genutzt werden",
+        "contract_database": "Abweichungen und Potential für Nachverhandlungen schnell und ggf. Proaktiv durch KI aufzeigbar. = Aktuell nur bei negativen Ereignissen oder P&L-Ergebniss wird geprüft ob nach Vertrag geliefert wird. Bonus-Malus Vereinbarungen werden zT von Kunden geprüft und an DUV übermittelt = Prüfung und Korrektut kann durch KI ersetzt werden und somit freie Ressourcen für andere Thematiken",
+        "product_portfolio_extension": "Schnelle Analyse und KAM-Pläne erstellbar"
+      },
+      "risk": {
+        "market_analysis_automation": "Risiko: keine Nutzung der Reports",
+        "strategic_scenario_planning": "Fehlerhafte Fragen/Infos führen zu falschen Plänen und nicht passenden Zielen",
+        "customer_profitability_analysis": "Risiko hoch falls Annahmen nicht Stimmen und Kundengespräche negativ ausgelegt werden",
+        "competition_trend_alerts": "Risiko: keine Nutzung der Reports",
+        "dashboard_reporting": "Kein RIsiko; Interne Daten. Höchsten Fehlinterpretation oder falsche Defintionen",
+        "contract_database": "Kein Risiko; Inhouse Daten",
+        "product_portfolio_extension": "Kein Risiko"
+      },
+      "strategic": {
+        "market_analysis_automation": "Daten helfen bei Analyse möglicher strategischer Stoßrichtungen und bei Entscheidungsfinden/Review mit Shareholder = Data driven",
+        "strategic_scenario_planning": "in 3 Jahren wurden 3-5 verschiedene Strategie-Reviews gemacht = Hilft bei regelmäßigen Updates und Nachjustierung = Sicherung von Information von Wissenträgern (Fluktuation C-Level)",
+        "customer_profitability_analysis": "Notwendig; Gewollt vom CEO und hilft bei Zielerreichung (EBITDA) da objektive Entscheidung getroffen werden kann über Ausbau oder Exit der Kundenbeziehugnen",
+        "competition_trend_alerts": "Daten helfen bei Analyse möglicher strategischer Stoßrichtungen und bei Entscheidungsfinden/Review mit Shareholder = Data driven",
+        "dashboard_reporting": "Um agil und schnelllebige Entscheidungen zu treffen benötigt es auf Knopfdruck ZDF = Gleichzeitig hoher Reportingaufwand richtung Shareholder kann so reduzier und standartisiert werden = M&A Notwendigkeit = Daten und Reportingstukturen für möglichen Exit des Shareholder notwendif",
+        "contract_database": "...",
+        "product_portfolio_extension": "Wachstum, Cross-Selling und Kundenentwicklung gewünscht und gefordert. Eintrittbarrieren bei aktuellen Kundenstamm geringer als Neuakquise"
+      }
+    },
+    "projectBriefs": {
+      "market_analysis_automation": {
+        "involvedTeams": "Alle C- Resorts zwecks alignment auf Scope der Reporte und Themen die relevant sind (Finance; Operations inbs bzfl. Produktionsplanungn)",
+        "potentialConflicts": "Keine // Höchstens: Innovation und IT aufgrund von Trend-Alerts",
+        "dataAvailability": "Interne Daten zur Performance des Unternehmen um gegenüberstellung durchzuführen (zb Rev, EBITDA, FTE Amount, PEX, Shipments etc) + Vorhandene Information über Produktionsplanungen etc",
+        "genaiConsiderations": "Prototyp-Meilensteine: Notwendig um zu prüfen ob Daten valide aus dem WWW gezogen werden Pilot-Design: Nicht notwendig; Reporting nur für C-Level/Extended Management Ethik und Datenschutz: Nicht vorhanden = Arbeit nur mit publizierten Daten Skalierbarkeit: nicht notwendig Change Management: Nicht notwendig",
+        "timeline": "Q1/2026",
+        "additionalComments": "Konkreten Nutzen der Daten validieren = Ziel ist es Handlungsmaßnahmen und Empfehlungen zu generieren (zb Personalabbau VW = Fixkostenabbau DUV)"
+      },
+      "dashboard_reporting": {
+        "involvedTeams": "Operative + Controlling + PowerBI Team = Nutzung Vorhandener Daten und Reporte um diese zu standartisieren/optimieren und automatisieren",
+        "potentialConflicts": "Aktuell ggf. laufendes Projekt: KPI Based Steering (WPE Anforderungen)",
+        "dataAvailability": "Viele Daten in Caro, Kundenportal, SAP, PowerBi vorhanden = Werden nicht zentral zusammengeführt oder Definitionen stimmen nicht oder werden aus den Systemen nicht exportiert oder weiterverarbeiter = oft Abgleich mit anderrn Systemen notwendig um Datenvollständigkeit sicherzustellen (zb übertragung ETA IST und SOLL)",
+        "genaiConsiderations": "Prototyp-Meilensteine: // Pilot-Design: Nicht notwendig; Reporting nur für C-Level/Extended Management Ethik und Datenschutz: Nicht vorhanden = Arbeit nur mit internen Daten = Personenbezogene Daten = Leistungsperformance KAM = Skalierbarkeit: nicht notwendig Change Management: Nicht notwendig",
+        "timeline": "Q1/2026",
+        "additionalComments": "Absprache mit C-Level und WPE zwecks Alignment auf Scope und bereits vorhanden// missing Reports = insb CXO und COO"
+      },
+      "contract_database": {
+        "projectSponsor": "CCO + CXO",
+        "involvedTeams": "COO + Site Management + Legal (Vertragsmanagement)",
+        "potentialConflicts": "Zentrales Sales vs. Dezentrales Management",
+        "requiredResources": "Digitalisierung und harmonisierung der SLA + Vertragsdaten falls nicht im System verfügbar. Budget: Keins",
+        "dataAvailability": "Verträge sind in Legal-Systemen und CRM vorhanden = Prüfung vollständigkeit notwendig",
+        "genaiConsiderations": "Prototyp-Meilensteine: Notwendig, Pilot-Design: Wenn Tool für Standorte verfügbar gemacht werden soll dann notwendig, Ethik und Datenschutz: Nicht vorhanden = Arbeit nur mit internen Daten, Skalierbarkeit: k.a., Change Management: k.a.",
+        "timeline": "Q1/2026",
+        "additionalComments": null
       }
     }
   },
@@ -738,6 +884,24 @@
       "fragen_themen": "Fragen / Themen",
       "erläuterung": "Erläuterung",
       "inhalte_antworten": "Inhalte / Antworten"
+    },
+    "projectBrief": {
+      "title": "Projektbrief",
+      "involvedTeams": "Involvierte Teams",
+      "potentialConflicts": "Potenzielle Konflikte",
+      "dataAvailability": "Datenverfügbarkeit",
+      "genaiConsiderations": "GenAI-spezifische Überlegungen",
+      "timeline": "Grober Zeitplan",
+      "additionalComments": "Sonstige Kommentare",
+      "notAvailable": "Projektbrief nicht verfügbar",
+      "descriptions": {
+        "involvedTeams": "Welche Teams sind involviert",
+        "potentialConflicts": "Mögliche Interessens- oder Ressourcen Überschneidungen",
+        "dataAvailability": "Welche Daten sind vorhanden bzw. müssen bereitgestellt werden",
+        "genaiConsiderations": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit. Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback. Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits). Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen. Change Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+        "timeline": "Bis wann sollte welcher Milestone erreicht sein?",
+        "additionalComments": "Was ist noch wichtig für diese Initiative?"
+      }
     }
   },
   "esg": {

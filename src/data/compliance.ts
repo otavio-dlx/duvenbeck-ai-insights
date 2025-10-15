@@ -24,6 +24,14 @@ export const ideas = {
       riskNoteKey: "compliance.notes.risk.damage_claim_review",
       strategicAlignment: 3,
       strategicNoteKey: "compliance.notes.strategic.damage_claim_review",
+      projectBrief: {
+        involvedTeamsKey: "compliance.projectBriefs.damage_claim_review.involvedTeams",
+        potentialConflictsKey: "compliance.projectBriefs.damage_claim_review.potentialConflicts",
+        dataAvailabilityKey: "compliance.projectBriefs.damage_claim_review.dataAvailability",
+        genaiConsiderationsKey: "compliance.projectBriefs.damage_claim_review.genaiConsiderations",
+        timelineKey: "compliance.projectBriefs.damage_claim_review.timeline",
+        additionalCommentsKey: "compliance.projectBriefs.damage_claim_review.additionalComments"
+      }
     },
     {
       finalPrio: 2,
@@ -33,8 +41,7 @@ export const ideas = {
       owner: "Laura Krasniqi",
       priority: "A",
       complexity: 2,
-      complexityNoteKey:
-        "compliance.notes.complexity.contract_insurance_review",
+      complexityNoteKey: "compliance.notes.complexity.contract_insurance_review",
       cost: 4,
       costNoteKey: "compliance.notes.cost.contract_insurance_review",
       roi: 3,
@@ -43,6 +50,7 @@ export const ideas = {
       riskNoteKey: "compliance.notes.risk.contract_insurance_review",
       strategicAlignment: 3,
       strategicNoteKey: "compliance.notes.strategic.contract_insurance_review",
+      projectBrief: null
     },
     {
       finalPrio: 1,
@@ -61,6 +69,7 @@ export const ideas = {
       riskNoteKey: "compliance.notes.risk.document_administration",
       strategicAlignment: 5,
       strategicNoteKey: "compliance.notes.strategic.document_administration",
+      projectBrief: null
     },
     {
       finalPrio: 2,
@@ -79,6 +88,14 @@ export const ideas = {
       riskNoteKey: "compliance.notes.risk.legal_document_creation",
       strategicAlignment: 5,
       strategicNoteKey: "compliance.notes.strategic.legal_document_creation",
+      projectBrief: {
+        involvedTeamsKey: "compliance.projectBriefs.legal_document_creation.involvedTeams",
+        potentialConflictsKey: "compliance.projectBriefs.legal_document_creation.potentialConflicts",
+        dataAvailabilityKey: "compliance.projectBriefs.legal_document_creation.dataAvailability",
+        genaiConsiderationsKey: "compliance.projectBriefs.legal_document_creation.genaiConsiderations",
+        timelineKey: "compliance.projectBriefs.legal_document_creation.timeline",
+        additionalCommentsKey: "compliance.projectBriefs.legal_document_creation.additionalComments"
+      }
     },
     {
       finalPrio: 4,
@@ -97,6 +114,7 @@ export const ideas = {
       riskNoteKey: "compliance.notes.risk.contract_analysis",
       strategicAlignment: 5,
       strategicNoteKey: "compliance.notes.strategic.contract_analysis",
+      projectBrief: null
     },
     {
       finalPrio: 3,
@@ -115,6 +133,52 @@ export const ideas = {
       riskNoteKey: "compliance.notes.risk.recurring_case_chatbot",
       strategicAlignment: 5,
       strategicNoteKey: "compliance.notes.strategic.recurring_case_chatbot",
+      projectBrief: {
+        involvedTeamsKey: "compliance.projectBriefs.recurring_case_chatbot.involvedTeams",
+        potentialConflictsKey: "compliance.projectBriefs.recurring_case_chatbot.potentialConflicts",
+        dataAvailabilityKey: "compliance.projectBriefs.recurring_case_chatbot.dataAvailability",
+        genaiConsiderationsKey: "compliance.projectBriefs.recurring_case_chatbot.genaiConsiderations",
+        timelineKey: "compliance.projectBriefs.recurring_case_chatbot.timeline",
+        additionalCommentsKey: "compliance.projectBriefs.recurring_case_chatbot.additionalComments"
+      }
+    },
+    {
+      finalPrio: 5,
+      ideaKey: "compliance.ideas.meeting_summarization",
+      problemKey: "compliance.problems.meeting_summarization",
+      solutionKey: "compliance.solutions.meeting_summarization",
+      owner: "Legal, Compliance & Datenschutz",
+      priority: "A",
+      complexity: 4,
+      complexityNoteKey: "compliance.notes.complexity.meeting_summarization",
+      cost: 3,
+      costNoteKey: "compliance.notes.cost.meeting_summarization",
+      roi: 4,
+      roiNoteKey: "compliance.notes.roi.meeting_summarization",
+      risk: 3,
+      riskNoteKey: "compliance.notes.risk.meeting_summarization",
+      strategicAlignment: 4,
+      strategicNoteKey: "compliance.notes.strategic.meeting_summarization",
+      projectBrief: null
+    },
+    {
+      finalPrio: 6,
+      ideaKey: "compliance.ideas.risk_analysis_automation",
+      problemKey: "compliance.problems.risk_analysis_automation",
+      solutionKey: "compliance.solutions.risk_analysis_automation",
+      owner: "Legal, Compliance & Datenschutz",
+      priority: "A",
+      complexity: 2,
+      complexityNoteKey: "compliance.notes.complexity.risk_analysis_automation",
+      cost: 3,
+      costNoteKey: "compliance.notes.cost.risk_analysis_automation",
+      roi: 4,
+      roiNoteKey: "compliance.notes.roi.risk_analysis_automation",
+      risk: 2,
+      riskNoteKey: "compliance.notes.risk.risk_analysis_automation",
+      strategicAlignment: 2,
+      strategicNoteKey: "compliance.notes.strategic.risk_analysis_automation",
+      projectBrief: null
     },
   ],
 };
