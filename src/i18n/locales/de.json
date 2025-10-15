@@ -1020,12 +1020,51 @@
         "vacation_management": "aufgrund personenbezogener Daten",
         "email_prioritization": "Voraussetzung: lokales Hosting, in diesem Fall sind die personenbezogenen Daten geschützt"
       },
+      "roi": {
+        "hr_data_dashboard": "Ein HR Dashboard auf der jeweiligen Organisationsebene führt zu einer deutlichen besseren Entscheidungsgrundlage für das operative HR Management --> stark verbessertes Berichtswesen, Shareholder und Stakeholder Satisfaction, dies entspricht einem Führungstool, das uns heute noch nicht zur Verfügung steht, dies führt auch zur Risikominimierung, Frühwarnsysteme, Personaleinsatzplanung",
+        "employee_information_dashboard": "Ein HR Dashboard auf der jeweiligen Organisationsebene führt zu einer deutlichen besseren Entscheidungsgrundlage für das operative HR Management --> stark verbessertes Berichtswesen, Shareholder und Stakeholder Satisfaction, dies entspricht einem Führungstool, das uns heute noch nicht zur Verfügung steht, dies führt auch zur Risikominimierung, Frühwarnsysteme, Personaleinsatzplanung --> bildet die Grundlage für ein konsolidiertes HR Dashboard / Stammdatenmanagement",
+        "hr_agent": "ROI sehr abhängig von der Größe des Landes (Mitarbeiteranzahl), Anteil Blue Collar (eher hoher ROI) und white Collar Bereich, Standort mit hoher Fluktuation --> hoher ROI)",
+        "vacation_management": "Management von Urlaubsrückstellungen, fließt in Management von Zeitarbeit mit ein, sofern Urlaubsphasen durch Zeitarbeit kompensiert werden (betriftt vor allem blue collar in der PCL)",
+        "email_prioritization": "Zeitersparnis, damit Produktivitätserhöhung"
+      },
       "strategic": {
         "hr_data_dashboard": "entspricht der strategischen Ausrichtung von Duvenbeck",
         "employee_information_dashboard": "entspricht der strategischen Ausrichtung von Duvenbeck",
         "hr_agent": "Produktivitätserhöhung, sollte zu einer Digitalisierungsstrategie referieren",
         "vacation_management": "Produktivitätserhöhung, sollte zu einer Digitalisierungsstrategie referieren",
         "email_prioritization": "Digitalisierungsstrategie"
+      }
+    },
+    "projectBriefs": {
+      "hr_data_dashboard": {
+        "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
+        "involvedTeams": "zentrales HR Management, Ansprechpartner für Payrollprovider in den Ländern (auf Seite Duvenbeck und auf der Seite des Payrollproviders), IT, Corporate Development, Finance bzgl. Reporting",
+        "potentialConflicts": "Datenharmonisierung / Begriffsdefinitionen (Bsp. FTE; Absence Status etc.)",
+        "requiredResources": null,
+        "dataAvailability": "Basis Datawarehouse ist vorhanden, aktuell Erweiterung der Datenabfrage, Tabelle Datenscope kann anschließend zur Verfügung gestellt werden",
+        "genaiConsiderations": "lokales Hosting notwendig, Rollenkonzept / Zugriffsrechte / Berichtswesen hinsichtlich des HR Dashboards",
+        "timeline": "Q1 2026 für den ersten Piloten, Rollout im Verlauf Q4 2026",
+        "additionalComments": null
+      },
+      "employee_information_dashboard": {
+        "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
+        "involvedTeams": "zentrales HR Management, Ansprechpartner für Payrollprovider in den Ländern (auf Seite Duvenbeck und auf der Seite des Payrollproviders), IT, Corporate Development, Finance bzgl. Reporting",
+        "potentialConflicts": "Datenharmonisierung / Begriffsdefinitionen (Bsp. FTE; Absence Status etc.)",
+        "requiredResources": null,
+        "dataAvailability": "Basis Datawarehouse ist vorhanden, aktuell Erweiterung der Datenabfrage, Tabelle Datenscope kann anschließend zur Verfügung gestellt werden",
+        "genaiConsiderations": "lokales Hosting notwendig, Rollenkonzept / Zugriffsrechte / Berichtswesen hinsichtlich des HR Dashboards",
+        "timeline": "Q2 2026 für den ersten Piloten, Rollout im Verlauf Q4 2026",
+        "additionalComments": "Abhängig zur Einführung von SAP Success Factors (SF kann solch ein Mitarbeiterstammdatenblatt zur Verfügung stellen)"
+      },
+      "hr_agent": {
+        "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
+        "involvedTeams": "Legal, IT, Regionale HR Verantwortliche, Supplier für die gesetzlichen Inhalte",
+        "potentialConflicts": "potenzielle Ressourcenkonflikte",
+        "requiredResources": null,
+        "dataAvailability": "Vorab Entscheidung über Umfang des HR Chatbots (welche Fragen sollen abgedeckt werden) \nSupplier liefern gesetzliche Daten, regionale HR Verantwortliche müssen Duvenbeck-spezifische Daten liefern,",
+        "genaiConsiderations": "lokales Hosting notwendig, \nlandesspezifische Container bzw. jedes Land/ Region / Standort hat spezifische Chatbot-Inhalte,\nEntscheidung über eingesetzte Fremdsprachen,\nEntscheidung über Text, Sprach oder Video - Chatbot",
+        "timeline": "Q3 2026 für Pilot",
+        "additionalComments": "Skalierbarkeit auf einen Onboarding Chatbot und auf Themen die außerhalb von HR liegen (Beispiel Pannenhilfe für Fahrer)"
       }
     }
   },

@@ -1030,12 +1030,51 @@
         "vacation_management": "due to personal data",
         "email_prioritization": "Prerequisite: local hosting, in this case personal data is protected"
       },
+      "roi": {
+        "hr_data_dashboard": "An HR dashboard at the respective organizational level leads to a significantly better decision-making basis for operational HR management --> greatly improved reporting, shareholder and stakeholder satisfaction, this represents a management tool that is not yet available to us today, this also leads to risk minimization, early warning systems, personnel deployment planning",
+        "employee_information_dashboard": "An HR dashboard at the respective organizational level leads to a significantly better decision-making basis for operational HR management --> greatly improved reporting, shareholder and stakeholder satisfaction, this represents a management tool that is not yet available to us today, this also leads to risk minimization, early warning systems, personnel deployment planning --> forms the basis for a consolidated HR dashboard / master data management",
+        "hr_agent": "ROI highly dependent on the size of the country (number of employees), proportion of blue collar (rather high ROI) and white collar area, location with high turnover --> high ROI)",
+        "vacation_management": "Management of vacation provisions, flows into management of temporary work, if vacation phases are compensated by temporary work (mainly affects blue collar in PCL)",
+        "email_prioritization": "Time savings, thus productivity increase"
+      },
       "strategic": {
         "hr_data_dashboard": "corresponds to Duvenbeck's strategic alignment",
         "employee_information_dashboard": "corresponds to Duvenbeck's strategic alignment",
         "hr_agent": "Productivity increase, should refer to a digitalization strategy",
         "vacation_management": "Productivity increase, should refer to a digitalization strategy",
         "email_prioritization": "Digitalization strategy"
+      }
+    },
+    "projectBriefs": {
+      "hr_data_dashboard": {
+        "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
+        "involvedTeams": "central HR management, contact persons for payroll providers in the countries (on Duvenbeck side and on the payroll provider side), IT, Corporate Development, Finance regarding reporting",
+        "potentialConflicts": "Data harmonization / term definitions (e.g., FTE; Absence Status, etc.)",
+        "requiredResources": null,
+        "dataAvailability": "Basic data warehouse exists, currently expanding data queries, data scope table can then be made available",
+        "genaiConsiderations": "local hosting necessary, role concept / access rights / reporting regarding the HR dashboard",
+        "timeline": "Q1 2026 for the first pilot, rollout during Q4 2026",
+        "additionalComments": null
+      },
+      "employee_information_dashboard": {
+        "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
+        "involvedTeams": "central HR management, contact persons for payroll providers in the countries (on Duvenbeck side and on the payroll provider side), IT, Corporate Development, Finance regarding reporting",
+        "potentialConflicts": "Data harmonization / term definitions (e.g., FTE; Absence Status, etc.)",
+        "requiredResources": null,
+        "dataAvailability": "Basic data warehouse exists, currently expanding data queries, data scope table can then be made available",
+        "genaiConsiderations": "local hosting necessary, role concept / access rights / reporting regarding the HR dashboard",
+        "timeline": "Q2 2026 for the first pilot, rollout during Q4 2026",
+        "additionalComments": "Dependent on the introduction of SAP Success Factors (SF can provide such an employee master data sheet)"
+      },
+      "hr_agent": {
+        "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
+        "involvedTeams": "Legal, IT, Regional HR managers, suppliers for legal content",
+        "potentialConflicts": "potential resource conflicts",
+        "requiredResources": null,
+        "dataAvailability": "Prior decision on scope of HR chatbot (which questions should be covered) \nSuppliers provide legal data, regional HR managers must provide Duvenbeck-specific data",
+        "genaiConsiderations": "local hosting necessary, \ncountry-specific containers or each country/region/location has specific chatbot content,\ndecision on foreign languages to be used,\ndecision on text, voice or video - chatbot",
+        "timeline": "Q3 2026 for pilot",
+        "additionalComments": "Scalability to an onboarding chatbot and topics outside of HR (e.g., breakdown assistance for drivers)"
       }
     }
   },
