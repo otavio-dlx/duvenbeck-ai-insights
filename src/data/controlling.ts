@@ -25,15 +25,22 @@ export const ideas = {
       strategicAlignment: 4,
       strategicNoteKey: "controlling.notes.strategic.presentation_creation",
       projectBrief: {
-        projectSponsorKey: "controlling.projectBriefs.presentation_creation.sponsor",
-        involvedTeamsKey: "controlling.projectBriefs.presentation_creation.teams",
-        potentialConflictsKey: "controlling.projectBriefs.presentation_creation.conflicts",
-        requiredResourcesKey: "controlling.projectBriefs.presentation_creation.resources",
-        dataAvailabilityKey: "controlling.projectBriefs.presentation_creation.dataAvailability",
-        genaiConsiderationsKey: "controlling.projectBriefs.presentation_creation.genaiConsiderations",
+        projectSponsorKey:
+          "controlling.projectBriefs.presentation_creation.sponsor",
+        involvedTeamsKey:
+          "controlling.projectBriefs.presentation_creation.teams",
+        potentialConflictsKey:
+          "controlling.projectBriefs.presentation_creation.conflicts",
+        requiredResourcesKey:
+          "controlling.projectBriefs.presentation_creation.resources",
+        dataAvailabilityKey:
+          "controlling.projectBriefs.presentation_creation.dataAvailability",
+        genaiConsiderationsKey:
+          "controlling.projectBriefs.presentation_creation.genaiConsiderations",
         timelineKey: "controlling.projectBriefs.presentation_creation.timeline",
-        additionalCommentsKey: "controlling.projectBriefs.presentation_creation.comments"
-      }
+        additionalCommentsKey:
+          "controlling.projectBriefs.presentation_creation.comments",
+      },
     },
     {
       finalPrio: 3,
@@ -53,15 +60,21 @@ export const ideas = {
       strategicAlignment: 2,
       strategicNoteKey: "controlling.notes.strategic.intensive_research",
       projectBrief: {
-        projectSponsorKey: "controlling.projectBriefs.intensive_research.sponsor",
+        projectSponsorKey:
+          "controlling.projectBriefs.intensive_research.sponsor",
         involvedTeamsKey: "controlling.projectBriefs.intensive_research.teams",
-        potentialConflictsKey: "controlling.projectBriefs.intensive_research.conflicts",
-        requiredResourcesKey: "controlling.projectBriefs.intensive_research.resources",
-        dataAvailabilityKey: "controlling.projectBriefs.intensive_research.dataAvailability",
-        genaiConsiderationsKey: "controlling.projectBriefs.intensive_research.genaiConsiderations",
+        potentialConflictsKey:
+          "controlling.projectBriefs.intensive_research.conflicts",
+        requiredResourcesKey:
+          "controlling.projectBriefs.intensive_research.resources",
+        dataAvailabilityKey:
+          "controlling.projectBriefs.intensive_research.dataAvailability",
+        genaiConsiderationsKey:
+          "controlling.projectBriefs.intensive_research.genaiConsiderations",
         timelineKey: "controlling.projectBriefs.intensive_research.timeline",
-        additionalCommentsKey: "controlling.projectBriefs.intensive_research.comments"
-      }
+        additionalCommentsKey:
+          "controlling.projectBriefs.intensive_research.comments",
+      },
     },
     {
       finalPrio: 1,
@@ -83,13 +96,16 @@ export const ideas = {
       projectBrief: {
         projectSponsorKey: "controlling.projectBriefs.fp_analysis.sponsor",
         involvedTeamsKey: "controlling.projectBriefs.fp_analysis.teams",
-        potentialConflictsKey: "controlling.projectBriefs.fp_analysis.conflicts",
+        potentialConflictsKey:
+          "controlling.projectBriefs.fp_analysis.conflicts",
         requiredResourcesKey: "controlling.projectBriefs.fp_analysis.resources",
-        dataAvailabilityKey: "controlling.projectBriefs.fp_analysis.dataAvailability",
-        genaiConsiderationsKey: "controlling.projectBriefs.fp_analysis.genaiConsiderations",
+        dataAvailabilityKey:
+          "controlling.projectBriefs.fp_analysis.dataAvailability",
+        genaiConsiderationsKey:
+          "controlling.projectBriefs.fp_analysis.genaiConsiderations",
         timelineKey: "controlling.projectBriefs.fp_analysis.timeline",
-        additionalCommentsKey: "controlling.projectBriefs.fp_analysis.comments"
-      }
+        additionalCommentsKey: "controlling.projectBriefs.fp_analysis.comments",
+      },
     },
   ],
 };
