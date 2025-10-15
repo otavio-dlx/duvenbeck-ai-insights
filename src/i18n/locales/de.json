@@ -600,8 +600,8 @@
         "image_generation": "Marektingbilder sind sehr teuer, aufgrund von Lizenzkosten, die abhängig sind von Medien und Einsatz in Ländern sowie von der Frequenz (1-maliger Einsatz, mehrmaliger), PR Bilder sind günstiger, ABER Urheberrecht ist ein großes Thema (PR Bilder dürfen nicht als Marketingbild verwendet werden)"
       },
       "roi": {
-        "media_analysis_industry": "Gezieltes Ansprechen der relevanten Fachmedien, um die Zielgruppen zu erreichen - Outcomes sind sofort verfügbar und die weiteren Handlungen können je genauer die Kampagne, umso besser erreichst du die Zielgruppe und umso besser Geringer Aufwand, Hoher Mehrwert: Einfache Anfragen Einmaliges Shooting im Jahr: Langfristigkeit, die Bilder sind definitiv on brand, Lizenzen (Rechte) sind kein Thema",
-        "kpi_data_monitoring": "Outcomes sind sofort verfügbar und die weiteren Handlungen können je genauer die Kampagne, umso besser erreichst du die Zielgruppe und umso besser werden Geringer Aufwand, Hoher Mehrwert: Einfache Anfragen Einmaliges Shooting im Jahr: Langfristigkeit, die Bilder sind definitiv on brand, Lizenzen (Rechte) sind kein Thema",
+        "media_analysis_industry": "Gezieltes Ansprechen der relevanten Fachmedien, um die Zielgruppen zu erreichen - Aufbau langfristiger Beziehungen (Fachmedien kommen auf uns zu für Themen, Verbreitung der Marke dadurch einfacher/ zum Meinungsführer am Markt werden)",
+        "kpi_data_monitoring": "Outcomes sind sofort verfügbar und die weiteren Handlungen können angepasst werden, Strategien können angepasst werden",
         "campaign_performance_analysis": "je genauer die Kampagne, umso besser erreichst du die Zielgruppe und umso besser der Outcome",
         "brand_training_assistant": "Geringer Aufwand, Hoher Mehrwert: Einfache Anfragen werden abgefangen und belasten die Marketing Ressource nicht, die Organisation wird selbstständiger und hat einen Selbstlerneffekt",
         "image_generation": "Einmaliges Shooting im Jahr: Langfristigkeit, die Bilder sind definitiv on brand, Lizenzen (Rechte) sind kein Thema"
@@ -619,6 +619,41 @@
         "campaign_performance_analysis": "Bessere Kampagnenoptimierung und Zielgruppenerreichung",
         "brand_training_assistant": "Schont Ressourcen, die für strageische Themen eingesetzt werden kann + Markenidentifikation",
         "image_generation": "Konsistente Markenidentität in der visuellen Kommunikation"
+      }
+    },
+    "projectBriefs": {
+      "media_analysis_industry": {
+        "projectSponsor": "Anastasia Nartschenko",
+        "projectLead": "Melanie Mosler",
+        "involvedTeams": "Marketing, AI Team",
+        "potentialConflicts": "Priorisierung von Ressourcen zwischen Marketing und AI Team",
+        "requiredResources": "Personal (Data Analyst, Projektmanager), Budget für Tools, KI-Technologie (eine große Analyse, die in bestimmten Zeiträumen wiederholt wird)",
+        "dataAvailability": "Daten müssen durch Marketing auf Basis von Erfahrungen geliefert werden: Themen, Analyserichtung, Branchen, Newsrichtung (z.B. Unternehmens News, Produkt News, Personalankündigungen etc.), Zielgruppe, Zeitraum",
+        "genaiConsiderations": "Prototyp-Meilensteine: KI-Modell für Datenanalyse \nPilot-Design: Nutzerzentrierte Dashboards für Marketing\nEthik & Datenschutz: keine sensiblen Daten\nSkalierbarkeit: nicht nötig, da nur für zentrales Marketing Team\nChange Management: Schulungen für Marketing-Teams",
+        "timeline": "Q4 2025: Prototyp & Datenintegration\nQ1 2026: Pilotphase\nQ2 2026: Rollout",
+        "additionalComments": "Fokus auf Mehrwert: Trend-Analysen, Wettbewerbsbeobachtung, Content-Strategie"
+      },
+      "kpi_data_monitoring": {
+        "projectSponsor": "Anastasia Nartschenko",
+        "projectLead": "Melanie Mosler",
+        "involvedTeams": "Marketing, AI Team",
+        "potentialConflicts": "Unterschiedliche KPI-Definitionen zwischen Abteilungen, Priorisierung von Ressourcen zwischen Marketing und AI Team",
+        "requiredResources": "Personal (Data Analyst, Projektmanager), Budget für Tools, KI-Technologie (dauerhaftes Monitoring)",
+        "dataAvailability": "Pressemitteilungen, Social-Media-Daten, interne Feedbacktools, Wettbewerbsdaten",
+        "genaiConsiderations": "Prototyp-Meilensteine: KI-gestützte KPI-Dashboards\nPilot-Design: Iterative Tests mit Marketing-Teams\nEthik & Datenschutz: keine sensiblen Daten\nSkalierbarkeit: Integration in bestehende BI-Systeme\nChange Management: Schulungen für Marketing-Teams",
+        "timeline": "2026",
+        "additionalComments": "Ziel: Einheitliche KPI-Übersicht für Marketing & PR, inkl. Tonalitätsanalyse und Reichweitenbewertung"
+      },
+      "campaign_performance_analysis": {
+        "projectSponsor": "Anastasia Nartschenko",
+        "projectLead": "Melanie Mosler",
+        "involvedTeams": "Marketing, AI Team, Fachabteilungen wie Sales, HR, etc als Auftraggeber (KPIs definieren für messbare Performance)",
+        "potentialConflicts": "Abhängigkeit von Daten aus verschiedenen Plattformen, Datenschutz bei Kundendaten",
+        "requiredResources": "Personal (Data Scientist, Marketing Analyst), Budget für KI-Tools, Cloud-Infrastruktur",
+        "dataAvailability": "Kampagnendaten aus CRM, Social Media, Google Ads, interne Marketingdaten",
+        "genaiConsiderations": "Prototyp-Meilensteine: KI-Modell für Echtzeit-Analyse\nPilot-Design: Dashboard mit Trend-Alerts\nEthik & Datenschutz: DSGVO-konforme Verarbeitung, Anonymisierung\nSkalierbarkeit: Integration in Marketing-Automation-Systeme\nChange Management: Schulungen für Marketing-Teams + Fachabteilungen",
+        "timeline": null,
+        "additionalComments": "Ziel: Echtzeit-Optimierung von Kampagnen, ROI-Steigerung, datengetriebene Entscheidungen"
       }
     }
   },

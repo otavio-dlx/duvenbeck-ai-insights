@@ -630,6 +630,41 @@
         "brand_training_assistant": "Conserves resources that can be used for strategic topics + brand identification",
         "image_generation": "Consistent brand identity in visual communication"
       }
+    },
+    "projectBriefs": {
+      "media_analysis_industry": {
+        "projectSponsor": "Anastasia Nartschenko",
+        "projectLead": "Melanie Mosler",
+        "involvedTeams": "Marketing, AI Team",
+        "potentialConflicts": "Prioritization of resources between Marketing and AI Team",
+        "requiredResources": "Personnel (Data Analyst, Project Manager), budget for tools, AI technology (one large analysis repeated at specific intervals)",
+        "dataAvailability": "Data must be provided by Marketing based on experience: topics, analysis direction, industries, news direction (e.g., company news, product news, personnel announcements, etc.), target group, time period",
+        "genaiConsiderations": "Prototype milestones: AI model for data analysis \nPilot design: User-centered dashboards for Marketing\nEthics & data protection: no sensitive data\nScalability: not necessary, as only for central Marketing team\nChange management: Training for Marketing teams",
+        "timeline": "Q4 2025: Prototype & data integration\nQ1 2026: Pilot phase\nQ2 2026: Rollout",
+        "additionalComments": "Focus on added value: Trend analyses, competitive monitoring, content strategy"
+      },
+      "kpi_data_monitoring": {
+        "projectSponsor": "Anastasia Nartschenko",
+        "projectLead": "Melanie Mosler",
+        "involvedTeams": "Marketing, AI Team",
+        "potentialConflicts": "Different KPI definitions between departments, prioritization of resources between Marketing and AI Team",
+        "requiredResources": "Personnel (Data Analyst, Project Manager), budget for tools, AI technology (continuous monitoring)",
+        "dataAvailability": "Press releases, social media data, internal feedback tools, competitive data",
+        "genaiConsiderations": "Prototype milestones: AI-supported KPI dashboards\nPilot design: Iterative tests with Marketing teams\nEthics & data protection: no sensitive data\nScalability: Integration into existing BI systems\nChange management: Training for Marketing teams",
+        "timeline": "2026",
+        "additionalComments": "Goal: Unified KPI overview for Marketing & PR, including sentiment analysis and reach evaluation"
+      },
+      "campaign_performance_analysis": {
+        "projectSponsor": "Anastasia Nartschenko",
+        "projectLead": "Melanie Mosler",
+        "involvedTeams": "Marketing, AI Team, specialist departments such as Sales, HR, etc. as clients (defining KPIs for measurable performance)",
+        "potentialConflicts": "Dependency on data from various platforms, data protection for customer data",
+        "requiredResources": "Personnel (Data Scientist, Marketing Analyst), budget for AI tools, cloud infrastructure",
+        "dataAvailability": "Campaign data from CRM, social media, Google Ads, internal marketing data",
+        "genaiConsiderations": "Prototype milestones: AI model for real-time analysis\nPilot design: Dashboard with trend alerts\nEthics & data protection: GDPR-compliant processing, anonymization\nScalability: Integration into marketing automation systems\nChange management: Training for Marketing teams + specialist departments",
+        "timeline": null,
+        "additionalComments": "Goal: Real-time optimization of campaigns, ROI increase, data-driven decisions"
+      }
     }
   },
   "it_shared_services": {

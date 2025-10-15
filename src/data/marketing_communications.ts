@@ -15,15 +15,39 @@ export const ideas = {
       owner: "",
       priority: "A",
       complexity: 2,
-      complexityNoteKey: "marketing_communications.notes.complexity.media_analysis_industry",
+      complexityNoteKey:
+        "marketing_communications.notes.complexity.media_analysis_industry",
       cost: 3,
-      costNoteKey: "marketing_communications.notes.cost.media_analysis_industry",
+      costNoteKey:
+        "marketing_communications.notes.cost.media_analysis_industry",
       roi: 4,
-      roiNote: "",
+      roiNoteKey: "marketing_communications.notes.roi.media_analysis_industry",
       risk: 5,
-      riskNoteKey: "marketing_communications.notes.risk.media_analysis_industry",
+      riskNoteKey:
+        "marketing_communications.notes.risk.media_analysis_industry",
       strategicAlignment: 4,
-      strategicNoteKey: "marketing_communications.notes.strategic.media_analysis_industry",
+      strategicNoteKey:
+        "marketing_communications.notes.strategic.media_analysis_industry",
+      projectBrief: {
+        projectSponsorKey:
+          "marketing_communications.projectBriefs.media_analysis_industry.projectSponsor",
+        projectLeadKey:
+          "marketing_communications.projectBriefs.media_analysis_industry.projectLead",
+        involvedTeamsKey:
+          "marketing_communications.projectBriefs.media_analysis_industry.involvedTeams",
+        potentialConflictsKey:
+          "marketing_communications.projectBriefs.media_analysis_industry.potentialConflicts",
+        requiredResourcesKey:
+          "marketing_communications.projectBriefs.media_analysis_industry.requiredResources",
+        dataAvailabilityKey:
+          "marketing_communications.projectBriefs.media_analysis_industry.dataAvailability",
+        genaiConsiderationsKey:
+          "marketing_communications.projectBriefs.media_analysis_industry.genaiConsiderations",
+        timelineKey:
+          "marketing_communications.projectBriefs.media_analysis_industry.timeline",
+        additionalCommentsKey:
+          "marketing_communications.projectBriefs.media_analysis_industry.additionalComments",
+      },
     },
     {
       finalPrio: 2,
@@ -33,51 +57,106 @@ export const ideas = {
       owner: "",
       priority: "A",
       complexity: 2,
-      complexityNoteKey: "marketing_communications.notes.complexity.kpi_data_monitoring",
+      complexityNoteKey:
+        "marketing_communications.notes.complexity.kpi_data_monitoring",
       cost: 3,
       costNoteKey: "marketing_communications.notes.cost.kpi_data_monitoring",
       roi: 4,
-      roiNote: "",
+      roiNoteKey: "marketing_communications.notes.roi.kpi_data_monitoring",
       risk: 5,
       riskNoteKey: "marketing_communications.notes.risk.kpi_data_monitoring",
       strategicAlignment: 4,
-      strategicNoteKey: "marketing_communications.notes.strategic.kpi_data_monitoring",
+      strategicNoteKey:
+        "marketing_communications.notes.strategic.kpi_data_monitoring",
+      projectBrief: {
+        projectSponsorKey:
+          "marketing_communications.projectBriefs.kpi_data_monitoring.projectSponsor",
+        projectLeadKey:
+          "marketing_communications.projectBriefs.kpi_data_monitoring.projectLead",
+        involvedTeamsKey:
+          "marketing_communications.projectBriefs.kpi_data_monitoring.involvedTeams",
+        potentialConflictsKey:
+          "marketing_communications.projectBriefs.kpi_data_monitoring.potentialConflicts",
+        requiredResourcesKey:
+          "marketing_communications.projectBriefs.kpi_data_monitoring.requiredResources",
+        dataAvailabilityKey:
+          "marketing_communications.projectBriefs.kpi_data_monitoring.dataAvailability",
+        genaiConsiderationsKey:
+          "marketing_communications.projectBriefs.kpi_data_monitoring.genaiConsiderations",
+        timelineKey:
+          "marketing_communications.projectBriefs.kpi_data_monitoring.timeline",
+        additionalCommentsKey:
+          "marketing_communications.projectBriefs.kpi_data_monitoring.additionalComments",
+      },
     },
     {
       finalPrio: 3,
       ideaKey: "marketing_communications.ideas.campaign_performance_analysis",
-      problemKey: "marketing_communications.problems.campaign_performance_analysis",
-      solutionKey: "marketing_communications.solutions.campaign_performance_analysis",
+      problemKey:
+        "marketing_communications.problems.campaign_performance_analysis",
+      solutionKey:
+        "marketing_communications.solutions.campaign_performance_analysis",
       owner: "",
       priority: "A",
       complexity: 2,
-      complexityNoteKey: "marketing_communications.notes.complexity.campaign_performance_analysis",
+      complexityNoteKey:
+        "marketing_communications.notes.complexity.campaign_performance_analysis",
       cost: 3,
-      costNoteKey: "marketing_communications.notes.cost.campaign_performance_analysis",
+      costNoteKey:
+        "marketing_communications.notes.cost.campaign_performance_analysis",
       roi: 4,
-      roiNote: "",
+      roiNoteKey:
+        "marketing_communications.notes.roi.campaign_performance_analysis",
       risk: 5,
-      riskNoteKey: "marketing_communications.notes.risk.campaign_performance_analysis",
+      riskNoteKey:
+        "marketing_communications.notes.risk.campaign_performance_analysis",
       strategicAlignment: 4,
-      strategicNoteKey: "marketing_communications.notes.strategic.campaign_performance_analysis",
+      strategicNoteKey:
+        "marketing_communications.notes.strategic.campaign_performance_analysis",
+      projectBrief: {
+        projectSponsorKey:
+          "marketing_communications.projectBriefs.campaign_performance_analysis.projectSponsor",
+        projectLeadKey:
+          "marketing_communications.projectBriefs.campaign_performance_analysis.projectLead",
+        involvedTeamsKey:
+          "marketing_communications.projectBriefs.campaign_performance_analysis.involvedTeams",
+        potentialConflictsKey:
+          "marketing_communications.projectBriefs.campaign_performance_analysis.potentialConflicts",
+        requiredResourcesKey:
+          "marketing_communications.projectBriefs.campaign_performance_analysis.requiredResources",
+        dataAvailabilityKey:
+          "marketing_communications.projectBriefs.campaign_performance_analysis.dataAvailability",
+        genaiConsiderationsKey:
+          "marketing_communications.projectBriefs.campaign_performance_analysis.genaiConsiderations",
+        timelineKey:
+          "marketing_communications.projectBriefs.campaign_performance_analysis.timeline",
+        additionalCommentsKey:
+          "marketing_communications.projectBriefs.campaign_performance_analysis.additionalComments",
+      },
     },
     {
       finalPrio: 4,
       ideaKey: "marketing_communications.ideas.brand_training_assistant",
       problemKey: "marketing_communications.problems.brand_training_assistant",
-      solutionKey: "marketing_communications.solutions.brand_training_assistant",
+      solutionKey:
+        "marketing_communications.solutions.brand_training_assistant",
       owner: "",
       priority: "A",
       complexity: 3,
-      complexityNoteKey: "marketing_communications.notes.complexity.brand_training_assistant",
+      complexityNoteKey:
+        "marketing_communications.notes.complexity.brand_training_assistant",
       cost: 1,
-      costNoteKey: "marketing_communications.notes.cost.brand_training_assistant",
+      costNoteKey:
+        "marketing_communications.notes.cost.brand_training_assistant",
       roi: 4,
-      roiNote: "",
+      roiNoteKey: "marketing_communications.notes.roi.brand_training_assistant",
       risk: 5,
-      riskNoteKey: "marketing_communications.notes.risk.brand_training_assistant",
+      riskNoteKey:
+        "marketing_communications.notes.risk.brand_training_assistant",
       strategicAlignment: 3,
-      strategicNoteKey: "marketing_communications.notes.strategic.brand_training_assistant",
+      strategicNoteKey:
+        "marketing_communications.notes.strategic.brand_training_assistant",
+      projectBrief: null,
     },
     {
       finalPrio: 5,
@@ -87,16 +166,18 @@ export const ideas = {
       owner: "",
       priority: "A",
       complexity: 3,
-      complexityNoteKey: "marketing_communications.notes.complexity.image_generation",
+      complexityNoteKey:
+        "marketing_communications.notes.complexity.image_generation",
       cost: 3,
       costNoteKey: "marketing_communications.notes.cost.image_generation",
       roi: 2,
-      roiNote: "",
+      roiNoteKey: "marketing_communications.notes.roi.image_generation",
       risk: 1,
       riskNoteKey: "marketing_communications.notes.risk.image_generation",
       strategicAlignment: 4,
-      strategicNoteKey: "marketing_communications.notes.strategic.image_generation",
+      strategicNoteKey:
+        "marketing_communications.notes.strategic.image_generation",
+      projectBrief: null,
     },
   ],
-  
 };
