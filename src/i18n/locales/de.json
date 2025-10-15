@@ -580,6 +580,38 @@
         "sales_kpi_dashboard": "Siehe ROI",
         "lead_management_prioritization": "Siehe ROI"
       }
+    },
+    "projectBriefs": {
+      "ai_data_automation": {
+        "sponsor": "CIO / CDO",
+        "teams": "IT, Security & jeweilige Fachtabteilung",
+        "conflicts": "Jede Fachabteilung muss den Input zur Bewertung geben und dann muss das für alle priorisiert werden, Datenhoheit zwischen Abteilungen, Priorisierung von IT-Ressourcen",
+        "resources": "Schwer abschätzbare Personalmenge und Budget erst mal unbekannt, KI-Tool für Datenaggregation, Schnittstellen zu CRM und weiteren Systemen, Budget für Entwicklung",
+        "dataAvailability": "Jede Fachabteilung muss eine Check-Liste inkl. Kategorien erstellen | seitens Sales: Ausschreibungsunterlagen, Kundendokumente, E-Mails vorhanden, aber unstrukturiert",
+        "genaiConsiderations": "Mögliche Einschätzung: Prototyp für Datenaggregation, Pilot mit ausgewählten Ausschreibungen, Datenschutz",
+        "timeline": "2026 / 2027",
+        "comments": "Hohe Effizienzsteigerung, reduziert manuelle Arbeit"
+      },
+      "automated_quote_creation": {
+        "sponsor": "CCO",
+        "teams": "Die jeweilige Fachtabteilung (Central & Site Solution Design); business analytics & VP KAM",
+        "conflicts": "Anpassung bestehender Prozesse, Akzeptanz bei Vertrieb / Tender Management",
+        "resources": "CRM-Entwicklung, Tool-Integration",
+        "dataAvailability": "Preislisten, Margen, eigene Kalkulationsdatei und Routeninformationen (Quelle sehr unterschiedlich) vorhanden",
+        "genaiConsiderations": "Pilot mit ausgewählten Kunden (z.B. Relabes-Ausschreibung von OEM)",
+        "timeline": "2026",
+        "comments": "Kritisch für Geschwindigkeit im Angebotsprozess"
+      },
+      "unified_communication": {
+        "sponsor": "CCO",
+        "teams": "Sales Support, CRM, Kundenportal = Product Owner; Vertrieb; Marketing & Communication",
+        "conflicts": "Integration verschiedener Systeme, Datenschutz bei Kommunikationsdaten",
+        "resources": "Budget für Schnittstellen zwischen Kommunikationssystemen der Duvenbeck Welt; Technologie: Auswahl einer Plattform (Entscheidung für ein bestehendes oder Erwerb einer neuen Plattform?)",
+        "dataAvailability": "Kommunikationsdaten verteilt auf mehrere Systeme",
+        "genaiConsiderations": "Pilot mit ausgewählten Kanälen und User / Fachabteilung, DSGVO-konforme Verarbeitung",
+        "timeline": "Offen",
+        "comments": "Erhöht Transparenz und Nachverfolgbarkeit, reduziert Informationsverluste"
+      }
     }
   },
   "qehs": {

@@ -590,6 +590,38 @@
         "sales_kpi_dashboard": "See ROI",
         "lead_management_prioritization": "See ROI"
       }
+    },
+    "projectBriefs": {
+      "ai_data_automation": {
+        "sponsor": "CIO / CDO",
+        "teams": "IT, Security & respective specialist department",
+        "conflicts": "Each specialist department must provide input for evaluation and then this must be prioritized for everyone, data sovereignty between departments, prioritization of IT resources",
+        "resources": "Difficult to estimate personnel volume and budget initially unknown, AI tool for data aggregation, interfaces to CRM and other systems, budget for development",
+        "dataAvailability": "Each specialist department must create a checklist incl. categories | from Sales side: tender documents, customer documents, emails available but unstructured",
+        "genaiConsiderations": "Possible assessment: Prototype for data aggregation, pilot with selected tenders, data protection",
+        "timeline": "2026 / 2027",
+        "comments": "High efficiency increase, reduces manual work"
+      },
+      "automated_quote_creation": {
+        "sponsor": "CCO",
+        "teams": "The respective specialist department (Central & Site Solution Design); business analytics & VP KAM",
+        "conflicts": "Adjustment of existing processes, acceptance in sales / tender management",
+        "resources": "CRM development, tool integration",
+        "dataAvailability": "Price lists, margins, own calculation file and route information (source very different) available",
+        "genaiConsiderations": "Pilot with selected customers (e.g., Relabes tender from OEM)",
+        "timeline": "2026",
+        "comments": "Critical for speed in quote process"
+      },
+      "unified_communication": {
+        "sponsor": "CCO",
+        "teams": "Sales Support, CRM, Customer Portal = Product Owner; Sales; Marketing & Communication",
+        "conflicts": "Integration of different systems, data protection for communication data",
+        "resources": "Budget for interfaces between communication systems of the Duvenbeck world; Technology: Selection of a platform (decision for an existing one or acquisition of a new platform?)",
+        "dataAvailability": "Communication data distributed across multiple systems",
+        "genaiConsiderations": "Pilot with selected channels and users / specialist department, GDPR-compliant processing",
+        "timeline": "Open",
+        "comments": "Increases transparency and traceability, reduces information loss"
+      }
     }
   },
   "qehs": {
