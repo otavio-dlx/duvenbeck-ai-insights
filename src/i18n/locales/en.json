@@ -634,6 +634,38 @@
         "training_management": "Directly standard-relevant (e.g., ISO, Legal Compliance), improves professional competence in the company and compliance with legal requirements",
         "fake_carrier_detection": "Highly relevant for Supply Chain Security, TAPA/ISO 28000, customer requirements"
       }
+    },
+    "projectBriefs": {
+      "fake_carrier_detection": {
+        "sponsor": "COO",
+        "teams": "IMS-Carrier, Corporate Security, operative branches",
+        "conflicts": "Data exchange with external parties (data protection), blocking legitimate carriers, legal clarification for false positives, conflict with operative locations because central overrides subcontractor deployment",
+        "resources": "Personnel, Budget, IT resources for programming TMS integration",
+        "dataAvailability": "Subcontractor data, partially available, many manual → must be made automatically usable and must be current",
+        "genaiConsiderations": "Prototype: Comparison with known fake carriers from the past (blacklist model)\nPilot design: Live test in one region or location\nEthics & Data Protection: Clear rules for handling false detection, no personal data without protective measures\nScalability: Fully scalable with stable TMS integration considering different TMS systems\nChange Management: Transparent communication to dispatch/locations, escalation levels for blocking",
+        "timeline": "Piloting within 3-6 months followed by implementation at all locations/TMS systems",
+        "comments": "Complex interactions with many DUV central areas/operative locations"
+      },
+      "document_audit_automation": {
+        "sponsor": "CXO",
+        "teams": "QEHS, ISD, Security, possibly Legal (for Legal Compliance Audits)",
+        "conflicts": "Interface problems between local and central documentation, different audit approaches, missing standardization",
+        "resources": "Personnel, Budget, Technology",
+        "dataAvailability": "Available, standard references and audits centrally available, local data would need to be stored centrally (DMS) if necessary",
+        "genaiConsiderations": "Prototype: Pilot for 1–2 locations/standards with defined document set\nPilot design: Test run with auditor team (before/after comparison)\nEthics & Data Protection: No sensitive personal data – possibly anonymize revision notes\nScalability: t.b.d\nChange Management: Training of auditors & locations for new working method",
+        "timeline": "Piloting within 3-6 months followed by implementation of all standards",
+        "comments": "DUV wide"
+      },
+      "training_management": {
+        "sponsor": "CXO, CPO",
+        "teams": "HR, QEHS, ISD, Security, operative branches that create training",
+        "conflicts": "Inconsistent training content/standards, local vs. central responsibilities, language barriers - translations",
+        "resources": "Personnel, Budget, Technology",
+        "dataAvailability": "Existing training documents (Excel, PowerPoint etc.) available, must be partially newly generated, employee profiles and roles partially not entirely clear - hierarchy etc.",
+        "genaiConsiderations": "Prototype: Test with 1 training (e.g., subcontractor deployment) for one target group\nPilot design: Feedback round after first training module\nEthics & Data Protection: Role-based data only anonymized, AI feedback without personal tracking\nScalability: Content scalable per location & role\nChange Management: Involve training creators & specialist departments, test early",
+        "timeline": "Piloting within 1-3 months followed by implementation for additional training",
+        "comments": ""
+      }
     }
   },
   "marketing_communications": {
