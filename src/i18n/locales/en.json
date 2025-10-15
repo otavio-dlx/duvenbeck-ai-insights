@@ -24,6 +24,38 @@
       "intensive_research": "\"Encyclopedia\" for quick reference // Chatbot",
       "fp_analysis": "Automated creation of Tour-ID to identify when 2 or more Car_O tours are combined into a round trip. Use Fleetboard for automatic route and productivity analysis. Comprehensive analysis of relevant fleet performance KPIs"
     },
+    "projectBriefs": {
+      "fp_analysis": {
+        "sponsor": "Johanna Blanke/ Angelika Scheicher",
+        "teams": "Controlling, FP-Disposition, DUVIS-Team",
+        "conflicts": "- Resource overlap: DUVIS-Team, FP-Disposition, Controlling\n - Implementation of new TMS\n - Not all locations use (the same) telematics",
+        "resources": "Personnel, Budget, Technology",
+        "dataAvailability": "FP-Productivity: GPS data from trucks/ travel data available / driver card data available--> Define deviation analysis\nTour ID: Cross-trip Tour-ID not yet available",
+        "genaiConsiderations": "Milestone: Validation of feasibility:\nScalability: 80% of the fleet uses the same telematics system / \nTour ID: TMS transition in the next two years, therefore no uniform use of TMS during this time",
+        "timeline": "",
+        "comments": ""
+      },
+      "presentation_creation": {
+        "sponsor": "Jan Braukmüller",
+        "teams": "Controlling, IT, HR, Sales, ESG, PMI, M&A",
+        "conflicts": "Resource overlaps exist in all departments",
+        "resources": "Personnel, Budget, Technology",
+        "dataAvailability": "Must be reviewed and defined with all involved teams\n- IDL, Lucanet, etc.",
+        "genaiConsiderations": "Milestone: Validation of feasibility: first test on one BU (e.g. PCL)\nScalability: especially in M&A not 100% possible initially",
+        "timeline": "",
+        "comments": ""
+      },
+      "intensive_research": {
+        "sponsor": "Maximilian Göckener",
+        "teams": "Legal, Sales, SL, CO, HR, SAP, Facility, FP, Treasury, IT",
+        "conflicts": "- Resource overlaps exist in all departments\n - Conflicts between departments regarding data protection",
+        "resources": "Personnel, Budget, Technology",
+        "dataAvailability": "Must be reviewed and defined with all involved teams",
+        "genaiConsiderations": "Milestone: Validation of feasibility / Definition of which data should/may be made available\nData protection: who may receive which information",
+        "timeline": "",
+        "comments": ""
+      }
+    },
     "notes": {
       "complexity": {
         "presentation_creation": "Multiple data sources (e.g., IDL, Lukanet, CAR_O), different presentation levels (BUKRS <> PC), variance analysis of key KPIs, summary of topics based on predefined PPT structure, at Company-Level, BU-Level and Group-Level",
