@@ -1,6 +1,5 @@
-import { getTranslatedText } from "@/utils/translationUtils";
+import i18n from "@/i18n/config";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { QdrantClient } from "@qdrant/js-client-rest";
 
 // Import all data files
 import * as accountingData from "@/data/accounting";
@@ -43,9 +42,6 @@ interface SearchResult {
 export class RAGService {
   private readonly genAI: GoogleGenerativeAI;
   private readonly apiKey: string;
-  private readonly qdrantClient: QdrantClient | null = null;
-  private readonly qdrantUrl: string;
-  private readonly qdrantApiKey: string;
   private readonly collectionName = "duvenbeck_workshop_ideas";
   private documents: VectorDocument[] = [];
   private isInitialized = false;
@@ -57,27 +53,19 @@ export class RAGService {
       import.meta.env.GEMINI_API_KEY ||
       "";
 
-    this.qdrantUrl = import.meta.env.VITE_QDRANT_URL || "";
-    this.qdrantApiKey = import.meta.env.VITE_QDRANT_API_KEY || "";
-
     this.genAI = new GoogleGenerativeAI(this.apiKey);
 
-    // Initialize Qdrant client if credentials are available
-    if (this.qdrantUrl && this.qdrantApiKey) {
-      try {
-        this.qdrantClient = new QdrantClient({
-          url: this.qdrantUrl,
-          apiKey: this.qdrantApiKey,
-        });
-        this.useQdrant = true;
-        console.log("Qdrant client initialized successfully");
-      } catch (error) {
-        console.error("Failed to initialize Qdrant client:", error);
-        this.useQdrant = false;
-      }
+    // Check if we should use Qdrant (via API)
+    const hasQdrantConfig = !!(
+      import.meta.env.VITE_QDRANT_URL && import.meta.env.VITE_QDRANT_API_KEY
+    );
+
+    this.useQdrant = hasQdrantConfig;
+
+    if (hasQdrantConfig) {
+      console.log("RAG service will use Qdrant via API endpoint");
     } else {
-      console.log("Qdrant credentials not found, using in-memory search");
-      this.useQdrant = false;
+      console.log("RAG service will use in-memory search");
     }
   }
 
@@ -141,7 +129,13 @@ export class RAGService {
   }
 
   private getTranslatedText(key: string): string {
-    return getTranslatedText(key);
+    try {
+      // Use i18n directly to translate
+      return i18n.t(key);
+    } catch (error) {
+      console.warn(`Translation failed for key: ${key}`, error);
+      return key;
+    }
   }
 
   private async prepareDocuments(): Promise<VectorDocument[]> {
@@ -228,23 +222,10 @@ export class RAGService {
         }
         console.log("API key found:", this.apiKey.substring(0, 10) + "...");
 
-        if (this.useQdrant && this.qdrantClient) {
-          // Check if Qdrant collection exists
-          try {
-            const collectionInfo = await this.qdrantClient.getCollection(
-              this.collectionName
-            );
-            console.log(
-              `Qdrant collection found with ${collectionInfo.points_count} points`
-            );
-          } catch {
-            console.warn(
-              "Qdrant collection not found, falling back to in-memory search"
-            );
-            // Fall back to in-memory if collection doesn't exist
-            console.log("Initializing in-memory document collection...");
-            this.documents = await this.prepareDocuments();
-          }
+        if (this.useQdrant) {
+          // Just verify the API endpoint is available
+          console.log("Using Qdrant via API endpoint");
+          // We'll rely on the API route to handle Qdrant connection
         } else {
           console.log("Initializing in-memory document collection...");
           this.documents = await this.prepareDocuments();
@@ -265,41 +246,30 @@ export class RAGService {
     query: string,
     limit: number
   ): Promise<SearchResult[]> {
-    if (!this.qdrantClient) {
-      return [];
-    }
-
     try {
-      // Generate embedding for the query
-      const model = this.genAI.getGenerativeModel({
-        model: "text-embedding-004",
-      });
-      const result = await model.embedContent(query);
-      const queryEmbedding = result.embedding.values;
+      console.log(`Searching via API for: "${query}"`);
 
-      // Search in Qdrant
-      const searchResult = await this.qdrantClient.search(this.collectionName, {
-        vector: queryEmbedding,
-        limit,
-      });
-
-      // Convert Qdrant results to our format
-      return searchResult.map((item) => ({
-        id: item.id.toString(),
-        score: item.score || 0,
-        payload: {
-          text: (item.payload?.text as string) || "",
-          department: (item.payload?.department as string) || "",
-          ideaKey: (item.payload?.ideaKey as string) || "",
-          owner: (item.payload?.owner as string) || "",
-          priority: (item.payload?.priority as string) || "",
-          finalPrio: (item.payload?.finalPrio as string | number) || "",
-          type:
-            (item.payload?.type as "idea" | "problem" | "solution") || "idea",
+      // Call the API route instead of Qdrant directly
+      const response = await fetch("/api/rag/search", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-      }));
+        body: JSON.stringify({ query, limit }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error("API search failed:", response.status, errorData);
+        return [];
+      }
+
+      const data = await response.json();
+      console.log(`API returned ${data.results?.length || 0} results`);
+
+      return data.results || [];
     } catch (error) {
-      console.error("Qdrant search failed:", error);
+      console.error("API search failed:", error);
       return [];
     }
   }
@@ -347,19 +317,33 @@ export class RAGService {
     limit: number = 5
   ): Promise<SearchResult[]> {
     try {
-      // Use Qdrant if available and initialized
-      if (this.useQdrant && this.qdrantClient) {
+      console.log(
+        `🔍 searchSimilar called with query: "${query}", limit: ${limit}`
+      );
+      console.log(`   useQdrant: ${this.useQdrant}`);
+
+      // Use Qdrant API if available
+      if (this.useQdrant) {
+        console.log(`   Attempting Qdrant API search...`);
         const results = await this.searchWithQdrant(query, limit);
+        console.log(`   Qdrant API search returned ${results.length} results`);
         if (results.length > 0) {
           return results;
         }
         console.log(
-          "Qdrant returned no results, falling back to in-memory search"
+          "Qdrant API returned no results, falling back to in-memory search"
         );
+      } else {
+        console.log(`   Skipping Qdrant, using in-memory search`);
+        console.log(`   documents.length: ${this.documents.length}`);
       }
 
       // Fallback to in-memory search
-      return await this.searchInMemory(query, limit);
+      const memoryResults = await this.searchInMemory(query, limit);
+      console.log(
+        `   In-memory search returned ${memoryResults.length} results`
+      );
+      return memoryResults;
     } catch (error) {
       console.error("Error searching documents:", error);
       return [];
@@ -371,17 +355,53 @@ export class RAGService {
       // Search for relevant documents
       const searchResults = await this.searchSimilar(query, 10);
 
+      console.log(
+        `Found ${searchResults.length} search results for query: "${query}"`
+      );
+
+      // Handle cases with no search results
       if (searchResults.length === 0) {
-        return "I couldn't find any relevant information in the workshop data to answer your question.";
+        // Still ask the LLM to respond appropriately (greeting, off-topic, etc.)
+        const model = this.genAI.getGenerativeModel({
+          model: "gemini-2.0-flash",
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 512,
+          },
+        });
+
+        const noDataPrompt = `You are an AI assistant for Duvenbeck's AI Workshop (October 6-8, 2025, online event).
+
+I searched for relevant workshop data but found NOTHING related to this query.
+
+USER QUESTION: ${query}
+
+INSTRUCTIONS:
+- If this is a greeting (hi, hello, etc.): Respond warmly and briefly introduce yourself. Invite them to ask about the workshop.
+- If this seems workshop-related: Politely explain you don't have specific information on that topic in the workshop data.
+- If this is clearly off-topic: Politely explain your scope is limited to the Duvenbeck AI Workshop (Oct 6-8, 2025) and you cannot discuss other topics.
+
+Keep your response brief and friendly.`;
+
+        const result = await model.generateContent(noDataPrompt);
+        return result.response.text();
       }
 
-      // Build context from search results
+      // Build context from search results with translated text
       const context = searchResults
         .map((result) => {
           const { department, owner, priority, type, text } = result.payload;
-          return `[${department} - ${type.toUpperCase()}] (Owner: ${owner}, Priority: ${priority}): ${text}`;
+          // Translate the key to get actual readable text
+          const translatedText = this.getTranslatedText(text);
+          console.log(`Translating "${text}" -> "${translatedText}"`);
+          return `[${department} - ${type.toUpperCase()}] (Owner: ${owner}, Priority: ${priority}): ${translatedText}`;
         })
         .join("\n\n");
+
+      console.log(
+        "Context to be sent to LLM:",
+        context.substring(0, 500) + "..."
+      );
 
       // Generate response using context
       const model = this.genAI.getGenerativeModel({
@@ -392,14 +412,30 @@ export class RAGService {
         },
       });
 
-      const prompt = `You are a helpful AI assistant for Duvenbeck's AI Workshop. Based on the following relevant information from the workshop data, please answer the user's question.
+      const prompt = `You are an AI assistant for Duvenbeck's AI Workshop (October 6-8, 2025, online event).
 
-RELEVANT WORKSHOP DATA:
+IMPORTANT: I found relevant workshop data for this query. Answer the user's question using ONLY the data provided below.
+
+YOUR TASK:
+1. Answer the user's question directly using the workshop data below
+2. Include: Department, Owner, Priority, and Type (Idea/Problem/Solution) for each item
+3. Be specific and cite actual workshop content
+4. Use clear structure with simple numbered lists or line breaks
+5. If multiple items are relevant, list them all
+6. Do NOT add greetings or introductions - just answer the question
+
+FORMATTING RULES:
+- Use simple numbered lists (1., 2., 3., etc.)
+- Do NOT use markdown asterisks (*), bold (**text**), or italics
+- Use plain text only with clear line breaks
+- Use simple dashes (-) for sub-items if needed
+
+WORKSHOP DATA:
 ${context}
 
 USER QUESTION: ${query}
 
-Please provide a helpful and accurate response based only on the provided workshop data. If the question cannot be answered with the available data, please say so. Include specific details like owner names and priorities when relevant.`;
+Provide a direct, comprehensive answer in plain text format based on the workshop data above.`;
 
       const result = await model.generateContent(prompt);
       const response = result.response;
