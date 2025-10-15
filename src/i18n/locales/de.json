@@ -404,6 +404,38 @@
         "ftl_precalculation": "Korreliert mit Wachstumszielen",
         "subcontractor_database": "Korreliert mit Wachstumszielen"
       }
+    },
+    "projectBriefs": {
+      "nine_am_process": {
+        "sponsor": "Elias Stadtler / Jonas Ostendorf",
+        "teams": "Tendermanagement, CRM-Team, IT",
+        "conflicts": "Synergien zwischen 9 Uhr Prozess und Vorkalkulation; keine (potenziellen) Konflikte bekannt",
+        "resources": "Personal: - ein FTE Tendermanagement / Business Analytics\nBudget: - < 1.000 € KI-Agent, ~600 € Workflow - Plattform (pro Jahr)\nTechnologien: - CRM - n8n - Claude (Anthropic) - Outlook",
+        "dataAvailability": "Es müssen keine Daten bereitgestellt werden, historische Ausschreibungen sind verfügbar.",
+        "genaiConsiderations": "Prototyp-Meilenstein: Test in der CRM Sandbox\nPilot-Design: POC in der Sandbox durch Sales Mitarbeiter\nEthik und Datenschutz: Zu klären, ob Kundeninformationen verarbeitet werden dürfen\nSkalierbarkeit: n8n für andere Prozesse möglich, sonst: Prozess könnte ausgeweitet werden um weitere Teilprozesse\nChange Management: Schulungen zur Verwaltung des Workflows und Nutzung der Lösung, ggf. imanSys eLearning",
+        "timeline": "MVP bis Ende Oktober / Anfang November 2025 (abhängig von Berechtigungen durch IT / CRM), POC Ende 2025 / Anfang 2026, Implementierung Q1 2026",
+        "comments": "Sehr starke Synergien zum Projekt Vorkalkulation, großer Effekt auf strategische Ziele wie Angebotsvolumen"
+      },
+      "ftl_precalculation": {
+        "sponsor": "Martin Kemper / Tenderdokumente Elias",
+        "teams": "Tendermanagement, Road Sales, CRM, Legal, IT-BI",
+        "conflicts": "Synergien zwischen 9 Uhr Prozess und Vorkalkulation; keine (potenziellen) Konflikte bekannt",
+        "resources": "Personal: - ein FTE Tendermanagement\nBudget: - < 1.000 € KI-Agent, ~600 € Workflow Plattform (pro Jahr)\nTechnologien: - CRM (+ SharePoint) - n8n - Claude (Anthropic) - IDL / CarO (Berichtssystem) - Excel - Outlook",
+        "dataAvailability": "Transportdaten in CarO sind vorhanden, historische NDAs sind vorhanden",
+        "genaiConsiderations": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: z. B. anonymisierte Daten\nSkalierbarkeit: Prozess könnte ausgeweitet werden um weitere Teilprozesse\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+        "timeline": "tbd, im Anschluss an den 9 Uhr Prozess (ca. 4 - 6 Monate)",
+        "comments": "Sehr starke Synergien zum Projekt Vorkalkulation, großer Effekt auf strategische Ziele wie Angebotsvolumen"
+      },
+      "subcontractor_database": {
+        "sponsor": "Sofie Prem",
+        "teams": "Road Sales, IT-BI, Business Analytics, Dispo",
+        "conflicts": "nicht bekannt",
+        "resources": "Personal: - IT Personal muss durch die IT ermittelt werden, andere Bereiche nur beratend gefragt (keine Kernaufgabe)\nBudget: - einmalige Entwicklungskosten, Abschätzung durch IT-BI; KI-Kosten + Workflow (<2.000 € p. a.)\nTechnologien: - n8n - Claude (Anthropic) - IDL / CarO (Berichtssystem) - Excel (+ VBA)",
+        "dataAvailability": "Transportdaten sind in CarO verfügbar, Timocom und Transporeon Anbindung",
+        "genaiConsiderations": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit.\nPilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback.\nEthik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits).\nSkalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen.\nChange Management: Planung zur Schulung und Akzeptanz der Nutzer.",
+        "timeline": "Sehr stark abhängig vom Zeitplan der IT-BI, im Laufe des Jahres 2026",
+        "comments": ""
+      }
     }
   },
   "strategic_kam": {
