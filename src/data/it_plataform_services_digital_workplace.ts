@@ -29,6 +29,16 @@ export const ideas = {
       strategicAlignment: 4,
       strategicNoteKey:
         "it_platform_services.notes.strategic.ticket_quality_prioritization",
+      projectBrief: {
+        projectSponsorKey: "it_platform_services.projectBriefs.ticket_quality_prioritization.sponsor",
+        involvedTeamsKey: "it_platform_services.projectBriefs.ticket_quality_prioritization.teams",
+        potentialConflictsKey: "it_platform_services.projectBriefs.ticket_quality_prioritization.conflicts",
+        requiredResourcesKey: "it_platform_services.projectBriefs.ticket_quality_prioritization.resources",
+        dataAvailabilityKey: "it_platform_services.projectBriefs.ticket_quality_prioritization.dataAvailability",
+        genaiConsiderationsKey: "it_platform_services.projectBriefs.ticket_quality_prioritization.genaiConsiderations",
+        timelineKey: "it_platform_services.projectBriefs.ticket_quality_prioritization.timeline",
+        additionalCommentsKey: "it_platform_services.projectBriefs.ticket_quality_prioritization.comments"
+      }
     },
     {
       finalPrio: 2,
@@ -48,6 +58,16 @@ export const ideas = {
       riskNoteKey: "it_platform_services.notes.risk.meeting_minutes",
       strategicAlignment: 4,
       strategicNoteKey: "it_platform_services.notes.strategic.meeting_minutes",
+      projectBrief: {
+        projectSponsorKey: "it_platform_services.projectBriefs.meeting_minutes.sponsor",
+        involvedTeamsKey: "it_platform_services.projectBriefs.meeting_minutes.teams",
+        potentialConflictsKey: "it_platform_services.projectBriefs.meeting_minutes.conflicts",
+        requiredResourcesKey: "it_platform_services.projectBriefs.meeting_minutes.resources",
+        dataAvailabilityKey: "it_platform_services.projectBriefs.meeting_minutes.dataAvailability",
+        genaiConsiderationsKey: "it_platform_services.projectBriefs.meeting_minutes.genaiConsiderations",
+        timelineKey: "it_platform_services.projectBriefs.meeting_minutes.timeline",
+        additionalCommentsKey: "it_platform_services.projectBriefs.meeting_minutes.comments"
+      }
     },
     {
       finalPrio: 3,
@@ -68,6 +88,16 @@ export const ideas = {
       strategicAlignment: 4,
       strategicNoteKey:
         "it_platform_services.notes.strategic.c_level_communication",
+      projectBrief: {
+        projectSponsorKey: "it_platform_services.projectBriefs.communication_transparency.sponsor",
+        involvedTeamsKey: "it_platform_services.projectBriefs.communication_transparency.teams",
+        potentialConflictsKey: "it_platform_services.projectBriefs.communication_transparency.conflicts",
+        requiredResourcesKey: "it_platform_services.projectBriefs.communication_transparency.resources",
+        dataAvailabilityKey: "it_platform_services.projectBriefs.communication_transparency.dataAvailability",
+        genaiConsiderationsKey: "it_platform_services.projectBriefs.communication_transparency.genaiConsiderations",
+        timelineKey: "it_platform_services.projectBriefs.communication_transparency.timeline",
+        additionalCommentsKey: "it_platform_services.projectBriefs.communication_transparency.comments"
+      }
     },
     {
       finalPrio: 3,
@@ -88,6 +118,16 @@ export const ideas = {
       strategicAlignment: 4,
       strategicNoteKey:
         "it_platform_services.notes.strategic.colleague_communication",
+      projectBrief: {
+        projectSponsorKey: "it_platform_services.projectBriefs.communication_transparency.sponsor",
+        involvedTeamsKey: "it_platform_services.projectBriefs.communication_transparency.teams",
+        potentialConflictsKey: "it_platform_services.projectBriefs.communication_transparency.conflicts",
+        requiredResourcesKey: "it_platform_services.projectBriefs.communication_transparency.resources",
+        dataAvailabilityKey: "it_platform_services.projectBriefs.communication_transparency.dataAvailability",
+        genaiConsiderationsKey: "it_platform_services.projectBriefs.communication_transparency.genaiConsiderations",
+        timelineKey: "it_platform_services.projectBriefs.communication_transparency.timeline",
+        additionalCommentsKey: "it_platform_services.projectBriefs.communication_transparency.comments"
+      }
     },
     {
       finalPrio: 4,
@@ -108,6 +148,7 @@ export const ideas = {
       strategicAlignment: 4,
       strategicNoteKey:
         "it_platform_services.notes.strategic.self_service_it_assistant",
+      projectBrief: null
     },
     {
       finalPrio: 5,
@@ -127,6 +168,7 @@ export const ideas = {
       riskNoteKey: "it_platform_services.notes.risk.roadmap_creation",
       strategicAlignment: 4,
       strategicNoteKey: "it_platform_services.notes.strategic.roadmap_creation",
+      projectBrief: null
     },
     {
       finalPrio: 6,
@@ -146,6 +188,7 @@ export const ideas = {
       riskNoteKey: "it_platform_services.notes.risk.project_tracking",
       strategicAlignment: 3,
       strategicNoteKey: "it_platform_services.notes.strategic.project_tracking",
+      projectBrief: null
     },
     {
       finalPrio: null,

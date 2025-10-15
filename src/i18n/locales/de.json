@@ -966,6 +966,38 @@
       "project_tracking": "Regelmäßige automatisierte Abfragen bei den Workstream Leads",
       "automated_ticket_classification": "Einführung eines KI-Moduls im Ticketsystem, das Anfragen automatisch klassifiziert, priorisiert und dem richtigen Team zuweist."
     },
+    "projectBriefs": {
+      "ticket_quality_prioritization": {
+        "sponsor": "Jakub",
+        "teams": "IT/ Entwicklung/ Produkt Owner/ PMO",
+        "conflicts": "Keine Ressourcen/ keine Akzeptanz für das Projekt",
+        "resources": "Interner Entwicklungsaufwand",
+        "dataAvailability": "Bestehende Ticketsystem-Daten, historische Ticketverläufe, Kategorisierungen,",
+        "genaiConsiderations": "- Prototyp: Klassifizierung und Priorisierung von Tickets\n- Pilot: Test mit ausgewählten Teams\n- Datenschutz: Ticketinhalte anonymisieren\n- Integration in Serviceportal",
+        "timeline": "- Grob Planung bis November 25\n- Erstellung bis Dezember 25\n- Implementierung - Q2 26\n- Kontrolle/ Bug - Q3 26",
+        "comments": "Fokus auf Qualität und Effizienz, kontinuierliches Feedback der Nutzer, Nachkontrolle durch Service Desk"
+      },
+      "meeting_minutes": {
+        "sponsor": "Jakub",
+        "teams": "Workplace + Dienstleister",
+        "conflicts": "Ressourcen/ Datenschutz",
+        "resources": "Copilot-Lizenzen (~30 € pro Nutzer), IT-Support",
+        "dataAvailability": "Meeting-Inhalte, Teilnehmerlisten",
+        "genaiConsiderations": "- Copilot POC\n- Festlegen für wen macht das Sinn\n- Nachgelagert das Thema DataGovernance inm M365",
+        "timeline": "- Start POC Oktober 25\n- Abschluss Januar 25\n- Implementierung - Q1 26",
+        "comments": "Hohe Zeitersparnis, bessere Nachverfolgbarkeit, Aufgabenverfolgung"
+      },
+      "communication_transparency": {
+        "sponsor": "Jakub",
+        "teams": "Workplace/ Corporate Development/ Dienstleister",
+        "conflicts": "Ressourcen",
+        "resources": "Copilot-Lizenzen (~30 € pro Nutzer), IT-Support",
+        "dataAvailability": "Interne Datenquellen, Webrecherche",
+        "genaiConsiderations": "- Copilot POC\n- Festlegen für wen macht das Sinn",
+        "timeline": "- Start POC Oktober 25\n- Abschluss Januar 25\n- Implementierung - Q1 26",
+        "comments": "Abgrenzung des Scopes \nZeitplan nur für Out of the Box Copilot Freischaltung in Powerpoint"
+      }
+    },
     "notes": {
       "complexity": {
         "ticket_quality_prioritization": "Vorhandene Ticketsystem muss lediglich durch Kategorisierungen neu sortiert werden, wodurch Tickets direkt zugeordnet werden",
