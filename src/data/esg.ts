@@ -19,12 +19,12 @@ export const ideas = {
       cost: 2,
       costNoteKey: "esg.notes.cost.ai_text_creation",
       roi: 3,
-      roiNote:
-        "u.a. Bericht wird voraussichtlich 2027 Bestandteil der jährlichen Berichterstattung + Kundenanforderung",
+      roiNoteKey: "esg.notes.roi.ai_text_creation",
       risk: 1,
       riskNoteKey: "esg.notes.risk.ai_text_creation",
       strategicAlignment: 5,
       strategicNoteKey: "esg.notes.strategic.ai_text_creation",
+      projectBrief: null,
     },
     {
       finalPrio: 2,
@@ -38,12 +38,12 @@ export const ideas = {
       cost: 3,
       costNoteKey: "esg.notes.cost.ai_data_collection",
       roi: 3,
-      roiNote:
-        "u.a. Bericht wird voraussichtlich 2027 Bestandteil der jährlichen Berichterstattung + Kundenanforderung",
+      roiNoteKey: "esg.notes.roi.ai_data_collection",
       risk: 1,
       riskNoteKey: "esg.notes.risk.ai_data_collection",
       strategicAlignment: 5,
       strategicNoteKey: "esg.notes.strategic.ai_data_collection",
+      projectBrief: null,
     },
     {
       finalPrio: 4,
@@ -57,11 +57,12 @@ export const ideas = {
       cost: 3,
       costNoteKey: "esg.notes.cost.ai_data_processing",
       roi: 2,
-      roiNote: "Eher qualitativer Benefit",
+      roiNoteKey: "esg.notes.roi.ai_data_processing",
       risk: 4,
       riskNoteKey: "esg.notes.risk.ai_data_processing",
       strategicAlignment: 4,
       strategicNoteKey: "esg.notes.strategic.ai_data_processing",
+      projectBrief: null,
     },
     {
       finalPrio: 1,
@@ -75,11 +76,29 @@ export const ideas = {
       cost: 4,
       costNoteKey: "esg.notes.cost.automatic_customer_calculation",
       roi: 4,
-      roiNote: "u.a. wichtig für Neukunden- geschäfte",
+      roiNoteKey: "esg.notes.roi.automatic_customer_calculation",
       risk: 2,
       riskNoteKey: "esg.notes.risk.automatic_customer_calculation",
       strategicAlignment: 5,
       strategicNoteKey: "esg.notes.strategic.automatic_customer_calculation",
+      projectBrief: {
+        projectSponsorKey:
+          "esg.projectBriefs.automatic_customer_calculation.projectSponsor",
+        involvedTeamsKey:
+          "esg.projectBriefs.automatic_customer_calculation.involvedTeams",
+        potentialConflictsKey:
+          "esg.projectBriefs.automatic_customer_calculation.potentialConflicts",
+        requiredResourcesKey:
+          "esg.projectBriefs.automatic_customer_calculation.requiredResources",
+        dataAvailabilityKey:
+          "esg.projectBriefs.automatic_customer_calculation.dataAvailability",
+        genaiConsiderationsKey:
+          "esg.projectBriefs.automatic_customer_calculation.genaiConsiderations",
+        timelineKey:
+          "esg.projectBriefs.automatic_customer_calculation.timeline",
+        additionalCommentsKey:
+          "esg.projectBriefs.automatic_customer_calculation.additionalComments",
+      },
     },
     {
       finalPrio: 3,
@@ -93,11 +112,12 @@ export const ideas = {
       cost: 3,
       costNoteKey: "esg.notes.cost.automatic_co2_tracking",
       roi: 4,
-      roiNote: "u.a. wichtig für Neukunden- geschäfte",
+      roiNoteKey: "esg.notes.roi.automatic_co2_tracking",
       risk: 2,
       riskNoteKey: "esg.notes.risk.automatic_co2_tracking",
       strategicAlignment: 5,
       strategicNoteKey: "esg.notes.strategic.automatic_co2_tracking",
+      projectBrief: null,
     },
   ],
 };

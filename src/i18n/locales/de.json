@@ -948,12 +948,31 @@
         "automatic_customer_calculation": "Nicht vorhandene Werte bzw. falsche Berechnungen könnten das Verhältnis zum Kunden beeinflussen",
         "automatic_co2_tracking": "Fehlende oder falsch berechnete Werte können die CO2-Bilanzierung beeinflussen"
       },
+      "roi": {
+        "ai_text_creation": "u.a. Bericht wird voraussichtlich 2027 Bestandteil der jährlichen Berichterstattung + Kundenanforderung",
+        "ai_data_collection": "u.a. Bericht wird voraussichtlich 2027 Bestandteil der jährlichen Berichterstattung + Kundenanforderung",
+        "ai_data_processing": "Eher qualitativer Benefit",
+        "automatic_customer_calculation": "u.a. wichtig für Neukunden- geschäfte",
+        "automatic_co2_tracking": "u.a. wichtig für Neukunden- geschäfte"
+      },
       "strategic": {
         "ai_text_creation": "Gesetzliche Anforderung",
         "ai_data_collection": "Gesetzliche Anforderung",
         "ai_data_processing": "Wichtig für die ESG-Strategie",
         "automatic_customer_calculation": "Zertifizierung notwendig, zudem strategisch wichtig für eine Vielzahl an Stakeholder",
         "automatic_co2_tracking": "Zahlt auf die obrigen gesetzlichen Anforderungen ein"
+      }
+    },
+    "projectBriefs": {
+      "automatic_customer_calculation": {
+        "projectSponsor": "C-Board / ESG",
+        "involvedTeams": "ESG / IT / PMO / SALES",
+        "potentialConflicts": "Mit IT möglich; bspw: Integration von Tool durch Schnittstelle (Integration-Team der IT bedient schon andere interne Interessen)",
+        "requiredResources": "Projekt-Team: ca. 4 MA, Budget inkl. MA + Technologie im Projektzeitraum ~ 150.000€ (?)",
+        "dataAvailability": "Parameter in Frachtbriefen vorhanden, Bereitstellung von Umrechnungsfaktoren + zertifizierter Berechnungsmethodik notwendig",
+        "genaiConsiderations": "Nutzerzentierte Testphasen mit Feedbackschleifen",
+        "timeline": "Modul zur Berechnung der Transportemissionen soll bis Ende 2025 abgeschlossen sein, \nMilestone 1: Datenbereitstellung seitens DUV bis 11/2025\nMilestone 2: Datenintegration in bestehende Technologie bis Mitte 12/2025\nMilestone 3: Testphase der ersten Daten-Runs + anschließende Optimierung bis Ende 12/2025",
+        "additionalComments": null
       }
     }
   },
