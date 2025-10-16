@@ -477,32 +477,32 @@
     "problems": {
       "nine_am_process": "9 AM process requires many resources (personnel, time)",
       "ftl_precalculation": "Time-consuming",
-      "subcontractor_database": "Missing information"
+      "subcontractor_database": "Information missing"
     },
     "solutions": {
       "nine_am_process": "Workflow for retrieving RFQs / RFIs, summarizing and filling fields in CRM via an AI agent (Tool: Dynamics) / Automatic data download",
-      "ftl_precalculation": "- Which loads are a perfect fit?\n- Current costs / Provision of cost KPIs from actual figures / Own data\n- Automatic capture of transport information from tender documents\n- Automated creation of factsheets for companies / NDA extraction\n- Correction of incorrect ZIP code entries / Plausibility check\n- Automatic scheduling for calculation alignment in Outlook\n- Pre-calculation on SharePoint",
+      "ftl_precalculation": "- Which loads are a perfect fit for this?\n- Current costs / Provision of cost KPIs from actual figures / Own data\n- Automatic capture of transport information from tender documents\n- Automated creation of factsheets for companies / NDA extraction\n- Correction of incorrect ZIP code entries / Plausibility check\n- Automatic scheduling for calculation alignment in Outlook\n- Pre-calculation on SharePoint",
       "subcontractor_database": "Structured provision of information / Automated transport requests to subcontractors / Price structure etc."
     },
     "notes": {
       "complexity": {
         "nine_am_process": "Support from CRM team, agent must write to CRM / Workflow tool needs access to Outlook",
-        "ftl_precalculation": "Heavily depends on the design and scope of functionality",
+        "ftl_precalculation": "Depends heavily on the design and scope of functionality",
         "subcontractor_database": "Building a new table in the database, creating a new report in the reporting system"
       },
       "cost": {
-        "nine_am_process": "Number of tokens is manageable <1000 Euro per year / Purchase of Workflow Manager 600 Euro",
-        "ftl_precalculation": "Processing of actual data and cost KPIs must be done independently of AI. Should build on existing or planned reporting system",
+        "nine_am_process": "Number of tokens is manageable <1000 Euro per year / Purchase of workflow manager 600 Euro",
+        "ftl_precalculation": "Processing of actual data and cost KPIs must be done independently of AI. This should build on the existing or planned reporting system",
         "subcontractor_database": "Development costs in data preparation and provision / Ongoing AI costs manageable"
       },
       "roi": {
-        "nine_am_process": "Increased employee productivity, approx. 3 hours per day, but measurable effect on offer volume because more can be processed",
+        "nine_am_process": "Productivity increase of employees, approx. 3 hours per day, but measurable effect on offer volume because more can be processed",
         "ftl_precalculation": "Increases calculation reliability and improves probability of contract award",
-        "subcontractor_database": "Reduction of empty runs, resulting in better equipment utilization"
+        "subcontractor_database": "Reduction of empty runs, thereby better utilization of equipment"
       },
       "risk": {
         "nine_am_process": "Data protection? Should be clarified",
-        "ftl_precalculation": "Mostly internal process / But data protection issue",
+        "ftl_precalculation": "Predominantly internal process / But data protection topic",
         "subcontractor_database": "Internal POC"
       },
       "strategic": {
@@ -516,7 +516,7 @@
         "sponsor": "Elias Stadtler / Jonas Ostendorf",
         "teams": "Tender management, CRM team, IT",
         "conflicts": "Synergies between 9 am process and precalculation; no (potential) conflicts known",
-        "resources": "Personnel: - one FTE Tender management / Business Analytics\nBudget: - < 1,000 € AI agent, ~600 € Workflow platform (per year)\nTechnologies: - CRM - n8n - Claude (Anthropic) - Outlook",
+        "resources": "Personnel: \n- one FTE Tender management / Business Analytics\nBudget:\n- < 1,000 € AI agent, ~600 € Workflow platform (per year)\nTechnologies:\n- CRM\n- n8n\n- Claude (Anthropic)\n- Outlook",
         "dataAvailability": "No data needs to be provided, historical tenders are available.",
         "genaiConsiderations": "Prototype milestone: Test in CRM Sandbox\nPilot design: POC in Sandbox by Sales employees\nEthics and data protection: To be clarified whether customer information may be processed\nScalability: n8n possible for other processes, otherwise: Process could be extended to include additional sub-processes\nChange Management: Training for workflow management and solution usage, possibly imanSys eLearning",
         "timeline": "MVP by end of October / early November 2025 (depending on authorizations from IT / CRM), POC end of 2025 / early 2026, Implementation Q1 2026",
@@ -526,7 +526,7 @@
         "sponsor": "Martin Kemper / Tender documents Elias",
         "teams": "Tender management, Road Sales, CRM, Legal, IT-BI",
         "conflicts": "Synergies between 9 am process and precalculation; no (potential) conflicts known",
-        "resources": "Personnel: - one FTE Tender management\nBudget: - < 1,000 € AI agent, ~600 € Workflow platform (per year)\nTechnologies: - CRM (+ SharePoint) - n8n - Claude (Anthropic) - IDL / CarO (Reporting system) - Excel - Outlook",
+        "resources": "Personnel: \n- one FTE Tender management\nBudget:\n- < 1,000 € AI agent, ~600 € Workflow platform (per year)\nTechnologies:\n- CRM (+ SharePoint)\n- n8n\n- Claude (Anthropic)\n- IDL / CarO (Reporting system)\n- Excel\n- Outlook",
         "dataAvailability": "Transport data in CarO is available, historical NDAs are available",
         "genaiConsiderations": "Prototype milestones: Focus on controlled experiments to validate feasibility.\nPilot design: User-centered tests and iterations based on feedback.\nEthics and data protection: e.g. anonymized data\nScalability: Process could be extended to include additional sub-processes\nChange Management: Planning for user training and acceptance.",
         "timeline": "tbd, following the 9 am process (approx. 4 - 6 months)",
@@ -536,7 +536,7 @@
         "sponsor": "Sofie Prem",
         "teams": "Road Sales, IT-BI, Business Analytics, Dispo",
         "conflicts": "not known",
-        "resources": "Personnel: - IT personnel must be determined by IT, other areas only consulted (not a core task)\nBudget: - one-time development costs, estimation by IT-BI; AI costs + Workflow (<2,000 € p.a.)\nTechnologies: - n8n - Claude (Anthropic) - IDL / CarO (Reporting system) - Excel (+ VBA)",
+        "resources": "Personnel: \n- IT personnel must be determined by IT, other areas only consulted (not a core task)\nBudget:\n- one-time development costs, estimation by IT-BI; AI costs + Workflow (<2,000 € p.a.)\nTechnologies:\n- n8n\n- Claude (Anthropic)\n- IDL / CarO (Reporting system)\n- Excel (+ VBA)",
         "dataAvailability": "Transport data is available in CarO, Timocom and Transporeon connection",
         "genaiConsiderations": "Prototype milestones: Focus on controlled experiments to validate feasibility.\nPilot design: User-centered tests and iterations based on feedback.\nEthics and data protection: Early protective measures (e.g., anonymized data, fairness audits).\nScalability: Evaluation of infrastructure for larger implementations.\nChange Management: Planning for user training and acceptance.",
         "timeline": "Highly dependent on IT-BI schedule, during 2026",
