@@ -1,6 +1,7 @@
 import { FilterPanel } from "@/components/FilterPanel";
 import { Header } from "@/components/Header";
 import { MetricCard } from "@/components/MetricCard";
+import { getAllIdeasForCalculator } from "@/lib/data-mapper";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { participantsData } from "@/data/participants";
@@ -32,6 +33,16 @@ export const Dashboard = () => {
   const { t } = useTranslation();
   const [selectedDepartment, setSelectedDepartment] = useState("all");
   const [selectedDay, setSelectedDay] = useState("all");
+  const [totalIdeasFromFiles, setTotalIdeasFromFiles] = useState<number | null>(null);
+
+  // Load total ideas count from all data files (same as PriorityAnalysis)
+  useEffect(() => {
+    const loadTotalIdeas = async () => {
+      const allIdeas = await getAllIdeasForCalculator();
+      setTotalIdeasFromFiles(allIdeas.length);
+    };
+    loadTotalIdeas();
+  }, []);
 
   // Extract unique departments
   const departments = useMemo(() => {
@@ -203,12 +214,14 @@ export const Dashboard = () => {
     // Calculate unique departments from actual department workspaces (data files)
     // Count unique department names from the ideasByDept object which represents actual departments with data
     const uniqueDepts =
-      selectedDepartment === "all"
-        ? Object.keys(ideasByDept).length
-        : 1;
+      selectedDepartment === "all" ? Object.keys(ideasByDept).length : 1;
+
+    // Use the total ideas count from getAllIdeasForCalculator (same as PriorityAnalysis)
+    // This ensures consistency between Dashboard and PriorityAnalysis pages
+    const displayTotalIdeas = totalIdeasFromFiles ?? totalIdeasCount;
 
     const metrics = {
-      totalIdeas: totalIdeasCount,
+      totalIdeas: displayTotalIdeas,
       totalParticipants: filteredParticipants.length,
       departments: uniqueDepts,
       avgPriority: 7.5, // Mock data
@@ -220,7 +233,7 @@ export const Dashboard = () => {
       .slice(0, 10);
 
     return { metrics, departmentData };
-  }, [filteredParticipants, selectedDepartment]);
+  }, [filteredParticipants, selectedDepartment, totalIdeasFromFiles]);
 
   const dayData = useMemo(() => {
     const day1Count = participantsData.filter((p) => p.day1).length;
@@ -613,7 +626,7 @@ export function DynamicCollaboards({
       }
 
       // Deduplicate by department name (keep first occurrence)
-      const uniqueDepartments = new Map<string, typeof filteredFound[0]>();
+      const uniqueDepartments = new Map<string, (typeof filteredFound)[0]>();
       filteredFound.forEach((item) => {
         if (!uniqueDepartments.has(item.department)) {
           uniqueDepartments.set(item.department, item);
