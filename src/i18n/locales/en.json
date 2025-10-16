@@ -1301,7 +1301,7 @@
         "requiredResources": "Project team: approx. 4 employees, budget incl. staff + technology during project period ~ €150,000 (?)",
         "dataAvailability": "Parameters available in freight letters, provision of conversion factors + certified calculation methodology necessary",
         "genaiConsiderations": "User-centered test phases with feedback loops",
-        "timeline": "Module for calculating transport emissions should be completed by the end of 2025, \nMilestone 1: Data provision by DUV by 11/2025\nMilestone 2: Data integration into existing technology by mid-12/2025\nMilestone 3: Test phase of initial data runs + subsequent optimization by the end of 12/2025",
+        "timeline": "Module for calculating transport emissions should be completed by the end of 2025\nMilestone 1: Data provision by DUV by 11/2025\nMilestone 2: Data integration into existing technology by mid-12/2025\nMilestone 3: Test phase of initial data runs + subsequent optimization by the end of 12/2025",
         "additionalComments": null
       }
     }

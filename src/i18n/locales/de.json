@@ -1294,7 +1294,7 @@
         "requiredResources": "Projekt-Team: ca. 4 MA, Budget inkl. MA + Technologie im Projektzeitraum ~ 150.000€ (?)",
         "dataAvailability": "Parameter in Frachtbriefen vorhanden, Bereitstellung von Umrechnungsfaktoren + zertifizierter Berechnungsmethodik notwendig",
         "genaiConsiderations": "Nutzerzentierte Testphasen mit Feedbackschleifen",
-        "timeline": "Modul zur Berechnung der Transportemissionen soll bis Ende 2025 abgeschlossen sein, \nMilestone 1: Datenbereitstellung seitens DUV bis 11/2025\nMilestone 2: Datenintegration in bestehende Technologie bis Mitte 12/2025\nMilestone 3: Testphase der ersten Daten-Runs + anschließende Optimierung bis Ende 12/2025",
+        "timeline": "Modul zur Berechnung der Transportemissionen soll bis Ende 2025 abgeschlossen sein\nMilestone 1: Datenbereitstellung seitens DUV bis 11/2025\nMilestone 2: Datenintegration in bestehende Technologie bis Mitte 12/2025\nMilestone 3: Testphase der ersten Daten-Runs + anschließende Optimierung bis Ende 12/2025",
         "additionalComments": null
       }
     }
