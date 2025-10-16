@@ -289,7 +289,7 @@
       "damage_claim_review": "Liability review including 'expert' assessment",
       "contract_insurance_review": "Contract review - Liability & Insurance including checklist",
       "document_administration": "Documentation/Administration and summarization of email threads, documents, contract reviews in file system with creation of content description in file storage system",
-      "legal_document_creation": "Creation of legal briefs, lawsuits, responses to lawsuits, letters etc.",
+      "legal_document_creation": "Creation of legal briefs, lawsuits, responses to lawsuits, letters etc.; Creation of questionnaires and conversation guides; Creation of contract templates, templates for guidelines, data protection notices and other documents as well as insertion into existing templates (e.g. also in processing descriptions, logistics contracts, employment contracts)",
       "contract_analysis": "Review and analysis of standards (NDA, CoC, IT-GTC, DPA etc.) as well as non-standardized contracts",
       "recurring_case_chatbot": "Small, recurring cases and questions",
       "meeting_summarization": "Negotiation summarization / Meeting summarization / Conversation summarization",
@@ -299,51 +299,51 @@
       "damage_claim_review": "Is the damage reimbursable? Liability requirements met? Assessment of damage extent",
       "contract_insurance_review": "Creation of checklist including marking relevant passages, preliminary review if necessary, translation",
       "document_administration": "Automated assignment of documents to relevant files and content extraction with summary creation (automated case documentation)",
-      "legal_document_creation": "Use of research results, case summaries etc. for creation of texts in legal tone using predefined templates including from beck-online database",
+      "legal_document_creation": "Use of research results, case summaries etc. for creation of texts in legal tone using predefined templates including from beck-online database; After providing the facts, processing and drafting of questions; Text creation based on bullet points and topic blocks, creating and inserting into predefined templates",
       "contract_analysis": "Automatic review and summarization including consideration of predefined rules (OTRIS AI solution)",
-      "recurring_case_chatbot": "Chatbot for routine legal questions and guidance",
+      "recurring_case_chatbot": "Chatbot",
       "meeting_summarization": "Automated transcription / Summarization",
       "risk_analysis_automation": "Automated risk analysis"
     },
     "notes": {
       "complexity": {
         "damage_claim_review": "Contract review, legal liability, market values, scrap values, type of goods and function",
-        "contract_insurance_review": "Data for checklist can be easily extracted. Only insurance topics relevant, not the entire contract. Provision of insurance coverage possible",
-        "document_administration": "Low complexity because: pure reading of existing data; partly systems known that can already implement this",
-        "legal_document_creation": "Contract creation: more complex; Creation of legal briefs and processing descriptions: less complex",
-        "contract_analysis": "Medium to high: Depends on rule variety and document structure. AI must understand both legal language and specific company rules",
-        "recurring_case_chatbot": "Medium: Building internal knowledge pool, training AI on company-specific content and ongoing maintenance necessary",
-        "meeting_summarization": "Less complex: Speech recognition, topic analysis and summarization are technically well manageable. Additional requirements for legally secure storage and possibly multilingualism",
+        "contract_insurance_review": "Data for checklist can be easily extracted. Only insurance topics relevant, not the entire contract. Provision of insurance coverage possible.",
+        "document_administration": "No high complexity, because: pure reading of existing data; partly systems known that can already implement this",
+        "legal_document_creation": " Contract creation: more complex; Creation of legal briefs and processing descriptions: not so complex",
+        "contract_analysis": "Medium to high: Depends on rule variety and document structure. AI must understand both legal language and specific company rules and be able to apply them.",
+        "recurring_case_chatbot": "Medium: Building internal knowledge pool, training AI on company-specific content and ongoing maintenance necessary. Technically well implementable with existing solutions.",
+        "meeting_summarization": "Less complex: Speech recognition, topic analysis and summarization are technically well manageable. Additional requirements for legally secure storage and possibly multilingualism.",
         "risk_analysis_automation": "Relatively complex: Playbooks must be created in advance; development of results and evaluations"
       },
       "cost": {
         "damage_claim_review": "Separate program required (contains confidential company data). Employee effort relatively low (reduction in workload). Cost savings in insurance & expert costs",
-        "contract_insurance_review": "Separate program required (contains confidential company data). Employee effort relatively low (reduction in workload)",
+        "contract_insurance_review": "Separate program required (contains confidential company data). Employee effort relatively low (reduction in workload).",
         "document_administration": "Dependent on system landscape",
         "legal_document_creation": "Medium to high investment costs; ongoing costs dependent on usage and API queries",
         "contract_analysis": "Costs through OTRIS (add-on to OTRIS) relatively low, as system already exists and it's just an add-on",
         "recurring_case_chatbot": "One-time implementation and continuous maintenance by Legal (DUV GPT could be used after implementation)",
-        "meeting_summarization": "Medium: Dependent on solution (e.g. internal AI, MS Copilot, third-party). Ongoing costs low when using existing systems",
-        "risk_analysis_automation": "Medium: Initial effort for system integration and parameterization, then low ongoing costs"
+        "meeting_summarization": "Medium: Dependent on solution (e.g. internal AI, MS Copilot, third-party). Ongoing costs low when using existing systems.",
+        "risk_analysis_automation": "Medium: Initial effort for system integration and parameterization, then low ongoing costs."
       },
       "roi": {
-        "damage_claim_review": "Cost savings, time savings",
-        "contract_insurance_review": "Faster feedback to customers = improved customer satisfaction. Savings in employee effort",
+        "damage_claim_review": "",
+        "contract_insurance_review": "",
         "document_administration": "Very high through time savings in document filing, research and case processing",
-        "legal_document_creation": "Very high: significant time savings for recurring tasks (drafts, statements, internal feedback). Reduces research and formulation effort",
+        "legal_document_creation": "Very high: significant time savings for recurring tasks (e.g. drafts, statements, internal feedback). Reduces research and formulation effort.",
         "contract_analysis": "High time savings once implemented; Creation of playbook requires increased time investment upfront",
-        "recurring_case_chatbot": "Relatively high: Relieves team from routine inquiries, reduces processing times, increases response speed",
-        "meeting_summarization": "Relatively high: Saves considerable time in post-processing and improves documentation quality. Reduces risk of losing important points",
-        "risk_analysis_automation": "High: Significant time savings in risk analyses and DPIA preparation, improved traceability and lower error susceptibility"
+        "recurring_case_chatbot": "Relatively high: Relieves team from routine inquiries, reduces processing times, increases response speed. Strong productivity gain in daily business. More difficult to apply in weighing of interests",
+        "meeting_summarization": "Relatively high: Saves considerable time in post-processing and improves documentation quality. Reduces risk of losing important points.",
+        "risk_analysis_automation": "High: Significant time savings in risk analyses and DPIA preparation, improved traceability and lower error susceptibility."
       },
       "risk": {
         "damage_claim_review": "Must be double-checked by employee. Negotiations still possible. Sometimes contains sensitive company data",
-        "contract_insurance_review": "Must be double-checked by employee to avoid coverage gaps",
+        "contract_insurance_review": "Must be double-checked by employee to avoid coverage gaps.",
         "document_administration": "Medium risk, as only existing content is read and no new results are generated",
-        "legal_document_creation": "Medium: Risks concern content accuracy, data confidentiality in external processing and copyright. Well manageable through clear governance and manual final control",
-        "contract_analysis": "Low to medium: Low risk with internal use; external cloud solution requires data protection and security review. Risk of incorrect assessments with incomplete rules",
+        "legal_document_creation": "Medium: Risks concern content accuracy, data confidentiality in external processing (e.g. when using online databases) and copyright. Well manageable through clear governance and manual final control",
+        "contract_analysis": "Low to medium: Low risk with internal use; external cloud solution requires data protection and security review. Risk of incorrect assessments with incomplete rules.",
         "recurring_case_chatbot": "Higher risk: Accuracy of keywords error-prone",
-        "meeting_summarization": "Medium risk with data protection compliant use controllable",
+        "meeting_summarization": "Medium risk: Risk with data protection compliant use controllable",
         "risk_analysis_automation": "Human control remains necessary, result quality depends on data basis and parameters, data protection compliance of AI used must be ensured"
       },
       "strategic": {
@@ -351,7 +351,7 @@
         "contract_insurance_review": "Faster customer responses = improved customer satisfaction. Savings in employee effort",
         "document_administration": "Standardization; Reduction of administrative effort",
         "legal_document_creation": "Automation, time savings, standardization, acceleration",
-        "contract_analysis": "Very good fit: Strengthens quality assurance, standardization and traceability. Supports digital transformation of legal department",
+        "contract_analysis": "Very good fit: Strengthens quality assurance, standardization and traceability. Supports digital transformation of legal department and promotes consistency.",
         "recurring_case_chatbot": "Direct response, quick initial assessment, process acceleration",
         "meeting_summarization": "Standardization of documentation, increased digitalization and quality",
         "risk_analysis_automation": "Direct support of accountability obligation according to Art. 5 Para. 2 GDPR"
@@ -359,24 +359,30 @@
     },
     "projectBriefs": {
       "damage_claim_review": {
+        "projectSponsor": "Muriel Berning",
         "involvedTeams": "Claim / Insurance",
         "potentialConflicts": "None",
+        "requiredResources": "Budget, Technology",
         "dataAvailability": "Damage documentation (images, damage reports, proof of value, etc.) / legal foundations + expertise",
         "genaiConsiderations": "Access to existing damage software to create a corresponding expert opinion.",
         "timeline": null,
         "additionalComments": null
       },
       "legal_document_creation": {
+        "projectSponsor": "Legal",
         "involvedTeams": "Legal, Compliance & Data Protection",
         "potentialConflicts": "Other specialized departments as users of templates",
+        "requiredResources": "Personnel, Budget, Technology",
         "dataAvailability": "Desired structure and content must be specified, templates must be provided, case summaries must be provided",
         "genaiConsiderations": "LLM tool required, correct use/formulation of prompts and selection of appropriate prompts",
         "timeline": null,
         "additionalComments": null
       },
       "recurring_case_chatbot": {
+        "projectSponsor": "Legal",
         "involvedTeams": "Legal, Data Protection",
         "potentialConflicts": "Insurance, Claim-Management, Accounting",
+        "requiredResources": "Personnel, Budget, Technology",
         "dataAvailability": "Provision of information and answers in the form of playbooks; Documents and information from specialized departments required for evaluation and answering questions",
         "genaiConsiderations": "Question-answer model based on simple if-then specifications",
         "timeline": null,
