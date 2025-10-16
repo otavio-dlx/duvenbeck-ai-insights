@@ -393,78 +393,78 @@
     },
     "problems": {
       "document_reading": "Manual reading of documents",
-      "cash_forecast": "Cash forecast is time-consuming due to various data sources",
-      "chatbot_external": "Creditor payment reminders and invoice inquiries require too much manual time",
+      "cash_forecast": "Cash forecast is lengthy due to various data sources",
+      "chatbot_external": "Creditor reminder and invoice inquiries require too much manual time",
       "ic_differences": "Occurrence and subsequent clarification of IC differences"
     },
     "solutions": {
       "document_reading": "Reading of transport orders, delivery notes and contracts",
       "cash_forecast": "Automated integration of all available sources and logical evaluation",
-      "chatbot_external": "These standard inquiries could be easily answered by a chatbot",
+      "chatbot_external": "Answers to these standard inquiries could quite simply be given by a chatbot",
       "ic_differences": "Automated analysis of differences, development of solution proposals"
     },
     "projectBriefs": {
       "document_reading": {
-        "sponsor": "Annette Gziello",
-        "teams": "Finance + others",
-        "conflicts": "Project work vs. daily business",
-        "resources": "",
+        "projectSponsor": "Annette Gziello",
+        "involvedTeams": "Finance + others",
+        "potentialConflicts": "Project work vs. daily business",
+        "requiredResources": "",
         "dataAvailability": "Various documents such as invoices, transport papers, contracts, etc.",
         "genaiConsiderations": "",
         "timeline": "",
-        "comments": "Very general project\ncan be divided into sub-projects\ne.g. delivery note analysis for billing\ncontract analysis for different departments\ninvoice receipt workflow\nstorage of leasing data\ndepending on the document type, different characteristics of further use of the determined data\ndifferent follow-up workflows\nAdobe already has a similar process, which could be used as a reference."
+        "additionalComments": "Very general project\ncan be divided into sub-projects\ne.g. delivery note analysis for billing\ncontract analysis for different departments\ninvoice receipt workflow\nstorage of leasing data\ndepending on the document type, different characteristics of further use of the determined data\ndifferent follow-up workflows\nAdobe already has a similar process, which could be used as a reference."
       },
       "chatbot_external": {
-        "sponsor": "Wadim Soroka",
-        "teams": "Accounting + Billing",
-        "conflicts": "Project work vs. daily business",
-        "resources": "",
+        "projectSponsor": "Wadim Soroka",
+        "involvedTeams": "Accounting + Billing",
+        "potentialConflicts": "Project work vs. daily business",
+        "requiredResources": "",
         "dataAvailability": "ERP and TMS data",
         "genaiConsiderations": "",
         "timeline": "",
-        "comments": "Interpret information content from emails, derive and create to-dos.\nDepending on the topic, further downstream workflows can emerge from this"
+        "additionalComments": "Interpret information content from emails, derive and create to-dos.\nDepending on the topic, further downstream workflows can emerge from this"
       },
       "cash_forecast": {
-        "sponsor": "Wadim Soroka",
-        "teams": "Treasury, Controlling, Finance",
-        "conflicts": "Project work vs. daily business",
-        "resources": "",
+        "projectSponsor": "Wadim Soroka",
+        "involvedTeams": "Treasury, Controlling, Finance",
+        "potentialConflicts": "Project work vs. daily business",
+        "requiredResources": "",
         "dataAvailability": "ERP and TMS, electronic banking (Coupa)",
         "genaiConsiderations": "",
         "timeline": "",
-        "comments": "Plausibility check of data with e.g. traffic light system"
+        "additionalComments": "Plausibility check of data with e.g. traffic light system"
       }
     },
     "notes": {
       "complexity": {
-        "document_reading": "Document type must be recognized\nRelevant information must be read depending on document type\nFor contracts: checking against specified parameters\nFor invoices: pre-recording/booking\nFor leasing permanent invoices: information storage in SAP\nFor transport documents: information storage in Car_O",
-        "cash_forecast": "Read CO budget, categorize, assign\nCustomer/entrepreneur assignment\nCustomer payment behavior\nFactoring forecast depending on billing status/speed",
-        "chatbot_external": "Categorization into customers/entrepreneurs\nclear information query (reference/transport order/credit note number)\nclear response with payment date or document copy (payment run)",
+        "document_reading": "Document type must be recognized\nRelevant information must generally be read from the document type\nFor contracts: verification against specified parameters\nFor invoices: pre-entry / booking\nFor leasing recurring invoices: information storage in SAP\nFor transport documents: information storage in Car_O",
+        "cash_forecast": "-Read CO budget, categorize, assign\n- Customer/entrepreneur assignment\n- Customer payment behavior\n- Factoring forecast depending on billing status/speed",
+        "chatbot_external": "-Categorization into customers / entrepreneurs\n-clear information query (reference / transport order / credit note number)\n-clear response with payment date or document copy (payment run)",
         "ic_differences": "Evaluation of Excel tables exported from LucaNet (comparison of actual figures)"
       },
       "cost": {
-        "document_reading": "High document volume (transport papers)",
-        "cash_forecast": "Implementation costs possibly relatively high\nongoing costs rather low due to low query intensity",
-        "chatbot_external": "Potentially higher costs due to many queries",
-        "ic_differences": "Monthly evaluation, manageable size of Excel tables"
+        "document_reading": "- high document volume (transport papers)",
+        "cash_forecast": "- Implementation costs possibly relatively high\n- ongoing costs rather low, as query intensity is not so high",
+        "chatbot_external": "possibly larger costs could arise from many queries",
+        "ic_differences": "Monthly evaluation, manageable scale of Excel tables"
       },
       "roi": {
         "document_reading": "Staff reduction possible in many areas\nTime savings\nfaster liquidity\nhigher data quality",
         "cash_forecast": "Liquidity necessary for corporate management",
-        "chatbot_external": "Quick responses\nCustomer satisfaction\nTransparency",
+        "chatbot_external": "quick responses\ncustomer satisfaction\ntransparency",
         "ic_differences": "(manageable) reduction of internal monthly activities"
       },
       "risk": {
-        "document_reading": "Possible misinterpretation by AI",
-        "cash_forecast": "High complexity of different data sources",
-        "chatbot_external": "False information can be shared\nResponses may not match entrepreneur data",
-        "ic_differences": "No significant risk apparent"
+        "document_reading": "possible misinterpretation by AI",
+        "cash_forecast": "high complexity of different data sources",
+        "chatbot_external": "False information can be shared\nFeedback may not match entrepreneur data",
+        "ic_differences": "no significant risk apparent"
       },
       "strategic": {
         "document_reading": "Cost reduction in administration",
         "cash_forecast": "Liquidity necessary for corporate management",
         "chatbot_external": "Cost reduction in administration",
-        "ic_differences": "Unknown"
+        "ic_differences": "unknown"
       }
     }
   },

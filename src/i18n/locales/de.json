@@ -376,85 +376,85 @@
   },
   "accounting": {
     "ideas": {
-      "document_reading": "Automatisiertes Lesen von Dokumenten (Aufträge/Lieferscheine)",
-      "cash_forecast": "Automatisierte Liquiditätsprognose",
-      "chatbot_external": "Chatbot-Lösung für externe Anfragen",
+      "document_reading": "automatisiertes Auslesen von Dokumenten (Aufträge/Lieferscheine)",
+      "cash_forecast": "automatisierter Cash-Forecast",
+      "chatbot_external": "Chatbot-Lösung externe Anfragen",
       "ic_differences": "Automatisierte Analyse von IC-Differenzen"
     },
     "problems": {
-      "document_reading": "Manuelles Lesen von Dokumenten",
-      "cash_forecast": "Liquiditätsprognose ist zeitaufwändig aufgrund verschiedener Datenquellen",
-      "chatbot_external": "Kreditorenmahnungen und Rechnungsanfragen erfordern zu viel manuellen Zeitaufwand",
-      "ic_differences": "Auftreten und nachträgliche Klärung von IC-Differenzen"
+      "document_reading": "manuelles Lesen von Dokumenten",
+      "cash_forecast": "Cash-Forecast ist auf Grund verschiedenster Datenquellen langwierig",
+      "chatbot_external": "kreditorische Mahnungs-Rechnungsanfragen benötigen zu viel manuelle Zeit",
+      "ic_differences": "Auftreten und anschließende Klärung von IC-Differenzen"
     },
     "solutions": {
-      "document_reading": "Lesen von Transportaufträgen, Lieferscheinen und Verträgen",
-      "cash_forecast": "Automatisierte Integration aller verfügbaren Quellen und logische Bewertung",
-      "chatbot_external": "Diese Standardanfragen könnten einfach von einem Chatbot beantwortet werden",
-      "ic_differences": "Automatisierte Analyse von Differenzen, Entwicklung von Lösungsvorschlägen"
+      "document_reading": "Auslesen von Transportaufträgen, Lieferscheinen und Verträgen",
+      "cash_forecast": "automatisiertes Einbinden aller zur Verfügung stehender Quellen und logische Bewertung",
+      "chatbot_external": "Antworten dieser standard Anfragen könnte ganz einfach ein Chatbot geben werden",
+      "ic_differences": "Automatisierte Analyse der Differenzen, Erarbeitung von Lösungsvorschlägen"
     },
     "projectBriefs": {
       "document_reading": {
-        "sponsor": "Annette Gziello",
-        "teams": "Finance + weitere",
-        "conflicts": "Projektarbeit vs. Tagesgeschäft",
-        "resources": "",
+        "projectSponsor": "Annette Gziello",
+        "involvedTeams": "Finance + weitere",
+        "potentialConflicts": "Projektarbeit vs. Tagesgeschäft",
+        "requiredResources": "",
         "dataAvailability": "Diverse Dokumente wie z.B. Rechnugen, Transportapiere, Verträge, etc..",
         "genaiConsiderations": "",
         "timeline": "",
-        "comments": "Sehr allgemeines Projekt\nkann ich Unterprojekte aufgeteilt werden\nz.B. Lieferscheinalayse für Abrechnung\nVertragsanalyse für unterschiedliche Abteilungen\nRechnungseingangsworkflow\nSpeicherung von Leasingdaten\nje nach Dokumentenart unterschiedliche Ausprägung der Weiterverwendung der ermittelten Daten\nUnterschiedliche Anschlussworkflows\nAdobe hat bereits ein ähnliches Verfahren, daran könnte man sich anlehnen."
+        "additionalComments": "Sehr allgemeines Projekt\nkann ich Unterprojekte aufgeteilt werden\nz.B. Lieferscheinalayse für Abrechnung\nVertragsanalyse für unterschiedliche Abteilungen\nRechnungseingangsworkflow\nSpeicherung von Leasingdaten\nje nach Dokumentenart unterschiedliche Ausprägung der Weiterverwendung der ermittelten Daten\nUnterschiedliche Anschlussworkflows\nAdobe hat bereits ein ähnliches Verfahren, daran könnte man sich anlehnen."
       },
       "chatbot_external": {
-        "sponsor": "Wadim Soroka",
-        "teams": "Buchhaltung + Abrechnung",
-        "conflicts": "Projektarbeit vs. Tagesgeschäft",
-        "resources": "",
+        "projectSponsor": "Wadim Soroka",
+        "involvedTeams": "Buchhaltung + Abrechnung",
+        "potentialConflicts": "Projektarbeit vs. Tagesgeschäft",
+        "requiredResources": "",
         "dataAvailability": "ERP und TMS Daten",
         "genaiConsiderations": "",
         "timeline": "",
-        "comments": "Informationsgehalt aus Mails interpretieren, ableiten und to do´s bilden.\nJe nach Thema können daraus weitere nachgelagerte Workflows entstehen"
+        "additionalComments": "Informationsgehalt aus Mails interpretieren, ableiten und to do´s bilden.\nJe nach Thema können daraus weitere nachgelagerte Workflows entstehen"
       },
       "cash_forecast": {
-        "sponsor": "Wadim Soroka",
-        "teams": "Treasury, Controlling, Finance",
-        "conflicts": "Projektarbeit vs. Tagesgeschäft",
-        "resources": "",
+        "projectSponsor": "Wadim Soroka",
+        "involvedTeams": "Treasury, Controlling, Finance",
+        "potentialConflicts": "Projektarbeit vs. Tagesgeschäft",
+        "requiredResources": "",
         "dataAvailability": "ERP und TMS , electronic banking (Coupa)",
         "genaiConsiderations": "",
         "timeline": "",
-        "comments": "Plausibilitätsprüfung der Daten mit z.B. Ampelsystem"
+        "additionalComments": "Plausibilitätsprüfung der Daten mit z.B. Ampelsystem"
       }
     },
     "notes": {
       "complexity": {
-        "document_reading": "Dokumententyp muss erkannt werden\nRelevante Informationen müssen je nach Dokumententyp gelesen werden\nFür Verträge: Abgleich mit vorgegebenen Parametern\nFür Rechnungen: Vorerfassung/Buchung\nFür Leasing-Dauerrechnungen: Informationsspeicherung in SAP\nFür Transportdokumente: Informationsspeicherung in Car_O",
-        "cash_forecast": "CO-Budget lesen, kategorisieren, zuordnen\nKunden-/Unternehmer-Zuordnung\nKunden-Zahlungsverhalten\nFactoring-Prognose je nach Rechnungsstellung-Status/Geschwindigkeit",
-        "chatbot_external": "Kategorisierung in Kunden/Unternehmer\nklare Informationsabfrage (Referenz/Transportauftrag/Gutschrift-Nummer)\nklare Antwort mit Zahlungsdatum oder Dokumentkopie (Zahlungslauf)",
-        "ic_differences": "Auswertung von Excel-Tabellen aus LucaNet exportiert (Vergleich Ist-Zahlen)"
+        "document_reading": "Dokumentenart muss erkannt werden\nRelevante Informationen müssen i.A. von der Dokumentenart ausgelesen werden\nBei Verträgen: Prüfung gegen vorgegebene Parameter\nBei Rechnungen: Vorerfassung / Buchung\nBei Leasing-Dauerrechnungen: Informationshinterlegung in SAP\nBei Transportdokumente: Informationshinterlegung in Car_O",
+        "cash_forecast": "-CO Budget auslesen, kategorisieren, zuordnen\n- Kunden/Unternehmer-Zuordnung\n- Zahlungserverhalten der Kunden\n- Factoring-Forecast abhänging von Abrechnugsstand/Geschwindigkeit",
+        "chatbot_external": "-Kategorisierung in Kunden / Unternehmer\n-eindeutige Informationsabfrage (Referenz / Transportauftrag / Gutschriftsnummer)\n-eindeutige Antwort mit dem Zahlungsdatum oder Belegkopie( Zahlungslauf )",
+        "ic_differences": "Auswertung von aus LucaNet exportierten Excel-Tabellen (Abgleich von Ist-Zahlen)"
       },
       "cost": {
-        "document_reading": "Hohes Dokumentenvolumen (Transportpapiere)",
-        "cash_forecast": "Implementierungskosten möglicherweise relativ hoch\nlaufende Kosten eher niedrig aufgrund geringer Abfrageintensität",
-        "chatbot_external": "Potenziell höhere Kosten aufgrund vieler Anfragen",
-        "ic_differences": "Monatliche Auswertung, überschaubare Größe der Excel-Tabellen"
+        "document_reading": "- hohes Belegaufkommen (Transportpapiere)",
+        "cash_forecast": "- Implementierungskosten ggfls. relativ hoch\n- laufenden Kosten eher gering, da Abfrageintensität nicht so hoch",
+        "chatbot_external": "ggf. durch viele Abfragen könnten größere Kosten entstehen",
+        "ic_differences": "Monatliche Auswertung, überschaubare Größenordnung der Excel-Tabellen"
       },
       "roi": {
-        "document_reading": "Personalreduktion möglich in vielen Bereichen\nZeitersparnisse\nschnellere Liquidität\nhöhere Datenqualität",
-        "cash_forecast": "Liquidität notwendig für Unternehmensführung",
-        "chatbot_external": "Schnelle Antworten\nKundenzufriedenheit\nTransparenz",
-        "ic_differences": "(überschaubare) Reduzierung interner monatlicher Aktivitäten"
+        "document_reading": "Personalreduktion in vielen Bereichen möglich\nZeitresparnis\nschnellere Liquidität\nhöhere Datenqualität",
+        "cash_forecast": "Liquidität zur Unternehmenssteuerung notwendig",
+        "chatbot_external": "schnelles Antworten\nKundenzufriedenheit\nTransparenz",
+        "ic_differences": "(überschaubare) Reduzierung der internen monatlichen Tätigkeiten"
       },
       "risk": {
-        "document_reading": "Mögliche Fehlinterpretation durch KI",
-        "cash_forecast": "Hohe Komplexität verschiedener Datenquellen",
-        "chatbot_external": "Falsche Informationen können geteilt werden\nAntworten passen möglicherweise nicht zu Unternehmerdaten",
-        "ic_differences": "Kein signifikantes Risiko erkennbar"
+        "document_reading": "ggf. Fehlinterpretation durch die AI",
+        "cash_forecast": "hohe Komplexität der unterschiedlichen Datenquellen",
+        "chatbot_external": "Falschinformationen können geteilt werden\nRückmeldungen können nicht zu den Unternehmerdaten passen",
+        "ic_differences": "kein wesentliches Risiko erkennbar"
       },
       "strategic": {
-        "document_reading": "Kostenreduktion in der Verwaltung",
-        "cash_forecast": "Liquidität notwendig für Unternehmensführung",
-        "chatbot_external": "Kostenreduktion in der Verwaltung",
-        "ic_differences": "Unbekannt"
+        "document_reading": "Konstenreduktion in der Administration",
+        "cash_forecast": "Liquidität zur Unternehmenssteuerung notwendig",
+        "chatbot_external": "Konstenreduktion in der Administration",
+        "ic_differences": "unbekannt"
       }
     }
   },
