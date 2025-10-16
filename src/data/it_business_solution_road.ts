@@ -1,5 +1,5 @@
 export const ideas = {
-  home: [
+  home: [ 
     {
       date: "2025-10-08",
       department: "IT",
