@@ -2,7 +2,8 @@ export const ideas = {
   home: [
     {
       date: "2025-10-08",
-      department: "IT Shared Services",
+      department: "IT",
+      businessLine: "IT Shared Services",
       collaboardLink: "https://web.collaboard.app/share/4LFOhXRZX1a9cHjbtC4e6A",
     },
   ],

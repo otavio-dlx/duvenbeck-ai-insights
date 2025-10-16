@@ -77,7 +77,7 @@ export const participantsData: Participant[] = [
   {
     cResort: "CIO",
     groupNumber: "6",
-    groupName: "Platform Services / Digital Workplace",
+    groupName: "IT",
     type: "Teamlead",
     name: "Bastian Bovenkerk",
     organisationalUnit: "Headquater",
@@ -89,7 +89,7 @@ export const participantsData: Participant[] = [
   {
     cResort: "CIO",
     groupNumber: "6",
-    groupName: "IT Shared Services",
+    groupName: "IT",
     type: "Teamlead",
     name: "Benedikt Weikamp",
     organisationalUnit: "Headquater",
@@ -233,7 +233,7 @@ export const participantsData: Participant[] = [
   {
     cResort: "CIO",
     groupNumber: "6",
-    groupName: "IT Shared Services",
+    groupName: "IT",
     type: "Teamlead",
     name: "Frank Vossenberg",
     organisationalUnit: "Headquater",
@@ -341,7 +341,7 @@ export const participantsData: Participant[] = [
   {
     cResort: "CIO",
     groupNumber: "6",
-    groupName: "Platform Services / Digital Workplace",
+    groupName: "IT",
     type: "Teamlead",
     name: "Jörg Laufenburg",
     organisationalUnit: "Headquater",
@@ -605,7 +605,7 @@ export const participantsData: Participant[] = [
   {
     cResort: "CIO",
     groupNumber: "6",
-    groupName: "IT Shared Services",
+    groupName: "IT",
     type: "Teamlead",
     name: "Simon Zschunke",
     organisationalUnit: "Headquater",
@@ -641,7 +641,7 @@ export const participantsData: Participant[] = [
   {
     cResort: "CIO",
     groupNumber: "6",
-    groupName: "Platform Services / Digital Workplace",
+    groupName: "IT",
     type: "Teamlead",
     name: "Tim Wagner",
     organisationalUnit: "Headquater",

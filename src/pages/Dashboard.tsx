@@ -81,7 +81,11 @@ export const Dashboard = () => {
           "Group Accounting I": ["group_accounting"],
           "Business Solution PCL": ["business_solution_pcl"],
           "Road Sales SE": ["road_sales_se"],
-          "IT Shared Services": ["it_shared_services"],
+          IT: [
+            "it_shared_services",
+            "it_plataform_services_digital_workplace",
+            "it_business_solution_road",
+          ],
           "Solution Design": ["solution_design"],
           "Platform Services / Digital Workplace": ["platform_services"],
           "Security Management": ["security_management"],
@@ -196,8 +200,12 @@ export const Dashboard = () => {
       }
     });
 
-    const uniqueDepts = new Set(filteredParticipants.map((p) => p.groupName))
-      .size;
+    // Calculate unique departments from actual department workspaces (data files)
+    // Count unique department names from the ideasByDept object which represents actual departments with data
+    const uniqueDepts =
+      selectedDepartment === "all"
+        ? Object.keys(ideasByDept).length
+        : 1;
 
     const metrics = {
       totalIdeas: totalIdeasCount,
@@ -604,6 +612,15 @@ export function DynamicCollaboards({
         );
       }
 
+      // Deduplicate by department name (keep first occurrence)
+      const uniqueDepartments = new Map<string, typeof filteredFound[0]>();
+      filteredFound.forEach((item) => {
+        if (!uniqueDepartments.has(item.department)) {
+          uniqueDepartments.set(item.department, item);
+        }
+      });
+      filteredFound = Array.from(uniqueDepartments.values());
+
       // Sort by department name
       filteredFound.sort((a, b) => a.department.localeCompare(b.department));
 
@@ -632,10 +649,9 @@ export function DynamicCollaboards({
       corp_dev: "Corporate Development",
       esg: "Environmental, Social & Governance",
       hr: "Human Resources",
-      it_business_solution_road: "IT Business Solution Road",
-      it_plataform_services_digital_workplace:
-        "IT Platform Services / Digital Workplace",
-      it_shared_services: "IT Shared Services",
+      it_business_solution_road: "IT",
+      it_plataform_services_digital_workplace: "IT",
+      it_shared_services: "IT",
       marketing_communications: "Marketing & Communications",
       qehs: "Quality, Environment, Health & Safety",
       road_sales: "Road Sales",

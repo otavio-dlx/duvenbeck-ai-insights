@@ -1340,9 +1340,7 @@ function InsightsBubbleChart({
       const colorMaps = {
         department: {
           HR: "#ef4444",
-          "IT Platform Services / Digital Workplace": "#3b82f6",
-          "IT Shared Services": "#2563eb",
-          "IT Business Solution Road/ PCL": "#1d4ed8",
+          IT: "#3b82f6",
           "Marketing & Communications": "#10b981",
           Compliance: "#f59e0b",
           "Corporate Development": "#8b5cf6",
