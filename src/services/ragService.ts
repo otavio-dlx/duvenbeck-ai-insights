@@ -414,28 +414,34 @@ Keep your response brief and friendly.`;
 
       const prompt = `You are an AI assistant for Duvenbeck's AI Workshop (October 6-8, 2025, online event).
 
-IMPORTANT: I found relevant workshop data for this query. Answer the user's question using ONLY the data provided below.
+USER QUESTION: ${query}
 
-YOUR TASK:
-1. Answer the user's question directly using the workshop data below
-2. Include: Department, Owner, Priority, and Type (Idea/Problem/Solution) for each item
-3. Be specific and cite actual workshop content
-4. Use clear structure with simple numbered lists or line breaks
-5. If multiple items are relevant, list them all
-6. Do NOT add greetings or introductions - just answer the question
+CRITICAL DECISION: Is this a GREETING/CHITCHAT or a REAL WORKSHOP QUESTION?
 
-FORMATTING RULES:
-- Use simple numbered lists (1., 2., 3., etc.)
-- Do NOT use markdown asterisks (*), bold (**text**), or italics
-- Use plain text only with clear line breaks
-- Use simple dashes (-) for sub-items if needed
+GREETINGS/CHITCHAT (respond conversationally, DO NOT use workshop data):
+- Single words: "hi", "hello", "hey", "thanks", "bye"
+- Social phrases: "how are you", "good morning", "thank you"
+- Small talk: "nice to meet you"
+
+REAL WORKSHOP QUESTIONS (USE the workshop data below):
+- Asks about ideas, problems, or solutions: "What ideas does X have?", "Show me Y ideas"
+- Asks about departments: "Tell me about compliance", "What did HR propose?"
+- Asks about priorities, owners, or specific content
+- ANY question with "what", "show", "tell", "list", "which" about workshop topics
 
 WORKSHOP DATA:
 ${context}
 
-USER QUESTION: ${query}
+INSTRUCTIONS:
+1. If this is a greeting/chitchat: Respond warmly without mentioning workshop data. Example: "Hi! I'm your AI assistant for the Duvenbeck AI Workshop (October 6-8, 2025). I can help you explore ideas, problems, and solutions from different departments. What would you like to know?"
 
-Provide a direct, comprehensive answer in plain text format based on the workshop data above.`;
+2. If this is a real workshop question: Answer using the workshop data above:
+   - List the relevant items with Department, Owner, Priority, and Type
+   - Use simple numbered lists (1., 2., 3.)
+   - Be specific and comprehensive
+   - Use plain text only (no markdown formatting)
+
+Provide your response:`;
 
       const result = await model.generateContent(prompt);
       const response = result.response;
