@@ -67,6 +67,15 @@ Each vector point contains:
 - This provides much better semantic search results as the AI can understand the actual content
 - Both the translation key AND the translated text are stored in the payload for reference
 
+🔧 **Created Payload Indexes for Filtering:**
+
+- Created keyword indexes on `department` and `type` fields in Qdrant
+- This enables efficient filtering by department and content type (idea/problem/solution)
+- Required for filter-based queries to work properly (Qdrant requires indexes for filtering)
+- Script to create indexes: `scripts/createQdrantIndexes.ts`
+- **Why this was needed**: When users ask "What ideas do we have from Compliance?", the system needs to filter by department AND type. Without indexes, Qdrant returns a "Bad Request" error.
+- **Result**: Now queries like "What ideas from Compliance?" return ALL matching items (e.g., all 8 Compliance ideas), not just the top 3 most semantically similar ones.
+
 ### Connection Details
 
 The vector database is configured with the following credentials from `.env`:
@@ -82,6 +91,14 @@ To upload data again (this will delete and recreate the collection):
 ```bash
 npm run upload-to-vector-db
 ```
+
+**Important**: After re-uploading, you must recreate the payload indexes:
+
+```bash
+npx tsx scripts/createQdrantIndexes.ts
+```
+
+This creates the required keyword indexes on `department` and `type` fields for filtering.
 
 ### Script Location
 

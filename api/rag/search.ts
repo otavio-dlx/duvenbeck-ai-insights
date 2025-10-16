@@ -25,7 +25,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { query, limit = 10 } = req.body;
+    const { query, limit = 10, department = null, type = null } = req.body;
+
+    console.log(`[API] Received request:`, { query, limit, department, type });
 
     if (!query) {
       return res.status(400).json({ error: "Query is required" });
@@ -48,21 +50,93 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     const genAI = new GoogleGenerativeAI(geminiApiKey);
 
-    // Generate embedding for the query
-    const model = genAI.getGenerativeModel({
-      model: "text-embedding-004",
-    });
-    const result = await model.embedContent(query);
-    const queryEmbedding = result.embedding.values;
+    const COLLECTION_NAME = "duvenbeck_workshop_ideas";
 
-    // Search in Qdrant
-    const searchResults = await qdrantClient.search(
-      "duvenbeck_workshop_ideas",
-      {
-        vector: queryEmbedding,
-        limit,
-      }
+    // If we have explicit filters (department and/or type), we should return ALL matching items
+    // not just semantically similar ones
+    const hasExplicitFilters = !!department || !!type;
+
+    console.log(
+      `[API] hasExplicitFilters = ${hasExplicitFilters} (department="${department}", type="${type}")`
     );
+
+    // Build filter conditions
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const must: any[] = [];
+
+    if (department) {
+      must.push({
+        key: "department",
+        match: { value: department },
+      });
+    }
+
+    if (type) {
+      must.push({
+        key: "type",
+        match: { value: type },
+      });
+    }
+
+    let searchResults;
+
+    // When we have explicit filters (department/type), use scroll API to get ALL matching items
+    // This ensures we get everything that matches the filter, not just semantically similar items
+    if (hasExplicitFilters) {
+      console.log(
+        `Using filter-only search for department=${department}, type=${type}`
+      );
+      console.log(`Filter conditions:`, JSON.stringify(must, null, 2));
+
+      const scrollResult = await qdrantClient.scroll(COLLECTION_NAME, {
+        filter: must.length > 0 ? { must } : undefined,
+        limit: 100, // Get up to 100 items
+        with_vector: false, // We don't need the vectors back
+        with_payload: true,
+      });
+
+      // Convert scroll results to search format (with dummy scores since we're not doing semantic search)
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      searchResults = scrollResult.points.map((point: any) => ({
+        id: point.id,
+        score: 1.0, // Dummy score - all filtered items are equally relevant
+        payload: point.payload,
+      }));
+
+      console.log(`Filter-only search returned ${searchResults.length} items`);
+
+      // Debug: log what departments we actually got
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const depts = [
+        ...new Set(searchResults.map((r: any) => r.payload?.department)),
+      ];
+      console.log(`Departments in scroll results:`, depts);
+    } else {
+      // No explicit filters - use semantic search
+      console.log(`Using semantic search with query: "${query}"`);
+
+      // Generate embedding for the query
+      const embeddingResponse = await genAI
+        .getGenerativeModel({ model: "text-embedding-004" })
+        .embedContent(query);
+
+      const queryEmbedding = embeddingResponse.embedding.values;
+
+      // Search in Qdrant
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const searchParams: any = {
+        vector: queryEmbedding,
+        limit: limit,
+      };
+
+      if (must.length > 0) {
+        searchParams.filter = { must };
+      }
+
+      searchResults = await qdrantClient.search(COLLECTION_NAME, searchParams);
+    }
+
+    console.log(`Found ${searchResults.length} results from Qdrant`);
 
     // Format results
     const formattedResults = searchResults.map((item) => ({

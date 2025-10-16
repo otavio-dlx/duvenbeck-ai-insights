@@ -249,13 +249,71 @@ export class RAGService {
     try {
       console.log(`Searching via API for: "${query}"`);
 
+      // Detect department in query
+      const queryLower = query.toLowerCase();
+      const departmentMap: { [key: string]: string } = {
+        accounting: "Accounting",
+        compliance: "Compliance",
+        "contract logistics": "Contract Logistics",
+        controlling: "Controlling",
+        "corporate development": "Corporate Development",
+        "corp dev": "Corporate Development",
+        esg: "ESG",
+        hr: "HR",
+        "human resources": "HR",
+        "it business solution road": "IT Business Solution Road",
+        "it platform services": "IT Platform Services",
+        "it shared services": "IT Shared Services",
+        "marketing communications": "Marketing Communications",
+        marketing: "Marketing Communications",
+        qehs: "QEHS",
+        "road sales": "Road Sales",
+        "strategic kam": "Strategic KAM",
+        "central solution design": "Central Solution Design",
+      };
+
+      let department = null;
+      for (const [key, value] of Object.entries(departmentMap)) {
+        if (queryLower.includes(key)) {
+          department = value;
+          console.log(`   Detected department filter: ${department}`);
+          break;
+        }
+      }
+
+      // Detect type filter (idea, problem, solution)
+      let typeFilter = null;
+      // Only set type filter if the query is specifically asking for that type
+      const hasIdea = /\b(ideas?|idea-related)\b/.exec(queryLower);
+      const hasProblem = /\b(problems?|problem-related|issues?)\b/.exec(
+        queryLower
+      );
+      const hasSolution = /\b(solutions?|solution-related)\b/.exec(queryLower);
+
+      // Only filter if ONLY one type is mentioned
+      if (hasIdea && !hasProblem && !hasSolution) {
+        typeFilter = "idea";
+        console.log(`   Detected type filter: idea`);
+      } else if (hasProblem && !hasIdea && !hasSolution) {
+        typeFilter = "problem";
+        console.log(`   Detected type filter: problem`);
+      } else if (hasSolution && !hasIdea && !hasProblem) {
+        typeFilter = "solution";
+        console.log(`   Detected type filter: solution`);
+      } else if (hasIdea || hasProblem || hasSolution) {
+        console.log(`   Multiple types mentioned, not filtering by type`);
+      }
+
       // Call the API route instead of Qdrant directly
+      const requestBody = { query, limit, department, type: typeFilter };
+      console.log(`   Sending to API:`, requestBody);
+
       const response = await fetch("/api/rag/search", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ query, limit }),
+        body: JSON.stringify(requestBody),
       });
 
       if (!response.ok) {
@@ -266,6 +324,22 @@ export class RAGService {
 
       const data = await response.json();
       console.log(`API returned ${data.results?.length || 0} results`);
+
+      // Log departments returned for debugging
+      if (data.results && data.results.length > 0) {
+        const depts = [
+          ...new Set(
+            data.results.map((r: SearchResult) => r.payload.department)
+          ),
+        ];
+        console.log(`   Departments in results:`, depts);
+
+        // Log all unique idea keys to see what we got
+        const ideaKeys = [
+          ...new Set(data.results.map((r: SearchResult) => r.payload.ideaKey)),
+        ];
+        console.log(`   Unique ideas returned: ${ideaKeys.length}`, ideaKeys);
+      }
 
       return data.results || [];
     } catch (error) {
@@ -352,12 +426,88 @@ export class RAGService {
 
   async generateRAGResponse(query: string): Promise<string> {
     try {
+      // Increase limit for department-specific queries
+      const queryLower = query.toLowerCase();
+
+      // Check if asking about a specific idea (e.g., "What is X?", "Tell me about X")
+      const specificIdeaPatterns = [
+        /what is (?:the )?(.+)\??$/i,
+        /tell me (?:more )?about (?:the )?(.+)$/i,
+        /explain (?:the )?(.+)$/i,
+        /describe (?:the )?(.+)$/i,
+        /details? (?:on|about) (?:the )?(.+)$/i,
+      ];
+
+      let isSpecificIdeaQuery = false;
+      let specificIdeaName = "";
+
+      for (const pattern of specificIdeaPatterns) {
+        const match = query.match(pattern);
+        if (match && match[1]) {
+          isSpecificIdeaQuery = true;
+          specificIdeaName = match[1].trim();
+          console.log(`Detected specific idea query: "${specificIdeaName}"`);
+          break;
+        }
+      }
+
+      // Department detection map (used for filtering and query expansion)
+      const departmentMap: { [key: string]: string } = {
+        accounting: "Accounting",
+        compliance: "Compliance",
+        "contract logistics": "Contract Logistics",
+        controlling: "Controlling",
+        "corporate development": "Corporate Development",
+        "corp dev": "Corporate Development",
+        esg: "ESG",
+        hr: "HR",
+        "human resources": "HR",
+        "it business solution road": "IT Business Solution Road",
+        "it platform services": "IT Platform Services",
+        "it shared services": "IT Shared Services",
+        "marketing communications": "Marketing Communications",
+        marketing: "Marketing Communications",
+        qehs: "QEHS",
+        "road sales": "Road Sales",
+        "strategic kam": "Strategic KAM",
+        "central solution design": "Central Solution Design",
+      };
+
+      const isDepartmentQuery = Object.keys(departmentMap).some((dept) =>
+        queryLower.includes(dept)
+      );
+
+      // For specific idea queries, use a smaller limit but search for the exact idea
+      const limit = isSpecificIdeaQuery ? 20 : isDepartmentQuery ? 50 : 10;
+
       // Search for relevant documents
-      const searchResults = await this.searchSimilar(query, 10);
+      const searchResults = await this.searchSimilar(
+        isSpecificIdeaQuery ? specificIdeaName : query,
+        limit
+      );
 
       console.log(
         `Found ${searchResults.length} search results for query: "${query}"`
       );
+
+      // If this is a specific idea query, filter to show only that exact idea (idea + problem + solution)
+      let filteredForSpecificIdea = searchResults;
+      if (isSpecificIdeaQuery && searchResults.length > 0) {
+        // Find the best matching idea
+        const topResult = searchResults[0];
+        const targetIdeaKey = topResult.payload.ideaKey;
+
+        console.log(`Filtering for specific idea with key: ${targetIdeaKey}`);
+
+        // Get all vectors (idea, problem, solution) for this specific idea
+        filteredForSpecificIdea = searchResults.filter(
+          (r) => r.payload.ideaKey === targetIdeaKey
+        );
+
+        console.log(
+          `Filtered to ${filteredForSpecificIdea.length} items for this specific idea`
+        );
+      }
 
       // Handle cases with no search results
       if (searchResults.length === 0) {
@@ -388,15 +538,81 @@ Keep your response brief and friendly.`;
       }
 
       // Build context from search results with translated text
-      const context = searchResults
-        .map((result) => {
+      // Filter results on the client side as well to ensure correctness
+      let filteredResults = isSpecificIdeaQuery
+        ? filteredForSpecificIdea
+        : searchResults;
+
+      // For specific idea queries, skip additional filtering - we want all 3 vectors (idea/problem/solution)
+      if (!isSpecificIdeaQuery) {
+        // Detect what department was requested (reuse departmentMap from above)
+        let requestedDepartment = null;
+        for (const [key, value] of Object.entries(departmentMap)) {
+          if (queryLower.includes(key)) {
+            requestedDepartment = value;
+            break;
+          }
+        }
+
+        // Additional client-side filtering to ensure we only show what was requested
+        const askedForIdeasOnly =
+          /\b(ideas?)\b/.exec(queryLower) &&
+          !/\b(problems?|solutions?)\b/.exec(queryLower);
+        const askedForProblemsOnly =
+          /\b(problems?)\b/.exec(queryLower) &&
+          !/\b(ideas?|solutions?)\b/.exec(queryLower);
+        const askedForSolutionsOnly =
+          /\b(solutions?)\b/.exec(queryLower) &&
+          !/\b(ideas?|problems?)\b/.exec(queryLower);
+
+        // Filter by department if requested
+        if (requestedDepartment) {
+          filteredResults = filteredResults.filter(
+            (r) => r.payload.department === requestedDepartment
+          );
+          console.log(
+            `Client-side filtered to department "${requestedDepartment}": ${filteredResults.length} results`
+          );
+        }
+
+        // Filter by type if requested
+        if (askedForIdeasOnly) {
+          filteredResults = filteredResults.filter(
+            (r) => r.payload.type === "idea"
+          );
+          console.log(
+            `Client-side filtered to ideas only: ${filteredResults.length} results`
+          );
+        } else if (askedForProblemsOnly) {
+          filteredResults = filteredResults.filter(
+            (r) => r.payload.type === "problem"
+          );
+          console.log(
+            `Client-side filtered to problems only: ${filteredResults.length} results`
+          );
+        } else if (askedForSolutionsOnly) {
+          filteredResults = filteredResults.filter(
+            (r) => r.payload.type === "solution"
+          );
+          console.log(
+            `Client-side filtered to solutions only: ${filteredResults.length} results`
+          );
+        }
+      }
+
+      const context = filteredResults
+        .map((result, index) => {
           const { department, owner, priority, type, text } = result.payload;
           // Translate the key to get actual readable text
           const translatedText = this.getTranslatedText(text);
-          console.log(`Translating "${text}" -> "${translatedText}"`);
-          return `[${department} - ${type.toUpperCase()}] (Owner: ${owner}, Priority: ${priority}): ${translatedText}`;
+          console.log(
+            `[${index + 1}] Translating "${text}" -> "${translatedText}"`
+          );
+          return `${
+            index + 1
+          }. [${department} - ${type.toUpperCase()}] (Owner: ${owner}, Priority: ${priority}): ${translatedText}`;
         })
-        .join("\n\n");
+        .join("\n");
 
       console.log(
         "Context to be sent to LLM:",
@@ -408,11 +624,34 @@ Keep your response brief and friendly.`;
         model: "gemini-2.0-flash",
         generationConfig: {
           temperature: 0.7,
-          maxOutputTokens: 1024,
+          maxOutputTokens: 2048, // Increased for longer lists
         },
       });
 
-      const prompt = `You are an AI assistant for Duvenbeck's AI Workshop (October 6-8, 2025, online event).
+      // Different prompt for specific idea queries vs general queries
+      const prompt = isSpecificIdeaQuery
+        ? `You are an AI assistant for Duvenbeck's AI Workshop (October 6-8, 2025, online event).
+
+USER QUESTION: ${query}
+
+The user is asking about a SPECIFIC idea from the workshop. Here are the details:
+
+${context}
+
+INSTRUCTIONS:
+1. Provide a clear, focused explanation of THIS ONE idea
+2. Structure your response as:
+   - Brief introduction of what the idea is
+   - The PROBLEM it addresses (if available in the data)
+   - The proposed SOLUTION (if available in the data)
+   - Department owner and priority level
+3. Use plain text (no markdown formatting like ** or *)
+4. Be concise but informative - 3-5 sentences total
+5. DO NOT list other ideas or search results
+6. Focus ONLY on the idea, problem, and solution shown above
+
+Provide your response now:`
+        : `You are an AI assistant for Duvenbeck's AI Workshop (October 6-8, 2025, online event).
 
 USER QUESTION: ${query}
 
@@ -422,26 +661,34 @@ GREETINGS/CHITCHAT (respond conversationally, DO NOT use workshop data):
 - Single words: "hi", "hello", "hey", "thanks", "bye"
 - Social phrases: "how are you", "good morning", "thank you"
 - Small talk: "nice to meet you"
+- DO NOT treat "all", "show all", "give me all" as greetings - these are requests for data
 
 REAL WORKSHOP QUESTIONS (USE the workshop data below):
 - Asks about ideas, problems, or solutions: "What ideas does X have?", "Show me Y ideas"
 - Asks about departments: "Tell me about compliance", "What did HR propose?"
 - Asks about priorities, owners, or specific content
+- Requests for "all", "show all", "list all", "give me all"
 - ANY question with "what", "show", "tell", "list", "which" about workshop topics
 
-WORKSHOP DATA:
+WORKSHOP DATA - ${filteredResults.length} RELEVANT ITEMS FOUND:
 ${context}
 
-INSTRUCTIONS:
+CRITICAL INSTRUCTIONS:
 1. If this is a greeting/chitchat: Respond warmly without mentioning workshop data. Example: "Hi! I'm your AI assistant for the Duvenbeck AI Workshop (October 6-8, 2025). I can help you explore ideas, problems, and solutions from different departments. What would you like to know?"
 
-2. If this is a real workshop question: Answer using the workshop data above:
-   - List the relevant items with Department, Owner, Priority, and Type
-   - Use simple numbered lists (1., 2., 3.)
-   - Be specific and comprehensive
-   - Use plain text only (no markdown formatting)
+2. If this is a real workshop question: Answer using ONLY the workshop data listed above:
+   - Show ONLY the ${filteredResults.length} items listed above - NO MORE, NO LESS
+   - DO NOT invent or add items not in the list
+   - DO NOT repeat the same items multiple times
+   - Group by type (IDEAS, PROBLEMS, SOLUTIONS) for better organization
+   - For each item include: Department, Type, Owner, Priority, and the description
+   - Use the numbering already provided in the data (1., 2., 3., etc.)
+   - Use plain text only (no markdown formatting like ** or *)
+   - Present them in a clear, organized way
 
-Provide your response:`;
+IMPORTANT: Your response should contain EXACTLY ${filteredResults.length} items - the same items shown in the WORKSHOP DATA section above. Do not add extra items or explanations beyond what's in the data.
+
+Provide your response now:`;
 
       const result = await model.generateContent(prompt);
       const response = result.response;
