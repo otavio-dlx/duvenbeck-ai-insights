@@ -186,7 +186,7 @@
       "competition_trend_alerts": "AI continuously monitors market trends and competitor activities and creates alerts for relevant changes.",
       "dashboard_reporting": "Brainstorming and development of standardized templates for all dashboards (Excel + PPT Export)",
       "contract_database": "Scan of SLAs/contracts and comparison with ACTUAL values in the system",
-      "product_portfolio_extension": "Once database with all customer contracts is available, it's easy to do a gap analysis and check where upscaling is possible or not + Business Solution can be sketched by AI and potential white spots identified."
+      "product_portfolio_extension": ""
     },
     "notes": {
       "complexity": {
@@ -244,23 +244,24 @@
         "problemStatement": "Currently, market analyses require significant manual effort, with teams spending 15-20 hours per week gathering data from various sources. Information becomes outdated quickly, and competitive intelligence is often fragmented. This leads to delayed strategic decisions and missed opportunities in fast-moving markets.",
         "proposedSolution": "Implementation of an AI-driven platform that automatically aggregates real-time market data from multiple sources including industry reports, news feeds, financial databases, and social media. The system will generate automated reports, competitive benchmarking, and trend analysis with customizable dashboards for different stakeholder groups.",
         "businessCase": "Time savings of 80% in market research activities (equivalent to 12-16 hours per week), improved data accuracy and timeliness, better competitive positioning through early trend identification, estimated annual savings of €150,000 in research costs plus opportunity value of faster market response.",
+        "projectSponsor": "Corporate Development",
+        "involvedTeams": "Corporate Development",
+        "potentialConflicts": "",
+        "requiredResources": "No budget necessary, only resources for initial definition of reporting and search criteria",
+        "dataAvailability": "",
+        "genaiConsiderations": "GenAI will be central to this solution.\nGenAI can be used for automated data collection, pattern recognition in market data, competitive analysis automation, and generation of executive summaries.\nKey considerations:\n- Data quality and source verification\n- Training on industry-specific terminology\n- Bias detection in competitive analysis\n- Human oversight for strategic recommendations",
         "timeline": "Phase 1 (Months 1-3): Platform selection and data source integration. Phase 2 (Months 4-6): AI model training and dashboard development. Phase 3 (Months 7-9): Testing, refinement, and user training. Full implementation by Month 9.",
-        "resources": "Budget: €200,000. Team: 1 Data Scientist, 1 Business Analyst, 0.5 FTE IT Support. External consulting for initial setup and training.",
-        "riskAssessment": "Low-Medium risk. Main risks include data quality issues, integration challenges with existing systems, and user adoption. Mitigation strategies include phased rollout, comprehensive training, and fallback to manual processes during transition.",
-        "successMetrics": "Reduction in research time by 80%, increase in market report frequency by 300%, improvement in competitive intelligence accuracy by 50%, user satisfaction score >4.0/5.0, ROI achievement within 18 months."
+        "additionalComments": "This automation could serve as a template for other departments requiring regular competitive intelligence and market monitoring."
       },
       "dashboard_reporting": {
-        "projectTitle": "Standardized Dashboard and Reporting System",
-        "submissionDate": "November 20, 2024",
-        "projectLead": "Michael Schmidt",
-        "department": "Corporate Development",
-        "problemStatement": "Current reporting processes are highly fragmented across the organization, with each department using different tools, formats, and definitions. This creates inconsistencies, requires significant manual effort (estimated 25+ FTE hours weekly across all departments), and makes cross-departmental analysis difficult. Stakeholders receive delayed and often incomparable information.",
-        "proposedSolution": "Development of a centralized, automated dashboard system with standardized KPI definitions, real-time data integration from SAP and other core systems, and customizable views for different user groups. The system will include automated report generation, drill-down capabilities, and mobile access for executives.",
-        "businessCase": "Reduction in reporting effort by 70% (saving approximately 17 FTE hours weekly), improved data consistency and accuracy, faster decision-making through real-time insights, estimated annual savings of €400,000 in operational costs, plus improved strategic agility and stakeholder satisfaction.",
-        "timeline": "Phase 1 (Months 1-2): Requirements gathering and system design. Phase 2 (Months 3-5): Core platform development and data integration. Phase 3 (Months 6-8): Dashboard creation and testing. Phase 4 (Months 9-10): Training and rollout. Full deployment by Month 10.",
-        "resources": "Budget: €350,000. Team: 1 Business Intelligence Developer, 1 Data Analyst, 1 UX Designer, 0.5 FTE each from IT and Controlling departments. External vendor for platform licensing and initial configuration.",
-        "riskAssessment": "Medium risk. Key risks include data quality issues, resistance to standardization, integration complexity, and change management challenges. Mitigation includes stakeholder engagement, phased rollout, comprehensive training program, and dedicated change management support.",
-        "successMetrics": "70% reduction in manual reporting time, 100% standardization of KPI definitions across departments, real-time data refresh (vs. current weekly/monthly cycles), user adoption rate >85%, accuracy improvement >95%, executive satisfaction score >4.5/5.0."
+        "projectSponsor": "CEO + COO serves as steering and management element + CIO due to system dependency",
+        "involvedTeams": "Operations + Controlling + PowerBI Team = Use of existing data and reports to standardize/optimize and automate them",
+        "potentialConflicts": "Currently possibly running project: KPI Based Steering (WPE requirements)",
+        "requiredResources": "Personnel necessary for data consolidation",
+        "dataAvailability": "Much data available in Caro, customer portal, SAP, PowerBI = Not centrally consolidated or definitions don't match or are not exported from systems or further processed = often alignment with other systems necessary to ensure data completeness (e.g. transfer ETA ACTUAL and TARGET)",
+        "genaiConsiderations": "Prototype milestones: //\nPilot design: Not necessary; reporting only for C-Level/Extended Management\nEthics and data protection: Not applicable = work only with internal data = personal data = performance KAM =\nScalability: not necessary\nChange management: Not necessary",
+        "timeline": "Q1/2026",
+        "additionalComments": "Coordination with C-Level and WPE regarding alignment on scope and already existing// missing reports = especially CXO and COO"
       },
       "contract_database": {
         "projectSponsor": "CCO + CXO",
@@ -268,7 +269,7 @@
         "potentialConflicts": "Central Sales vs. Decentralized Management",
         "requiredResources": "Digitization and harmonization of SLA + contract data if not available in the system. Budget: None",
         "dataAvailability": "Contracts are available in legal systems and CRM = Completeness verification necessary",
-        "genaiConsiderations": "Prototype milestones: Necessary, Pilot design: Necessary if tool is to be made available to sites, Ethics and data protection: Not applicable = Work only with internal data, Scalability: N/A, Change management: N/A",
+        "genaiConsiderations": "Prototype milestones: Necessary\nPilot design: Necessary if tool is to be made available to sites\nEthics and data protection: Not applicable = Work only with internal data\nScalability: N/A\nChange management: N/A",
         "timeline": "Q1/2026",
         "additionalComments": null
       }

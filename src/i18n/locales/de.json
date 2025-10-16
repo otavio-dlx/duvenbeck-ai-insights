@@ -353,18 +353,22 @@
     },
     "projectBriefs": {
       "market_analysis_automation": {
+        "projectSponsor": "Corporate Development",
         "involvedTeams": "Alle C- Resorts zwecks alignment auf Scope der Reporte und Themen die relevant sind (Finance; Operations inbs bzfl. Produktionsplanungn)",
         "potentialConflicts": "Keine // Höchstens: Innovation und IT aufgrund von Trend-Alerts",
+        "requiredResources": "Kein Budget notwendig, Nur Ressourcen für initaile Definition des Reportings und der Suchkriterien",
         "dataAvailability": "Interne Daten zur Performance des Unternehmen um gegenüberstellung durchzuführen (zb Rev, EBITDA, FTE Amount, PEX, Shipments etc) + Vorhandene Information über Produktionsplanungen etc",
-        "genaiConsiderations": "Prototyp-Meilensteine: Notwendig um zu prüfen ob Daten valide aus dem WWW gezogen werden Pilot-Design: Nicht notwendig; Reporting nur für C-Level/Extended Management Ethik und Datenschutz: Nicht vorhanden = Arbeit nur mit publizierten Daten Skalierbarkeit: nicht notwendig Change Management: Nicht notwendig",
+        "genaiConsiderations": "Prototyp-Meilensteine: Notwendig um zu prüfen ob Daten valide aus dem WWW gezogen werden\nPilot-Design: Nicht notwendig; Reporting nur für C-Level/Extended Management\nEthik und Datenschutz: Nicht vorhanden = Arbeit nur mit publizierten Daten\nSkalierbarkeit: nicht notwendig\nChange Management: Nicht notwendig",
         "timeline": "Q1/2026",
         "additionalComments": "Konkreten Nutzen der Daten validieren = Ziel ist es Handlungsmaßnahmen und Empfehlungen zu generieren (zb Personalabbau VW = Fixkostenabbau DUV)"
       },
       "dashboard_reporting": {
+        "projectSponsor": "CEO + COO ? Dient als Steuer- und Management Element + CIO aufgrund von Systemabhängigkeit",
         "involvedTeams": "Operative + Controlling + PowerBI Team = Nutzung Vorhandener Daten und Reporte um diese zu standartisieren/optimieren und automatisieren",
         "potentialConflicts": "Aktuell ggf. laufendes Projekt: KPI Based Steering (WPE Anforderungen)",
+        "requiredResources": "Personal notwendig für Datenzusammenführung",
         "dataAvailability": "Viele Daten in Caro, Kundenportal, SAP, PowerBi vorhanden = Werden nicht zentral zusammengeführt oder Definitionen stimmen nicht oder werden aus den Systemen nicht exportiert oder weiterverarbeiter = oft Abgleich mit anderrn Systemen notwendig um Datenvollständigkeit sicherzustellen (zb übertragung ETA IST und SOLL)",
-        "genaiConsiderations": "Prototyp-Meilensteine: // Pilot-Design: Nicht notwendig; Reporting nur für C-Level/Extended Management Ethik und Datenschutz: Nicht vorhanden = Arbeit nur mit internen Daten = Personenbezogene Daten = Leistungsperformance KAM = Skalierbarkeit: nicht notwendig Change Management: Nicht notwendig",
+        "genaiConsiderations": "Prototyp-Meilensteine: //\nPilot-Design: Nicht notwendig; Reporting nur für C-Level/Extended Management\nEthik und Datenschutz: Nicht vorhanden = Arbeit nur mit internen Daten = Personenbezogene Daten = Leistungsperformance KAM =\nSkalierbarkeit: nicht notwendig\nChange Management: Nicht notwendig",
         "timeline": "Q1/2026",
         "additionalComments": "Absprache mit C-Level und WPE zwecks Alignment auf Scope und bereits vorhanden// missing Reports = insb CXO und COO"
       },
@@ -374,7 +378,7 @@
         "potentialConflicts": "Zentrales Sales vs. Dezentrales Management",
         "requiredResources": "Digitalisierung und harmonisierung der SLA + Vertragsdaten falls nicht im System verfügbar. Budget: Keins",
         "dataAvailability": "Verträge sind in Legal-Systemen und CRM vorhanden = Prüfung vollständigkeit notwendig",
-        "genaiConsiderations": "Prototyp-Meilensteine: Notwendig, Pilot-Design: Wenn Tool für Standorte verfügbar gemacht werden soll dann notwendig, Ethik und Datenschutz: Nicht vorhanden = Arbeit nur mit internen Daten, Skalierbarkeit: k.a., Change Management: k.a.",
+        "genaiConsiderations": "Prototyp-Meilensteine: Notwendig\nPilot-Design: Wenn Tool für Standorte verfügbar gemacht werden soll dann notwendig\nEthik und Datenschutz: Nicht vorhanden = Arbeit nur mit internen Daten\nSkalierbarkeit: k.a.\nChange Management: k.a.",
         "timeline": "Q1/2026",
         "additionalComments": null
       }
