@@ -8,7 +8,7 @@ export const ideas = {
   ],
   ideas: [
     {
-      finalPrio: "2",
+      finalPrio: 2,
       ideaKey: "contract_logistics.ideas.requirements_specification",
       problemKey: "contract_logistics.problems.requirements_specification",
       solutionKey: "contract_logistics.solutions.requirements_specification",
@@ -46,7 +46,7 @@ export const ideas = {
       },
     },
     {
-      finalPrio: "1",
+      finalPrio: 1,
       ideaKey: "contract_logistics.ideas.target_prices",
       problemKey: "contract_logistics.problems.target_prices",
       solutionKey: "contract_logistics.solutions.target_prices",
@@ -81,7 +81,7 @@ export const ideas = {
       },
     },
     {
-      finalPrio: "3",
+      finalPrio: 3,
       ideaKey: "contract_logistics.ideas.contract_review",
       problemKey: "contract_logistics.problems.contract_review",
       solutionKey: "contract_logistics.solutions.contract_review",

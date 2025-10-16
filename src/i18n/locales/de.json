@@ -93,18 +93,18 @@
     "problems": {
       "presentation_creation": "MEC, Adhoc PPT ...",
       "intensive_research": "Zeitintensive Nachforschungen für die Analyse vergangener Umsätze, Jahre/Monate/Quartale, Preise, Vertragssituation etc.",
-      "fp_analysis": "Produktivität eigener Fuhrpark Tour ID"
+      "fp_analysis": "Produktivität eigener Fuhrpark\nTour ID"
     },
     "solutions": {
-      "presentation_creation": "Automatisierte Erstellung der MEC PPT",
-      "intensive_research": "\"Lexikon\" in dem ich schnell \"nachschlagen\" kann // Chatbot",
-      "fp_analysis": "Automatisierte Erstellung einer Tour-ID, so dass man erkennt, wenn 2 Car_O Touren (oder mehr) zu einem Rundlauf kombiniert wurden. Mithilfe von Fleetboard automatische Analysen der Strecke und Produktivität erstellen. Umfassende Analyse der relevanten FP-KPI"
+      "presentation_creation": " - Automatisierte Erstellung der MEC PPT",
+      "intensive_research": " - \"Lexikon\" in dem ich schnell \"nachschlagen\" kann // Chatbot\n",
+      "fp_analysis": " - Automatisierte Erstellung einer Tour-ID, so dass man erkennt, wenn 2 Car_O Touren (oder mehr) zu einem Rundlauf kombiniert wurden\n - Mithilfe von Fleetboard automatische Analysen der Strecke und Produktivität erstellen - Umfassende Analyse der relevanten FP-KPI"
     },
     "projectBriefs": {
       "fp_analysis": {
         "sponsor": "Johanna Blanke/ Angelika Scheicher",
         "teams": "Controlling, FP-Disposition, DUVIS-Team",
-        "conflicts": "- Ressourcenüberschneidung: DUVIS-Team, FP-Disposition, Controlling\n - Implementierung neues TMS\n - nicht an allen Standorten wird (die gleiche) Telematik eingesetzt",
+        "conflicts": " - Ressourcenüberschneidung: DUVIS-Team, FP-Disposition, Controlling\n - Implementierung neues TMS\n - nicht an allen Standorten wird (die gleiche) Telematik eingesetzt",
         "resources": "Personal, Budget, Technologie",
         "dataAvailability": "FP-Produktivität: GPS-Daten der LKW/ Reisedaten vorhanden / Daten der Fahrerkarte vorhanden--> Definition für die Abweichungsanalyse festlegen\nTour ID: Reiseübergreifende Tour-ID bisher nicht vorhanden",
         "genaiConsiderations": "Meilenstein: Validierung der Umsetzbarkeit:\nSkalierbarkeit: 80% des Fuhrparks nutzt das gleiche Telematiksystem / \nTour ID: Umstellung TMS in den kommenden zwei Jahren, daher in dieser Zeit keine einheitliche Nutzung des TMS",
@@ -124,7 +124,7 @@
       "intensive_research": {
         "sponsor": "Maximilian Göckener",
         "teams": "Legal, Sales, SL, CO, HR, SAP, Facility, FP, Treasury, IT",
-        "conflicts": "- Ressourcenüberschneidungen gibt es in allen Abteilungen\n - Konflikte zwischen den Abteilungen hinsichtlich Datenschutz",
+        "conflicts": " - Ressourcenüberschneidungen gibt es in allen Abteilungen\n - Konflikte zwischen den Abteilungen hinsichtlich Datenschutz",
         "resources": "Personal, Budget, Technologie",
         "dataAvailability": "Muss mit allen involvierten Teams geprüft und definiert werden",
         "genaiConsiderations": "Meilenstein: Validierung der Umsetzbarkeit / Definition welche Daten zur Verfügung gestellt werden sollen/ dürfen\nDatenschutz: wer darf welche Informationen erhalten",
@@ -135,7 +135,7 @@
     "notes": {
       "complexity": {
         "presentation_creation": "viele verschiedene Datenquellen (z.Bsp: IDL, Lukanet, CAR_O), unterschiedlliche Ebenen der Darstellung (BUKRS <> PC), Abweichungsanalyse wichtiger KPI, Zusammenfassung der Themen anhand vorgegebener PPT-Struktur, auf Company-Level, BU-Level und Group-Level",
-        "intensive_research": "viele verschiedene Datenquellen, Ersterstellung aufwendig, Verlinkung der unterschiedlichen Daten",
+        "intensive_research": "viele verschiedene Datenquellen, Ersterstellung aufwendig, Verlinkung der unterschiedlichen Daten, ",
         "fp_analysis": "Analyse der Produktivität bezüglich verschiedener KPI, unterschiedliche Verrechnungspreise erschweren, Planungsgrundlagen bzw. -Annahmen sind nicht identisch, Rundlauferkennung wünschenswert, frühes erkennen von Abweichungen durch teilweise Live-Auswertung"
       },
       "cost": {

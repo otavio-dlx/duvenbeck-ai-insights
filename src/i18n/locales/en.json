@@ -17,18 +17,18 @@
     "problems": {
       "presentation_creation": "MEC, Ad hoc PPT ...",
       "intensive_research": "Time-intensive research for analysis of historical revenue, years/months/quarters, prices, contract situations etc.",
-      "fp_analysis": "Productivity of own fleet Tour ID"
+      "fp_analysis": "Productivity of own fleet\nTour ID"
     },
     "solutions": {
-      "presentation_creation": "Automated creation of MEC PPT",
-      "intensive_research": "\"Encyclopedia\" for quick reference // Chatbot",
-      "fp_analysis": "Automated creation of Tour-ID to identify when 2 or more Car_O tours are combined into a round trip. Use Fleetboard for automatic route and productivity analysis. Comprehensive analysis of relevant fleet performance KPIs"
+      "presentation_creation": " - Use of AI for automated PPT creation with CI templates\n - Focus on content-based PPT\n - Automated image, text, and format selection",
+      "intensive_research": " - AI-supported data collection\n - Structured data consolidation\n - Automated report generation with key insights",
+      "fp_analysis": " - AI-based fleet productivity analysis\n - Automated identification of optimization potential\n - Real-time dashboards for performance monitoring"
     },
     "projectBriefs": {
       "fp_analysis": {
         "sponsor": "Johanna Blanke/ Angelika Scheicher",
         "teams": "Controlling, FP-Disposition, DUVIS-Team",
-        "conflicts": "- Resource overlap: DUVIS-Team, FP-Disposition, Controlling\n - Implementation of new TMS\n - Not all locations use (the same) telematics",
+        "conflicts": " - Resource overlap: DUVIS-Team, FP-Disposition, Controlling\n - Implementation of new TMS\n - Not all locations use (the same) telematics",
         "resources": "Personnel, Budget, Technology",
         "dataAvailability": "FP-Productivity: GPS data from trucks/ travel data available / driver card data available--> Define deviation analysis\nTour ID: Cross-trip Tour-ID not yet available",
         "genaiConsiderations": "Milestone: Validation of feasibility:\nScalability: 80% of the fleet uses the same telematics system / \nTour ID: TMS transition in the next two years, therefore no uniform use of TMS during this time",
@@ -48,7 +48,7 @@
       "intensive_research": {
         "sponsor": "Maximilian Göckener",
         "teams": "Legal, Sales, SL, CO, HR, SAP, Facility, FP, Treasury, IT",
-        "conflicts": "- Resource overlaps exist in all departments\n - Conflicts between departments regarding data protection",
+        "conflicts": " - Resource overlaps exist in all departments\n - Conflicts between departments regarding data protection",
         "resources": "Personnel, Budget, Technology",
         "dataAvailability": "Must be reviewed and defined with all involved teams",
         "genaiConsiderations": "Milestone: Validation of feasibility / Definition of which data should/may be made available\nData protection: who may receive which information",
@@ -58,8 +58,8 @@
     },
     "notes": {
       "complexity": {
-        "presentation_creation": "Multiple data sources (e.g., IDL, Lukanet, CAR_O), different presentation levels (BUKRS <> PC), variance analysis of key KPIs, summary of topics based on predefined PPT structure, at Company-Level, BU-Level and Group-Level",
-        "intensive_research": "Multiple data sources, complex initial setup, linking of different data",
+        "presentation_creation": "Multiple data sources (e.g., IDL, Lukanetz, CAR_O), different presentation levels (BUKRS <> PC), variance analysis of key KPIs, summary of topics based on predefined PPT structure, at Company-Level, BU-Level and Group-Level",
+        "intensive_research": "Multiple data sources, complex initial setup, linking of different data,",
         "fp_analysis": "Productivity analysis regarding various KPIs, different transfer prices complicate matters, planning bases and assumptions not identical, round trip detection desired, early detection of deviations through partial live evaluation"
       },
       "cost": {
