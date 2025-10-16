@@ -10,45 +10,45 @@
   },
   "contract_logistics": {
     "ideas": {
-      "requirements_specification": "Anforderungsspezifikation Zusammenfassung",
-      "target_prices": "Zielpreise",
-      "contract_review": "Vertragsprüfungen/Dokumentenprüfungen"
+      "requirements_specification": "Lastenheft",
+      "target_prices": "Richtpreise",
+      "contract_review": "Vertrag"
     },
     "problems": {
-      "requirements_specification": "Zusammenfassung und Interpretation der Anforderungsspezifikation",
-      "target_prices": "Zielpreise machen 50% der Anfragen aus, häufig ohne Gewinn",
-      "contract_review": "Vertragsprüfungen und Dokumentenprüfungen"
+      "requirements_specification": " Lastenheft Zusammenfassung ",
+      "target_prices": "Richtpreise machen 50 % der Anfragen aus, oft ohne Ertrag",
+      "contract_review": "Vertragsprüfungen/ Dokumentenprüfungen"
     },
     "solutions": {
-      "requirements_specification": "Automatische Information über die wichtigsten Punkte mit 'Filterung' nach Abteilung, Projektbereich",
-      "target_prices": "Automatische Erstellung von Zielpreisen als Indikation",
-      "contract_review": "Automatische Erkennung von größeren Abweichungen vom DUV-Standard"
+      "requirements_specification": "Automatische Auskunft über die wichtigsten Punkte mit \"Filterung\" je Fach-, Projektbereich",
+      "target_prices": "automatisches Erstellung der Richtpreise als Indikationen ",
+      "contract_review": "automatische Erkennung grober Abweichungen zu DUV Standard"
     },
     "notes": {
       "complexity": {
-        "requirements_specification": "Erfahrung: Gewichtung der Informationen wesentlich, Sprachen; Formulierung, Genauigkeit der Informationen aber andererseits reine Informationsverarbeitung",
-        "target_prices": "Eingabe von Standardinformationen/Grunddaten analog zu CCT",
-        "contract_review": "Suche nach Schlüsselwörtern, Interpretationshilfe"
+        "requirements_specification": "Erfahrung: Gewichtung der Informationen zwingend notwendig, Sprachen; wording, Genauigkeit der Informationen\naber andererseits reine Informationsverarbeitung",
+        "target_prices": "Eingabe von Standardinformationen/Basisdaten analog CCT",
+        "contract_review": "Durchsuchen nach Schlagwörtern, Interpretationshilfe"
       },
       "cost": {
-        "requirements_specification": "Geringer Aufwand/Nutzung, Programmieraufwand jedoch gegeben",
-        "target_prices": "Höhere Nutzung, einfache Datenverarbeitung/technische Umsetzung",
-        "contract_review": "Geringer Aufwand/Nutzung, Programmieraufwand jedoch gegeben"
+        "requirements_specification": "geringer Aufwand /Gebrauch\nProgrammieraufwand jedoch gegeben ",
+        "target_prices": "höherer Gebrauch\neinfache Datenverarbeitung / technische Umsetzung ",
+        "contract_review": "geringer Aufwand /Gebrauch\nProgrammieraufwand jedoch gegeben "
       },
       "roi": {
-        "requirements_specification": "Kleiner Personenkreis der damit in Berührung kommt, nur Datenzusammenfassung, Zeitersparnis bei erster Dokumentensichtung",
-        "target_prices": "Reduzierung des Kalkulationsaufwands, Freisetzung von Ressourcen für Projekte",
+        "requirements_specification": "Kleiner Personenkreis der damit in Berührung kommt, nur Datenzusammenfassung, Zeitersparnis für die erste Dokumentensichtung",
+        "target_prices": "Reduzierung des Kalkulationsaufwands, Freispielung der Ressourcen für Projekte",
         "contract_review": "Kleiner Personenkreis der damit in Berührung kommt, Interpretationshilfe, Zeitersparnis für Entscheidungsträger"
       },
       "risk": {
-        "requirements_specification": "Ungenauigkeit kann zu Fehlinterpretation führen",
-        "target_prices": "Zielpreis, keine vertragliche Bindung",
-        "contract_review": "Fehlinterpretation kann zu hohen Folgekosten führen, Datensicherheit bei vertraulichen Kundeninformationen?"
+        "requirements_specification": "Ungenauigkeit kann zur Fehlinterpretation führen",
+        "target_prices": "Richtpreis, keine vertragliche Bindung",
+        "contract_review": "Fehlinterpretation kann zu hohen Folgekosten führen\nData security bei vertraulichen Kundeninformationen?"
       },
       "strategic": {
-        "requirements_specification": "Qualitative Entscheidungsunterstützung, Zeitersparnis für Mitarbeiter",
+        "requirements_specification": "Qualitative Entscheidungshilfe, Zeitgewinn für Mitarbeiter",
         "target_prices": "Keine Ressourcenbindung, Konzentration auf wichtige/strategische Projekte",
-        "contract_review": "Risikomanagement"
+        "contract_review": "Risk management"
       }
     },
     "projectBriefs": {
@@ -58,7 +58,7 @@
         "conflicts": "IT-Ressourcen",
         "resources": "Personal, Budget, Technologie",
         "dataAvailability": "Lastenhefte sind vorhanden",
-        "genaiConsiderations": "Datenschutz da Kundendokumente, Aufbau und Umfang der Dokumente richtige Definition der Schlagworte + permanente Weiterentwicklung",
+        "genaiConsiderations": "Datenschutz da Kundendokumente,\nAufbau und Umfang der Dokumente\nrichtige Definition der Schlagworte + permanente Weiterentwicklung  ",
         "timeline": "Ende 2026",
         "comments": "rechtliche Klärung des Datenschutzes"
       },
@@ -78,7 +78,7 @@
         "conflicts": "IT-Ressourcen",
         "resources": "Personal, Budget, Technologie",
         "dataAvailability": "Mustervertrag DUV\nBeispielvertrag",
-        "genaiConsiderations": "Datenschutz da Kundendokumente, Aufbau und Umfang der Dokumente richtige Definition der Schlagworte + permanente Weiterentwicklung",
+        "genaiConsiderations": "Datenschutz da Kundendokumente,\nAufbau und Umfang der Dokumente\nrichtige Definition der Schlagworte + permanente Weiterentwicklung  ",
         "timeline": "Mitte 2027",
         "comments": "rechtliche Klärung des Datenschutzes"
       }

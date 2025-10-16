@@ -86,40 +86,40 @@
   },
   "contract_logistics": {
     "ideas": {
-      "requirements_specification": "Requirements Specification Summary",
+      "requirements_specification": "Requirements Specification",
       "target_prices": "Target Prices",
-      "contract_review": "Contract Reviews/Document Reviews"
+      "contract_review": "Contract"
     },
     "problems": {
-      "requirements_specification": "Requirements specification summary and interpretation",
+      "requirements_specification": " Requirements Specification Summary ",
       "target_prices": "Target prices make up 50% of inquiries, often without profit",
-      "contract_review": "Contract reviews and document reviews"
+      "contract_review": "Contract Reviews/Document Reviews"
     },
     "solutions": {
-      "requirements_specification": "Automatic information about the most important points with 'filtering' by department, project area",
-      "target_prices": "Automatic creation of target prices as indications",
+      "requirements_specification": "Automatic information about the most important points with \"filtering\" by department, project area",
+      "target_prices": "Automatic creation of target prices as indications ",
       "contract_review": "Automatic detection of major deviations from DUV standard"
     },
     "notes": {
       "complexity": {
-        "requirements_specification": "Experience: Weighting of information essential, languages; wording, accuracy of information but on the other hand pure information processing",
+        "requirements_specification": "Experience: Weighting of information absolutely necessary, languages; wording, accuracy of information\nbut on the other hand pure information processing",
         "target_prices": "Input of standard information/basic data analogous to CCT",
-        "contract_review": "Search for keywords, interpretation help"
+        "contract_review": "Searching for keywords, interpretation help"
       },
       "cost": {
-        "requirements_specification": "Low effort/usage, programming effort however given",
-        "target_prices": "Higher usage, simple data processing/technical implementation",
-        "contract_review": "Low effort/usage, programming effort however given"
+        "requirements_specification": "Low effort/usage\nProgramming effort however given ",
+        "target_prices": "Higher usage\nSimple data processing/technical implementation ",
+        "contract_review": "Low effort/usage\nProgramming effort however given "
       },
       "roi": {
-        "requirements_specification": "Small group of people who come in contact with it, only data summarization, time savings for initial document review",
+        "requirements_specification": "Small group of people who come in contact with it, only data summarization, time savings for the initial document review",
         "target_prices": "Reduction of calculation effort, freeing up resources for projects",
         "contract_review": "Small group of people who come in contact with it, interpretation help, time savings for decision makers"
       },
       "risk": {
         "requirements_specification": "Inaccuracy can lead to misinterpretation",
         "target_prices": "Target price, no contractual binding",
-        "contract_review": "Misinterpretation can lead to high follow-up costs, data security with confidential customer information?"
+        "contract_review": "Misinterpretation can lead to high follow-up costs\nData security with confidential customer information?"
       },
       "strategic": {
         "requirements_specification": "Qualitative decision support, time savings for employees",
@@ -134,7 +134,7 @@
         "conflicts": "IT resources",
         "resources": "Personnel, Budget, Technology",
         "dataAvailability": "Requirements specifications are available",
-        "genaiConsiderations": "Data protection due to customer documents, structure and scope of documents, correct definition of keywords + continuous development",
+        "genaiConsiderations": "Data protection due to customer documents,\nStructure and scope of documents\nCorrect definition of keywords + continuous development  ",
         "timeline": "End of 2026",
         "comments": "Legal clarification of data protection"
       },
@@ -154,7 +154,7 @@
         "conflicts": "IT resources",
         "resources": "Personnel, Budget, Technology",
         "dataAvailability": "DUV standard contract\nSample contract",
-        "genaiConsiderations": "Data protection due to customer documents, structure and scope of documents, correct definition of keywords + continuous development",
+        "genaiConsiderations": "Data protection due to customer documents,\nStructure and scope of documents\nCorrect definition of keywords + continuous development  ",
         "timeline": "Mid 2027",
         "comments": "Legal clarification of data protection"
       }

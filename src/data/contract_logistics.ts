@@ -20,8 +20,7 @@ export const ideas = {
       cost: 4,
       costNoteKey: "contract_logistics.notes.cost.requirements_specification",
       roi: 3,
-      roiNote:
-        "Small group of people who come in contact with it, only data summarization, time savings for initial document review",
+      roiNoteKey: "contract_logistics.notes.roi.requirements_specification",
       risk: 3,
       riskNoteKey: "contract_logistics.notes.risk.requirements_specification",
       strategicAlignment: 2,
@@ -58,8 +57,7 @@ export const ideas = {
       cost: 4,
       costNoteKey: "contract_logistics.notes.cost.target_prices",
       roi: 5,
-      roiNote:
-        "Reduction of calculation effort, freeing up resources for projects",
+      roiNoteKey: "contract_logistics.notes.roi.target_prices",
       risk: 5,
       riskNoteKey: "contract_logistics.notes.risk.target_prices",
       strategicAlignment: 5,
@@ -94,8 +92,7 @@ export const ideas = {
       cost: 5,
       costNoteKey: "contract_logistics.notes.cost.contract_review",
       roi: 4,
-      roiNote:
-        "Small group of people who come in contact with it, interpretation help, time savings for decision makers",
+      roiNoteKey: "contract_logistics.notes.roi.contract_review",
       risk: 1,
       riskNoteKey: "contract_logistics.notes.risk.contract_review",
       strategicAlignment: 4,
