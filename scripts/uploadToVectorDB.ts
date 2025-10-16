@@ -2,6 +2,7 @@ import { GoogleGenerativeAI } from "@google/generative-ai";
 import { QdrantClient } from "@qdrant/js-client-rest";
 import { randomUUID } from "crypto";
 import * as dotenv from "dotenv";
+import { readFileSync } from "fs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
@@ -28,6 +29,29 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 dotenv.config({ path: join(__dirname, "../.env") });
 
+// Load English translations for embeddings
+const enTranslations = JSON.parse(
+  readFileSync(join(__dirname, "../src/i18n/locales/en.json"), "utf-8")
+);
+
+// Helper function to get translated text from key
+function getTranslatedText(key: string): string {
+  const parts = key.split(".");
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let value: any = enTranslations;
+
+  for (const part of parts) {
+    if (value && typeof value === "object" && part in value) {
+      value = value[part];
+    } else {
+      console.warn(`⚠️  Translation not found for key: ${key}`);
+      return key; // Return the key itself if translation not found
+    }
+  }
+
+  return typeof value === "string" ? value : key;
+}
+
 interface NewFormatIdea {
   finalPrio: number;
   ideaKey: string;
@@ -52,7 +76,8 @@ interface VectorPoint {
   vector: number[];
   payload: {
     originalId: string;
-    text: string;
+    key: string; // Translation key (e.g., "compliance.ideas.damage_claim_review")
+    text: string; // Actual translated text
     department: string;
     ideaKey: string;
     owner: string;
@@ -170,21 +195,29 @@ async function uploadToQdrant() {
       totalIdeas += ideas.length;
 
       for (const idea of ideas) {
+        // Get translated text for idea, problem, and solution
+        const ideaText = getTranslatedText(idea.ideaKey);
+        const problemText = getTranslatedText(idea.problemKey);
+        const solutionText = getTranslatedText(idea.solutionKey);
+
         // Create documents for idea, problem, and solution
         const documents = [
           {
             id: `${departmentName}_${idea.ideaKey}_idea`,
-            text: idea.ideaKey,
+            key: idea.ideaKey,
+            text: ideaText,
             type: "idea" as const,
           },
           {
             id: `${departmentName}_${idea.problemKey}_problem`,
-            text: idea.problemKey,
+            key: idea.problemKey,
+            text: problemText,
             type: "problem" as const,
           },
           {
             id: `${departmentName}_${idea.solutionKey}_solution`,
-            text: idea.solutionKey,
+            key: idea.solutionKey,
+            text: solutionText,
             type: "solution" as const,
           },
         ];
@@ -203,7 +236,8 @@ async function uploadToQdrant() {
             vector: embedding,
             payload: {
               originalId: doc.id,
-              text: doc.text,
+              key: doc.key, // Store the translation key
+              text: doc.text, // Store the actual translated text
               department: departmentName,
               ideaKey: idea.ideaKey,
               owner: idea.owner,

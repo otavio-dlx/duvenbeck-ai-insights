@@ -2,20 +2,20 @@
 
 ## ✅ Successfully Uploaded to Qdrant
 
-**Date**: October 14, 2025
+**Last Updated**: October 16, 2025
 
 ### Upload Statistics
 
 - **Collection Name**: `duvenbeck_workshop_ideas`
 - **Total Departments**: 16
-- **Total Ideas**: 77
-- **Total Vectors**: 231 (3 vectors per idea: idea, problem, solution)
+- **Total Ideas**: 79
+- **Total Vectors**: 237 (3 vectors per idea: idea, problem, solution)
 
 ### Departments Included
 
 1. Accounting (4 ideas)
 2. Central Solution Design (3 ideas)
-3. Compliance (6 ideas)
+3. Compliance (8 ideas)
 4. Contract Logistics (3 ideas)
 5. Controlling (3 ideas)
 6. Corporate Development (7 ideas)
@@ -41,10 +41,11 @@
 Each vector point contains:
 
 - **ID**: UUID (auto-generated)
-- **Vector**: 768-dimensional embedding
+- **Vector**: 768-dimensional embedding from Google's `text-embedding-004`
 - **Payload**:
-  - `originalId`: Original string ID from the data
-  - `text`: The actual text content (ideaKey, problemKey, or solutionKey)
+  - `originalId`: Original string ID from the data (e.g., "Compliance_compliance.ideas.damage_claim_review_idea")
+  - `key`: Translation key (e.g., "compliance.ideas.damage_claim_review")
+  - `text`: **Actual translated English text** (e.g., "Damage Claim Review")
   - `department`: Department name
   - `ideaKey`: The idea key reference
   - `owner`: Owner of the idea
@@ -56,6 +57,15 @@ Each vector point contains:
   - `roi`: ROI score (optional)
   - `risk`: Risk score (optional)
   - `strategicAlignment`: Strategic alignment score (optional)
+
+### Important Changes (October 16, 2025)
+
+✨ **Updated to use actual translated text instead of keys:**
+
+- Previously, embeddings were generated from translation keys like `compliance.ideas.damage_claim_review`
+- Now, embeddings are generated from the actual English text like "Damage Claim Review"
+- This provides much better semantic search results as the AI can understand the actual content
+- Both the translation key AND the translated text are stored in the payload for reference
 
 ### Connection Details
 
