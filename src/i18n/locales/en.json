@@ -1308,11 +1308,11 @@
   },
   "hr": {
     "ideas": {
-      "hr_data_dashboard": "HR Data Dashboard/KPI Reporting",
-      "employee_information_dashboard": "Employee Information Dashboard",
+      "hr_data_dashboard": "",
+      "employee_information_dashboard": "",
       "hr_agent": "HR Agent for Questions",
-      "vacation_management": "Vacation Management",
-      "email_prioritization": "Email Prioritization"
+      "vacation_management": "",
+      "email_prioritization": ""
     },
     "problems": {
       "hr_data_dashboard": "Data (master data & KPIs) must be retrieved from various systems and centrally consolidated and delivered to various stakeholders and shareholders.",
@@ -1330,10 +1330,10 @@
     },
     "notes": {
       "complexity": {
-        "hr_data_dashboard": "very complicated due to different specificities of country, business unit, locations, systems and payroll providers, plus complexity in data harmonization, probably not all data is currently available in the systems or in different places",
-        "employee_information_dashboard": "very complicated due to different specificities of country, business unit, locations, systems and payroll providers, probably not all data is currently available in the systems or in different places",
+        "hr_data_dashboard": "very complicated, due to different specificities of country, business unit, locations, systems and payroll providers, plus complexity in data harmonization, probably not all data is currently available in the systems or in different places",
+        "employee_information_dashboard": "very complicated, due to different specificities of country, business unit, locations, systems and payroll providers, probably not all data is currently available in the systems or in different places",
         "hr_agent": "country-specific containers must be filled, possibly automatically filled, legal reliability, differences within a country (locations, collective bargaining), filling legal HR topics possible provider Haufe (for Germany)",
-        "vacation_management": "very complicated due to different specificities of country, business unit, locations, systems and payroll providers, plus complexity in data harmonization, probably not all data is currently available in the systems or in different places",
+        "vacation_management": "very complicated, due to different specificities of country, business unit, locations, systems and payroll providers, plus complexity in data harmonization, probably not all data is currently available in the systems or in different places",
         "email_prioritization": "Complexity lies in training Duvenbeck-specific knowledge"
       },
       "cost": {
@@ -1370,17 +1370,17 @@
         "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
         "involvedTeams": "central HR management, contact persons for payroll providers in the countries (on Duvenbeck side and on the payroll provider side), IT, Corporate Development, Finance regarding reporting",
         "potentialConflicts": "Data harmonization / term definitions (e.g., FTE; Absence Status, etc.)",
-        "requiredResources": null,
+        "requiredResources": "",
         "dataAvailability": "Basic data warehouse exists, currently expanding data queries, data scope table can then be made available",
         "genaiConsiderations": "local hosting necessary, role concept / access rights / reporting regarding the HR dashboard",
         "timeline": "Q1 2026 for the first pilot, rollout during Q4 2026",
-        "additionalComments": null
+        "additionalComments": ""
       },
       "employee_information_dashboard": {
         "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
         "involvedTeams": "central HR management, contact persons for payroll providers in the countries (on Duvenbeck side and on the payroll provider side), IT, Corporate Development, Finance regarding reporting",
         "potentialConflicts": "Data harmonization / term definitions (e.g., FTE; Absence Status, etc.)",
-        "requiredResources": null,
+        "requiredResources": "",
         "dataAvailability": "Basic data warehouse exists, currently expanding data queries, data scope table can then be made available",
         "genaiConsiderations": "local hosting necessary, role concept / access rights / reporting regarding the HR dashboard",
         "timeline": "Q2 2026 for the first pilot, rollout during Q4 2026",
@@ -1390,9 +1390,9 @@
         "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
         "involvedTeams": "Legal, IT, Regional HR managers, suppliers for legal content",
         "potentialConflicts": "potential resource conflicts",
-        "requiredResources": null,
-        "dataAvailability": "Prior decision on scope of HR chatbot (which questions should be covered) \nSuppliers provide legal data, regional HR managers must provide Duvenbeck-specific data",
-        "genaiConsiderations": "local hosting necessary, \ncountry-specific containers or each country/region/location has specific chatbot content,\ndecision on foreign languages to be used,\ndecision on text, voice or video - chatbot",
+        "requiredResources": "",
+        "dataAvailability": "Prior decision on scope of HR chatbot (which questions should be covered) Suppliers provide legal data, regional HR managers must provide Duvenbeck-specific data,",
+        "genaiConsiderations": "local hosting necessary, country-specific containers or each country/region/location has specific chatbot content, decision on foreign languages to be used, decision on text, voice or video - chatbot",
         "timeline": "Q3 2026 for pilot",
         "additionalComments": "Scalability to an onboarding chatbot and topics outside of HR (e.g., breakdown assistance for drivers)"
       }

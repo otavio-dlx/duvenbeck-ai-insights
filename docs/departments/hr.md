@@ -2,7 +2,7 @@
 
 ## Overview
 
-The HR (Human Resources) department participated in the Duvenbeck AI Workshop on October 6, 2025. This document outlines the AI initiatives proposed by the HR team, including detailed problem statements, solutions, and project analysis.
+The HR (Human Resources) department participated in the Duvenbeck AI Workshop on October 6, 2025.
 
 **Workshop Details:**
 
@@ -12,19 +12,21 @@ The HR (Human Resources) department participated in the Duvenbeck AI Workshop on
 
 ## AI Initiatives Summary
 
-The HR department identified 5 key AI initiatives, prioritized based on complexity, cost, ROI, risk, and strategic alignment:
+The HR department identified 5 key AI initiatives:
 
 | Priority | Initiative                      | Owner | Priority Level | Complexity | Cost | ROI | Risk | Strategic |
 | -------- | ------------------------------- | ----- | -------------- | ---------- | ---- | --- | ---- | --------- |
 | 1        | HR Data Dashboard/KPI Reporting |       | A              | 1/5        | 4/5  | 5/5 | 1/5  | 5/5       |
 | 2        | Employee Information Dashboard  |       | A              | 1/5        | 4/5  | 5/5 | 1/5  | 5/5       |
 | 3        | HR Agent for Questions          |       | A              | 1/5        | 4/5  | 4/5 | 4/5  | 3/5       |
-| 4        | Vacation Management             |       | A              | 1/5        | 4/5  | 5/5 | 1/5  | 5/5       |
-| 5        | Email Prioritization            |       | A              | 1/5        | 4/5  | 5/5 | 1/5  | 5/5       |
+| 4        | Vacation Management             |       | A              | 1/5        | 3/5  | 3/5 | 1/5  | 3/5       |
+| 5        | Email Prioritization            |       | A              | 4/5        | 2/5  | 3/5 | 4/5  | 3/5       |
 
 ## Detailed Initiative Analysis
 
 ### 1. HR Data Dashboard/KPI Reporting (Priority: 1)
+
+**Owner:** Wolfgang Kortus / Sven Grünwoldt
 
 **Problem Statement:**
 Data (master data & KPIs) must be retrieved from various systems and centrally consolidated and delivered to various stakeholders and shareholders.
@@ -53,6 +55,8 @@ AI workflow for querying master data and defined KPIs and merging/consolidating 
 
 ### 2. Employee Information Dashboard (Priority: 2)
 
+**Owner:** Wolfgang Kortus / Sven Grünwoldt
+
 **Problem Statement:**
 Gather information about an employee as a decision basis for any personnel measures. All necessary information for next steps must be retrieved from different systems (payroll system, personnel file, time information system, transfer matrix, etc.).
 
@@ -79,6 +83,8 @@ Compilation of all important employee information in one overview
 - **Additional Comments:** Dependent on the introduction of SAP Success Factors (SF can provide such an employee master data sheet)
 
 ### 3. HR Agent for Questions (Priority: 3)
+
+**Owner:** Wolfgang Kortus / Sven Grünwoldt
 
 **Problem Statement:**
 Employees often don't have quick answers to HR questions.
@@ -111,6 +117,8 @@ An HR agent provides immediate information on HR topics.
 
 ### 4. Vacation Management (Priority: 4)
 
+**Owner:** 
+
 **Problem Statement:**
 Vacation: Employee vacation requests regarding remaining vacation balance, all vacation requests via D3 (in GER) are manually entered into the time information program, vacation requests from D3 need to be incorporated into the work schedule
 
@@ -120,15 +128,17 @@ Determination of current vacation balances, automated transmission to employees.
 **Project Metrics:**
 
 - Complexity: 1/5 - very complicated due to different specificities of country, business unit, locations, systems and payroll providers, plus complexity in data harmonization, probably not all data is currently available in the systems or in different places
-- Cost: 4/5 - High costs when setting up the systems, later regarding running costs no high costs expected
-- ROI: 5/5 - Management of vacation provisions, flows into management of temporary work, if vacation phases are compensated by temporary work (mainly affects blue collar in PCL)
+- Cost: 3/5 - High costs when setting up the systems, later regarding running costs no high costs expected
+- ROI: 3/5 - Management of vacation provisions, flows into management of temporary work, if vacation phases are compensated by temporary work (mainly affects blue collar in PCL)
 - Risk: 1/5 - due to personal data
-- Strategic Alignment: 5/5 - Productivity increase, should refer to a digitalization strategy
+- Strategic Alignment: 3/5 - Productivity increase, should refer to a digitalization strategy
 
 **Project Brief:**
 To be developed
 
 ### 5. Email Prioritization (Priority: 5)
+
+**Owner:** 
 
 **Problem Statement:**
 Prioritization of emails in Outlook, automatic reminders for unprocessed emails
@@ -138,11 +148,11 @@ Email evaluation, response suggestions in connection with Duvenbeck-specific kno
 
 **Project Metrics:**
 
-- Complexity: 1/5 - Complexity lies in training Duvenbeck-specific knowledge
-- Cost: 4/5 - Costs for local hosting, one-time costs for building the workflow, possibly server costs
-- ROI: 5/5 - Time savings, thus productivity increase
-- Risk: 1/5 - Prerequisite: local hosting, in this case personal data is protected
-- Strategic Alignment: 5/5 - Digitalization strategy
+- Complexity: 4/5 - Complexity lies in training Duvenbeck-specific knowledge
+- Cost: 2/5 - Costs for local hosting, one-time costs for building the workflow, possibly server costs
+- ROI: 3/5 - Time savings, thus productivity increase
+- Risk: 4/5 - Prerequisite: local hosting, in this case personal data is protected
+- Strategic Alignment: 3/5 - Digitalization strategy
 
 **Project Brief:**
 To be developed

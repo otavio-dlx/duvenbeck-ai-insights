@@ -1301,32 +1301,32 @@
   },
   "hr": {
     "ideas": {
-      "hr_data_dashboard": "HR-Daten Dashboard/KPI Reporting",
-      "employee_information_dashboard": "Mitarbeiter-Informations-Dashboard",
+      "hr_data_dashboard": "",
+      "employee_information_dashboard": "",
       "hr_agent": "HR-Agent für Fragen",
-      "vacation_management": "Urlaubsverwaltung",
-      "email_prioritization": "E-Mail-Priorisierung"
+      "vacation_management": "",
+      "email_prioritization": ""
     },
     "problems": {
       "hr_data_dashboard": "Daten (Stammdaten & KPI) müssen aus verschiedenen Systemen abgefragt und zentral zusammengetragen werden und an verschiedene Stakeholder und Shareholder geliefert werden.",
-      "employee_information_dashboard": "Informationen für einen Mitarbeiter als Entscheidungsgrundlage für jegliche personelle Maßnahmen zusammenstellen. Alle notwendigen Informationen zu den nächsten Steps müssen aus unterschiedlichen Systemen (Abrechnungssystem, Personalakte, Zeitinformationssystem, Transfermatrix etc.) geholt werden.",
+      "employee_information_dashboard": "Informationen für einen Mitarbeiter als Entscheidungsgrundlage für jegliche personelle Maßnahmen zusammenstellen. Alle notwendigen Informationen zu den nächsten Steps müssen aus unterschiedlichen Systemen (Abrechnungssystem, Personalakte, Zeitinformationssystem, Transfermatrix etc. geholt werden.",
       "hr_agent": "Mitarbeitende haben oft keine schnelle Antwort auf HR-Fragen.",
-      "vacation_management": "Urlaub: Urlaubsanfragen Mitarbeiter über Höhe des noch offenen Urlaubs, alle Urlaubsanträge über D3 (in GER) werden manuell ins Zeitinformationsprogramm eingetragen, Urlaubsanträge aus dem D3 in den Dienstplan übernehmen",
-      "email_prioritization": "Priorisierung von E-Mails in Outlook, automatische Erinnerungen an noch nicht bearbeitete E-Mails"
+      "vacation_management": "Urlaub: Urlaubsanfragen Mitarbeiter über Höhe des noch offenen Urlaubs, alle Urlaubsanträge über D3 (in GER) werden manuell ins Zeitinformationsprogramm eingetragen Urlaubsanträge aus dem D3 in den Dienstplan übernehmen",
+      "email_prioritization": "Priosisierung von Emails im Outlook, automatische Erinnerungen an noch nicht bearbeitete Emails"
     },
     "solutions": {
       "hr_data_dashboard": "AI Workflow zur Abfrage der Stammdaten und definierten KPI und Zusammenführung/Konsolidierung sowie Bereitstellung als Bericht und Live-Dashboard",
-      "employee_information_dashboard": "Zusammenstellung aller wichtigen Informationen eines Mitarbeiters in einer Übersicht",
+      "employee_information_dashboard": "Zusammenstellung aller wichtigen Informationen eines MItarbeiters in einer Übersicht",
       "hr_agent": "Ein HR-Agent gibt sofortige Auskunft rund um HR-Themen.",
-      "vacation_management": "Ermittlung aktueller Urlaubsstände, automatisierte Übermittlung an MA. Die digitalen Urlaubsanträge müssen im Dienstplan automatisch mit berücksichtigt werden. Das System erfasst die in D3 genehmigten Urlaubsanträge ins Zeiterfassungsprogramm",
-      "email_prioritization": "Bewertung von E-Mails, Antwortvorschläge in Verbindung mit Duvenbeck spezifischem Wissen, Erinnerungen an E-Mails, Priorisierung"
+      "vacation_management": "Ermittlung aktueller Urlaubsstände, automatisierte Übermittlung an MA Die digitalen Urlaubsanträge müssen im Dienstplan automatisch mit berücksichtigt werden Das System erfasst die in  D3  genehmigten Urlaubsanträge ins Zeiterfassungsprogramm",
+      "email_prioritization": "Bewertung von Emails, Antwortvorschläge in Verbindung mit Duvenbeck spezifischem Wissen, Erinnerungen an Emails, Priorisierung"
     },
     "notes": {
       "complexity": {
-        "hr_data_dashboard": "sehr kompliziert, aufgrund der unterschiedlichen Spezifika von Land, Business Unit, Standorte, Systeme und Payrollprovider, zudem Komplexität in der Harmonisierung der Daten, wahrscheinlich liegen aktuell nicht alle Daten in den Systemen vor bzw. an unterschiedlichen Stellen",
-        "employee_information_dashboard": "sehr kompliziert, aufgrund der unterschiedlichen Spezifika von Land, Business Unit, Standorte, Systeme und Payrollprovider, wahrscheinlich liegen aktuell nicht alle Daten in den Systemen vor bzw. an unterschiedlichen Stellen",
+        "hr_data_dashboard": "sehr kompliziert, aufgrund der unterschiedlichen Spezifika von, Land, Business Unit, Standorte, Systeme und Payrollprovider, zudem Komplexität in der Harmonisierung der Daten, wahrscheinlich liegen aktuell nicht alle Daten in den Systemen vor bzw. an unterschiedlichen Stellen",
+        "employee_information_dashboard": "sehr kompliziert, aufgrund der unterschiedlichen Spezifika von, Land, Business Unit, Standorte, Systeme und Payrollprovider, wahrscheinlich liegen aktuell nicht alle Daten in den Systemen vor bzw. an unterschiedlichen Stellen",
         "hr_agent": "landesspezifische Container müssen befüllt werden, ggf. automatisiert befüllt werden, rechtliche Verlässlichkeit, Unterschiede innerhalb eines Landes (Standorte, Tarifbindung), Befüllung gesetzlicher HR-Themen möglicher Anbieter Haufe (für Deutschland)",
-        "vacation_management": "sehr kompliziert, aufgrund der unterschiedlichen Spezifika von Land, Business Unit, Standorte, Systeme und Payrollprovider, zudem Komplexität in der Harmonisierung der Daten, wahrscheinlich liegen aktuell nicht alle Daten in den Systemen vor bzw. an unterschiedlichen Stellen",
+        "vacation_management": "sehr kompliziert, aufgrund der unterschiedlichen Spezifika von, Land, Business Unit, Standorte, Systeme und Payrollprovider, zudem Komplexität in der Harmonisierung der Daten, wahrscheinlich liegen aktuell nicht alle Daten in den Systemen vor bzw. an unterschiedlichen Stellen",
         "email_prioritization": "Komplexität liegt im Training vom Duvenbeck-spezifischen Wissen"
       },
       "cost": {
@@ -1341,7 +1341,7 @@
         "employee_information_dashboard": "aufgrund personenbezogener Daten",
         "hr_agent": "eher wenig Risiko, da HR die Inhalte steuert",
         "vacation_management": "aufgrund personenbezogener Daten",
-        "email_prioritization": "Voraussetzung: lokales Hosting, in diesem Fall sind die personenbezogenen Daten geschützt"
+        "email_prioritization": "Vorsaussetzung: lokales Hosting, in diesem Fall sind die personenbezogenen Daten geschützt"
       },
       "roi": {
         "hr_data_dashboard": "Ein HR Dashboard auf der jeweiligen Organisationsebene führt zu einer deutlichen besseren Entscheidungsgrundlage für das operative HR Management --> stark verbessertes Berichtswesen, Shareholder und Stakeholder Satisfaction, dies entspricht einem Führungstool, das uns heute noch nicht zur Verfügung steht, dies führt auch zur Risikominimierung, Frühwarnsysteme, Personaleinsatzplanung",
@@ -1363,17 +1363,17 @@
         "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
         "involvedTeams": "zentrales HR Management, Ansprechpartner für Payrollprovider in den Ländern (auf Seite Duvenbeck und auf der Seite des Payrollproviders), IT, Corporate Development, Finance bzgl. Reporting",
         "potentialConflicts": "Datenharmonisierung / Begriffsdefinitionen (Bsp. FTE; Absence Status etc.)",
-        "requiredResources": null,
+        "requiredResources": "",
         "dataAvailability": "Basis Datawarehouse ist vorhanden, aktuell Erweiterung der Datenabfrage, Tabelle Datenscope kann anschließend zur Verfügung gestellt werden",
         "genaiConsiderations": "lokales Hosting notwendig, Rollenkonzept / Zugriffsrechte / Berichtswesen hinsichtlich des HR Dashboards",
         "timeline": "Q1 2026 für den ersten Piloten, Rollout im Verlauf Q4 2026",
-        "additionalComments": null
+        "additionalComments": ""
       },
       "employee_information_dashboard": {
         "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
         "involvedTeams": "zentrales HR Management, Ansprechpartner für Payrollprovider in den Ländern (auf Seite Duvenbeck und auf der Seite des Payrollproviders), IT, Corporate Development, Finance bzgl. Reporting",
         "potentialConflicts": "Datenharmonisierung / Begriffsdefinitionen (Bsp. FTE; Absence Status etc.)",
-        "requiredResources": null,
+        "requiredResources": "",
         "dataAvailability": "Basis Datawarehouse ist vorhanden, aktuell Erweiterung der Datenabfrage, Tabelle Datenscope kann anschließend zur Verfügung gestellt werden",
         "genaiConsiderations": "lokales Hosting notwendig, Rollenkonzept / Zugriffsrechte / Berichtswesen hinsichtlich des HR Dashboards",
         "timeline": "Q2 2026 für den ersten Piloten, Rollout im Verlauf Q4 2026",
@@ -1383,9 +1383,9 @@
         "projectSponsor": "Wolfgang Kortus / Sven Grünwoldt",
         "involvedTeams": "Legal, IT, Regionale HR Verantwortliche, Supplier für die gesetzlichen Inhalte",
         "potentialConflicts": "potenzielle Ressourcenkonflikte",
-        "requiredResources": null,
-        "dataAvailability": "Vorab Entscheidung über Umfang des HR Chatbots (welche Fragen sollen abgedeckt werden) \nSupplier liefern gesetzliche Daten, regionale HR Verantwortliche müssen Duvenbeck-spezifische Daten liefern,",
-        "genaiConsiderations": "lokales Hosting notwendig, \nlandesspezifische Container bzw. jedes Land/ Region / Standort hat spezifische Chatbot-Inhalte,\nEntscheidung über eingesetzte Fremdsprachen,\nEntscheidung über Text, Sprach oder Video - Chatbot",
+        "requiredResources": "",
+        "dataAvailability": "Vorab Entscheidung über Umfang des HR Chatbots (welche Fragen sollen abgedeckt werden) Supplier liefern gesetzliche Daten, regionale HR Verantwortliche müssen Duvenbeck-spezifische Daten liefern,",
+        "genaiConsiderations": "lokales Hosting notwendig, landesspezifische Container bzw. jedes Land/ Region / Standort hat spezifische Chatbot-Inhalte, Entscheidung über eingesetzte Fremdsprachen, Entscheidung über Text, Sprach oder Video - Chatbot",
         "timeline": "Q3 2026 für Pilot",
         "additionalComments": "Skalierbarkeit auf einen Onboarding Chatbot und auf Themen die außerhalb von HR liegen (Beispiel Pannenhilfe für Fahrer)"
       }
