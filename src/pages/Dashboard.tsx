@@ -4,9 +4,9 @@ import { MetricCard } from "@/components/MetricCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { participantsData } from "@/data/participants";
+import { useTagging } from "@/hooks/useTagging";
 import { getIdeasFor, listDataKeys } from "@/lib/data";
 import { getAllIdeasForCalculator } from "@/lib/data-mapper";
-import { useTagging } from "@/hooks/useTagging";
 import {
   Building2,
   Lightbulb,
@@ -41,7 +41,9 @@ export const Dashboard = () => {
   const [totalIdeasFromFiles, setTotalIdeasFromFiles] = useState<number | null>(
     null
   );
-  const [tagData, setTagData] = useState<Array<{ tag: string; count: number }>>([]);
+  const [tagData, setTagData] = useState<Array<{ tag: string; count: number }>>(
+    []
+  );
   const [loadingTags, setLoadingTags] = useState(false);
 
   // Load total ideas count and tags from all data files
@@ -50,20 +52,20 @@ export const Dashboard = () => {
       try {
         const allIdeas = await getAllIdeasForCalculator();
         setTotalIdeasFromFiles(allIdeas.length);
-        
+
         // Load tags for all ideas
         setLoadingTags(true);
         const tagCounts = new Map<string, number>();
-        
+
         // Sample: Load tags for a subset of ideas to avoid too many API calls
         // You can adjust the sampling or load all if needed
         const samplesToLoad = Math.min(allIdeas.length, 79); // Load all 79 ideas
-        
+
         for (let i = 0; i < samplesToLoad; i++) {
           const idea = allIdeas[i];
           try {
             const tags = await getTagsForIdea(idea.description);
-            tags.forEach(tag => {
+            tags.forEach((tag) => {
               const tagText = tag.text.toLowerCase();
               tagCounts.set(tagText, (tagCounts.get(tagText) || 0) + 1);
             });
@@ -71,13 +73,13 @@ export const Dashboard = () => {
             console.warn(`Failed to load tags for idea ${i}:`, error);
           }
         }
-        
+
         // Convert to array and sort by count
         const sortedTags = Array.from(tagCounts.entries())
           .map(([tag, count]) => ({ tag, count }))
           .sort((a, b) => b.count - a.count)
           .slice(0, 8); // Top 8 tags for the radar chart
-        
+
         setTagData(sortedTags);
         setLoadingTags(false);
       } catch (error) {
@@ -87,7 +89,6 @@ export const Dashboard = () => {
     };
     loadData();
   }, [getTagsForIdea]);
-
 
   // Extract unique departments
   const departments = useMemo(() => {
@@ -492,7 +493,7 @@ export const Dashboard = () => {
                               />
                               <PolarRadiusAxis
                                 angle={90}
-                                domain={[0, 'auto']}
+                                domain={[0, "auto"]}
                                 tick={{
                                   fill: "hsl(var(--muted-foreground))",
                                   fontSize: 10,
