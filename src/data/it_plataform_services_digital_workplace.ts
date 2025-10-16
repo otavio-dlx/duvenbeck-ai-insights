@@ -2,7 +2,8 @@ export const ideas = {
   home: [
     {
       date: "2025-10-08",
-      department: "IT Platform Services / Digital Workplace",
+      department: "IT",
+      businessLine: "IT Platform Services / Digital Workplace",
       collaboardLink: "https://web.collaboard.app/share/4LFOhXRZX1a9cHjbtC4e6A",
     },
   ],

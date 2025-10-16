@@ -1153,6 +1153,7 @@
   "charts": {
     "ideasByDepartment": "Ideas by Department",
     "participantsByDay": "Participants by Day",
+    "ideasByTags": "Ideas by AI Tags",
     "priorityDistribution": "Priority Distribution",
     "impactVsEffort": "Impact vs. Effort"
   },

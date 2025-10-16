@@ -4,7 +4,9 @@ import { MetricCard } from "@/components/MetricCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { participantsData } from "@/data/participants";
+import { useTagging } from "@/hooks/useTagging";
 import { getIdeasFor, listDataKeys } from "@/lib/data";
+import { getAllIdeasForCalculator } from "@/lib/data-mapper";
 import {
   Building2,
   Lightbulb,
@@ -20,8 +22,11 @@ import {
   CartesianGrid,
   Cell,
   Legend,
-  Pie,
-  PieChart,
+  PolarAngleAxis,
+  PolarGrid,
+  PolarRadiusAxis,
+  Radar,
+  RadarChart,
   ResponsiveContainer,
   Tooltip,
   XAxis,
@@ -30,8 +35,60 @@ import {
 
 export const Dashboard = () => {
   const { t } = useTranslation();
+  const { getTagsForIdea } = useTagging();
   const [selectedDepartment, setSelectedDepartment] = useState("all");
   const [selectedDay, setSelectedDay] = useState("all");
+  const [totalIdeasFromFiles, setTotalIdeasFromFiles] = useState<number | null>(
+    null
+  );
+  const [tagData, setTagData] = useState<Array<{ tag: string; count: number }>>(
+    []
+  );
+  const [loadingTags, setLoadingTags] = useState(false);
+
+  // Load total ideas count and tags from all data files
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const allIdeas = await getAllIdeasForCalculator();
+        setTotalIdeasFromFiles(allIdeas.length);
+
+        // Load tags for all ideas
+        setLoadingTags(true);
+        const tagCounts = new Map<string, number>();
+
+        // Sample: Load tags for a subset of ideas to avoid too many API calls
+        // You can adjust the sampling or load all if needed
+        const samplesToLoad = Math.min(allIdeas.length, 79); // Load all 79 ideas
+
+        for (let i = 0; i < samplesToLoad; i++) {
+          const idea = allIdeas[i];
+          try {
+            const tags = await getTagsForIdea(idea.description);
+            tags.forEach((tag) => {
+              const tagText = tag.text.toLowerCase();
+              tagCounts.set(tagText, (tagCounts.get(tagText) || 0) + 1);
+            });
+          } catch (error) {
+            console.warn(`Failed to load tags for idea ${i}:`, error);
+          }
+        }
+
+        // Convert to array and sort by count
+        const sortedTags = Array.from(tagCounts.entries())
+          .map(([tag, count]) => ({ tag, count }))
+          .sort((a, b) => b.count - a.count)
+          .slice(0, 8); // Top 8 tags for the radar chart
+
+        setTagData(sortedTags);
+        setLoadingTags(false);
+      } catch (error) {
+        console.error("Failed to load data:", error);
+        setLoadingTags(false);
+      }
+    };
+    loadData();
+  }, [getTagsForIdea]);
 
   // Extract unique departments
   const departments = useMemo(() => {
@@ -81,7 +138,11 @@ export const Dashboard = () => {
           "Group Accounting I": ["group_accounting"],
           "Business Solution PCL": ["business_solution_pcl"],
           "Road Sales SE": ["road_sales_se"],
-          "IT Shared Services": ["it_shared_services"],
+          IT: [
+            "it_shared_services",
+            "it_plataform_services_digital_workplace",
+            "it_business_solution_road",
+          ],
           "Solution Design": ["solution_design"],
           "Platform Services / Digital Workplace": ["platform_services"],
           "Security Management": ["security_management"],
@@ -196,11 +257,17 @@ export const Dashboard = () => {
       }
     });
 
-    const uniqueDepts = new Set(filteredParticipants.map((p) => p.groupName))
-      .size;
+    // Calculate unique departments from actual department workspaces (data files)
+    // Count unique department names from the ideasByDept object which represents actual departments with data
+    const uniqueDepts =
+      selectedDepartment === "all" ? Object.keys(ideasByDept).length : 1;
+
+    // Use the total ideas count from getAllIdeasForCalculator (same as PriorityAnalysis)
+    // This ensures consistency between Dashboard and PriorityAnalysis pages
+    const displayTotalIdeas = totalIdeasFromFiles ?? totalIdeasCount;
 
     const metrics = {
-      totalIdeas: totalIdeasCount,
+      totalIdeas: displayTotalIdeas,
       totalParticipants: filteredParticipants.length,
       departments: uniqueDepts,
       avgPriority: 7.5, // Mock data
@@ -212,7 +279,7 @@ export const Dashboard = () => {
       .slice(0, 10);
 
     return { metrics, departmentData };
-  }, [filteredParticipants, selectedDepartment]);
+  }, [filteredParticipants, selectedDepartment, totalIdeasFromFiles]);
 
   const dayData = useMemo(() => {
     const day1Count = participantsData.filter((p) => p.day1).length;
@@ -388,59 +455,79 @@ export const Dashboard = () => {
                   <Card>
                     <CardHeader>
                       <CardTitle className="text-lg">
-                        {t("charts.participantsByDay")}
+                        {t("charts.ideasByTags")}
                       </CardTitle>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        AI-generated tags distribution across all ideas
+                      </p>
                     </CardHeader>
                     <CardContent>
                       <div className="h-[400px]">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <PieChart
-                            margin={{
-                              top: 20,
-                              right: 30,
-                              left: 20,
-                              bottom: 60,
-                            }}
-                          >
-                            <Pie
-                              data={dayData}
-                              cx="50%"
-                              cy="45%"
-                              outerRadius={100}
-                              fill="hsl(var(--primary))"
-                              dataKey="value"
-                              nameKey="name"
-                            >
-                              {dayData.map((entry, index) => (
-                                <Cell
-                                  key={entry.name}
-                                  fill={COLORS[index % COLORS.length]}
-                                  stroke="hsl(var(--background))"
-                                  strokeWidth={2}
-                                />
-                              ))}
-                            </Pie>
-                            <Tooltip
-                              contentStyle={{
-                                backgroundColor: "hsl(var(--popover))",
-                                border: "1px solid hsl(var(--border))",
-                                borderRadius: "var(--radius)",
-                                color: "hsl(var(--foreground))",
+                        {loadingTags ? (
+                          <div className="flex items-center justify-center h-full">
+                            <div className="text-center">
+                              <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-2"></div>
+                              <p className="text-sm text-muted-foreground">
+                                Loading AI tags...
+                              </p>
+                            </div>
+                          </div>
+                        ) : tagData.length > 0 ? (
+                          <ResponsiveContainer width="100%" height="100%">
+                            <RadarChart
+                              data={tagData}
+                              margin={{
+                                top: 20,
+                                right: 30,
+                                left: 30,
+                                bottom: 20,
                               }}
-                            />
-                            <Legend
-                              verticalAlign="bottom"
-                              height={36}
-                              formatter={(value) => (
-                                <span
-                                  style={{ color: "hsl(var(--foreground))" }}
-                                >
-                                  {value}
-                                </span>
-                              )}
-                            />
-                          </PieChart>
-                        </ResponsiveContainer>
+                            >
+                              <PolarGrid stroke="hsl(var(--border))" />
+                              <PolarAngleAxis
+                                dataKey="tag"
+                                tick={{
+                                  fill: "hsl(var(--foreground))",
+                                  fontSize: 12,
+                                }}
+                              />
+                              <PolarRadiusAxis
+                                angle={90}
+                                domain={[0, "auto"]}
+                                tick={{
+                                  fill: "hsl(var(--muted-foreground))",
+                                  fontSize: 10,
+                                }}
+                              />
+                              <Radar
+                                name="Ideas"
+                                dataKey="count"
+                                stroke="hsl(var(--primary))"
+                                fill="hsl(var(--primary))"
+                                fillOpacity={0.6}
+                              />
+                              <Tooltip
+                                contentStyle={{
+                                  backgroundColor: "hsl(var(--popover))",
+                                  border: "1px solid hsl(var(--border))",
+                                  borderRadius: "var(--radius)",
+                                  color: "hsl(var(--foreground))",
+                                }}
+                              />
+                              <Legend
+                                wrapperStyle={{
+                                  color: "hsl(var(--foreground))",
+                                }}
+                              />
+                            </RadarChart>
+                          </ResponsiveContainer>
+                        ) : (
+                          <div className="flex items-center justify-center h-full">
+                            <p className="text-sm text-muted-foreground">
+                              No tag data available
+                            </p>
+                          </div>
+                        )}
                       </div>
                     </CardContent>
                   </Card>
@@ -604,6 +691,15 @@ export function DynamicCollaboards({
         );
       }
 
+      // Deduplicate by department name (keep first occurrence)
+      const uniqueDepartments = new Map<string, (typeof filteredFound)[0]>();
+      filteredFound.forEach((item) => {
+        if (!uniqueDepartments.has(item.department)) {
+          uniqueDepartments.set(item.department, item);
+        }
+      });
+      filteredFound = Array.from(uniqueDepartments.values());
+
       // Sort by department name
       filteredFound.sort((a, b) => a.department.localeCompare(b.department));
 
@@ -632,10 +728,9 @@ export function DynamicCollaboards({
       corp_dev: "Corporate Development",
       esg: "Environmental, Social & Governance",
       hr: "Human Resources",
-      it_business_solution_road: "IT Business Solution Road",
-      it_plataform_services_digital_workplace:
-        "IT Platform Services / Digital Workplace",
-      it_shared_services: "IT Shared Services",
+      it_business_solution_road: "IT",
+      it_plataform_services_digital_workplace: "IT",
+      it_shared_services: "IT",
       marketing_communications: "Marketing & Communications",
       qehs: "Quality, Environment, Health & Safety",
       road_sales: "Road Sales",

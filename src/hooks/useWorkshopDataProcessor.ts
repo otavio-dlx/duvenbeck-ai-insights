@@ -56,9 +56,13 @@ const departmentDataSources = {
   "Corporate Development": corpDevData,
   ESG: esgData,
   HR: hrData,
-  "IT Business Solution Road": itBusinessSolutionRoadData,
-  "IT Platform Services": itPlatformServicesData,
-  "IT Shared Services": itSharedServicesData,
+  IT: {
+    ideas: [
+      ...(itBusinessSolutionRoadData.ideas.ideas || []),
+      ...(itPlatformServicesData.ideas.ideas || []),
+      ...(itSharedServicesData.ideas.ideas || []),
+    ],
+  },
   "Marketing Communications": marketingCommunicationsData,
   QEHS: qehsData,
   "Road Sales": roadSalesData,

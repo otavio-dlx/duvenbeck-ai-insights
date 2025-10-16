@@ -28,6 +28,13 @@ export interface Idea {
   participants?: string[];
 }
 
+export interface HomeInfo {
+  date: string;
+  department: string;
+  businessLine?: string;
+  collaboardLink: string;
+}
+
 export interface TranslatedString {
   de: string;
   en: string;

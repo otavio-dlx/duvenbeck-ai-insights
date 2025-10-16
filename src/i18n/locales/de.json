@@ -1146,6 +1146,7 @@
   "charts": {
     "ideasByDepartment": "Ideen nach Abteilung",
     "participantsByDay": "Teilnehmer nach Tag",
+    "ideasByTags": "Ideen nach KI-Tags",
     "priorityDistribution": "Prioritätsverteilung",
     "impactVsEffort": "Auswirkung vs. Aufwand"
   },
