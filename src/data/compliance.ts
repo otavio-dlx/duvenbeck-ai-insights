@@ -2,7 +2,7 @@ export const ideas = {
   home: [
     {
       date: "2025-10-07",
-      department: "Compliance",
+      department: "Compliance", 
       collaboardLink: "https://web.collaboard.app/share/3P6tjXJczckl3ecL-pXBFw",
     },
   ],
@@ -19,14 +19,16 @@ export const ideas = {
       cost: 3,
       costNoteKey: "compliance.notes.cost.damage_claim_review",
       roi: 3,
-      roiNoteKey: "compliance.notes.roi.damage_claim_review",
+      roiNoteKey: null,
       risk: 4,
       riskNoteKey: "compliance.notes.risk.damage_claim_review",
       strategicAlignment: 3,
       strategicNoteKey: "compliance.notes.strategic.damage_claim_review",
       projectBrief: {
+        projectSponsorKey: "compliance.projectBriefs.damage_claim_review.projectSponsor",
         involvedTeamsKey: "compliance.projectBriefs.damage_claim_review.involvedTeams",
         potentialConflictsKey: "compliance.projectBriefs.damage_claim_review.potentialConflicts",
+        requiredResourcesKey: "compliance.projectBriefs.damage_claim_review.requiredResources",
         dataAvailabilityKey: "compliance.projectBriefs.damage_claim_review.dataAvailability",
         genaiConsiderationsKey: "compliance.projectBriefs.damage_claim_review.genaiConsiderations",
         timelineKey: "compliance.projectBriefs.damage_claim_review.timeline",
@@ -89,8 +91,10 @@ export const ideas = {
       strategicAlignment: 5,
       strategicNoteKey: "compliance.notes.strategic.legal_document_creation",
       projectBrief: {
+        projectSponsorKey: "compliance.projectBriefs.legal_document_creation.projectSponsor",
         involvedTeamsKey: "compliance.projectBriefs.legal_document_creation.involvedTeams",
         potentialConflictsKey: "compliance.projectBriefs.legal_document_creation.potentialConflicts",
+        requiredResourcesKey: "compliance.projectBriefs.legal_document_creation.requiredResources",
         dataAvailabilityKey: "compliance.projectBriefs.legal_document_creation.dataAvailability",
         genaiConsiderationsKey: "compliance.projectBriefs.legal_document_creation.genaiConsiderations",
         timelineKey: "compliance.projectBriefs.legal_document_creation.timeline",
@@ -134,8 +138,10 @@ export const ideas = {
       strategicAlignment: 5,
       strategicNoteKey: "compliance.notes.strategic.recurring_case_chatbot",
       projectBrief: {
+        projectSponsorKey: "compliance.projectBriefs.recurring_case_chatbot.projectSponsor",
         involvedTeamsKey: "compliance.projectBriefs.recurring_case_chatbot.involvedTeams",
         potentialConflictsKey: "compliance.projectBriefs.recurring_case_chatbot.potentialConflicts",
+        requiredResourcesKey: "compliance.projectBriefs.recurring_case_chatbot.requiredResources",
         dataAvailabilityKey: "compliance.projectBriefs.recurring_case_chatbot.dataAvailability",
         genaiConsiderationsKey: "compliance.projectBriefs.recurring_case_chatbot.genaiConsiderations",
         timelineKey: "compliance.projectBriefs.recurring_case_chatbot.timeline",

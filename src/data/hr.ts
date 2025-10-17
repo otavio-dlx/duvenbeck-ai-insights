@@ -27,17 +27,12 @@ export const ideas = {
       projectBrief: {
         projectSponsorKey: "hr.projectBriefs.hr_data_dashboard.projectSponsor",
         involvedTeamsKey: "hr.projectBriefs.hr_data_dashboard.involvedTeams",
-        potentialConflictsKey:
-          "hr.projectBriefs.hr_data_dashboard.potentialConflicts",
-        requiredResourcesKey:
-          "hr.projectBriefs.hr_data_dashboard.requiredResources",
-        dataAvailabilityKey:
-          "hr.projectBriefs.hr_data_dashboard.dataAvailability",
-        genaiConsiderationsKey:
-          "hr.projectBriefs.hr_data_dashboard.genaiConsiderations",
+        potentialConflictsKey: "hr.projectBriefs.hr_data_dashboard.potentialConflicts",
+        requiredResourcesKey: "hr.projectBriefs.hr_data_dashboard.requiredResources",
+        dataAvailabilityKey: "hr.projectBriefs.hr_data_dashboard.dataAvailability",
+        genaiConsiderationsKey: "hr.projectBriefs.hr_data_dashboard.genaiConsiderations",
         timelineKey: "hr.projectBriefs.hr_data_dashboard.timeline",
-        additionalCommentsKey:
-          "hr.projectBriefs.hr_data_dashboard.additionalComments",
+        additionalCommentsKey: "hr.projectBriefs.hr_data_dashboard.additionalComments",
       },
     },
     {
@@ -58,21 +53,14 @@ export const ideas = {
       strategicAlignment: 5,
       strategicNoteKey: "hr.notes.strategic.employee_information_dashboard",
       projectBrief: {
-        projectSponsorKey:
-          "hr.projectBriefs.employee_information_dashboard.projectSponsor",
-        involvedTeamsKey:
-          "hr.projectBriefs.employee_information_dashboard.involvedTeams",
-        potentialConflictsKey:
-          "hr.projectBriefs.employee_information_dashboard.potentialConflicts",
-        requiredResourcesKey:
-          "hr.projectBriefs.employee_information_dashboard.requiredResources",
-        dataAvailabilityKey:
-          "hr.projectBriefs.employee_information_dashboard.dataAvailability",
-        genaiConsiderationsKey:
-          "hr.projectBriefs.employee_information_dashboard.genaiConsiderations",
+        projectSponsorKey: "hr.projectBriefs.employee_information_dashboard.projectSponsor",
+        involvedTeamsKey: "hr.projectBriefs.employee_information_dashboard.involvedTeams",
+        potentialConflictsKey: "hr.projectBriefs.employee_information_dashboard.potentialConflicts",
+        requiredResourcesKey: "hr.projectBriefs.employee_information_dashboard.requiredResources",
+        dataAvailabilityKey: "hr.projectBriefs.employee_information_dashboard.dataAvailability",
+        genaiConsiderationsKey: "hr.projectBriefs.employee_information_dashboard.genaiConsiderations",
         timelineKey: "hr.projectBriefs.employee_information_dashboard.timeline",
-        additionalCommentsKey:
-          "hr.projectBriefs.employee_information_dashboard.additionalComments",
+        additionalCommentsKey: "hr.projectBriefs.employee_information_dashboard.additionalComments",
       },
     },
     {

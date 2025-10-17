@@ -2,17 +2,17 @@
 
 ## Overview
 
-The IT Business Solution Road / PCL department participated in the Duvenbeck AI Workshop on October 8, 2025. This document outlines the AI initiatives proposed by the IT team, including detailed problem statements, solutions, and project analysis.
+The IT Business Solution Road / PCL department participated in the Duvenbeck AI Workshop on October 8, 2025.
 
 **Workshop Details:**
 
 - Date: October 8, 2025
-- Department: IT Business Solution Road/ PCL
+- Department: IT Business Solution Road / PCL
 - Collaboard Link: [Workshop Board](https://web.collaboard.app/share/4LFOhXRZX1a9cHjbtC4e6A)
 
 ## AI Initiatives Summary
 
-The IT Business Solution Road department identified 5 key AI initiatives, prioritized based on complexity, cost, ROI, risk, and strategic alignment:
+The IT Business Solution Road department identified 4 key AI initiatives:
 
 | Priority | Initiative                   | Owner                        | Priority Level | Complexity | Cost | ROI | Risk | Strategic |
 | -------- | ---------------------------- | ---------------------------- | -------------- | ---------- | ---- | --- | ---- | --------- |
@@ -20,13 +20,12 @@ The IT Business Solution Road department identified 5 key AI initiatives, priori
 | -        | Unified Road Reporting       | -                            | A              | 2/5        | 1/5  | 2/5 | 1/5  | 2/5       |
 | -        | Meeting Agent                | Matthias Nießing/ Imre Berek | A              | 4/5        | 3/5  | 5/5 | 3/5  | 5/5       |
 | -        | EDI Mapping                  | Imre Berek                   | A              | 2/5        | 2/5  | 4/5 | 2/5  | 4/5       |
-| -        | EDI Testing                  | Imre Berek                   | B              | 3/5        | 3/5  | 3/5 | 2/5  | 4/5       |
 
 ## Detailed Initiative Analysis
 
 ### 1. Automated Route Optimization
 
-**Owner:** To be assigned
+**Owner:** -
 
 **Problem Statement:**
 Route planning is partially manual and doesn't always consider real-time data like traffic or driving times.
@@ -42,11 +41,9 @@ Introduction of an AI-supported tool for dynamic route planning that considers t
 - Risk: 3/5
 - Strategic Alignment: 4/5
 
-**Project Brief:** _To be developed_
-
 ### 2. Unified Road Operations Reporting
 
-**Owner:** To be assigned
+**Owner:** -
 
 **Problem Statement:**
 KPI reports (e.g., utilization, empty runs, punctuality) are inconsistent and difficult to compare.
@@ -61,8 +58,6 @@ Development of a central road dashboard with standardized metrics and automatic 
 - ROI: 2/5
 - Risk: 1/5
 - Strategic Alignment: 2/5
-
-**Project Brief:** _To be developed_
 
 ### 3. Meeting Agent
 
@@ -82,7 +77,16 @@ Automatic summarization and documentation of tasks for respective teams (Microso
 - Risk: 3/5
 - Strategic Alignment: 5/5
 
-**Project Brief:** _To be developed_
+**Project Brief:**
+
+- **Project Sponsor:** EDI Team
+- **Involved Teams:** EDI Team
+- **Potential Conflicts:** For Meeting Agent it is a common interest
+- **Required Resources:** -
+- **Data Availability:** -
+- **GenAI Considerations:** -
+- **Timeline:** -
+- **Additional Comments:** -
 
 ### 4. EDI Mapping
 
@@ -101,32 +105,6 @@ AI suggestions for mapping, so that humans become controllers and AI checks, but
 - ROI: 4/5
 - Risk: 2/5
 - Strategic Alignment: 4/5
-
-**Project Brief:** _To be developed_
-
-### 5. EDI Testing
-
-**Owner:** Imre Berek
-
-**Problem Statement:**
-Much time to create many test messages for different business cases
-
-**Proposed Solution:**
-Creation of test messages to defined business cases to have quality start-ups of projects
-
-**Project Metrics:**
-
-- Complexity: 3/5
-- Cost: 3/5
-- ROI: 3/5
-- Risk: 2/5
-- Strategic Alignment: 4/5
-
-**Project Brief:** _To be developed_
-
-## Implementation Notes
-
-The IT Business Solution Road initiatives focus on improving operational efficiency through route optimization, standardized reporting, and enhanced EDI data processing. The meeting agent initiative is prioritized for its potential to significantly improve team collaboration and task management.
 
 ## Contact
 

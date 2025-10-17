@@ -1,8 +1,8 @@
-# Strategic KAM Department - AI Workshop Ideas
+# Strategic KAM - AI Workshop Ideas
 
 ## Overview
 
-The Strategic KAM department participated in the Duvenbeck AI Workshop on October 7, 2025. This document outlines the AI initiatives proposed by the Strategic Key Account Management team, including detailed problem statements, solutions, and project analysis.
+The Strategic KAM department participated in the Duvenbeck AI Workshop on October 7, 2025.
 
 **Workshop Details:**
 
@@ -12,105 +12,109 @@ The Strategic KAM department participated in the Duvenbeck AI Workshop on Octobe
 
 ## AI Initiatives Summary
 
-The Strategic KAM department identified 3 key AI initiatives, prioritized based on complexity, cost, ROI, risk, and strategic alignment:
+The Strategic KAM department identified 3 key AI initiatives:
 
-| Priority | Initiative                    | Owner | Priority Level | Complexity | Cost | ROI | Risk | Strategic |
-| -------- | ----------------------------- | ----- | -------------- | ---------- | ---- | --- | ---- | --------- |
-| 1        | Automated News Procurement    | MGE   | A              | 4/5        | 4/5  | 4/5 | 4/5  | 5/5       |
-| 2        | Automated CRM Recommendations | -     | A              | 4/5        | 4/5  | 4/5 | 2/5  | 4/5       |
-| -        | AI Contract Review            | -     | A              | 2/5        | 3/5  | 3/5 | 4/5  | 1/5       |
+| Priority | Initiative                                                                  | Owner | Priority Level | Complexity | Cost | ROI | Risk | Strategic |
+| -------- | --------------------------------------------------------------------------- | ----- | -------------- | ---------- | ---- | --- | ---- | --------- |
+| 1        | Automated procurement of news and potentially required new service | MGE   | A              | 4/5        | 4/5  | 4/5 | 4/5  | 5/5       |
+| 2        | Automated recommendations and support in CRM system                 | MGE   | B              | 3/5        | 1/5  | 2/5 | 2/5  | 4/5       |
+| 3        | AI takes over initial contract review                                     | MGE   | B              | 2/5        | 4/5  | 3/5 | 1/5  | 3/5       |
 
 ## Detailed Initiative Analysis
 
-### 1. Automated Procurement of News and Potentially Required New Services (Priority: 1)
+### 1. Automated procurement of news and potentially required new service (Priority: 1)
 
 **Owner:** MGE
 
 **Problem Statement:**
-Much manual effort and research required to understand the economic situation of a customer and what new service types they might need
+Much manual effort and research required to find out how a customer stands economically overall and what new service types they might need
 
 **Proposed Solution:**
-AI-supported analysis of described points, automated notification about news in any direction
+AI-supported analysis of the described points, automated notification about news in any direction
 
 **Project Metrics:**
 
-- Complexity: 4/5 - News crawling fundamentally simple. Connection to CRM increases effort. No intervention in critical systems necessary.
+- Complexity: 4/5 - News-crawling basically simple. Connection to CRM increases the effort. No intervention in critical systems necessary.
 - Cost: 4/5 - CRM connection/integration? Licensing?
 - ROI: 4/5 - Cost/benefit not directly derivable. Assumption: Research and preparation effort 1h/per customer. Could be reduced to 15 minutes
-- Risk: 4/5 - No sensitive customer data required. Main danger lies in misjudgments or "hallucinations" of AI, but controllable through human validation.
+- Risk: 4/5 - No sensitive customer data necessary. Main danger lies in misjudgments or "hallucinations" of the AI, but controllable through human validation.
 - Strategic Alignment: 5/5 - Growth
 
 **Project Brief:**
 
 - **Project Sponsor:** Sales Leader KAM
-- **Involved Teams:** KAM, IT
-- **Potential Conflicts:** Budgets and capacities must be approved for IT development and external tools. Possible dependency on vendors (vendor lock-in) or data quality of external sources. So far, we have served our customers very individually - in the future, it should be a standardized process.
-- **Required Resources:** Developers for implementing interfaces to news aggregators and CRM. License for news API or comparable services. Training budget for internal use.
-- **Data Availability:** Public news sources and industry reports are freely available. Protected customer data and contract information: Very high sensitivity (internally structured).
-- **GenAI Considerations:** Prototyping: Simple implementation possible - news crawler + summary
-  MVP: CRM integration for real-time notifications possibly more complex
-  Scalability: No major concerns
-  Ethics: AI can "hallucinate" -> assign a person for validation who has a relationship with the customers/knows the customers. Ensure data protection requirements are met (what is processed where?)
-  Change Management: More effort before short-term benefit - continuation only with standardized process, which may be rejected by some employees.
-- **Timeline:** 2026/2027
-- **Additional Comments:**
+- **Involved Teams:** KAM / IT
+- **Potential Conflicts:** Sales cross-functional added value
+- **Required Resources:** Testers from the KAM team, IT for implementation
+- **Data Availability:** All relevant data is available online. Rules for processing to narrow down the relevant information.
+- **GenAI Considerations:** Prototype milestones: Initial tests with Co-Pilot (Is included in Teams and complies with data protection)
+  Pilot design: Use of CO-Pilot or own/other AI solution (depending on possibility for individualization) 
+  Ethics and data protection: Since only publicly retrievable data is processed, no high risk
+  Scalability: Arbitrarily scalable - except if limitation in AI licensing exists
+  Change management: Brief training of sales users + work instructions in written form + sensitization for evaluation of data (fake news)
+- **Timeline:** Prototype milestones: 1 month
+  Pilot design: 3 months
+  Ethics and data protection: 1 month
+  Scalability: 1 month
+  Change management: 1 month
+- **Additional Comments:** -
 
-### 2. Automated Recommendations and Support in CRM System (Priority: 2)
+### 2. Automated recommendations and support in CRM system (Priority: 2)
 
-**Owner:** To be assigned
+**Owner:** MGE
 
 **Problem Statement:**
-High manual effort in CRM system through data collection and maintenance
+High manual effort in the CRM system due to data collection and maintenance
 
 **Proposed Solution:**
-AI provides suggestions in CRM for input fields and supports keeping data current (opportunities etc.). Text fields are filled with suggestions that can be adopted or adjusted (Client Plan)
+The AI provides suggestions in the CRM for the input fields and supports keeping data current (opportunities etc.). Text fields are filled with suggestions that can be adopted or adjusted (Client Plan)
 
 **Project Metrics:**
 
-- Complexity: 4/5 - e.g. use existing Co-Pilot
-- Cost: 4/5 - License costs (per user) can quickly become expensive
-- ROI: 4/5 - difficult to measure
-- Risk: 2/5 - Microsoft is already used as CRM and Co-Pilot is a component of it. Security measures are therefore based on Microsoft standards, which we would rate as very high.
-- Strategic Alignment: 4/5 - Transparency - basic sales tool. Sales has the greatest influence on fulfilling the Duvenbeck strategy.
+- Complexity: 3/5 - e.g. use existing Co-Pilot
+- Cost: 1/5 - License costs (per user) can quickly become expensive
+- ROI: 2/5 - difficult to measure
+- Risk: 2/5 - Microsoft is already used as CRM and Co-Pilot is a component of it. The security precautions are therefore based on the Microsoft standards, which we would rate as very high.
+- Strategic Alignment: 4/5 - Transparency - Basic tool of sales. Sales has the greatest influence on fulfilling the Duvenbeck strategy.
 
 **Project Brief:**
 
-- **Project Sponsor:** CRM Team
-- **Involved Teams:** Sales, CRM, IT
-- **Potential Conflicts:** Internally: Training and acceptance problem among sales staff if CRM tool is perceived as too complex or restrictive. Data quality: AI suggestions can only be as good as the data stored in the system. Cross-departmental data maintenance required.
-- **Required Resources:** License for CRM with AI support (e.g., Microsoft Copilot for Sales). IT resources for customizing and interface integration. Change management: training, best practices and internal communication to increase acceptance.
-- **Data Availability:** CRM data (contact data, opportunities, activities): Currently available, but quality varies. Historical datasets from sales activities: The longer the period, the better the AI predictions.
-- **GenAI Considerations:** Prototyping: MVP with Copilot easy to implement as the product is already commercially available.
-  MVP: Integration into existing Salesforce environment and definition of use cases (e.g., client plans)
-  Scalability: Licenses can be scaled with growing use (high costs per user)
-  Ethics: Internal sensitivity regarding AI-based suggestions -> create transparency; ensure AI does not make discriminatory or biased recommendations.
-  Change Management: Clear communication that AI only serves as an "assistant", but sales retains control. Establish regular feedback loops with users. Training and best practice sharing necessary.
-- **Timeline:** Open
-- **Additional Comments:**
+- **Project Sponsor:** CRM-Team
+- **Involved Teams:** CRM-Team, IT
+- **Potential Conflicts:** Sales Overall
+- **Required Resources:** Co-Pilot licenses for all users
+- **Data Availability:** Data foundation, rule framework and review for the recommendations
+- **GenAI Considerations:** Prototype milestones: Activation of the Co-Pilot function
+  Pilot design: Introduction of rule framework and review of recommendations and suggestions
+  Ethics and data protection: Data protection agreement from all CRM users is already signed and available.
+  Scalability: Should be no limitation with appropriate licensing
+  Change management: Training of CRM users via the key users
+- **Timeline:** Prototype milestones: 1 month
+  Pilot design: 3 months
+  Ethics and data protection: 1 month
+  Scalability: 1 month
+  Change management: 1 month
+- **Additional Comments:** Quality of the suggestions
 
-### 3. AI Takes Over Initial Contract Review
+### 3. AI takes over initial contract review (Priority: 3)
 
-**Owner:** To be assigned
+**Owner:** MGE
 
 **Problem Statement:**
-KAMs review initial contracts or contract renewals for unacceptable passages and contractual service scope - are we able to fulfill this?
+KAMs review initial contracts or contract renewals for unacceptable passages and the contractually requested service scope - are we able to fulfill this?
 
 **Proposed Solution:**
-Use of LLM for reviewing specific contract constellations
+Use of an LLM to review specific contract constellations
 
 **Project Metrics:**
 
 - Complexity: 2/5 - legally and linguistically complex.
-- Cost: 3/5 - AI costs low, as it's one document. Legal validation possibly expensive
-- ROI: 3/5 - Depends on customer. If reaction time is long, no time advantage. Lower error rate - overlooking relevant information can reduce follow-up costs
-- Risk: 4/5 - Legal relevance, potential misinterpretations, liability issues. Service catalog, use of sensitive contract data (data protection review)
-- Strategic Alignment: 1/5 - Standardization - "avoidance" of possible efforts / costs
+- Cost: 4/5 - AI costs low, as one document. legal validation possibly expensive
+- ROI: 3/5 - Depends on the customer. If reaction time is long, no time advantage. lower error rate - overlooking relevant information can reduce follow-up costs
+- Risk: 1/5 - Legal relevance, potential misinterpretations, liability issues. Service catalog, use of sensitive contract data (data protection review)
+- Strategic Alignment: 3/5 - Standardization - "Avoidance" of possible expenses / costs
 
-**Project Brief:** _To be developed_
-
-## Implementation Notes
-
-The Strategic KAM initiatives focus on enhancing customer relationship management through AI-powered automation and intelligence. The automated news procurement and CRM recommendations are prioritized highest due to their potential for significant time savings and improved customer service quality.
+**Project Brief:** _Not available yet_
 
 ## Contact
 
