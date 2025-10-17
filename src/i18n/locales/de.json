@@ -1093,22 +1093,31 @@
       "automated_route_optimization": "Automatisierte Tourenoptimierung",
       "unified_road_reporting": "Einheitliches Reporting für Road-Operations",
       "meeting_agent": "Meeting Agent",
-      "edi_mapping": "EDI Mapping",
-      "edi_testing": "EDI Testing"
+      "edi_mapping": "EDI Mapping"
     },
     "problems": {
       "automated_route_optimization": "Tourenplanung erfolgt teilweise manuell und berücksichtigt nicht immer Echtzeitdaten wie Verkehr oder Fahrzeiten.",
       "unified_road_reporting": "KPI-Reports (z. B. Auslastung, Leerfahrten, Pünktlichkeit) sind uneinheitlich und schwer vergleichbar.",
       "meeting_agent": "Zusammenfassung von Meetings und Strukturierung von anstehenden Aufgaben",
-      "edi_mapping": "Aufwand, die Kunden EDI Informationen in andere Formate zu transformieren, die unser WMS verarbeiten kann (Kunde, Lobster)",
-      "edi_testing": "Much time to create many test message for different Business Cases"
+      "edi_mapping": "Aufwand, die Kunden EDI Informationen in andere Formate zu transformieren, die unser WMS verarbeiten kann (Kunde, Lobster)"
     },
     "solutions": {
       "automated_route_optimization": "Einführung eines KI-gestützten Tools zur dynamischen Tourenplanung, das Verkehr, Maut, Lenkzeiten und Auftragspriorität berücksichtigt.",
       "unified_road_reporting": "Aufbau eines zentralen Road-Dashboards mit standardisierten Kennzahlen und automatischer Datenerfassung.",
       "meeting_agent": "Automatische Zusammenfassung und Dokumentation der Aufgaben zu den jeweiligen Teams (Microsoft Copilot/ Facilitator)",
-      "edi_mapping": "Vorschläge durch AI zum Mapping, sodass der Mensch zum Controller wird und die KI überprüft, aber das Mapping nicht mehr manuell selbst durchführen muss",
-      "edi_testing": "Creation of test message to definied business cases to have quality start ups of projects"
+      "edi_mapping": "Vorschläge durch AI zum Mapping, sodass der Mensch zum Controller wird und die KI überprüft, aber das Mapping nicht mehr manuell selbst durchführen muss"
+    },
+    "projectBriefs": {
+      "meeting_agent": {
+        "projectSponsor": "EDI Team",
+        "involvedTeams": "EDI Team",
+        "potentialConflicts": "For Meeting Agent it is a common interest",
+        "requiredResources": null,
+        "dataAvailability": null,
+        "genaiConsiderations": null,
+        "timeline": null,
+        "additionalComments": null
+      }
     }
   },
   "auth": {

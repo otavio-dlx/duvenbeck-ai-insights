@@ -1100,22 +1100,31 @@
       "automated_route_optimization": "Automated Route Optimization",
       "unified_road_reporting": "Unified Road Operations Reporting",
       "meeting_agent": "Meeting Agent",
-      "edi_mapping": "EDI Mapping",
-      "edi_testing": "EDI Testing"
+      "edi_mapping": "EDI Mapping"
     },
     "problems": {
       "automated_route_optimization": "Route planning is partially manual and doesn't always consider real-time data like traffic or driving times.",
       "unified_road_reporting": "KPI reports (e.g., utilization, empty runs, punctuality) are inconsistent and difficult to compare.",
       "meeting_agent": "Summary of meetings and structuring of pending tasks",
-      "edi_mapping": "Effort to transform customer EDI information into other formats that our WMS can process (customer, Lobster)",
-      "edi_testing": "Much time to create many test messages for different business cases"
+      "edi_mapping": "Effort to transform customer EDI information into other formats that our WMS can process (customer, Lobster)"
     },
     "solutions": {
       "automated_route_optimization": "Introduction of an AI-supported tool for dynamic route planning that considers traffic, tolls, driving times and order priority.",
       "unified_road_reporting": "Development of a central road dashboard with standardized metrics and automatic data collection.",
       "meeting_agent": "Automatic summarization and documentation of tasks for respective teams (Microsoft Copilot/Facilitator)",
-      "edi_mapping": "AI suggestions for mapping, so that humans become controllers and AI checks, but mapping no longer has to be done manually",
-      "edi_testing": "Creation of test messages to defined business cases to have quality start-ups of projects"
+      "edi_mapping": "AI suggestions for mapping, so that humans become controllers and AI checks, but mapping no longer has to be done manually"
+    },
+    "projectBriefs": {
+      "meeting_agent": {
+        "projectSponsor": "EDI Team",
+        "involvedTeams": "EDI Team",
+        "potentialConflicts": "For Meeting Agent it is a common interest",
+        "requiredResources": null,
+        "dataAvailability": null,
+        "genaiConsiderations": null,
+        "timeline": null,
+        "additionalComments": null
+      }
     }
   },
   "auth": {
