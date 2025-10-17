@@ -612,20 +612,20 @@
   },
   "road_sales": {
     "ideas": {
-      "ai_data_automation": "AI & Automation",
-      "automated_quote_creation": "Automated Quote Creation",
-      "unified_communication": "Unified Communication",
-      "automated_crm_transfer": "Automated CRM Transfer",
-      "sales_kpi_dashboard": "Sales KPI Dashboard",
-      "lead_management_prioritization": "Lead Management & Prioritization"
+      "ai_data_automation": "AI & Automation : AI collects and sorts data",
+      "automated_quote_creation": "AI & Automation : Automated Quote Creation",
+      "unified_communication": "Unified Communication : Customer contact information is scattered across different systems.",
+      "automated_crm_transfer": "AI & Automation : Automated CRM Transfer",
+      "sales_kpi_dashboard": "Sales Management : Sales KPI Dashboard",
+      "lead_management_prioritization": "Sales Management : Lead Management & Prioritization"
     },
     "problems": {
       "ai_data_automation": "AI collects and sorts data",
-      "automated_quote_creation": "Automated quote creation",
+      "automated_quote_creation": "Automated Quote Creation",
       "unified_communication": "Customer contact information is scattered across different systems.",
-      "automated_crm_transfer": "Automated transfer to CRM",
-      "sales_kpi_dashboard": "Sales KPI dashboard",
-      "lead_management_prioritization": "Lead management & prioritization"
+      "automated_crm_transfer": "Automated CRM Transfer",
+      "sales_kpi_dashboard": "Sales KPI Dashboard",
+      "lead_management_prioritization": "Lead Management & Prioritization"
     },
     "solutions": {
       "ai_data_automation": "Automatic summarization of tenders, customer documents, emails and tools in CRM",
@@ -691,12 +691,12 @@
       "automated_quote_creation": {
         "sponsor": "CCO",
         "teams": "The respective specialist department (Central & Site Solution Design); business analytics & VP KAM",
-        "conflicts": "Adjustment of existing processes, acceptance in sales / tender management",
+        "conflicts": "Adaptation of existing processes, acceptance in sales / tender management",
         "resources": "CRM development, tool integration",
-        "dataAvailability": "Price lists, margins, own calculation file and route information (source very different) available",
-        "genaiConsiderations": "Pilot with selected customers (e.g., Relabes tender from OEM)",
+        "dataAvailability": "Price lists, margins, own calculation files and route information (source very different) available",
+        "genaiConsiderations": "Pilot with selected customers (e.g. Relabes tender from OEM)",
         "timeline": "2026",
-        "comments": "Critical for speed in quote process"
+        "comments": "Critical for speed in the tender process"
       },
       "unified_communication": {
         "sponsor": "CCO",
@@ -704,9 +704,9 @@
         "conflicts": "Integration of different systems, data protection for communication data",
         "resources": "Budget for interfaces between communication systems of the Duvenbeck world; Technology: Selection of a platform (decision for an existing one or acquisition of a new platform?)",
         "dataAvailability": "Communication data distributed across multiple systems",
-        "genaiConsiderations": "Pilot with selected channels and users / specialist department, GDPR-compliant processing",
+        "genaiConsiderations": "Pilot with selected channels and users / specialist departments, GDPR-compliant processing",
         "timeline": "Open",
-        "comments": "Increases transparency and traceability, reduces information loss"
+        "comments": "Increases transparency and traceability, reduces information losses"
       }
     }
   },

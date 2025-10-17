@@ -612,12 +612,12 @@
   },
   "road_sales": {
     "ideas": {
-      "ai_data_automation": "KI & Automatisierung",
-      "automated_quote_creation": "Automatisierte Angebotserstellung",
-      "unified_communication": "Einheitliche Kommunikation",
-      "automated_crm_transfer": "Automatisierte Übertragung ins CRM",
-      "sales_kpi_dashboard": "Vertriebs-KPI-Dashboard",
-      "lead_management_prioritization": "Lead-Management & Priorisierung"
+      "ai_data_automation": "KI & Automatisierung : KI sammelt und sortiert Daten",
+      "automated_quote_creation": "KI & Automatisierung : Automatisierte Angebotserstellung",
+      "unified_communication": "Einheitliche Kommunikation : Informationen zu Kundenkontakten sind über verschiedene Systeme verstreut.",
+      "automated_crm_transfer": "KI & Automatisierung : Automatisierte Übertragung ins CRM",
+      "sales_kpi_dashboard": "Vertriebssteuerung : Vertriebs-KPI-Dashboard",
+      "lead_management_prioritization": "Vertriebssteuerung : Lead-Management & Priorisierung"
     },
     "problems": {
       "ai_data_automation": "KI sammelt und sortiert Daten",
@@ -637,9 +637,9 @@
     },
     "notes": {
       "complexity": {
-        "ai_data_automation": "Betrifft verschiedene Datenformate mit unterschiedlichen Quellen",
+        "ai_data_automation": "Betrifft verschiedene Datenformate mit unterschiedlichen QUellen",
         "automated_quote_creation": "Matching der Kalkulationslogik zwischen Kunde und unserer Kalk.",
-        "unified_communication": "Alle Anfragen sehr individuell und es gibt nicht eine Plattform, wo alle darauf zugreifen (für intern & extern) - Trichterfunktion",
+        "unified_communication": "Alle Anfragen sehr individuell und es gibt nicht eine Plattform, wo alle darauf zugreifen (für intern & extern) - Trichterfumktion",
         "automated_crm_transfer": "Unterschiedliche Plattformen mit unterschiedlichen Inhalten",
         "sales_kpi_dashboard": "Hängt von Datenqualität ab; bestimmte Grundvoraussetzungen im CRM oder prozessual müssen erst angepasst werden",
         "lead_management_prioritization": "Wenn wir Scoring-Modell definieren und es auch im CRM zur Verfügung steht"
