@@ -546,67 +546,67 @@
   },
   "strategic_kam": {
     "ideas": {
-      "automated_news_procurement": "Automated Procurement of News and Potentially Required New Services",
-      "automated_crm_recommendations": "Automated Recommendations and Support in CRM System",
-      "ai_contract_review": "AI Takes Over Initial Contract Review"
+      "automated_news_procurement": "Automated procurement of news and potentially required new service",
+      "automated_crm_recommendations": "Automated recommendations and support in CRM system",
+      "ai_contract_review": "AI takes over initial contract review"
     },
     "problems": {
-      "automated_news_procurement": "Much manual effort and research required to understand the economic situation of a customer and what new service types they might need",
-      "automated_crm_recommendations": "High manual effort in CRM system through data collection and maintenance",
-      "ai_contract_review": "KAMs review initial contracts or contract renewals for unacceptable passages and contractual service scope - are we able to fulfill this?"
+      "automated_news_procurement": "Much manual effort and research required to find out how a customer stands economically overall and what new service types they might need",
+      "automated_crm_recommendations": "High manual effort in the CRM system due to data collection and maintenance",
+      "ai_contract_review": "KAMs review initial contracts or contract renewals for unacceptable passages and the contractually requested service scope - are we able to fulfill this?"
     },
     "solutions": {
-      "automated_news_procurement": "AI-supported analysis of described points, automated notification about news in any direction",
-      "automated_crm_recommendations": "AI provides suggestions in CRM for input fields and supports keeping data current (opportunities etc.). Text fields are filled with suggestions that can be adopted or adjusted (Client Plan)",
-      "ai_contract_review": "Use of LLM for reviewing specific contract constellations"
+      "automated_news_procurement": "AI-supported analysis of the described points, automated notification about news in any direction",
+      "automated_crm_recommendations": "The AI provides suggestions in the CRM for the input fields and supports keeping data current (opportunities etc.). Text fields are filled with suggestions that can be adopted or adjusted (Client Plan)",
+      "ai_contract_review": "Use of an LLM to review specific contract constellations"
     },
     "projectBriefs": {
       "automated_news_procurement": {
         "sponsor": "Sales Leader KAM",
-        "teams": "KAM, IT",
-        "conflicts": "Budgets and capacities must be approved for IT development and external tools. Possible dependency on vendors (vendor lock-in) or data quality of external sources. So far, we have served our customers very individually - in the future, it should be a standardized process.",
-        "resources": "Developers for implementing interfaces to news aggregators and CRM. License for news API or comparable services. Training budget for internal use.",
-        "dataAvailability": "Public news sources and industry reports are freely available. Protected customer data and contract information: Very high sensitivity (internally structured).",
-        "genaiConsiderations": "Prototyping: Simple implementation possible - news crawler + summary\nMVP: CRM integration for real-time notifications possibly more complex\nScalability: No major concerns\nEthics: AI can \"hallucinate\" -> assign a person for validation who has a relationship with the customers/knows the customers. Ensure data protection requirements are met (what is processed where?)\nChange Management: More effort before short-term benefit - continuation only with standardized process, which may be rejected by some employees.",
-        "timeline": "2026/2027",
-        "comments": ""
+        "teams": "KAM / IT",
+        "conflicts": "Sales cross-functional added value",
+        "resources": "Testers from the KAM team, IT for implementation",
+        "dataAvailability": "All relevant data is available online. Rules for processing to narrow down the relevant information.",
+        "genaiConsiderations": "Prototype milestones: Initial tests with Co-Pilot (Is included in Teams and complies with data protection)\nPilot design: Use of CO-Pilot or own/other AI solution (depending on possibility for individualization) \nEthics and data protection: Since only publicly retrievable data is processed, no high risk\nScalability: Arbitrarily scalable - except if limitation in AI licensing exists\nChange management: Brief training of sales users + work instructions in written form + sensitization for evaluation of data (fake news)",
+        "timeline": "Prototype milestones: 1 month\nPilot design: 3 months\nEthics and data protection: 1 month\nScalability: 1 month\nChange management: 1 month",
+        "comments": "-"
       },
       "automated_crm_recommendations": {
-        "sponsor": "CRM Team",
-        "teams": "Sales, CRM, IT",
-        "conflicts": "Internally: Training and acceptance problem among sales staff if CRM tool is perceived as too complex or restrictive. Data quality: AI suggestions can only be as good as the data stored in the system. Cross-departmental data maintenance required.",
-        "resources": "License for CRM with AI support (e.g., Microsoft Copilot for Sales). IT resources for customizing and interface integration. Change management: training, best practices and internal communication to increase acceptance.",
-        "dataAvailability": "CRM data (contact data, opportunities, activities): Currently available, but quality varies. Historical datasets from sales activities: The longer the period, the better the AI predictions.",
-        "genaiConsiderations": "Prototyping: MVP with Copilot easy to implement as the product is already commercially available.\nMVP: Integration into existing Salesforce environment and definition of use cases (e.g., client plans)\nScalability: Licenses can be scaled with growing use (high costs per user)\nEthics: Internal sensitivity regarding AI-based suggestions -> create transparency; ensure AI does not make discriminatory or biased recommendations.\nChange Management: Clear communication that AI only serves as an \"assistant\", but sales retains control. Establish regular feedback loops with users. Training and best practice sharing necessary.",
-        "timeline": "Open",
-        "comments": ""
+        "sponsor": "CRM-Team",
+        "teams": "CRM-Team, IT",
+        "conflicts": "Sales Overall",
+        "resources": "Co-Pilot licenses for all users",
+        "dataAvailability": "Data foundation, rule framework and review for the recommendations",
+        "genaiConsiderations": "Prototype milestones: Activation of the Co-Pilot function\nPilot design: Introduction of rule framework and review of recommendations and suggestions\nEthics and data protection: Data protection agreement from all CRM users is already signed and available.\nScalability: Should be no limitation with appropriate licensing\nChange management: Training of CRM users via the key users",
+        "timeline": "Prototype milestones: 1 month\nPilot design: 3 months\nEthics and data protection: 1 month\nScalability: 1 month\nChange management: 1 month",
+        "comments": "Quality of the suggestions"
       }
     },
     "notes": {
       "complexity": {
-        "automated_news_procurement": "News crawling fundamentally simple. Connection to CRM increases effort. No intervention in critical systems necessary.",
+        "automated_news_procurement": "News-crawling basically simple. Connection to CRM increases the effort. No intervention in critical systems necessary.",
         "automated_crm_recommendations": "e.g. use existing Co-Pilot",
         "ai_contract_review": "legally and linguistically complex."
       },
       "cost": {
         "automated_news_procurement": "CRM connection/integration? Licensing?",
         "automated_crm_recommendations": "License costs (per user) can quickly become expensive",
-        "ai_contract_review": "AI costs low, as it's one document. Legal validation possibly expensive"
+        "ai_contract_review": "AI costs low, as one document. legal validation possibly expensive"
       },
       "roi": {
         "automated_news_procurement": "Cost/benefit not directly derivable. Assumption: Research and preparation effort 1h/per customer. Could be reduced to 15 minutes",
         "automated_crm_recommendations": "difficult to measure",
-        "ai_contract_review": "Depends on customer. If reaction time is long, no time advantage. Lower error rate - overlooking relevant information can reduce follow-up costs"
+        "ai_contract_review": "Depends on the customer. If reaction time is long, no time advantage. lower error rate - overlooking relevant information can reduce follow-up costs"
       },
       "risk": {
-        "automated_news_procurement": "No sensitive customer data required. Main danger lies in misjudgments or \"hallucinations\" of AI, but controllable through human validation.",
-        "automated_crm_recommendations": "Microsoft is already used as CRM and Co-Pilot is a component of it. Security measures are therefore based on Microsoft standards, which we would rate as very high.",
+        "automated_news_procurement": "No sensitive customer data necessary. Main danger lies in misjudgments or \"hallucinations\" of the AI, but controllable through human validation.",
+        "automated_crm_recommendations": "Microsoft is already used as CRM and Co-Pilot is a component of it. The security precautions are therefore based on the Microsoft standards, which we would rate as very high.",
         "ai_contract_review": "Legal relevance, potential misinterpretations, liability issues. Service catalog, use of sensitive contract data (data protection review)"
       },
       "strategic": {
         "automated_news_procurement": "Growth",
-        "automated_crm_recommendations": "Transparency - basic sales tool. Sales has the greatest influence on fulfilling the Duvenbeck strategy.",
-        "ai_contract_review": "Standardization - \"avoidance\" of possible efforts / costs"
+        "automated_crm_recommendations": "Transparency - Basic tool of sales. Sales has the greatest influence on fulfilling the Duvenbeck strategy.",
+        "ai_contract_review": "Standardization - \"Avoidance\" of possible expenses / costs"
       }
     }
   },

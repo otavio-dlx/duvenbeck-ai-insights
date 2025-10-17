@@ -547,7 +547,7 @@
   "strategic_kam": {
     "ideas": {
       "automated_news_procurement": "Automatisierte Beschaffung von Neuigkeiten und potenziell benötigtem neuen Service",
-      "automated_crm_recommendations": "Automatisierte Empfehlungen und Unterstützung im CRM-System",
+      "automated_crm_recommendations": "Automatisierte Empfehlungen und Unterstüzung im CRM-System",
       "ai_contract_review": "KI übernimmt erstmalige Vertragsprüfung"
     },
     "problems": {
@@ -557,34 +557,34 @@
     },
     "solutions": {
       "automated_news_procurement": "KI gestützte Analyse der beschriebenen Punkte, automatisierte Benachrichtigung über Neuigkeiten in jeglicher Richtung",
-      "automated_crm_recommendations": "Die KI gibt Vorschläge im CRM für die Eingabefelder und unterstützt dabei Daten aktuell zu halten (Opportunities etc.). Textfelder werden mit Vorschlägen befüllt, die übernommen oder angepasst werden können (Client Plan)",
+      "automated_crm_recommendations": "Die KI gibt Vorschläge im CRM für die EIngabefelder und unterstützt dabei Daten aktuell zu halten (Opportunities etc.). Textfelder werden mit Vorschlägen befüllt, die übernommen oder angepasst werden können (Client Plan)",
       "ai_contract_review": "Nutzung eines LLM zur Prüfung bestimmter Vertragskonstellationen"
     },
     "projectBriefs": {
       "automated_news_procurement": {
         "sponsor": "Sales Leader KAM",
-        "teams": "KAM, IT",
-        "conflicts": "Budgets und Kapazitäten müssen für IT-Entwicklung und externe Tools freigegeben werden. Ggf. Abhängigkeit von Anbietern (Vendor Lock-In) oder Datenqualität externer Quellen. Bisher haben wir unsere Kunden sehr individuell betreut - zukünftig sollte es ein standardisierter Prozess sein.",
-        "resources": "Entwickler für die Implementierung von Schnittstellen zu News-Aggregatoren und CRM. Lizenz für News-API oder vergleichbare Dienste. Schulungsbudget für interne Nutzung.",
-        "dataAvailability": "Öffentliche Nachrichtenquellen und Branchenberichte sind frei verfügbar. Geschützte Kundendaten und Vertragsinformationen: Sehr hohe Sensibilität (intern strukturiert).",
-        "genaiConsiderations": "Prototyping: Einfache Umsetzung möglich - News-Crawler + Zusammenfassung\nMVP: CRM-Anbindung für Echtzeit-Benachrichtigungen ggf. komplexer\nScalability: Keine großen Bedenken\nEthics: KI kann \"Halluzinieren\" -> Mitarbeitenden zur Validierung eine Person zuordnen, die einen Bezug zu den Kunden hat/die Kunden kennt. Sicherstellen, dass Datenschutzanforderungen eingehalten werden (was wird wo verarbeitet?)\nChange Management: Mehraufwand vor kurzfristigem Nutzen - Weiterführung nur noch mit standardisierten Prozess zu machen, was möglicherweise von einigen Mitarbeitenden abgelehnt wird.",
-        "timeline": "2026/2027",
-        "comments": ""
+        "teams": "KAM / IT",
+        "conflicts": "Sales übergreifender Mehrwert",
+        "resources": "Tester aus dem KAM Team, IT zur Umsetzung",
+        "dataAvailability": "Alle Relevanten Daten sind online Verfügbar. Regeln zur Aufbereitung zur Eingrenzung der relevanten Informationen.",
+        "genaiConsiderations": "Prototyp-Meilensteine: Erste Tests mit Co-Pilot (Ist in Teams inkludiert und Datenschutzkonform)\nPilot-Design: Verwendung von CO-Pilot oder eigener/anderer KI-Lösung (je nach Möglichkeit zur Individualisierung) \nEthik und Datenschutz: Da nur öffentlich abrufbare Daten verarbeitet werden, kein hohes RIsiko\nSkalierbarkeit: Belibig skalierbar - außer wenn limitierung in der KI Lizensierung vorhanden\nChange Management: Kurze EInweisung der Sales User + Arbeitsanweisung in schriftlicher Form + Sensibiliserung für Bewertung der Daten (Fake-News)",
+        "timeline": "Prototyp-Meilensteine: 1 Monat\nPilot-Design: 3 Monate\nEthik und Datenschutz: 1 Monat\nSkalierbarkeit: 1 Monat\nChange Management: 1 Monat",
+        "comments": "-"
       },
       "automated_crm_recommendations": {
         "sponsor": "CRM-Team",
-        "teams": "Sales, CRM, IT",
-        "conflicts": "Intern: Schulungs- und Akzeptanzproblem bei Vertriebsmitarbeitenden, falls CRM-Tool als zu komplex oder einschränkend wahrgenommen wird. Datenqualität: Vorschläge der KI können nur so gut sein wie die im System gespeicherten Daten. Abteilungsübergreifende Datenpflege erforderlich.",
-        "resources": "Lizenz für CRM mit KI-Unterstützung (z. B. Microsoft Copilot for Sales). IT-Ressourcen für Customizing und Schnittstellenanbindung. Change Management: Training, Best Practices und interne Kommunikation zur Akzeptanzsteigerung.",
-        "dataAvailability": "CRM-Daten (Kontaktdaten, Opportunities, Aktivitäten): Aktuell vorhanden, aber Qualität variiert. Historische Datensätze aus Vertriebsaktivitäten: Je länger der Zeitraum, desto besser die KI-Vorhersagen.",
-        "genaiConsiderations": "Prototyping: MVP mit Copilot leicht umsetzbar, da Produkt bereits kommerziell verfügbar ist.\nMVP: Integration in bestehende Salesforce-Umgebung und Definition von Use Cases (z. B. Client Plans)\nScalability: Lizenzen können bei wachsender Nutzung skaliert werden (hohe Kosten je User)\nEthics: Interne Sensibilität bzgl. KI-basierter Vorschläge -> Transparenz schaffen; Sicherstellen, dass die KI nicht diskriminierende oder verzerrte Empfehlungen macht.\nChange Management: Klare Kommunikation, dass die KI nur als \"Assistent\" dient, aber der Vertrieb die Kontrolle behält. Regelmäßige Feedback-Schleifen mit Usern etablieren. Schulungen und Best Practice Sharing notwendig.",
-        "timeline": "Open",
-        "comments": ""
+        "teams": "CRM-Team, IT",
+        "conflicts": "Sales Gesamt",
+        "resources": "Co-Pilot Lizenzen für alle User",
+        "dataAvailability": "Datengrundlage, Regelwerk und Prüfung für die Empfehlungen",
+        "genaiConsiderations": "Prototyp-Meilensteine: Aktivierung der Co-Pilot funktion\nPilot-Design: Einfürhung von Regelwerk und Prüfung der Empfehlungen und Vorschläge\nEthik und Datenschutz: Datenschutzvereinbarung von allen CRM Usern ist bereits unterschrieben vorhanden.\nSkalierbarkeit: Sollte keine Eingrenzung vorhanden sein mit entsprechender Lizensierung\nChange Management: Schulungen der CRM User über die Key-User",
+        "timeline": "Prototyp-Meilensteine: 1 Monat\nPilot-Design: 3 Monate\nEthik und Datenschutz: 1 Monat\nSkalierbarkeit: 1 Monat\nChange Management: 1 Monat",
+        "comments": "Qualität der Vorschläge"
       }
     },
     "notes": {
       "complexity": {
-        "automated_news_procurement": "News-Crawling grundsätzlich einfach. Anbindung an CRM erhöht den Aufwand. Kein Eingriff in kritische Systeme nötig.",
+        "automated_news_procurement": "News-Crwaling grundsätzlich einfach. Anbindung an CRM erhöht den Aufwand. Kein Eingriff in kritische Systeme nötig.",
         "automated_crm_recommendations": "z.B. vorhanden Co-Pilot nutzen",
         "ai_contract_review": "rechtlich und sprachlich komplex."
       },
@@ -596,16 +596,16 @@
       "roi": {
         "automated_news_procurement": "Kosten/Nutzen nicht direkt ableitbar. Annahme: Recherche- und Aufbereitungsaufwand 1h/pro Kunde. Könnte sich auf 15 Minuten reduzieren",
         "automated_crm_recommendations": "schwer messbar",
-        "ai_contract_review": "Abhängig vom Kunden. Wenn Reaktionszeit lang kein zeitlicher Vorteil. geringere Fehlerquote - Übersehen von relevanten Informationen kann Folgekosten reduzieren"
+        "ai_contract_review": "Abhängig vom Kunden. Wenn Reakationszeit lang kein zeitlicher Vorteil. geringere Fehlerquote - Übersehen von relevanten Informationen kann Folgekosten reduzieren"
       },
       "risk": {
         "automated_news_procurement": "Keine sensiblen Kundendaten nötig. Hauptgefahr liegt in Fehleinschätzungen oder \"Halluzinationen\" der KI, aber durch menschliche Validierung kontrollierbar.",
-        "automated_crm_recommendations": "Microsoft wird bereits als CRM genutzt und Co-Pilot ist ein Bestandteil davon. Die Sicherheitsvorkehrungen basieren daher auf den Microsoft Standards, welche wir als sehr hoch bewerten würden.",
+        "automated_crm_recommendations": "Microsoft wird bereits als CRM genutzt und Co-Pilot ist ein Bestandteil davon. Die Sicherheitsvorkehrungen basieren daher auf den Microsoft Standarts, welche wir als sehr hoch bewerten würden.",
         "ai_contract_review": "Rechtliche Relevanz, potenzielle Fehlinterpretationen, Haftungsfragen. Leistungskatalog, Nutzung sensibler Vertragsdaten (Datenschutzprüfung)"
       },
       "strategic": {
         "automated_news_procurement": "Wachstum",
-        "automated_crm_recommendations": "Transparenz - Basis Tool des Vertriebs. Der Vertrieb hat den größten Einfluss auf die Erfüllung der Duvenbeck Strategie.",
+        "automated_crm_recommendations": "Transparenz - Basis Tool des Vertriebs. Der Vetrieb hat den größten Einfluss auf die Erfüllung der Duvenbeck Strategie.",
         "ai_contract_review": "Standardisierung - \"Vermeidung\" von möglichen Aufwänden / Kosten"
       }
     }
