@@ -883,97 +883,51 @@
   },
   "it_shared_services": {
     "ideas": {
-      "ai_assisted_workflow": "KI-gestützte Arbeitsweise / Wiki-Hilfe [Copilot]",
       "data_quality_analysis": "Automatische Datenqualitätsanalyse",
-      "computer_vision_pallet_tracking": "Computer Vision-gestützte Palettenverfolgung",
-      "automatic_gate_detection": "Automatische Torbelegungs-Erkennung",
-      "computer_vision_load_detection": "Computer Vision-Ladungserkennung",
-      "predictive_disposition_pricing": "Predictive Disposition & Preisplanung",
-      "intelligent_kpi_chatbot": "Intelligente KPI-Abfrage über Chatbot",
       "internal_freight_exchange": "Interne Frachtbörse mit KI-Disposition",
-      "scenario_based_financial_forecasts": "Szenariobasierte Finanzprognosen",
-      "predictive_hr_analytics": "Predictive HR-Analytics",
       "telematics_cost_forecast": "Telematikbasierte Kostenprognose"
     },
     "problems": {
-      "ai_assisted_workflow": "[Allgemein] – Fehlende ChatGPT-Oberfläche für Teammitglieder",
       "data_quality_analysis": "[Allgemein] – Fehlerhafte oder unvollständige Datenbestände",
-      "computer_vision_pallet_tracking": "[Lager] – Fehlende Übersicht über Palettenbewegungen",
-      "automatic_gate_detection": "[Lager] – Fehlende Transparenz über Hallentor-Belegung",
-      "computer_vision_load_detection": "[Lager] – Keine Übersicht über LKW-Füllstände",
-      "predictive_disposition_pricing": "[Disposition] – Fehlende Prognosen zu Bedarf und Kosten",
-      "intelligent_kpi_chatbot": "[Reporting] – Fehlende Orientierung bei Berichtsstrukturen",
       "internal_freight_exchange": "[Disposition] – Dezentrale Tourenplanung in einzelnen Gesellschaften",
-      "scenario_based_financial_forecasts": "[Finanzen] – Langwierige, schätzungsbasierte Planung",
-      "predictive_hr_analytics": "[HR] – Unerwartete Mitarbeiterfluktuation",
       "telematics_cost_forecast": "[Fuhrpark] – Hohe und unvorhersehbare Betriebskosten"
     },
     "solutions": {
-      "ai_assisted_workflow": "Einführung einer nutzbaren ChatGPT-GUI zur Beschleunigung allgemeiner Aufgaben",
       "data_quality_analysis": "Fehleranalyse Datenstamm (Erkennung von Falscheingaben)",
-      "computer_vision_pallet_tracking": "CV: Automatisierte Palettenverfolgung im Lager, damit keine Klebeetiketten mehr benötigt werden. Heute bleiben Paletten stehen die keiner mehr \"auf dem Schirm\" hat. Ggfls. kann so auch eine falsche Verladung verhindert werden",
-      "automatic_gate_detection": "CV: Kennzeichenerkennung am Hallentor um die Torbelegung automatisch zu erkennen",
-      "computer_vision_load_detection": "CV: Ladungserkennung im LKW. Füllgrad, Beladereihenfolge, Ladungssicherung",
-      "predictive_disposition_pricing": "Dispo: Lernen aus Vergangenheitsdaten. Was passiert zyklisch? Werksferien, Urlaubszeiten, Weihnachten, Ostern. LKW Beschaffung ggfls. schwerer zu manchen Zeiten, Überangebot an LKW zu anderen Zeiten. Wichtig für Preisverhandlungen und Planung. Wissen bisher nur in den Köpfen der Disponenten, verlässt ein Disponent das Unternehmen ist das Wissen weg.",
-      "intelligent_kpi_chatbot": "Ich frage den Bot wie die Kennzahl für einen Bereich lautet",
       "internal_freight_exchange": "Sowas wie eine interne Frachtenbörse mit einer empfehlung auf welchen LKW die Sendung am besten disponiert werden könnte",
-      "scenario_based_financial_forecasts": "Über einen Vorschlag von Werten für die Zukunft der sich Anhand von unterschiedlichen Szenarien Daten für die Zukunft prognostiziert",
-      "predictive_hr_analytics": "Prognostizieren von Mitarbeiteraustritten",
       "telematics_cost_forecast": "Man könnte Telematikdaten für eine Zustandsprognose nutzen und Kosten Prognostizieren"
     },
     "notes": {
       "complexity": {
         "data_quality_analysis": "Abseits von Regelbasierten Algorithmen gibt es viele mögliche Probleme im Zusammenhang mit Stammdaten. Gibt es die Adresse wirklich? Ist diese vielleicht ganz neu und noch in keiner Karte enthalten? Schreibweisen von Daten können zu Problemen führen wenn unterschiedliche Sprachen ins Spiel kommen, nicht nur bei Adressen.",
-        "computer_vision_pallet_tracking": "Ein Hallentor bedient nicht nur einen LKW Standplatz sondern oft zwei. Man muss erkennen welcher Stapler nun welchen LKW entlädt. Darüberhinaus muss man wissen was auf dem LKW liegt und das System muss eine \"Vorstellung\" davon haben wie das was auf dem LKW liegt wohl aussehen müsste. Dieses lässt sich für eine erste Version mit Manueller Zuarbeit beheben, dennoch bleibt das Problem der Kameraausleuchtung in der Halle problematisch. Wann wenn eine Palette im toten Winkel abgestellt wird? Was wenn Ware außerhalb der Halle abgestellt wird?",
-        "automatic_gate_detection": "Kennzeichenerkennung funktioniert heute schon z.B. in Parkhäusern. Probleme kann es geben wenn an einem LKW Trailer mehrere Kennzeichenähnliche Schilder angebracht sind. Hier muss das richtige zum Abgleich mit den Systemdaten gefunden werden.",
-        "computer_vision_load_detection": "Da mehrere Paletten hintereinander auf dem LKW stehen sind auch bei Seitenbeladung nicht alle durch nur eine Kamera sichtbar. Zusätzlich müsste die Tiefe relativ zum Trailer erkannt werden. Hierfür werden eventuell mehrere Kameras benötigt.",
-        "predictive_disposition_pricing": "Die heute zur Verfügung stehenden Daten müssen aufwändig bereinigt werden bevor eine Analyse stattfinden kann, da diese derzeit kaum zu gebrauchen sind. Darüber hinaus muss sehr genau modeliert werden was man eigentlich wissen möchte. Ein reiner LLM basierter Ansatz wird hier vermutlich nicht funktionieren.",
-        "intelligent_kpi_chatbot": "Kennzahlen werden in der Tat teils unterschiedlich gemessen, Aufbau eines zentralen Datenpools von Kennzahlen bereits in Arbeit, darauf lassen sich aber keine Daten aktuell trainieren. Berichte sind teils fragmentiert, Niederlassungsspezifisch, unterschiedliche Reporting - Systeme",
-        "internal_freight_exchange": "Single File in Caro nicht vorhanden. Aufträge werden intern kopiert, anstatt als einen Auftrag über mehrere Firmen zu disponieren. Akzeptanz bei Disponenten könnte schwierig sein. Jeder macht sein Ding. Stammdaten werden nicht konsistent gepflegt, viele Dubletten in den Adressen. Geocodierung müsste geprüft werden.",
-        "scenario_based_financial_forecasts": "Welche Einflussfaktoren gibt es? Interne können ggfls. bestimmt werden, externe schwierig Vorauszusagen. Kosten und Erlös Forecasting sollten jedoch mit Sales und CRM schon möglich sein. Nicht alle Bereiche werden Treiberbasiert und Datenbankgestützt geplant.",
-        "predictive_hr_analytics": "Es gibt noch keine zentrale HR Datenbank die konsistent gehalten wird. Allerdings werden Daten aus Gesellschaften vereinheitlicht in einer Datenbank. Einflussfaktoren ( Feature - Engineering ) könnte schwierig werden, wenn nicht alle Attribute gepflegt werden",
+        "internal_freight_exchange": "Single File in Caro nicht vorhanden. Aufträge werden intern kopiert, anstatt als einen Auftrag über mehrere Firmen zu disponieren. Akzeptanz  bei Disponenten könnte schwierig sein. Jeder macht sein Ding. Stammdaten werden nicht konsistent gepflegt, viele Dubletten in den Adressen. Geocodierung müsste geprüft werden.",
         "telematics_cost_forecast": "Fuhrpark Telematikdaten wie Reifendrücke, Einsatzschwere, Fahrernote und Reparaturdaten werden bereits erfasst. Jedoch könnte es schwierig werden, einzelne Rechnungspositionen der Kategorie Reifen, Motor usw. zuzuordnen. Die Datenqualität könnte insgesamt eher schlecht sein, wenn SAP Eingangsrechnungen nicht korrekt gebucht werden"
       },
       "cost": {
         "data_quality_analysis": "Es müssen viele Personen an den Themen mitarbeiten. Zusätzlich müssen viele Regeln deviniert werden wie mit welchen Daten umzugehen ist. Die Kosten entstehen hier hauptsächlich auf personeller Ebene",
-        "computer_vision_pallet_tracking": "Viel Hardwareaufwand, Kameras, Rechner mit entsprechender Hardware um viele Bilder und kurzer Zeit auszuwerten. Personalaufwand bei der Entwicklung",
-        "automatic_gate_detection": "Hardware mit Kamera recht billig zu machen, einzig die Hardware zur Auswertung könnte etwas teurer ausfallen. Software durch bereits vorhandene Bibliotheken nicht sehr problematisch. (OpenCV, Pytesseract)",
         "telematics_cost_forecast": "Aufgrund der Datenmenge eher höhere Kosten. Wenn der Agent hinzugenommen wird dann wird dieser vermutlich öfters am Tag eine Prüfung der Daten vornehmen"
-      },
-      "risk": {
-        "predictive_disposition_pricing": "Fällt die Einschätzung falsch aus produziert man mehrkosten durch falsch engekauften Fuhrpark"
       }
     },
     "projectBriefs": {
-      "telematics_cost_forecast": {
-        "sponsor": "GF",
-        "teams": "Fuhrpark, BI",
-        "conflicts": "",
-        "resources": "ML Algorithmus, Fuhrpark, Buchhaltung, IT, AI Agent",
-        "dataAvailability": "Reparaturdaten, Fleetboard, Stammdaten Fahrzeug",
-        "genaiConsiderations": "Prototyp mit wenigen LKW. Simulierte Daten gegenüber Ist-Daten prüfen. Reparaturdaten nach Reparaturart geclustert. \nAgent schickt zeitnah eine Info wenn z.B. ein Reifen platt geht oder Auffälligkeiten in den Daten vorhanden sind\n\nViele Daten\nNutzer gleichen Berichte mit den Nachrichten aus dem Agent ab. Gegenseitige Prüfung aller Telemetriedaten (z.B. Reifendrücke)",
-        "timeline": "asap",
-        "comments": "Datenqualität könnte teilweise schlecht sein bei den erfassten Reparaturdaten. Eingabeprozesse müssten hinterfragt werden"
-      },
       "internal_freight_exchange": {
-        "sponsor": "GF",
-        "teams": "Disposition, Fuhrpark, BI, Stammdaten",
-        "conflicts": "greift in die laufenden Planungsprozesse ein",
-        "resources": "Disponenten, TMS Daten",
+        "projectSponsor": "GF",
+        "involvedTeams": "Disposition, Fuhrpark, BI, Stammdaten",
+        "potentialConflicts": "greift in die laufenden Planungsprozesse ein",
+        "requiredResources": "Disponenten, TMS Daten",
         "dataAvailability": "Fleetboard, TMS Daten\nAktuelle TMS Daten für Suche notwendig",
         "genaiConsiderations": "Ähnliche Touren zu dem eingegebenen Auftrag können gefunden werden\nWas wäre wenn Analyse\n\nTransaktionen müssten zeitnah erfasst sein",
         "timeline": "",
-        "comments": ""
+        "additionalComments": ""
       },
-      "automatic_gate_detection": {
-        "sponsor": "GF",
-        "teams": "DevOps, Niederlassung xy",
-        "conflicts": "",
-        "resources": "Entwickler, Hardware zum Scannen, Hardware zum Erkennen/Auswerten",
-        "dataAvailability": "",
-        "genaiConsiderations": "Prototyp/Pilot: Test an einem Tor mit einem Gerät\nDatenschutz: Kennzeichen werden gescannt und gespeichert\nSkalierbarkeit: Hoch",
-        "timeline": "",
-        "comments": ""
+      "telematics_cost_forecast": {
+        "projectSponsor": "GF",
+        "involvedTeams": "Fuhrpark, BI",
+        "potentialConflicts": "",
+        "requiredResources": "ML Algorithmus, Fuhrpark, Buchhaltung, IT, AI Agent",
+        "dataAvailability": "Reparaturdaten, Fleetboard, Stammdaten Fahrzeug",
+        "genaiConsiderations": "Prototyp mit wenigen LKW. Simulierte Daten gegenüber Ist-Daten prüfen. Reparaturdaten nach Reparaturart geclustert. \nAgent schickt zeitnah eine Info wenn z.B. ein Reifen platt geht oder Auffälligkeiten in den Daten vorhanden sind\n\nViele Daten\nNutzer gleichen Berichte mit den Nachrichten aus dem Agent ab. Gegenseitige Prüfung aller Telemetriedaten (z.B. Reifendrücke)",
+        "timeline": "asap",
+        "additionalComments": "Datenqualität könnte teilweise schlecht sein bei den erfassten Reparaturdaten. Eingabeprozesse müssten hinterfragt werden"
       }
     }
   },

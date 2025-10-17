@@ -31,10 +31,10 @@ The Corporate Development department identified 7 key AI initiatives:
 **Owner:** -
 
 **Problem Statement:**
-High time investment for market and competitive analyses, which are often not up to date
+Market and competitive analyses are time-consuming and often not up to date.
 
 **Proposed Solution:**
-AI tools aggregate data in real-time and automatically create concise market overviews
+AI-powered tools aggregate data in real-time and automatically create concise market overviews.
 
 **Project Metrics:**
 
@@ -64,10 +64,10 @@ Change management: Not necessary
 **Owner:** -
 
 **Problem Statement:**
-Strategic decisions: fast and with many variables
+Strategic decisions are often based on incomplete or outdated assumptions.
 
 **Proposed Solution:**
-AI-supported scenario simulations model different strategies and their potential impacts
+AI-supported scenario simulations model different strategies and their potential impacts.
 
 **Project Metrics:**
 
@@ -82,10 +82,10 @@ AI-supported scenario simulations model different strategies and their potential
 **Owner:** -
 
 **Problem Statement:**
-Decisions about investments or divestments are complex
+Decisions about investments or divestments are complex and require many data points.
 
 **Proposed Solution:**
-AI evaluates existing projects and investments based on KPIs, risk, and growth potential and provides recommendations
+AI evaluates existing projects and investments based on KPIs, risk, and growth potential, and provides recommendations.
 
 **Project Metrics:**
 
@@ -118,7 +118,7 @@ AI continuously monitors market trends and competitor activities and creates ale
 **Owner:** -
 
 **Problem Statement:**
-High effort, no standards, little uniform definition in the group
+High effort, no standards, little homogeneous definition in the group
 
 **Proposed Solution:**
 Brainstorming and development of standardized templates for all dashboards (Excel + PPT Export)
@@ -151,7 +151,7 @@ Change management: Not necessary
 **Owner:** -
 
 **Problem Statement:**
-Renegotiations, deviations TARGET vs ACTUAL in contracts
+Renegotiations, deviations TARGET vs ACTUAL in contract
 
 **Proposed Solution:**
 Scan of SLAs/contracts and comparison with ACTUAL values in the system
@@ -191,26 +191,16 @@ High effort to identify individual service extensions for customers
 
 **Project Metrics:**
 
-- Complexity: 4/5 - Once database with all customer contracts is available, it's easy to do gap analysis and check where upscaling is possible or not + Business solution can be sketched by AI and potential white spots identified
+- Complexity: 4/5 - Once database with all customer contracts is available, it's easy to do a gap analysis and check where upscaling is possible or not + Business solution can be sketched by AI and potential white spots identified
 - Cost: 4/5 - No high costs
 - ROI: 4/5 - Quick analysis and KAM plans can be created
 - Risk: 0/5 - No risk
-- Strategic Alignment: 5/5 - Growth, cross-selling and customer development desired and required. Entry barriers with existing customer base lower than new acquisition
+- Strategic Alignment: 5/5 - Growth, cross-selling and customer development desired and required. Entry barriers with current customer base lower than new acquisition
 
-## Strategic Context
+## Implementation Notes
 
-The Corporate Development department's AI initiatives focus on three main strategic areas:
+The Corporate Development initiatives focus on automating data analysis and strategic planning processes to improve decision-making efficiency and standardize reporting across the organization.
 
-1. **Market Intelligence & Analysis** - Automated market research, competitive monitoring, and trend analysis to support data-driven strategic decisions
-2. **Standardized Reporting & Analytics** - Dashboard automation, customer profitability analysis, and contract management to improve operational efficiency  
-3. **Strategic Planning & Portfolio Management** - Scenario planning and product portfolio optimization to enhance long-term growth
+## Contact
 
-## Key Project Briefs
-
-The department has developed complete project briefs for 3 high-priority initiatives:
-
-- **Market Analysis Automation (Priority 1-A)** - Complete 8-field project brief with Q1/2026 timeline
-- **Dashboard Reporting (Priority 2)** - Complete 8-field project brief with system integration focus
-- **Contract Database (Priority 3-B)** - Complete 8-field project brief with legal system integration
-
-The remaining 4 initiatives (Strategic Scenario Planning, Customer Profitability Analysis, Competition Trend Alerts, Product Portfolio Extension) are in planning phase without detailed project briefs.
+For questions or additional information about these initiatives, please contact the Corporate Development department leadership.
