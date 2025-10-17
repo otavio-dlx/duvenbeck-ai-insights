@@ -821,7 +821,7 @@
         "kpi_data_monitoring": "Medienmonitoring: 900€ monatlich/ 11 kEUR p.a., Printmonitoring ggf. extra (Anbieter: Cision, Meltwater)",
         "campaign_performance_analysis": "Kosten sind abhängig vom Kanal und wie oft Kampagnen gefahren werden und wie groß die Zielgruppe ist (Fixkosten - wenn durch Agentur, variable Kosten - wenn DUV es selber auf Medien schaltet)",
         "brand_training_assistant": "Style Guide wird der KI als eine Datenquelle zur Verfügung gestellt",
-        "image_generation": "Marektingbilder sind sehr teuer, aufgrund von Lizenzkosten, die abhängig sind von Medien und Einsatz in Ländern sowie von der Frequenz (1-maliger Einsatz, mehrmaliger), PR Bilder sind günstiger, ABER Urheberrecht ist ein großes Thema (PR Bilder dürfen nicht als Marketingbild verwendet werden)"
+        "image_generation": "Marketingbilder sind sehr teuer, aufgrund von Lizenzkosten, die abhängig sind von Medien und Einsatz in Ländern sowie von der Frequenz (1-maliger Einsatz, mehrmaliger), PR Bilder sind günstiger, ABER Urheberrecht ist ein großes Thema (PR Bilder dürfen nicht als Marketingbild verwendet werden)"
       },
       "roi": {
         "media_analysis_industry": "Gezieltes Ansprechen der relevanten Fachmedien, um die Zielgruppen zu erreichen - Aufbau langfristiger Beziehungen (Fachmedien kommen auf uns zu für Themen, Verbreitung der Marke dadurch einfacher/ zum Meinungsführer am Markt werden)",
@@ -838,11 +838,11 @@
         "image_generation": "die rechtliche Seite der Bild-Generierung wird aus unserer Informationssicht als sehr kritisch bewertet + die Qualität der generierten Bilder"
       },
       "strategic": {
-        "media_analysis_industry": "Aufbau langfristiger Beziehungen (Fachmedien kommen auf uns zu für Themen, Verbreitung der Marke dadurch einfacher/ zum Meinungsführer am Markt werden)",
-        "kpi_data_monitoring": "Strategien können angepasst werden",
-        "campaign_performance_analysis": "Bessere Kampagnenoptimierung und Zielgruppenerreichung",
+        "media_analysis_industry": "",
+        "kpi_data_monitoring": "",
+        "campaign_performance_analysis": "",
         "brand_training_assistant": "Schont Ressourcen, die für strageische Themen eingesetzt werden kann + Markenidentifikation",
-        "image_generation": "Konsistente Markenidentität in der visuellen Kommunikation"
+        "image_generation": ""
       }
     },
     "projectBriefs": {
