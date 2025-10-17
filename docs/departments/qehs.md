@@ -2,7 +2,7 @@
 
 ## Overview
 
-The QEHS (Quality, Environment, Health & Safety) department participated in the Duvenbeck AI Workshop on October 7, 2025. This document outlines the AI initiatives proposed by the QEHS team, including detailed problem statements, solutions, and project analysis.
+The QEHS department participated in the Duvenbeck AI Workshop on October 7, 2025.
 
 **Workshop Details:**
 
@@ -12,13 +12,13 @@ The QEHS (Quality, Environment, Health & Safety) department participated in the 
 
 ## AI Initiatives Summary
 
-The QEHS department identified 3 key AI initiatives, prioritized based on complexity, cost, ROI, risk, and strategic alignment:
+The QEHS department identified 3 key AI initiatives:
 
-| Priority | Initiative                     | Owner | Priority Level | Complexity | Cost | ROI | Risk | Strategic |
-| -------- | ------------------------------ | ----- | -------------- | ---------- | ---- | --- | ---- | --------- |
-| 1        | Document and Audit Automation  | QEHS  | A              | 3/5        | 2/5  | 3/5 | 3/5  | 4/5       |
-| 1        | Training and Course Management | QEHS  | A              | 3/5        | 3/5  | 3/5 | 2/5  | 5/5       |
-| 2        | Fake Carrier Detection         | QEHS  | A              | 4/5        | 4/5  | 5/5 | 4/5  | 5/5       |
+| Priority | Initiative                    | Owner | Priority Level | Complexity | Cost | ROI | Risk | Strategic |
+| -------- | ----------------------------- | ----- | -------------- | ---------- | ---- | --- | ---- | --------- |
+| 1        | Document and Audit Automation | QEHS  | A              | 3/5        | 2/5  | 3/5 | 3/5  | 4/5       |
+| 1        | Training and Course Management| QEHS  | A              | 4/5        | 3/5  | 4/5 | 3/5  | 5/5       |
+| 1        | Fake Carrier Detection        | QEHS  | A              | 3/5        | 4/5  | 4/5 | 2/5  | 4/5       |
 
 ## Detailed Initiative Analysis
 
@@ -67,10 +67,10 @@ AI systems manage training schedules, automatically remind about deadlines and a
 
 **Project Metrics:**
 
-- Complexity: 3/5 - Training systems partially implemented in companies, not yet comprehensive. Content must sometimes first be created and standardized. Company structure/hierarchy must be available
+- Complexity: 4/5 - Training systems partially implemented in companies, not yet comprehensive. Content must sometimes first be created and standardized. Company structure/hierarchy must be available
 - Cost: 3/5 - Medium investment for AI-based content & learning paths
-- ROI: 3/5 - Less effort, better effectiveness, secure evidence chain for audits
-- Risk: 2/5 - Moderate risk, content can be tested and adjusted internally
+- ROI: 4/5 - Less effort, better effectiveness, secure evidence chain for audits
+- Risk: 3/5 - Moderate risk, content can be tested and adjusted internally
 - Strategic Alignment: 5/5 - Directly standard-relevant (e.g., ISO, Legal Compliance), improves professional competence in the company and compliance with legal requirements
 
 **Project Brief:**
@@ -80,15 +80,16 @@ AI systems manage training schedules, automatically remind about deadlines and a
 - **Potential Conflicts:** Inconsistent training content/standards, local vs. central responsibilities, language barriers - translations
 - **Required Resources:** Personnel, Budget, Technology
 - **Data Availability:** Existing training documents (Excel, PowerPoint etc.) available, must be partially newly generated, employee profiles and roles partially not entirely clear - hierarchy etc.
-- **GenAI Considerations:** Prototype: Test with 1 training (e.g., subcontractor deployment) for one target group
+- **GenAI Considerations:** GenAI-specific considerations:
+  Prototype: Test with 1 training (e.g., subcontractor deployment) for one target group
   Pilot design: Feedback round after first training module
   Ethics & Data Protection: Role-based data only anonymized, AI feedback without personal tracking
   Scalability: Content scalable per location & role
   Change Management: Involve training creators & specialist departments, test early
 - **Timeline:** Piloting within 1-3 months followed by implementation for additional training
-- **Additional Comments:**
+- **Additional Comments:** What else is important for this initiative?
 
-### 3. Fake Carrier Detection (Priority: 2)
+### 3. Fake Carrier Detection (Priority: 1)
 
 **Owner:** QEHS
 
@@ -100,11 +101,11 @@ AI checks subcontractor documentation for plausibility, irregularities and forma
 
 **Project Metrics:**
 
-- Complexity: 4/5 - Technically demanding due to TMS integration & external data reconciliation and various TMS systems in the DUV world
+- Complexity: 3/5 - Technically demanding due to TMS integration & external data reconciliation and various TMS systems in the DUV world
 - Cost: 4/5 - Higher costs for tools, databases, possibly government interfaces
-- ROI: 5/5 - Enormous risk minimization (fraud, fines, reputation damage)
-- Risk: 4/5 - Risk of false detection (e.g., legitimate carrier gets blocked), legal safeguarding necessary, damage regulation risk
-- Strategic Alignment: 5/5 - Highly relevant for Supply Chain Security, TAPA/ISO 28000, customer requirements
+- ROI: 4/5 - Enormous risk minimization (fraud, fines, reputation damage)
+- Risk: 2/5 - Risk of false detection (e.g., legitimate carrier gets blocked), legal safeguarding necessary, damage regulation risk
+- Strategic Alignment: 4/5 - Highly relevant for Supply Chain Security, TAPA/ISO 28000, customer requirements
 
 **Project Brief:**
 
@@ -121,10 +122,4 @@ AI checks subcontractor documentation for plausibility, irregularities and forma
 - **Timeline:** Piloting within 3-6 months followed by implementation at all locations/TMS systems
 - **Additional Comments:** Complex interactions with many DUV central areas/operative locations
 
-## Implementation Notes
-
-The QEHS initiatives focus on improving compliance, safety, and quality management through AI-powered automation. The Fake Carrier Detection initiative is prioritized highest due to its potential for significant risk minimization and supply chain security improvements.
-
-## Contact
-
-For questions or additional information about these initiatives, please contact the QEHS department leadership.
+- **Additional Comments:** Complex interactions with many DUV central areas/operative locations

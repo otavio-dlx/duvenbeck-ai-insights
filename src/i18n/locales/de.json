@@ -729,7 +729,7 @@
     "notes": {
       "complexity": {
         "document_audit_automation": "Höhere Komplexität durch viele Dokumentenarten & Normbezüge",
-        "training_management": "Schulungssysteme teilweise im Unternehmern implementiert, noch nicht vollumfänglich. Inhalte müssen teilweise erst noch erstellt und standardisiert werden. Unternehmensstruktur/Hierachie muss vorhanden sein",
+        "training_management": "Schulungssysteme teilweise  im Unternehmern implementiert, noch nicht vollumfänglich. Inhalte müssen teilweise erst noch erstellt und standardisiert werden. Unternehmensstruktur/Hierachie muss vorhanden sein",
         "fake_carrier_detection": "Technisch anspruchsvoll durch TMS-Anbindung & externe Datenabgleiche und verscheidene TMS Systeme in der DUV-Welt"
       },
       "cost": {
@@ -754,16 +754,6 @@
       }
     },
     "projectBriefs": {
-      "fake_carrier_detection": {
-        "sponsor": "COO",
-        "teams": "IMS-Carrier, Cooperate Security, operative Niederlassungen",
-        "conflicts": "Datenabgleich mit Externen (Datenschutz), Blockieren legitimer Carrier, rechtliche Klärung bei False Positives, Konflikt mit den operativen Häusern, weil zentrale den Einsatz der Subunternehmer überstimmt",
-        "resources": "Personal, Budget, IT-Ressource für Programmierung zu Anbindung TMS",
-        "dataAvailability": "Subunternehmerdaten, Teilweise vorhanden, viele manuell → muss automatisiert nutzbar gemacht werdenund müssen aktuell sein",
-        "genaiConsiderations": "Prototyp: Abgleich mit bekannten Fake-Carriern aus Vergangenheit (Blacklist-Modell)\nPilot-Design: Live-Test in einer Region bzw. Standort\nEthik & Datenschutz: Klare Regelung für Umgang mit Falsch-Erkennung, keine personenbezogenen Daten ohne Schutzmaßnahmen\nSkalierbarkeit: Vollständig skalierbar bei stabiler TMS-Anbindung unter Berücksichtigung unterschiedlicher TMS Systeme\nChange Management: Transparente Kommunikation an Disposition/Standorte, Eskalationsstufen bei Sperrungen",
-        "timeline": "Pilotierung innerhalb 3-6 Monate anschließend Implementierung aller Standort/TMS Systeme",
-        "comments": "Komplexe Interaktionen mit vielen DUV Zentral Bereichen/opertaiven Standorte"
-      },
       "document_audit_automation": {
         "sponsor": "CXO",
         "teams": "QEHS, ISD, Security, ggfs. Legal (für Legal Complaince Audits)",
@@ -780,9 +770,19 @@
         "conflicts": "Uneinheitliche Schulungsinhalte/-standards, lokale vs. zentrale Zuständigkeiten, Sprachbarriere - Übersetzungen",
         "resources": "Personal, Budget, Technologie",
         "dataAvailability": "Bisherige Schulungsdokumente (Excel, PowerPoint etc.) vorhandenm müssen teilweise neu generiert werden, Mitarbeiterprfofile und Rollen teilweise nicht ganz klar - Hierachie etc.",
-        "genaiConsiderations": "Prototyp: Test mit 1 Schulung (z. B. Subunternehmereinsatz) für eine Zielgruppe\nPilot-Design: Feedbackrunde nach erstem Schulungsmodul\nEthik & Datenschutz: Rollenbezogene Daten nur anonymisiert, KI-Feedback ohne personenbezogene Nachverfolgung\nSkalierbarkeit: Inhalte skalierbar pro Standort & Rolle\nChange Management: Schulungsersteller & Fachbereiche einbinden, frühzeitig testen",
+        "genaiConsiderations": "GenAI-spezifische Überlegungen:\nPrototyp: Test mit 1 Schulung (z. B. Subunternehmereinsatz) für eine Zielgruppe\nPilot-Design: Feedbackrunde nach erstem Schulungsmodul\nEthik & Datenschutz: Rollenbezogene Daten nur anonymisiert, KI-Feedback ohne personenbezogene Nachverfolgung\nSkalierbarkeit: Inhalte skalierbar pro Standort & Rolle\nChange Management: Schulungsersteller & Fachbereiche einbinden, frühzeitig testen",
         "timeline": "Pilotierung innerhalb 1-3 Monate anschließend Implementierung auf weitere Schulungen",
-        "comments": ""
+        "comments": "Was ist noch wichtig für diese Initiative?"
+      },
+      "fake_carrier_detection": {
+        "sponsor": "COO",
+        "teams": "IMS-Carrier, Cooperate Security, operative Niederlassungen",
+        "conflicts": "Datenabgleich mit Externen (Datenschutz), Blockieren legitimer Carrier, rechtliche Klärung bei False Positives, Konflikt mit den operativen Häusern, weil zentrale den Einsatz der Subunternehmer überstimmt",
+        "resources": "Personal, Budget, IT-Ressource für Programmierung zu Anbindung TMS",
+        "dataAvailability": "Subunternehmerdaten, Teilweise vorhanden, viele manuell → muss automatisiert nutzbar gemacht werdenund müssen aktuell sein",
+        "genaiConsiderations": "Prototyp: Abgleich mit bekannten Fake-Carriern aus Vergangenheit (Blacklist-Modell)\nPilot-Design: Live-Test in einer Region bzw. Standort\nEthik & Datenschutz: Klare Regelung für Umgang mit Falsch-Erkennung, keine personenbezogenen Daten ohne Schutzmaßnahmen\nSkalierbarkeit: Vollständig skalierbar bei stabiler TMS-Anbindung unter Berücksichtigung unterschiedlicher TMS Systeme\nChange Management: Transparente Kommunikation an Disposition/Standorte, Eskalationsstufen bei Sperrungen",
+        "timeline": "Pilotierung innerhalb 3-6 Monate anschließend Implementierung aller Standort/TMS Systeme",
+        "comments": "Komplexe Interaktionen mit vielen DUV Zentral Bereichen/opertaiven Standorte"
       }
     }
   },

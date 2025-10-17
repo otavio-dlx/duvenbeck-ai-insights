@@ -25,20 +25,14 @@ export const ideas = {
       strategicAlignment: 4,
       strategicNoteKey: "qehs.notes.strategic.document_audit_automation",
       projectBrief: {
-        projectSponsorKey:
-          "qehs.projectBriefs.document_audit_automation.sponsor",
+        projectSponsorKey: "qehs.projectBriefs.document_audit_automation.sponsor",
         involvedTeamsKey: "qehs.projectBriefs.document_audit_automation.teams",
-        potentialConflictsKey:
-          "qehs.projectBriefs.document_audit_automation.conflicts",
-        requiredResourcesKey:
-          "qehs.projectBriefs.document_audit_automation.resources",
-        dataAvailabilityKey:
-          "qehs.projectBriefs.document_audit_automation.dataAvailability",
-        genaiConsiderationsKey:
-          "qehs.projectBriefs.document_audit_automation.genaiConsiderations",
+        potentialConflictsKey: "qehs.projectBriefs.document_audit_automation.conflicts",
+        requiredResourcesKey: "qehs.projectBriefs.document_audit_automation.resources",
+        dataAvailabilityKey: "qehs.projectBriefs.document_audit_automation.dataAvailability",
+        genaiConsiderationsKey: "qehs.projectBriefs.document_audit_automation.genaiConsiderations",
         timelineKey: "qehs.projectBriefs.document_audit_automation.timeline",
-        additionalCommentsKey:
-          "qehs.projectBriefs.document_audit_automation.comments",
+        additionalCommentsKey: "qehs.projectBriefs.document_audit_automation.comments",
       },
     },
     {
@@ -61,17 +55,12 @@ export const ideas = {
       projectBrief: {
         projectSponsorKey: "qehs.projectBriefs.training_management.sponsor",
         involvedTeamsKey: "qehs.projectBriefs.training_management.teams",
-        potentialConflictsKey:
-          "qehs.projectBriefs.training_management.conflicts",
-        requiredResourcesKey:
-          "qehs.projectBriefs.training_management.resources",
-        dataAvailabilityKey:
-          "qehs.projectBriefs.training_management.dataAvailability",
-        genaiConsiderationsKey:
-          "qehs.projectBriefs.training_management.genaiConsiderations",
+        potentialConflictsKey: "qehs.projectBriefs.training_management.conflicts",
+        requiredResourcesKey: "qehs.projectBriefs.training_management.resources",
+        dataAvailabilityKey: "qehs.projectBriefs.training_management.dataAvailability",
+        genaiConsiderationsKey: "qehs.projectBriefs.training_management.genaiConsiderations",
         timelineKey: "qehs.projectBriefs.training_management.timeline",
-        additionalCommentsKey:
-          "qehs.projectBriefs.training_management.comments",
+        additionalCommentsKey: "qehs.projectBriefs.training_management.comments",
       },
     },
     {
@@ -94,17 +83,12 @@ export const ideas = {
       projectBrief: {
         projectSponsorKey: "qehs.projectBriefs.fake_carrier_detection.sponsor",
         involvedTeamsKey: "qehs.projectBriefs.fake_carrier_detection.teams",
-        potentialConflictsKey:
-          "qehs.projectBriefs.fake_carrier_detection.conflicts",
-        requiredResourcesKey:
-          "qehs.projectBriefs.fake_carrier_detection.resources",
-        dataAvailabilityKey:
-          "qehs.projectBriefs.fake_carrier_detection.dataAvailability",
-        genaiConsiderationsKey:
-          "qehs.projectBriefs.fake_carrier_detection.genaiConsiderations",
+        potentialConflictsKey: "qehs.projectBriefs.fake_carrier_detection.conflicts",
+        requiredResourcesKey: "qehs.projectBriefs.fake_carrier_detection.resources",
+        dataAvailabilityKey: "qehs.projectBriefs.fake_carrier_detection.dataAvailability",
+        genaiConsiderationsKey: "qehs.projectBriefs.fake_carrier_detection.genaiConsiderations",
         timelineKey: "qehs.projectBriefs.fake_carrier_detection.timeline",
-        additionalCommentsKey:
-          "qehs.projectBriefs.fake_carrier_detection.comments",
+        additionalCommentsKey: "qehs.projectBriefs.fake_carrier_detection.comments",
       },
     },
   ],
