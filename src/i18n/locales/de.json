@@ -985,8 +985,7 @@
       "colleague_communication": "Kommunikation / Transparenz (Kollegen)",
       "self_service_it_assistant": "Self-Service-IT-Assistenz (Chatbot)",
       "roadmap_creation": "Roadmap erstellung",
-      "project_tracking": "Projekt Tracking",
-      "automated_ticket_classification": "Automatisierte IT-Ticket-Klassifizierung"
+      "project_tracking": "Projekt Tracking"
     },
     "problems": {
       "ticket_quality_prioritization": "Viele unsortierte und schlecht eingestellte Tickets im Serviceportal / Zuteilung und Priorisierung von Tickets",
@@ -995,8 +994,7 @@
       "colleague_communication": "Kommunikation in Richtung Kollegen: Einfach verständliche Präsentationen, damit die Mitarbeiter die Security Vorgaben und Regularien nachvollziehen können",
       "self_service_it_assistant": "Mitarbeitende warten oft lange auf einfache IT-Hilfestellungen (z. B. Passwort-Reset, VPN-Zugang).",
       "roadmap_creation": "Generieren einer Roadmap aus den verschiedenen Projekten",
-      "project_tracking": "Automatisiertes Tracking von Projektfortschritten Bei Duvenbeck",
-      "automated_ticket_classification": "Support-Tickets müssen manuell kategorisiert werden, was die Bearbeitungszeit verlängert."
+      "project_tracking": "Automatisiertes Tracking von Projektfortschritten Bei Duvenbeck"
     },
     "solutions": {
       "ticket_quality_prioritization": "Verbesserung der Qualität durch Agent der Rückfragen stellt. Bewertung von Tickets hinsichtlich der dringlichkeit und automatische Zuteilung an entsprechende Teams / IT Chatbot bietet Lösungen an",
@@ -1005,39 +1003,48 @@
       "colleague_communication": "Automatisiertes erstellen von Präsentationen auf Basis von Webrecherche und oder internen Daten",
       "self_service_it_assistant": "Bereitstellung eines interaktiven IT-Chatbots im Digital Workplace, der Standardanfragen direkt löst oder weiterleitet.",
       "roadmap_creation": "Rodmapgenerierung aus Projekten heraus",
-      "project_tracking": "Regelmäßige automatisierte Abfragen bei den Workstream Leads",
-      "automated_ticket_classification": "Einführung eines KI-Moduls im Ticketsystem, das Anfragen automatisch klassifiziert, priorisiert und dem richtigen Team zuweist."
+      "project_tracking": "Regelmäßige automatisierte Abfragen bei den Workstream Leads"
     },
     "projectBriefs": {
       "ticket_quality_prioritization": {
-        "sponsor": "Jakub",
-        "teams": "IT/ Entwicklung/ Produkt Owner/ PMO",
-        "conflicts": "Keine Ressourcen/ keine Akzeptanz für das Projekt",
-        "resources": "Interner Entwicklungsaufwand",
+        "projectSponsor": "Jakub",
+        "involvedTeams": "IT/ Entwicklung/ Produkt Owner/ PMO",
+        "potentialConflicts": "Keine Ressourcen/ keine Akzeptanz für das Projekt",
+        "requiredResources": "Interner Entwicklungsaufwand",
         "dataAvailability": "Bestehende Ticketsystem-Daten, historische Ticketverläufe, Kategorisierungen,",
         "genaiConsiderations": "- Prototyp: Klassifizierung und Priorisierung von Tickets\n- Pilot: Test mit ausgewählten Teams\n- Datenschutz: Ticketinhalte anonymisieren\n- Integration in Serviceportal",
         "timeline": "- Grob Planung bis November 25\n- Erstellung bis Dezember 25\n- Implementierung - Q2 26\n- Kontrolle/ Bug - Q3 26",
-        "comments": "Fokus auf Qualität und Effizienz, kontinuierliches Feedback der Nutzer, Nachkontrolle durch Service Desk"
+        "additionalComments": "Fokus auf Qualität und Effizienz, kontinuierliches Feedback der Nutzer, Nachkontrolle durch Service Desk"
       },
       "meeting_minutes": {
-        "sponsor": "Jakub",
-        "teams": "Workplace + Dienstleister",
-        "conflicts": "Ressourcen/ Datenschutz",
-        "resources": "Copilot-Lizenzen (~30 € pro Nutzer), IT-Support",
+        "projectSponsor": "Jakub",
+        "involvedTeams": "Workplace + Dienstleister",
+        "potentialConflicts": "Ressourcen/ Datenschutz",
+        "requiredResources": "Copilot-Lizenzen (~30 € pro Nutzer), IT-Support",
         "dataAvailability": "Meeting-Inhalte, Teilnehmerlisten",
         "genaiConsiderations": "- Copilot POC\n- Festlegen für wen macht das Sinn\n- Nachgelagert das Thema DataGovernance inm M365",
         "timeline": "- Start POC Oktober 25\n- Abschluss Januar 25\n- Implementierung - Q1 26",
-        "comments": "Hohe Zeitersparnis, bessere Nachverfolgbarkeit, Aufgabenverfolgung"
+        "additionalComments": "Hohe Zeitersparnis, bessere Nachverfolgbarkeit, Aufgabenverfolgung"
       },
-      "communication_transparency": {
-        "sponsor": "Jakub",
-        "teams": "Workplace/ Corporate Development/ Dienstleister",
-        "conflicts": "Ressourcen",
-        "resources": "Copilot-Lizenzen (~30 € pro Nutzer), IT-Support",
+      "c_level_communication": {
+        "projectSponsor": "Jakub",
+        "involvedTeams": "Workplace/ Corporate Development/ Dienstleister",
+        "potentialConflicts": "Ressourcen",
+        "requiredResources": "Copilot-Lizenzen (~30 € pro Nutzer), IT-Support",
         "dataAvailability": "Interne Datenquellen, Webrecherche",
-        "genaiConsiderations": "- Copilot POC\n- Festlegen für wen macht das Sinn",
-        "timeline": "- Start POC Oktober 25\n- Abschluss Januar 25\n- Implementierung - Q1 26",
-        "comments": "Abgrenzung des Scopes \nZeitplan nur für Out of the Box Copilot Freischaltung in Powerpoint"
+        "genaiConsiderations": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit. Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback. Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits). Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen. Change Management: Planung zur Schulung und Akzeptanz der Nutzer. - Copilot POC - Festlegen für wen macht das Sinn",
+        "timeline": "- Start POC Oktober 25 - Abschluss Januar 25 - Implementierung - Q1 26",
+        "additionalComments": "Abgrenzung des Scopes Zeitplan nur für Out of the Box Copilot Freischaltung in Powerpoint"
+      },
+      "colleague_communication": {
+        "projectSponsor": "Jakub",
+        "involvedTeams": "Workplace/ Corporate Development/ Dienstleister",
+        "potentialConflicts": "Ressourcen",
+        "requiredResources": "Copilot-Lizenzen (~30 € pro Nutzer), IT-Support",
+        "dataAvailability": "Interne Datenquellen, Webrecherche",
+        "genaiConsiderations": "Prototyp-Meilensteine: Fokus auf kontrollierte Experimente zur Validierung der Umsetzbarkeit. Pilot-Design: Nutzerzentrierte Tests und Iterationen basierend auf Feedback. Ethik und Datenschutz: Frühzeitige Schutzmaßnahmen (z. B. anonymisierte Daten, Fairness-Audits). Skalierbarkeit: Bewertung der Infrastruktur für größere Implementierungen. Change Management: Planung zur Schulung und Akzeptanz der Nutzer. - Copilot POC - Festlegen für wen macht das Sinn",
+        "timeline": "- Start POC Oktober 25 - Abschluss Januar 25 - Implementierung - Q1 26",
+        "additionalComments": "Abgrenzung des Scopes Zeitplan nur für Out of the Box Copilot Freischaltung in Powerpoint"
       }
     },
     "notes": {
