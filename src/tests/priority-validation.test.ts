@@ -238,7 +238,8 @@ describe("Priority Calculations Validation", () => {
       for (const key of ideaKeys) {
         if (typeof key === "string") {
           expect(key).toMatch(/^[a-z_0-9]+\.ideas\.[a-z_0-9]+$/);
-          expect(key.startsWith(departmentName.replace(/-/g, "_") + ".")).toBe(
+          expect(key.startsWith(departmentName.replace(/-/g, "_") + "."),
+          `Key "${key}" in department "${departmentName}" does not start with "${departmentName.replace(/-/g, "_")}."`).toBe(
             true
           );
         }
