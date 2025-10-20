@@ -7,6 +7,7 @@ import { participantsData } from "@/data/participants";
 import { useTagging } from "@/hooks/useTagging";
 import { getIdeasFor, listDataKeys } from "@/lib/data";
 import { getAllIdeasForCalculator } from "@/lib/data-mapper";
+import { DuvenbeckScoringCriteria } from "@/lib/priority-calculator";
 import {
   Building2,
   Lightbulb,
@@ -74,6 +75,66 @@ export const Dashboard = () => {
   );
   const [loadingTags, setLoadingTags] = useState(false);
   const [departmentCount, setDepartmentCount] = useState<number>(0);
+  const [allIdeasData, setAllIdeasData] = useState<Array<{
+    id: string;
+    name: string;
+    description: string;
+    department: string;
+    scores: DuvenbeckScoringCriteria;
+  }>>([]);
+
+  // Load total ideas count and tags from all data files
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const allIdeas = await getAllIdeasForCalculator();
+        setTotalIdeasFromFiles(allIdeas.length);
+        setAllIdeasData(allIdeas);
+
+        // Load tags for all ideas
+        setLoadingTags(true);
+        const tagCounts = new Map<string, number>();
+
+        // Sample: Load tags for a subset of ideas to avoid too many API calls
+        // You can adjust the sampling or load all if needed
+        const samplesToLoad = Math.min(allIdeas.length, 79); // Load all 79 ideas
+
+        for (let i = 0; i < samplesToLoad; i++) {
+          const idea = allIdeas[i];
+          try {
+            const tags = await getTagsForIdea(idea.description);
+            tags.forEach((tag) => {
+              const tagText = tag.text.toLowerCase();
+              tagCounts.set(tagText, (tagCounts.get(tagText) || 0) + 1);
+            });
+          } catch (error) {
+            console.warn("Error generating tags for idea:", error);
+          }
+        }
+
+        // Convert to array and sort by count
+        const sortedTags = Array.from(tagCounts.entries())
+          .map(([tag, count]) => ({ tag, count }))
+          .sort((a, b) => b.count - a.count)
+          .slice(0, 15); // Top 15 tags
+
+        setTagData(sortedTags);
+
+        // Count departments
+        const departments = await listDataKeys();
+        const departmentKeys = departments.filter(
+          (key) => !["types", "participants"].includes(key)
+        );
+        setDepartmentCount(departmentKeys.length);
+      } catch (error) {
+        console.error("Error loading ideas:", error);
+      } finally {
+        setLoadingTags(false);
+      }
+    };
+
+    loadData();
+  }, [getTagsForIdea]);
 
   // Load total ideas count and tags from all data files
   useEffect(() => {
@@ -196,166 +257,27 @@ export const Dashboard = () => {
 
   // Calculate metrics and department data
   const { metrics, departmentData } = useMemo(() => {
-    const allDepartments = [
-      ...new Set(participantsData.map((p) => p.groupName)),
-    ];
+    // Count ideas by department from the loaded data
+    const ideasByDept: { [key: string]: number } = {};
+
+    for (const idea of allIdeasData) {
+      const deptName = formatDepartmentName(idea.department);
+      ideasByDept[deptName] = (ideasByDept[deptName] || 0) + 1;
+    }
 
     // Filter departments based on selection
-    const departmentsToProcess =
-      selectedDepartment === "all" ? allDepartments : [selectedDepartment];
-
-    const ideasByDept: { [key: string]: number } = {};
-    let totalIdeasCount = 0;
-
-    // Load ideas for each department
-    departmentsToProcess.forEach((dept) => {
-      try {
-        // Mapeamento explícito de todos os departamentos para seus arquivos de dados
-        const deptMappings: { [key: string]: string[] } = {
-          ESG: ["esg"],
-          HR: ["hr"],
-          "Marketing & Communication": ["marketing_communications"],
-          "Corporate Development": ["corp_dev"],
-          Compliance: ["compliance"],
-          Legal: ["legal"],
-          Controlling: ["controlling"],
-          "Group Accounting I": ["group_accounting"],
-          "Business Solution PCL": ["business_solution_pcl"],
-          "Road Sales SE": ["road_sales_se"],
-          IT: [
-            "it_shared_services",
-            "it_plataform_services_digital_workplace",
-            "it_business_solution_road",
-          ],
-          "Solution Design": ["solution_design"],
-          "Platform Services / Digital Workplace": ["platform_services"],
-          "Security Management": ["security_management"],
-          "Contract Logistics": ["contract_logistics"],
-          "Information Security": ["information_security"],
-          "Strategic KAM": ["strategic_kam"],
-          CRM: ["crm"],
-          QEHS: ["qehs"],
-          Insurance: ["insurance"],
-          "Central Solution Design": ["central_solution_design"],
-        };
-
-        const deptKeys = deptMappings[dept] || [
-          dept.toLowerCase().replace(/[^a-z0-9]/g, "_"),
-        ];
-        const deptData = import.meta.glob("../data/*.ts");
-        const deptFiles = Object.entries(deptData).filter(([path]) =>
-          deptKeys.some((key) => path.toLowerCase().includes(key))
-        );
-
-        deptFiles.forEach(async ([path, importer]) => {
-          try {
-            const module = await importer();
-            // Define a type for the expected module structure
-            type IdeasModule = {
-              ideas?: {
-                home?: unknown[];
-                ideas?: Array<{
-                  finalPrio?: string | number;
-                  ideaKey?: string;
-                }>;
-              };
-            };
-            const moduleData = (module as IdeasModule).ideas;
-            const ideas = moduleData?.ideas;
-
-            // Check for new format first (structured ideas array)
-            if (Array.isArray(ideas)) {
-              const validIdeas = ideas.filter(
-                (item) =>
-                  item &&
-                  typeof item === "object" &&
-                  "ideaKey" in item &&
-                  item.ideaKey
-              );
-              const count = validIdeas.length;
-              ideasByDept[dept] = (ideasByDept[dept] || 0) + count;
-              totalIdeasCount += count;
-              return; // Skip old format processing
-            }
-
-            // Fall back to old format (Priorisierungsmatrix) - check the full module data
-            const fullModuleData = moduleData as Record<string, unknown>;
-            if (
-              fullModuleData &&
-              typeof fullModuleData === "object" &&
-              "Priorisierungsmatrix" in fullModuleData &&
-              Array.isArray(fullModuleData.Priorisierungsmatrix)
-            ) {
-              // Count ideas from the Priorisierungsmatrix
-              const matrixIdeas = (
-                fullModuleData.Priorisierungsmatrix as Record<string, unknown>[]
-              ).filter((item: Record<string, unknown>) => {
-                if (!item || typeof item !== "object") return false;
-
-                // Skip empty rows
-                if (Object.values(item).every((val) => !val)) return false;
-
-                // Skip header rows
-                if (
-                  Object.values(item).some(
-                    (val) =>
-                      typeof val === "string" &&
-                      ["Priorisierungsmatrix", "Titel"].includes(val)
-                  )
-                )
-                  return false;
-
-                // Check for Problem and/or Solution fields
-                const hasValidContent = Object.entries(item).some(
-                  ([key, value]) => {
-                    if (
-                      !value ||
-                      typeof value !== "string" ||
-                      value.trim().length === 0
-                    )
-                      return false;
-
-                    const problemField =
-                      key === "Problem" ||
-                      key.toLowerCase().includes("problem") ||
-                      key === "Unnamed: 1";
-
-                    const solutionField =
-                      key === "Lösung" ||
-                      key === "Lösung." ||
-                      key.toLowerCase().includes("losung") ||
-                      key.toLowerCase().includes("solution") ||
-                      key === "Unnamed: 2";
-
-                    return (
-                      (problemField || solutionField) && value.trim().length > 0
-                    );
-                  }
-                );
-
-                return hasValidContent;
-              });
-
-              const count = matrixIdeas.length;
-              ideasByDept[dept] = (ideasByDept[dept] || 0) + count;
-              totalIdeasCount += count;
-            }
-          } catch (error) {
-            console.warn(`Error loading department data for ${path}:`, error);
-          }
-        });
-      } catch (error) {
-        console.warn(`Error processing department ${dept}:`, error);
-      }
-    });
+    const filteredIdeasByDept = 
+      selectedDepartment === "all" 
+        ? ideasByDept
+        : Object.fromEntries(
+            Object.entries(ideasByDept).filter(([dept]) => dept === selectedDepartment)
+          );
 
     // Calculate unique departments from actual department workspaces (data files)
-    // Use the loaded department count from listDataKeys
     const uniqueDepts = selectedDepartment === "all" ? departmentCount : 1;
 
     // Use the total ideas count from getAllIdeasForCalculator (same as PriorityAnalysis)
-    // This ensures consistency between Dashboard and PriorityAnalysis pages
-    const displayTotalIdeas = totalIdeasFromFiles ?? totalIdeasCount;
+    const displayTotalIdeas = totalIdeasFromFiles ?? allIdeasData.length;
 
     const metrics = {
       totalIdeas: displayTotalIdeas,
@@ -364,7 +286,7 @@ export const Dashboard = () => {
       totalHours: 20.5, // Total workshop hours
     };
 
-    const departmentData = Object.entries(ideasByDept)
+    const departmentData = Object.entries(filteredIdeasByDept)
       .map(([name, value]) => ({ name, value }))
       .sort((a, b) => b.value - a.value)
       .slice(0, 10);
@@ -375,6 +297,7 @@ export const Dashboard = () => {
     selectedDepartment,
     totalIdeasFromFiles,
     departmentCount,
+    allIdeasData,
   ]);
 
   const dayData = useMemo(() => {
