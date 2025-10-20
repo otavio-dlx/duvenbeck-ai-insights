@@ -1,4 +1,4 @@
-import { listDataKeys, getIdeasFor } from '../src/lib/data.js';
+import { getIdeasFor, listDataKeys } from "../src/lib/data.js";
 
 // Helper function to format department names (same as in DynamicCollaboards)
 const formatDepartmentName = (key) => {
@@ -31,8 +31,8 @@ const formatDepartmentName = (key) => {
 async function countDepartments() {
   try {
     const keys = await listDataKeys();
-    console.log('All data keys:', keys);
-    
+    console.log("All data keys:", keys);
+
     const validDepartments = [];
 
     for (const k of keys) {
@@ -45,19 +45,22 @@ async function countDepartments() {
         if (!Array.isArray(home) || home.length === 0) continue;
 
         const homeData = home[0];
-        if (homeData && typeof homeData === 'object' && homeData !== null) {
+        if (homeData && typeof homeData === "object" && homeData !== null) {
           const collaboardLink = homeData.collaboardLink;
           const department = homeData.department;
 
           if (
-            typeof collaboardLink === 'string' &&
-            collaboardLink.startsWith('http')
+            typeof collaboardLink === "string" &&
+            collaboardLink.startsWith("http")
           ) {
-            const deptName = typeof department === 'string' 
-              ? department 
-              : formatDepartmentName(k);
+            const deptName =
+              typeof department === "string"
+                ? department
+                : formatDepartmentName(k);
             validDepartments.push(deptName);
-            console.log(`✓ ${k} -> ${deptName} (${collaboardLink.substring(0, 50)}...)`);
+            console.log(
+              `✓ ${k} -> ${deptName} (${collaboardLink.substring(0, 50)}...)`
+            );
           } else {
             console.log(`✗ ${k} -> no valid collaboard link`);
           }
@@ -77,16 +80,15 @@ async function countDepartments() {
       }
     }
 
-    console.log('\nUnique departments with valid collaboard data:');
+    console.log("\nUnique departments with valid collaboard data:");
     const sortedDepts = Array.from(uniqueDepartments.keys()).sort();
     sortedDepts.forEach((dept, i) => {
       console.log(`${i + 1}. ${dept}`);
     });
-    
+
     console.log(`\nTotal department count: ${uniqueDepartments.size}`);
-    
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
   }
 }
 

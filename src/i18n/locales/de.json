@@ -1111,7 +1111,7 @@
     "totalIdeas": "Gesamtideen",
     "totalParticipants": "Teilnehmer",
     "departments": "Abteilungen",
-    "avgPriority": "Ø Priorität"
+    "totalHours": "Gesamtstunden"
   },
   "charts": {
     "ideasByDepartment": "Ideen nach Abteilung",

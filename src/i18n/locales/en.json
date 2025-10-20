@@ -1111,7 +1111,7 @@
     "totalIdeas": "Total Ideas",
     "totalParticipants": "Participants",
     "departments": "Departments",
-    "avgPriority": "Avg Priority"
+    "totalHours": "Total Hours"
   },
   "charts": {
     "ideasByDepartment": "Ideas by Department",

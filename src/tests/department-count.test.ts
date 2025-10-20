@@ -1,8 +1,8 @@
-import { describe, it, expect } from 'vitest';
-import { listDataKeys, getIdeasFor } from '@/lib/data';
+import { getIdeasFor, listDataKeys } from "@/lib/data";
+import { describe, expect, it } from "vitest";
 
-describe('Department Count', () => {
-  it('should count exactly 13 departments with valid collaboard data', async () => {
+describe("Department Count", () => {
+  it("should count exactly 13 departments with valid collaboard data", async () => {
     // Use the same logic as DynamicCollaboards to count valid departments
     const keys = await listDataKeys();
     const validDepartments: string[] = [];
@@ -17,18 +17,19 @@ describe('Department Count', () => {
         if (!Array.isArray(home) || home.length === 0) continue;
 
         const homeData = home[0];
-        if (homeData && typeof homeData === 'object' && homeData !== null) {
+        if (homeData && typeof homeData === "object" && homeData !== null) {
           const homeRecord = homeData as Record<string, unknown>;
           const collaboardLink = homeRecord.collaboardLink;
           const department = homeRecord.department;
 
           if (
-            typeof collaboardLink === 'string' &&
-            collaboardLink.startsWith('http')
+            typeof collaboardLink === "string" &&
+            collaboardLink.startsWith("http")
           ) {
-            const deptName = typeof department === 'string' 
-              ? department 
-              : formatDepartmentName(k);
+            const deptName =
+              typeof department === "string"
+                ? department
+                : formatDepartmentName(k);
             validDepartments.push(deptName);
           }
         }
@@ -46,25 +47,31 @@ describe('Department Count', () => {
     });
 
     const finalCount = uniqueDepartments.size;
-    
-    console.log('Valid departments found:', Array.from(uniqueDepartments.keys()).sort());
-    console.log('Total department count:', finalCount);
-    
+
+    console.log(
+      "Valid departments found:",
+      Array.from(uniqueDepartments.keys()).sort()
+    );
+    console.log("Total department count:", finalCount);
+
     // This should be 13 according to the user
     expect(finalCount).toBe(13);
   });
 
-  it('should list all data keys excluding non-department files', async () => {
+  it("should list all data keys excluding non-department files", async () => {
     const keys = await listDataKeys();
-    const filteredKeys = keys.filter(key => 
-      !['participants', 'types'].includes(key)
+    const filteredKeys = keys.filter(
+      (key) => !["participants", "types"].includes(key)
     );
-    
-    console.log('All data keys:', keys.sort());
-    console.log('Department keys (excluding participants, types):', filteredKeys.sort());
-    console.log('Total file count:', keys.length);
-    console.log('Department file count:', filteredKeys.length);
-    
+
+    console.log("All data keys:", keys.sort());
+    console.log(
+      "Department keys (excluding participants, types):",
+      filteredKeys.sort()
+    );
+    console.log("Total file count:", keys.length);
+    console.log("Department file count:", filteredKeys.length);
+
     // This might be 15, but not all have valid collaboard data
     expect(filteredKeys.length).toBeGreaterThan(0);
   });

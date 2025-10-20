@@ -16,6 +16,22 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  Legend,
+  PolarAngleAxis,
+  PolarGrid,
+  PolarRadiusAxis,
+  Radar,
+  RadarChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 // Helper function to format department names (same as in DynamicCollaboards)
 const formatDepartmentName = (key: string): string => {
@@ -44,22 +60,6 @@ const formatDepartmentName = (key: string): string => {
       .join(" ")
   );
 };
-import {
-  Bar,
-  BarChart,
-  CartesianGrid,
-  Cell,
-  Legend,
-  PolarAngleAxis,
-  PolarGrid,
-  PolarRadiusAxis,
-  Radar,
-  RadarChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
 
 export const Dashboard = () => {
   const { t } = useTranslation();
@@ -136,18 +136,19 @@ export const Dashboard = () => {
             if (!Array.isArray(home) || home.length === 0) continue;
 
             const homeData = home[0];
-            if (homeData && typeof homeData === 'object' && homeData !== null) {
+            if (homeData && typeof homeData === "object" && homeData !== null) {
               const homeRecord = homeData as Record<string, unknown>;
               const collaboardLink = homeRecord.collaboardLink;
               const department = homeRecord.department;
 
               if (
-                typeof collaboardLink === 'string' &&
-                collaboardLink.startsWith('http')
+                typeof collaboardLink === "string" &&
+                collaboardLink.startsWith("http")
               ) {
-                const deptName = typeof department === 'string' 
-                  ? department 
-                  : formatDepartmentName(k);
+                const deptName =
+                  typeof department === "string"
+                    ? department
+                    : formatDepartmentName(k);
                 validDepartments.push(deptName);
               }
             }
@@ -360,7 +361,7 @@ export const Dashboard = () => {
       totalIdeas: displayTotalIdeas,
       totalParticipants: filteredParticipants.length,
       departments: uniqueDepts,
-      avgPriority: 7.5, // Mock data
+      totalHours: 20.5, // Total workshop hours
     };
 
     const departmentData = Object.entries(ideasByDept)
@@ -369,7 +370,12 @@ export const Dashboard = () => {
       .slice(0, 10);
 
     return { metrics, departmentData };
-  }, [filteredParticipants, selectedDepartment, totalIdeasFromFiles, departmentCount]);
+  }, [
+    filteredParticipants,
+    selectedDepartment,
+    totalIdeasFromFiles,
+    departmentCount,
+  ]);
 
   const dayData = useMemo(() => {
     const day1Count = participantsData.filter((p) => p.day1).length;
@@ -427,8 +433,8 @@ export const Dashboard = () => {
             icon={Building2}
           />
           <MetricCard
-            title={t("metrics.avgPriority")}
-            value={metrics.avgPriority}
+            title={t("metrics.totalHours")}
+            value={metrics.totalHours}
             icon={TrendingUp}
           />
         </div>
