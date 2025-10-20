@@ -25,6 +25,7 @@ export interface TaggingContextType {
   isLoading: boolean;
   error: string | null;
   getTagsForIdea: (ideaText: string) => Promise<Tag[]>;
+  getTagsForIdeaKey: (ideaKey: string) => Promise<Tag[]>;
   clearCache: () => void;
 }
 
@@ -193,17 +194,89 @@ export function TaggingProvider({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Helper function to convert API response tags to UI tags
+  const convertApiTagsToUiTags = (apiTags: Array<{ tag: string; category: string; confidence?: string }>): Tag[] => {
+    return apiTags.map((apiTag) => ({
+      text: apiTag.tag,
+      category: categorizeTag(apiTag.tag),
+      confidence: apiTag.confidence
+        ? Number.parseFloat(apiTag.confidence)
+        : undefined,
+    }));
+  };
+
+  // Helper function to generate idea ID from idea key
+  const getIdeaIdFromKey = (ideaKey: string): string => {
+    return ideaKey.replace(/\./g, "-");
+  };
+
+  // New method to get tags for an idea by its key (API call to database)
+  const getTagsForIdeaKey = useCallback(
+    async (ideaKey: string): Promise<Tag[]> => {
+      console.log("🏷️ Getting tags for idea key:", ideaKey);
+
+      const ideaId = getIdeaIdFromKey(ideaKey);
+
+      try {
+        setIsLoading(true);
+        setError(null);
+
+        // Check if tags exist in database via API
+        const response = await fetch(`/api/tags/${ideaId}`);
+        
+        if (response.ok) {
+          const data = await response.json();
+          if (data.tags && data.tags.length > 0) {
+            console.log("🏷️ Found existing tags in database");
+            const uiTags = convertApiTagsToUiTags(data.tags);
+            console.log("🏷️ Returning database tags:", uiTags);
+            return uiTags;
+          }
+        }
+
+        console.log("🏷️ No tags found in database, generating new ones...");
+
+        // If no tags exist, we'll use the fallback system
+        const { generateFallbackTags } = await import("@/lib/fallbackTags");
+        const fallbackTags = generateFallbackTags(ideaKey);
+        
+        // Store the generated tags in database via API
+        const tagStrings = fallbackTags.map((tag) => tag.text);
+        await fetch(`/api/tags/${ideaId}`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ tags: tagStrings, category: "ai-generated" }),
+        });
+        
+        console.log("🏷️ Generated and stored new tags:", fallbackTags);
+        return fallbackTags;
+
+      } catch (err) {
+        const errorMessage = err instanceof Error ? err.message : "Unknown error occurred";
+        console.error("🏷️ Error getting tags for idea key:", errorMessage);
+        setError(errorMessage);
+
+        // Return fallback tags
+        const { generateFallbackTags } = await import("@/lib/fallbackTags");
+        return generateFallbackTags(ideaKey);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    []
+  );
+
   const getTagsForIdea = useCallback(
     async (ideaText: string): Promise<Tag[]> => {
       console.log(
-        "🏷️ Getting tags for idea:",
+        "🏷️ Getting tags for idea text:",
         ideaText.substring(0, 100) + "..."
       );
 
       // Create a cache key from the idea text
       const cacheKey = ideaText.trim().toLowerCase();
 
-      // Check cache first
+      // Check cache first (for legacy support)
       const cached = tagCache.get(cacheKey);
       if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
         console.log("🏷️ Using cached tags:", cached.tags);
@@ -230,7 +303,7 @@ export function TaggingProvider({
         const selectedTags = selectTopTags(categorizedTags);
         console.log("🏷️ Selected tags after categorization:", selectedTags);
 
-        // Cache the result
+        // Cache the result (legacy in-memory cache)
         const taggedIdea: TaggedIdea = {
           ideaText,
           tags: selectedTags,
@@ -269,9 +342,10 @@ export function TaggingProvider({
       isLoading,
       error,
       getTagsForIdea,
+      getTagsForIdeaKey,
       clearCache,
     }),
-    [tagCache, isLoading, error, getTagsForIdea, clearCache]
+    [tagCache, isLoading, error, getTagsForIdea, getTagsForIdeaKey, clearCache]
   );
 
   return (

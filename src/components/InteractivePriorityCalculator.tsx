@@ -870,12 +870,7 @@ export function InteractivePriorityCalculator({
             {/* AI-Generated Tags Section */}
             {selectedIdea && (
               <div className="p-6 border-b border-border/10">
-                <IdeaTagsSection
-                  ideaText={getTranslatedInitiativeName(
-                    selectedIdea.id,
-                    selectedIdea.name
-                  )}
-                />
+                <IdeaTagsSection ideaKey={selectedIdea.id} />
               </div>
             )}
             {projectBrief ? (

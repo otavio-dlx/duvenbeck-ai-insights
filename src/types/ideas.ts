@@ -27,3 +27,9 @@ export interface HomeInfo {
   businessLine?: string;
   collaboardLink: string;
 }
+
+// Department data structure - this is what our seed script expects
+export interface DepartmentData {
+  home: HomeInfo[];
+  ideas: NewFormatIdea[];
+}

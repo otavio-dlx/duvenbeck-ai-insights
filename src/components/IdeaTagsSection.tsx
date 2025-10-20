@@ -4,27 +4,46 @@ import { useTagging } from "@/hooks/useTagging";
 import { useEffect, useState } from "react";
 
 interface IdeaTagsSectionProps {
-  ideaText: string;
+  ideaText?: string; // Legacy support
+  ideaKey?: string; // New preferred prop for database lookup
   className?: string;
 }
 
 export function IdeaTagsSection({
   ideaText,
+  ideaKey,
   className = "",
 }: Readonly<IdeaTagsSectionProps>) {
-  const { getTagsForIdea, isLoading } = useTagging();
+  const { getTagsForIdea, getTagsForIdeaKey, isLoading } = useTagging();
   const [tags, setTags] = useState<Tag[]>([]);
   const [loadingTags, setLoadingTags] = useState(false);
 
   useEffect(() => {
-    if (ideaText.trim()) {
+    // Prioritize ideaKey (database lookup) over ideaText (legacy API call)
+    if (ideaKey?.trim()) {
+      setLoadingTags(true);
+      getTagsForIdeaKey(ideaKey)
+        .then((fetchedTags) => {
+          setTags(fetchedTags);
+        })
+        .catch(async (error) => {
+          console.error("Failed to fetch tags for idea key:", error);
+          // Generate smart fallback tags based on idea key
+          const { generateFallbackTags } = await import("@/lib/fallbackTags");
+          setTags(generateFallbackTags(ideaKey));
+        })
+        .finally(() => {
+          setLoadingTags(false);
+        });
+    } else if (ideaText?.trim()) {
+      // Fallback to legacy text-based tagging
       setLoadingTags(true);
       getTagsForIdea(ideaText)
         .then((fetchedTags) => {
           setTags(fetchedTags);
         })
         .catch(async (error) => {
-          console.error("Failed to fetch tags for idea:", error);
+          console.error("Failed to fetch tags for idea text:", error);
           // Generate smart fallback tags based on idea content
           const { generateFallbackTags } = await import("@/lib/fallbackTags");
           setTags(generateFallbackTags(ideaText));
@@ -33,7 +52,7 @@ export function IdeaTagsSection({
           setLoadingTags(false);
         });
     }
-  }, [ideaText, getTagsForIdea]);
+  }, [ideaKey, ideaText, getTagsForIdeaKey, getTagsForIdea]);
 
   if (loadingTags || isLoading) {
     return (
