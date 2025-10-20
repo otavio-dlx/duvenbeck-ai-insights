@@ -125,9 +125,28 @@ interface ModalSection {
   icon?: string;
 }
 
+import { FilterPanel } from "@/components/FilterPanel";
+
+interface InteractivePriorityCalculatorProps {
+  ideas: Array<{
+    id: string;
+    name: string;
+    description?: string;
+    department: string;
+    scores: DuvenbeckScoringCriteria;
+  }>;
+  departments?: string[];
+  selectedDepartment?: string;
+  onDepartmentChange?: (value: string) => void;
+}
+
 export function InteractivePriorityCalculator({
   ideas,
+  departments,
+  selectedDepartment,
+  onDepartmentChange,
 }: Readonly<InteractivePriorityCalculatorProps>) {
+  // Restore original: no tag filter, no filteredIdeas
   const { t } = useTranslation();
 
   // Helper function to translate categories
@@ -500,354 +519,170 @@ export function InteractivePriorityCalculator({
         </CardHeader>
       </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Weight Configuration Panel */}
-        <div className="lg:col-span-1">
+      {/* Filter and Rankings Side by Side */}
+      <div className="flex flex-col lg:flex-row gap-6">
+        {/* Department Filter Sidebar */}
+        {departments && selectedDepartment !== undefined && onDepartmentChange && (
+          <div className="w-full lg:w-72 flex-shrink-0">
+            <FilterPanel
+              departments={departments}
+              selectedDepartment={selectedDepartment}
+              onDepartmentChange={onDepartmentChange}
+              selectedDay="all"
+              onDayChange={() => {}}
+              onReset={() => onDepartmentChange("all")}
+            />
+          </div>
+        )}
+
+        {/* Rankings Panel Only */}
+        <div className="flex-1">
           <Card>
             <CardHeader>
-              <CardTitle>
-                {t("priorityAnalysis.calculator.weightConfiguration")}
-              </CardTitle>
+              <CardTitle>{t("priorityAnalysis.rankings.title")}</CardTitle>
               <CardDescription>
-                {t("priorityAnalysis.calculator.total")}:{" "}
-                {Math.round(totalWeight)}%
-                {Math.abs(totalWeight - 100) > 0.1 && (
-                  <Badge variant="destructive" className="ml-2">
-                    {t("priorityAnalysis.calculator.mustEqual100")}
-                  </Badge>
-                )}
+                {t("priorityAnalysis.rankings.subtitle")}
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
-              {/* Scenario Selector */}
-              <div>
-                <label className="text-sm font-medium mb-2 block">
-                  {t("priorityAnalysis.calculator.predefinedScenarios")}
-                </label>
-                <Select
-                  value={selectedScenario}
-                  onValueChange={handleScenarioChange}
-                >
-                  <SelectTrigger>
-                    <SelectValue
-                      placeholder={t(
-                        "priorityAnalysis.calculator.selectScenario"
-                      )}
-                    />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="custom">
-                      {t("priorityAnalysis.calculator.customWeights")}
-                    </SelectItem>
-                    {scenarios.map((scenario) => (
-                      <SelectItem key={scenario.name} value={scenario.name}>
-                        {scenario.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {selectedScenario !== "custom" && (
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {
-                      scenarios.find((s) => s.name === selectedScenario)
-                        ?.description
-                    }
-                  </p>
-                )}
-              </div>
-
-              {/* Weight Sliders */}
-              {Object.entries(weights).map(([criterion, weight]) => (
-                <div key={criterion}>
-                  <div className="flex items-center justify-between mb-2">
-                    <label className="text-sm font-medium flex items-center gap-1">
-                      {criterion.charAt(0).toUpperCase() +
-                        criterion.slice(1).replace(/([A-Z])/g, " $1")}
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <Info className="h-3 w-3 text-muted-foreground" />
-                          </TooltipTrigger>
-                          <TooltipContent side="right" className="max-w-xs">
-                            <div className="space-y-1">
-                              {Object.entries(
-                                DuvenbeckPriorityCalculator.SCORING_GUIDELINES[
-                                  criterion as keyof typeof DuvenbeckPriorityCalculator.SCORING_GUIDELINES
-                                ]
-                              ).map(([score, desc]) => (
-                                <p key={score} className="text-xs">
-                                  <strong>{score}:</strong> {desc}
-                                </p>
-                              ))}
-                            </div>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </label>
-                    <Badge variant="secondary">{Math.round(weight)}%</Badge>
-                  </div>
-                  <Slider
-                    value={[weight]}
-                    onValueChange={(value) =>
-                      handleWeightChange(
-                        criterion as keyof WeightingConfig,
-                        value
-                      )
-                    }
-                    max={50}
-                    min={1}
-                    step={1}
-                    className="w-full"
-                  />
-                </div>
-              ))}
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-12">
+                      <div className="flex items-center gap-1">
+                        {t("priorityAnalysis.rankings.rank")}
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Info className="h-3 w-3 text-muted-foreground" />
+                            </TooltipTrigger>
+                            <TooltipContent
+                              side="bottom"
+                              className="max-w-xs"
+                            >
+                              {t("priorityAnalysis.rankings.rankTooltip")}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                    </TableHead>
+                    <TableHead>
+                      <div className="flex items-center gap-1">
+                        {t("priorityAnalysis.rankings.aiInitiative")}
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Info className="h-3 w-3 text-muted-foreground" />
+                            </TooltipTrigger>
+                            <TooltipContent side="bottom" className="max-w-xs">
+                              {t("priorityAnalysis.rankings.aiInitiativeTooltip")}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                    </TableHead>
+                    <TableHead>
+                      <div className="flex items-center gap-1">
+                        {t("priorityAnalysis.rankings.department")}
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipContent side="bottom" className="max-w-xs">
+                              {t("priorityAnalysis.rankings.departmentTooltip")}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                    </TableHead>
+                    <TableHead>
+                      <div className="flex items-center gap-1">
+                        {t("priorityAnalysis.rankings.score")}
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipContent side="bottom" className="max-w-xs">
+                              {t("priorityAnalysis.rankings.scoreTooltip")}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                    </TableHead>
+                    <TableHead>
+                      <div className="flex items-center gap-1">
+                        {t("priorityAnalysis.rankings.category")}
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipContent side="bottom" className="max-w-xs">
+                              {t("priorityAnalysis.rankings.categoryTooltip")}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </div>
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {currentRankings.map((result) => {
+                    const idea = ideas.find((i) => i.id === result.id);
+                    return (
+                      <TableRow
+                        key={result.id}
+                        className="cursor-pointer hover:bg-muted/50 transition-colors"
+                        onClick={() => {
+                          const idea = ideas.find(
+                            (i) => i.id === result.id
+                          );
+                          if (idea) {
+                            setSelectedIdea(idea);
+                            const modalSections = createModalSections(idea);
+                            setProjectBrief(JSON.stringify(modalSections));
+                          }
+                        }}
+                      >
+                        <TableCell className="font-medium">
+                          #{result.rank}
+                        </TableCell>
+                        <TableCell>
+                          {idea
+                            ? getTranslatedInitiativeName(idea.id, idea.name)
+                            : result.name}
+                        </TableCell>
+                        <TableCell>
+                          {idea
+                            ? getDepartmentDisplayName(idea.department)
+                            : ""}
+                        </TableCell>
+                        <TableCell>
+                          <Badge
+                            variant={getScoreBadgeVariant(
+                              result.finalScore
+                            )}
+                          >
+                            {result.finalScore}
+                          </Badge>
+                        </TableCell>
+                        <TableCell>
+                          <Badge
+                            variant={getCategoryBadgeVariant(
+                              result.category
+                            )}
+                          >
+                            {translateCategory(result.category)}
+                          </Badge>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
             </CardContent>
           </Card>
         </div>
-
-        {/* Results Panel */}
-        <div className="lg:col-span-2">
-          <Tabs defaultValue="rankings" className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="rankings" className="cursor-pointer">
-                {t("priorityAnalysis.tabs.rankings")}
-              </TabsTrigger>
-              <TabsTrigger value="breakdown" className="cursor-pointer">
-                {t("priorityAnalysis.tabs.insights")}
-              </TabsTrigger>
-              <TabsTrigger value="scenarios" className="cursor-pointer">
-                {t("priorityAnalysis.tabs.scenarios")}
-              </TabsTrigger>
-            </TabsList>
-
-            {/* Rankings Tab */}
-            <TabsContent value="rankings">
-              <Card>
-                <CardHeader>
-                  <CardTitle>{t("priorityAnalysis.rankings.title")}</CardTitle>
-                  <CardDescription>
-                    {t("priorityAnalysis.rankings.subtitle")}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-12">
-                          <div className="flex items-center gap-1">
-                            {t("priorityAnalysis.rankings.rank")}
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger>
-                                  <Info className="h-3 w-3 text-muted-foreground" />
-                                </TooltipTrigger>
-                                <TooltipContent
-                                  side="bottom"
-                                  className="max-w-xs"
-                                >
-                                  <p className="text-xs">
-                                    {t(
-                                      "priorityAnalysis.rankings.tooltips.rank"
-                                    )}
-                                  </p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          </div>
-                        </TableHead>
-                        <TableHead>
-                          <div className="flex items-center gap-1">
-                            {t("priorityAnalysis.rankings.aiInitiative")}
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger>
-                                  <Info className="h-3 w-3 text-muted-foreground" />
-                                </TooltipTrigger>
-                                <TooltipContent
-                                  side="bottom"
-                                  className="max-w-xs"
-                                >
-                                  <p className="text-xs">
-                                    {t(
-                                      "priorityAnalysis.rankings.tooltips.aiInitiative"
-                                    )}
-                                  </p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          </div>
-                        </TableHead>
-                        <TableHead>
-                          <div className="flex items-center gap-1">
-                            {t("priorityAnalysis.rankings.department")}
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger>
-                                  <Info className="h-3 w-3 text-muted-foreground" />
-                                </TooltipTrigger>
-                                <TooltipContent
-                                  side="bottom"
-                                  className="max-w-xs"
-                                >
-                                  <p className="text-xs">
-                                    {t(
-                                      "priorityAnalysis.rankings.tooltips.department"
-                                    )}
-                                  </p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          </div>
-                        </TableHead>
-                        <TableHead>
-                          <div className="flex items-center gap-1">
-                            {t("priorityAnalysis.rankings.score")}
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger>
-                                  <Info className="h-3 w-3 text-muted-foreground" />
-                                </TooltipTrigger>
-                                <TooltipContent
-                                  side="bottom"
-                                  className="max-w-xs"
-                                >
-                                  <p className="text-xs">
-                                    {t(
-                                      "priorityAnalysis.rankings.tooltips.score"
-                                    )}
-                                  </p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          </div>
-                        </TableHead>
-                        <TableHead>
-                          <div className="flex items-center gap-1">
-                            {t("priorityAnalysis.rankings.category")}
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger>
-                                  <Info className="h-3 w-3 text-muted-foreground" />
-                                </TooltipTrigger>
-                                <TooltipContent
-                                  side="bottom"
-                                  className="max-w-xs"
-                                >
-                                  <p className="text-xs">
-                                    {t(
-                                      "priorityAnalysis.rankings.tooltips.category"
-                                    )}
-                                  </p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          </div>
-                        </TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {currentRankings.map((result) => {
-                        const idea = ideas.find((i) => i.id === result.id);
-                        return (
-                          <TableRow
-                            key={result.id}
-                            className="cursor-pointer hover:bg-muted/50 transition-colors"
-                            onClick={() => {
-                              const idea = ideas.find(
-                                (i) => i.id === result.id
-                              );
-                              if (idea) {
-                                setSelectedIdea(idea);
-                                const modalSections = createModalSections(idea);
-                                setProjectBrief(JSON.stringify(modalSections));
-                              }
-                            }}
-                          >
-                            <TableCell className="font-medium">
-                              #{result.rank}
-                            </TableCell>
-                            <TableCell>
-                              <div>
-                                <div className="font-medium flex items-center gap-2">
-                                  {idea
-                                    ? getTranslatedInitiativeName(
-                                        idea.id,
-                                        result.name
-                                      )
-                                    : result.name}
-                                  <ExternalLink className="h-3 w-3 text-muted-foreground" />
-                                </div>
-                                {idea?.description && (
-                                  <div className="text-sm text-muted-foreground line-clamp-2">
-                                    {getTranslatedInitiativeDescription(
-                                      idea.id,
-                                      idea.description,
-                                      idea.name
-                                    )}
-                                  </div>
-                                )}
-                              </div>
-                            </TableCell>
-                            <TableCell>
-                              {idea
-                                ? getDepartmentDisplayName(idea.department)
-                                : ""}
-                            </TableCell>
-                            <TableCell>
-                              <Badge
-                                variant={getScoreBadgeVariant(
-                                  result.finalScore
-                                )}
-                              >
-                                {result.finalScore}
-                              </Badge>
-                            </TableCell>
-                            <TableCell>
-                              <Badge
-                                variant={getCategoryBadgeVariant(
-                                  result.category
-                                )}
-                              >
-                                {translateCategory(result.category)}
-                              </Badge>
-                            </TableCell>
-                          </TableRow>
-                        );
-                      })}
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            {/* Interactive Insights Tab */}
-            <TabsContent value="breakdown">
-              <InsightsBubbleChart
-                ideas={ideas}
-                rankings={currentRankings}
-                getDepartmentDisplayName={getDepartmentDisplayName}
-                onIdeaClick={(idea) => {
-                  setSelectedIdea(idea);
-                  const modalSections = createModalSections(idea);
-                  setProjectBrief(JSON.stringify(modalSections));
-                }}
-              />
-            </TabsContent>
-
-            {/* Scenario Comparison Tab */}
-            <TabsContent value="scenarios">
-              <ScenarioComparison ideas={ideas} />
-            </TabsContent>
-          </Tabs>
-        </div>
       </div>
-
-      {/* Idea Details Modal */}
-      <Dialog
-        open={selectedIdea !== null}
-        onOpenChange={() => setSelectedIdea(null)}
-      >
-        <DialogContent className="max-w-6xl max-h-[95vh] p-0 gap-0 bg-white">
+                    {/* Idea Details Modal */}
+                    <Dialog
+                      open={selectedIdea !== null}
+                      onOpenChange={() => setSelectedIdea(null)}
+                    >
+                      <DialogContent className="max-w-6xl max-h-[95vh] p-0 gap-0 bg-white">
           <DialogHeader className="p-8 pb-6 border-b border-gray-200 bg-white">
             <DialogTitle className="text-3xl font-bold text-gray-900 leading-tight">
               {selectedIdea

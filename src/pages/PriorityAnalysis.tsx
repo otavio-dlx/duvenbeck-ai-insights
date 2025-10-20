@@ -1,4 +1,5 @@
 import { Header } from "@/components/Header";
+import { FilterPanel } from "@/components/FilterPanel";
 import { InteractivePriorityCalculator } from "@/components/InteractivePriorityCalculator";
 import { Button } from "@/components/ui/button";
 import { getAllIdeasForCalculator } from "@/lib/data-mapper";
@@ -21,6 +22,7 @@ export default function PriorityAnalysisPage() {
   const [allIdeas, setAllIdeas] = useState<Idea[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [selectedDepartment, setSelectedDepartment] = useState("all");
 
   useEffect(() => {
     const loadIdeas = async () => {
@@ -79,6 +81,15 @@ export default function PriorityAnalysisPage() {
     );
   }
 
+  // Compute unique department list from loaded ideas
+  const departments = Array.from(new Set(allIdeas.map((idea) => idea.department))).sort();
+
+  // Filter ideas by selected department
+  const filteredIdeas =
+    selectedDepartment === "all"
+      ? allIdeas
+      : allIdeas.filter((idea) => idea.department === selectedDepartment);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
       <Header />
@@ -104,8 +115,14 @@ export default function PriorityAnalysisPage() {
           </p>
         </div>
 
-        {/* Interactive Calculator */}
-        <InteractivePriorityCalculator ideas={allIdeas} />
+
+        {/* Interactive Calculator with Department Filter */}
+        <InteractivePriorityCalculator
+          ideas={filteredIdeas}
+          departments={departments}
+          selectedDepartment={selectedDepartment}
+          onDepartmentChange={setSelectedDepartment}
+        />
 
         {/* Usage Instructions */}
         <div className="mt-8">
