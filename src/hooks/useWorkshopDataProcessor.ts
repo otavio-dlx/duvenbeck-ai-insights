@@ -10,7 +10,7 @@ import * as corpDevData from "@/data/corp_dev";
 import * as esgData from "@/data/esg";
 import * as hrData from "@/data/hr";
 import * as itBusinessSolutionRoadData from "@/data/it_business_solution_road";
-import * as itPlatformServicesData from "@/data/it_plataform_services_digital_workplace";
+import * as itPlatformServicesData from "@/data/it_platform_services_digital_workplace";
 import * as itSharedServicesData from "@/data/it_shared_services";
 import * as marketingCommunicationsData from "@/data/marketing_communications";
 import * as qehsData from "@/data/qehs";
