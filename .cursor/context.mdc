@@ -1,3 +1,4 @@
+--- CONTEXT FROM: /Users/olserra-duvenbeck/Developer/Duvenbeck/duvenbeck-ai-insights/docs/CONTEXT.md ---
 # Project Context: AI Insights Dashboard
 
 ## Overview
@@ -60,3 +61,57 @@ Each department file contains:
 - **Internationalization**: Multi-language support for global accessibility
 
 This structured approach ensures consistency across departments while maintaining the unique insights and priorities of each team.
+
+---
+
+--- CONTEXT FROM: /Users/olserra-duvenbeck/Developer/Duvenbeck/duvenbeck-ai-insights/docs/CHAT.md ---
+# Chat Feature Documentation
+
+## Overview
+
+The Duvenbeck AI Insights application includes a RAG (Retrieval-Augmented Generation) powered chat feature that allows users to query workshop data using natural language. This document explains the architecture, setup, and troubleshooting process.
+
+## Architecture
+
+### Components
+
+1. **Frontend (React + Vite)**
+2. **Backend API (Express)**
+3. **Vector Database (Qdrant)**
+4. **LLM (Google Gemini)**
+
+---
+
+--- CONTEXT FROM: /Users/olserra-duvenbeck/Developer/Duvenbeck/duvenbeck-ai-insights/docs/VECTOR_DB_UPLOAD.md ---
+# Vector Database Upload Summary
+
+- **Collection Name**: `duvenbeck_workshop_ideas`
+- **Embedding Model**: Google's `text-embedding-004`
+
+---
+
+--- CONTEXT FROM: /Users/olserra-duvenbeck/Developer/Duvenbeck/duvenbeck-ai-insights/docs/BRANCHING.md ---
+# Branching strategy
+
+- `main` is the primary branch.
+- Feature branches: `feat/<short-description>`
+- Bugfix branches: `fix/<short-description>`
+
+---
+
+--- CONTEXT FROM: /Users/olserra-duvenbeck/Developer/Duvenbeck/duvenbeck-ai-insights/docs/adr/AI_CHAT_FIX.md ---
+# AI Chat Fix Summary
+
+- **Fix**: Added Qdrant client integration with automatic fallback to in-memory search.
+
+---
+
+## Department-Specific Context
+
+For detailed context on each department's workshop results, refer to the files in the `docs/departments/` directory. These files contain the specific AI initiatives, problem statements, and project details for each area.
+
+---
+
+## Technology Stack Documentation
+
+For detailed documentation on the technologies used in this project, refer to the files in the `docs/stack/` directory. This information is sourced from our `context7` MCP server.
