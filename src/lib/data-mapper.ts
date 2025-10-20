@@ -1,6 +1,6 @@
-import { NewFormatIdea } from "@/data/types";
 import { getIdeasFor, getLocalizedString, listDataKeys } from "@/lib/data";
 import { DuvenbeckScoringCriteria } from "@/lib/priority-calculator";
+import { NewFormatIdea } from "@/types/ideas";
 
 // Helper functions to convert existing data to priority calculator format
 
