@@ -23,7 +23,8 @@ export const ideas = {
       costNoteKey:
         "it_platform_services.notes.cost.ticket_quality_prioritization",
       roi: 4,
-      roiNote: "",
+      roiNoteKey:
+        "it_platform_services.notes.roi.ticket_quality_prioritization",
       risk: 3,
       riskNoteKey:
         "it_platform_services.notes.risk.ticket_quality_prioritization",
@@ -32,13 +33,13 @@ export const ideas = {
         "it_platform_services.notes.strategic.ticket_quality_prioritization",
       projectBrief: {
         projectSponsorKey:
-          "it_platform_services.projectBriefs.ticket_quality_prioritization.sponsor",
+          "it_platform_services.projectBriefs.ticket_quality_prioritization.projectSponsor",
         involvedTeamsKey:
-          "it_platform_services.projectBriefs.ticket_quality_prioritization.teams",
+          "it_platform_services.projectBriefs.ticket_quality_prioritization.involvedTeams",
         potentialConflictsKey:
-          "it_platform_services.projectBriefs.ticket_quality_prioritization.conflicts",
+          "it_platform_services.projectBriefs.ticket_quality_prioritization.potentialConflicts",
         requiredResourcesKey:
-          "it_platform_services.projectBriefs.ticket_quality_prioritization.resources",
+          "it_platform_services.projectBriefs.ticket_quality_prioritization.requiredResources",
         dataAvailabilityKey:
           "it_platform_services.projectBriefs.ticket_quality_prioritization.dataAvailability",
         genaiConsiderationsKey:
@@ -46,7 +47,7 @@ export const ideas = {
         timelineKey:
           "it_platform_services.projectBriefs.ticket_quality_prioritization.timeline",
         additionalCommentsKey:
-          "it_platform_services.projectBriefs.ticket_quality_prioritization.comments",
+          "it_platform_services.projectBriefs.ticket_quality_prioritization.additionalComments",
       },
     },
     {
@@ -62,20 +63,21 @@ export const ideas = {
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.meeting_minutes",
       roi: 4,
-      roiNote: "",
+      roiNoteKey:
+        "it_platform_services.notes.roi.meeting_minutes",
       risk: 3,
       riskNoteKey: "it_platform_services.notes.risk.meeting_minutes",
       strategicAlignment: 4,
       strategicNoteKey: "it_platform_services.notes.strategic.meeting_minutes",
       projectBrief: {
         projectSponsorKey:
-          "it_platform_services.projectBriefs.meeting_minutes.sponsor",
+          "it_platform_services.projectBriefs.meeting_minutes.projectSponsor",
         involvedTeamsKey:
-          "it_platform_services.projectBriefs.meeting_minutes.teams",
+          "it_platform_services.projectBriefs.meeting_minutes.involvedTeams",
         potentialConflictsKey:
-          "it_platform_services.projectBriefs.meeting_minutes.conflicts",
+          "it_platform_services.projectBriefs.meeting_minutes.potentialConflicts",
         requiredResourcesKey:
-          "it_platform_services.projectBriefs.meeting_minutes.resources",
+          "it_platform_services.projectBriefs.meeting_minutes.requiredResources",
         dataAvailabilityKey:
           "it_platform_services.projectBriefs.meeting_minutes.dataAvailability",
         genaiConsiderationsKey:
@@ -83,7 +85,7 @@ export const ideas = {
         timelineKey:
           "it_platform_services.projectBriefs.meeting_minutes.timeline",
         additionalCommentsKey:
-          "it_platform_services.projectBriefs.meeting_minutes.comments",
+          "it_platform_services.projectBriefs.meeting_minutes.additionalComments",
       },
     },
     {
@@ -99,7 +101,8 @@ export const ideas = {
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.c_level_communication",
       roi: 2,
-      roiNote: "",
+      roiNoteKey:
+        "it_platform_services.notes.roi.c_level_communication",
       risk: 3,
       riskNoteKey: "it_platform_services.notes.risk.c_level_communication",
       strategicAlignment: 4,
@@ -107,21 +110,21 @@ export const ideas = {
         "it_platform_services.notes.strategic.c_level_communication",
       projectBrief: {
         projectSponsorKey:
-          "it_platform_services.projectBriefs.communication_transparency.sponsor",
+          "it_platform_services.projectBriefs.c_level_communication.projectSponsor",
         involvedTeamsKey:
-          "it_platform_services.projectBriefs.communication_transparency.teams",
+          "it_platform_services.projectBriefs.c_level_communication.involvedTeams",
         potentialConflictsKey:
-          "it_platform_services.projectBriefs.communication_transparency.conflicts",
+          "it_platform_services.projectBriefs.c_level_communication.potentialConflicts",
         requiredResourcesKey:
-          "it_platform_services.projectBriefs.communication_transparency.resources",
+          "it_platform_services.projectBriefs.c_level_communication.requiredResources",
         dataAvailabilityKey:
-          "it_platform_services.projectBriefs.communication_transparency.dataAvailability",
+          "it_platform_services.projectBriefs.c_level_communication.dataAvailability",
         genaiConsiderationsKey:
-          "it_platform_services.projectBriefs.communication_transparency.genaiConsiderations",
+          "it_platform_services.projectBriefs.c_level_communication.genaiConsiderations",
         timelineKey:
-          "it_platform_services.projectBriefs.communication_transparency.timeline",
+          "it_platform_services.projectBriefs.c_level_communication.timeline",
         additionalCommentsKey:
-          "it_platform_services.projectBriefs.communication_transparency.comments",
+          "it_platform_services.projectBriefs.c_level_communication.additionalComments",
       },
     },
     {
@@ -137,7 +140,8 @@ export const ideas = {
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.colleague_communication",
       roi: 2,
-      roiNote: "",
+      roiNoteKey:
+        "it_platform_services.notes.roi.colleague_communication",
       risk: 3,
       riskNoteKey: "it_platform_services.notes.risk.colleague_communication",
       strategicAlignment: 4,
@@ -145,21 +149,21 @@ export const ideas = {
         "it_platform_services.notes.strategic.colleague_communication",
       projectBrief: {
         projectSponsorKey:
-          "it_platform_services.projectBriefs.communication_transparency.sponsor",
+          "it_platform_services.projectBriefs.colleague_communication.projectSponsor",
         involvedTeamsKey:
-          "it_platform_services.projectBriefs.communication_transparency.teams",
+          "it_platform_services.projectBriefs.colleague_communication.involvedTeams",
         potentialConflictsKey:
-          "it_platform_services.projectBriefs.communication_transparency.conflicts",
+          "it_platform_services.projectBriefs.colleague_communication.potentialConflicts",
         requiredResourcesKey:
-          "it_platform_services.projectBriefs.communication_transparency.resources",
+          "it_platform_services.projectBriefs.colleague_communication.requiredResources",
         dataAvailabilityKey:
-          "it_platform_services.projectBriefs.communication_transparency.dataAvailability",
+          "it_platform_services.projectBriefs.colleague_communication.dataAvailability",
         genaiConsiderationsKey:
-          "it_platform_services.projectBriefs.communication_transparency.genaiConsiderations",
+          "it_platform_services.projectBriefs.colleague_communication.genaiConsiderations",
         timelineKey:
-          "it_platform_services.projectBriefs.communication_transparency.timeline",
+          "it_platform_services.projectBriefs.colleague_communication.timeline",
         additionalCommentsKey:
-          "it_platform_services.projectBriefs.communication_transparency.comments",
+          "it_platform_services.projectBriefs.colleague_communication.additionalComments",
       },
     },
     {
@@ -175,7 +179,8 @@ export const ideas = {
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.self_service_it_assistant",
       roi: 2,
-      roiNote: "",
+      roiNoteKey:
+        "it_platform_services.notes.roi.self_service_it_assistant",
       risk: 2,
       riskNoteKey: "it_platform_services.notes.risk.self_service_it_assistant",
       strategicAlignment: 4,
@@ -196,7 +201,8 @@ export const ideas = {
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.roadmap_creation",
       roi: 2,
-      roiNote: "",
+      roiNoteKey:
+        "it_platform_services.notes.roi.roadmap_creation",
       risk: 2,
       riskNoteKey: "it_platform_services.notes.risk.roadmap_creation",
       strategicAlignment: 4,
@@ -216,32 +222,13 @@ export const ideas = {
       cost: 4,
       costNoteKey: "it_platform_services.notes.cost.project_tracking",
       roi: 2,
-      roiNote: "",
+      roiNoteKey:
+        "it_platform_services.notes.roi.project_tracking",
       risk: 2,
       riskNoteKey: "it_platform_services.notes.risk.project_tracking",
       strategicAlignment: 3,
       strategicNoteKey: "it_platform_services.notes.strategic.project_tracking",
       projectBrief: null,
-    },
-    {
-      finalPrio: null,
-      ideaKey: "it_platform_services.ideas.automated_ticket_classification",
-      problemKey:
-        "it_platform_services.problems.automated_ticket_classification",
-      solutionKey:
-        "it_platform_services.solutions.automated_ticket_classification",
-      owner: "John Smith",
-      priority: "A",
-      complexity: null,
-      complexityNoteKey: "",
-      cost: null,
-      costNoteKey: "",
-      roi: null,
-      roiNote: "",
-      risk: null,
-      riskNoteKey: "",
-      strategicAlignment: null,
-      strategicNoteKey: "",
     },
   ],
 };

@@ -19,26 +19,20 @@ export const ideas = {
       cost: 1,
       costNoteKey: "road_sales.notes.cost.ai_data_automation",
       roi: 3,
-      roiNote: "",
+      roiNoteKey: "road_sales.notes.roi.ai_data_automation",
       risk: 3,
       riskNoteKey: "road_sales.notes.risk.ai_data_automation",
       strategicAlignment: 3,
       strategicNoteKey: "road_sales.notes.strategic.ai_data_automation",
       projectBrief: {
-        projectSponsorKey:
-          "road_sales.projectBriefs.ai_data_automation.sponsor",
+        projectSponsorKey: "road_sales.projectBriefs.ai_data_automation.sponsor",
         involvedTeamsKey: "road_sales.projectBriefs.ai_data_automation.teams",
-        potentialConflictsKey:
-          "road_sales.projectBriefs.ai_data_automation.conflicts",
-        requiredResourcesKey:
-          "road_sales.projectBriefs.ai_data_automation.resources",
-        dataAvailabilityKey:
-          "road_sales.projectBriefs.ai_data_automation.dataAvailability",
-        genaiConsiderationsKey:
-          "road_sales.projectBriefs.ai_data_automation.genaiConsiderations",
+        potentialConflictsKey: "road_sales.projectBriefs.ai_data_automation.conflicts",
+        requiredResourcesKey: "road_sales.projectBriefs.ai_data_automation.resources",
+        dataAvailabilityKey: "road_sales.projectBriefs.ai_data_automation.dataAvailability",
+        genaiConsiderationsKey: "road_sales.projectBriefs.ai_data_automation.genaiConsiderations",
         timelineKey: "road_sales.projectBriefs.ai_data_automation.timeline",
-        additionalCommentsKey:
-          "road_sales.projectBriefs.ai_data_automation.comments",
+        additionalCommentsKey: "road_sales.projectBriefs.ai_data_automation.comments",
       },
     },
     {
@@ -53,28 +47,20 @@ export const ideas = {
       cost: 1,
       costNoteKey: "road_sales.notes.cost.automated_quote_creation",
       roi: 4,
-      roiNote: "",
+      roiNoteKey: "road_sales.notes.roi.automated_quote_creation",
       risk: 2,
       riskNoteKey: "road_sales.notes.risk.automated_quote_creation",
       strategicAlignment: 4,
       strategicNoteKey: "road_sales.notes.strategic.automated_quote_creation",
       projectBrief: {
-        projectSponsorKey:
-          "road_sales.projectBriefs.automated_quote_creation.sponsor",
-        involvedTeamsKey:
-          "road_sales.projectBriefs.automated_quote_creation.teams",
-        potentialConflictsKey:
-          "road_sales.projectBriefs.automated_quote_creation.conflicts",
-        requiredResourcesKey:
-          "road_sales.projectBriefs.automated_quote_creation.resources",
-        dataAvailabilityKey:
-          "road_sales.projectBriefs.automated_quote_creation.dataAvailability",
-        genaiConsiderationsKey:
-          "road_sales.projectBriefs.automated_quote_creation.genaiConsiderations",
-        timelineKey:
-          "road_sales.projectBriefs.automated_quote_creation.timeline",
-        additionalCommentsKey:
-          "road_sales.projectBriefs.automated_quote_creation.comments",
+        projectSponsorKey: "road_sales.projectBriefs.automated_quote_creation.sponsor",
+        involvedTeamsKey: "road_sales.projectBriefs.automated_quote_creation.teams",
+        potentialConflictsKey: "road_sales.projectBriefs.automated_quote_creation.conflicts",
+        requiredResourcesKey: "road_sales.projectBriefs.automated_quote_creation.resources",
+        dataAvailabilityKey: "road_sales.projectBriefs.automated_quote_creation.dataAvailability",
+        genaiConsiderationsKey: "road_sales.projectBriefs.automated_quote_creation.genaiConsiderations",
+        timelineKey: "road_sales.projectBriefs.automated_quote_creation.timeline",
+        additionalCommentsKey: "road_sales.projectBriefs.automated_quote_creation.comments",
       },
     },
     {
@@ -89,27 +75,20 @@ export const ideas = {
       cost: 2,
       costNoteKey: "road_sales.notes.cost.unified_communication",
       roi: 4,
-      roiNote: "",
+      roiNoteKey: "road_sales.notes.roi.unified_communication",
       risk: 3,
       riskNoteKey: "road_sales.notes.risk.unified_communication",
       strategicAlignment: 2,
       strategicNoteKey: "road_sales.notes.strategic.unified_communication",
       projectBrief: {
-        projectSponsorKey:
-          "road_sales.projectBriefs.unified_communication.sponsor",
-        involvedTeamsKey:
-          "road_sales.projectBriefs.unified_communication.teams",
-        potentialConflictsKey:
-          "road_sales.projectBriefs.unified_communication.conflicts",
-        requiredResourcesKey:
-          "road_sales.projectBriefs.unified_communication.resources",
-        dataAvailabilityKey:
-          "road_sales.projectBriefs.unified_communication.dataAvailability",
-        genaiConsiderationsKey:
-          "road_sales.projectBriefs.unified_communication.genaiConsiderations",
+        projectSponsorKey: "road_sales.projectBriefs.unified_communication.sponsor",
+        involvedTeamsKey: "road_sales.projectBriefs.unified_communication.teams",
+        potentialConflictsKey: "road_sales.projectBriefs.unified_communication.conflicts",
+        requiredResourcesKey: "road_sales.projectBriefs.unified_communication.resources",
+        dataAvailabilityKey: "road_sales.projectBriefs.unified_communication.dataAvailability",
+        genaiConsiderationsKey: "road_sales.projectBriefs.unified_communication.genaiConsiderations",
         timelineKey: "road_sales.projectBriefs.unified_communication.timeline",
-        additionalCommentsKey:
-          "road_sales.projectBriefs.unified_communication.comments",
+        additionalCommentsKey: "road_sales.projectBriefs.unified_communication.comments",
       },
     },
     {
@@ -124,11 +103,12 @@ export const ideas = {
       cost: 1,
       costNoteKey: "road_sales.notes.cost.automated_crm_transfer",
       roi: 4,
-      roiNote: "",
+      roiNoteKey: "road_sales.notes.roi.automated_crm_transfer",
       risk: 3,
       riskNoteKey: "road_sales.notes.risk.automated_crm_transfer",
       strategicAlignment: 2,
       strategicNoteKey: "road_sales.notes.strategic.automated_crm_transfer",
+      projectBrief: null,
     },
     {
       finalPrio: 5,
@@ -142,11 +122,12 @@ export const ideas = {
       cost: 3,
       costNoteKey: "road_sales.notes.cost.sales_kpi_dashboard",
       roi: 3,
-      roiNote: "",
+      roiNoteKey: "road_sales.notes.roi.sales_kpi_dashboard",
       risk: 4,
       riskNoteKey: "road_sales.notes.risk.sales_kpi_dashboard",
       strategicAlignment: 3,
       strategicNoteKey: "road_sales.notes.strategic.sales_kpi_dashboard",
+      projectBrief: null,
     },
     {
       finalPrio: 6,
@@ -161,12 +142,13 @@ export const ideas = {
       cost: 4,
       costNoteKey: "road_sales.notes.cost.lead_management_prioritization",
       roi: 2,
-      roiNote: "",
+      roiNoteKey: "road_sales.notes.roi.lead_management_prioritization",
       risk: 5,
       riskNoteKey: "road_sales.notes.risk.lead_management_prioritization",
       strategicAlignment: 4,
       strategicNoteKey:
         "road_sales.notes.strategic.lead_management_prioritization",
+      projectBrief: null,
     },
   ],
 };

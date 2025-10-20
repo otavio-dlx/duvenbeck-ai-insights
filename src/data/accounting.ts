@@ -25,19 +25,14 @@ export const ideas = {
       strategicAlignment: 4,
       strategicNoteKey: "accounting.notes.strategic.document_reading",
       projectBrief: {
-        projectSponsorKey: "accounting.projectBriefs.document_reading.sponsor",
-        involvedTeamsKey: "accounting.projectBriefs.document_reading.teams",
-        potentialConflictsKey:
-          "accounting.projectBriefs.document_reading.conflicts",
-        requiredResourcesKey:
-          "accounting.projectBriefs.document_reading.resources",
-        dataAvailabilityKey:
-          "accounting.projectBriefs.document_reading.dataAvailability",
-        genaiConsiderationsKey:
-          "accounting.projectBriefs.document_reading.genaiConsiderations",
+        projectSponsorKey: "accounting.projectBriefs.document_reading.projectSponsor",
+        involvedTeamsKey: "accounting.projectBriefs.document_reading.involvedTeams",
+        potentialConflictsKey: "accounting.projectBriefs.document_reading.potentialConflicts",
+        requiredResourcesKey: "accounting.projectBriefs.document_reading.requiredResources",
+        dataAvailabilityKey: "accounting.projectBriefs.document_reading.dataAvailability",
+        genaiConsiderationsKey: "accounting.projectBriefs.document_reading.genaiConsiderations",
         timelineKey: "accounting.projectBriefs.document_reading.timeline",
-        additionalCommentsKey:
-          "accounting.projectBriefs.document_reading.comments",
+        additionalCommentsKey: "accounting.projectBriefs.document_reading.additionalComments",
       },
     },
     {
@@ -58,19 +53,14 @@ export const ideas = {
       strategicAlignment: 5,
       strategicNoteKey: "accounting.notes.strategic.cash_forecast",
       projectBrief: {
-        projectSponsorKey: "accounting.projectBriefs.cash_forecast.sponsor",
-        involvedTeamsKey: "accounting.projectBriefs.cash_forecast.teams",
-        potentialConflictsKey:
-          "accounting.projectBriefs.cash_forecast.conflicts",
-        requiredResourcesKey:
-          "accounting.projectBriefs.cash_forecast.resources",
-        dataAvailabilityKey:
-          "accounting.projectBriefs.cash_forecast.dataAvailability",
-        genaiConsiderationsKey:
-          "accounting.projectBriefs.cash_forecast.genaiConsiderations",
+        projectSponsorKey: "accounting.projectBriefs.cash_forecast.projectSponsor",
+        involvedTeamsKey: "accounting.projectBriefs.cash_forecast.involvedTeams",
+        potentialConflictsKey: "accounting.projectBriefs.cash_forecast.potentialConflicts",
+        requiredResourcesKey: "accounting.projectBriefs.cash_forecast.requiredResources",
+        dataAvailabilityKey: "accounting.projectBriefs.cash_forecast.dataAvailability",
+        genaiConsiderationsKey: "accounting.projectBriefs.cash_forecast.genaiConsiderations",
         timelineKey: "accounting.projectBriefs.cash_forecast.timeline",
-        additionalCommentsKey:
-          "accounting.projectBriefs.cash_forecast.comments",
+        additionalCommentsKey: "accounting.projectBriefs.cash_forecast.additionalComments",
       },
     },
     {
@@ -91,19 +81,14 @@ export const ideas = {
       strategicAlignment: 2,
       strategicNoteKey: "accounting.notes.strategic.chatbot_external",
       projectBrief: {
-        projectSponsorKey: "accounting.projectBriefs.chatbot_external.sponsor",
-        involvedTeamsKey: "accounting.projectBriefs.chatbot_external.teams",
-        potentialConflictsKey:
-          "accounting.projectBriefs.chatbot_external.conflicts",
-        requiredResourcesKey:
-          "accounting.projectBriefs.chatbot_external.resources",
-        dataAvailabilityKey:
-          "accounting.projectBriefs.chatbot_external.dataAvailability",
-        genaiConsiderationsKey:
-          "accounting.projectBriefs.chatbot_external.genaiConsiderations",
+        projectSponsorKey: "accounting.projectBriefs.chatbot_external.projectSponsor",
+        involvedTeamsKey: "accounting.projectBriefs.chatbot_external.involvedTeams",
+        potentialConflictsKey: "accounting.projectBriefs.chatbot_external.potentialConflicts",
+        requiredResourcesKey: "accounting.projectBriefs.chatbot_external.requiredResources",
+        dataAvailabilityKey: "accounting.projectBriefs.chatbot_external.dataAvailability",
+        genaiConsiderationsKey: "accounting.projectBriefs.chatbot_external.genaiConsiderations",
         timelineKey: "accounting.projectBriefs.chatbot_external.timeline",
-        additionalCommentsKey:
-          "accounting.projectBriefs.chatbot_external.comments",
+        additionalCommentsKey: "accounting.projectBriefs.chatbot_external.additionalComments",
       },
     },
     {

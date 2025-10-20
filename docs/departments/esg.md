@@ -2,7 +2,7 @@
 
 ## Overview
 
-The ESG (Environmental, Social, and Governance) department participated in the Duvenbeck AI Workshop on October 6, 2025. This document outlines the AI initiatives proposed by the ESG team, including detailed problem statements, solutions, and project analysis.
+The ESG (Environmental, Social, and Governance) department participated in the Duvenbeck AI Workshop on October 6, 2025.
 
 **Workshop Details:**
 
@@ -12,13 +12,13 @@ The ESG (Environmental, Social, and Governance) department participated in the D
 
 ## AI Initiatives Summary
 
-The ESG department identified 5 key AI initiatives, prioritized based on complexity, cost, ROI, risk, and strategic alignment:
+The ESG department identified 5 key AI initiatives:
 
 | Priority | Initiative                                                             | Owner              | Priority Level | Complexity | Cost | ROI | Risk | Strategic |
 | -------- | ---------------------------------------------------------------------- | ------------------ | -------------- | ---------- | ---- | --- | ---- | --------- |
 | 1        | Automatic Calculation + Processing of Customer Requests                | Maximilian Schwarz | A              | 1/5        | 4/5  | 4/5 | 2/5  | 5/5       |
 | 2        | AI-Supported Data Collection                                           | Maximilian Schwarz | A              | 1/5        | 3/5  | 3/5 | 1/5  | 5/5       |
-| 3        | Automatic Collection of All Necessary Data + CO2 Emissions Calculation | Maximilian Schwarz | A              | 2/5        | 3/5  | 5/5 | 5/5  | 5/5       |
+| 3        | Automatic Collection of All Necessary Data + CO2 Emissions Calculation | Maximilian Schwarz | B              | 2/5        | 3/5  | 4/5 | 2/5  | 5/5       |
 | 4        | AI-Supported Data Processing                                           | Maximilian Schwarz | B              | 2/5        | 3/5  | 2/5 | 4/5  | 4/5       |
 | 5        | AI-Supported Text Creation                                             | Maximilian Schwarz | A              | 5/5        | 2/5  | 3/5 | 1/5  | 5/5       |
 
@@ -50,11 +50,11 @@ Collection of freight letters or other parameters for calculating CO2 per transp
 - **Required Resources:** Project team: approx. 4 employees, budget incl. staff + technology during project period ~ €150,000 (?)
 - **Data Availability:** Parameters available in freight letters, provision of conversion factors + certified calculation methodology necessary
 - **GenAI Considerations:** User-centered test phases with feedback loops
-- **Timeline:** Module for calculating transport emissions should be completed by the end of 2025,
+- **Timeline:** Module for calculating transport emissions should be completed by the end of 2025
   Milestone 1: Data provision by DUV by 11/2025
   Milestone 2: Data integration into existing technology by mid-12/2025
   Milestone 3: Test phase of initial data runs + subsequent optimization by the end of 12/2025
-- **Additional Comments:** null
+- **Additional Comments:**
 
 ### 2. AI-Supported Data Collection (Priority: 2)
 
@@ -91,8 +91,8 @@ Tracking, calculation, etc. of Scope 3 emissions (mostly very unclear) for e.g.,
 
 - Complexity: 2/5 - Many unknown parameters must be collected; if not possible, standardized extrapolation must be performed
 - Cost: 3/5 - Flat rate
-- ROI: 5/5 - Among other things, important for new customer business
-- Risk: 5/5 - Missing or incorrectly calculated values can influence CO2 balancing
+- ROI: 4/5 - Among other things, important for new customer business
+- Risk: 2/5 - Missing or incorrectly calculated values can influence CO2 balancing
 - Strategic Alignment: 5/5 - Contributes to the above legal requirements
 
 **Project Brief:**

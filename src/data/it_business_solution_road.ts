@@ -1,5 +1,5 @@
 export const ideas = {
-  home: [
+  home: [ 
     {
       date: "2025-10-08",
       department: "IT",
@@ -65,7 +65,16 @@ export const ideas = {
       riskNoteKey: null,
       strategicAlignment: 5,
       strategicNoteKey: null,
-      projectBrief: null,
+      projectBrief: {
+        projectSponsorKey: "it_business_solution_road.projectBriefs.meeting_agent.projectSponsor",
+        involvedTeamsKey: "it_business_solution_road.projectBriefs.meeting_agent.involvedTeams",
+        potentialConflictsKey: "it_business_solution_road.projectBriefs.meeting_agent.potentialConflicts",
+        requiredResourcesKey: "it_business_solution_road.projectBriefs.meeting_agent.requiredResources",
+        dataAvailabilityKey: "it_business_solution_road.projectBriefs.meeting_agent.dataAvailability",
+        genaiConsiderationsKey: "it_business_solution_road.projectBriefs.meeting_agent.genaiConsiderations",
+        timelineKey: "it_business_solution_road.projectBriefs.meeting_agent.timeline",
+        additionalCommentsKey: "it_business_solution_road.projectBriefs.meeting_agent.additionalComments"
+      },
     },
     {
       finalPrio: null,
@@ -79,25 +88,6 @@ export const ideas = {
       cost: 2,
       costNoteKey: null,
       roi: 4,
-      roiNoteKey: null,
-      risk: 2,
-      riskNoteKey: null,
-      strategicAlignment: 4,
-      strategicNoteKey: null,
-      projectBrief: null,
-    },
-    {
-      finalPrio: null,
-      ideaKey: "it_business_solution_road.ideas.edi_testing",
-      problemKey: "it_business_solution_road.problems.edi_testing",
-      solutionKey: "it_business_solution_road.solutions.edi_testing",
-      owner: "Imre Berek",
-      priority: "B",
-      complexity: 3,
-      complexityNoteKey: null,
-      cost: 3,
-      costNoteKey: null,
-      roi: 3,
       roiNoteKey: null,
       risk: 2,
       riskNoteKey: null,

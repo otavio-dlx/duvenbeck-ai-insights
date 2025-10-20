@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Marketing & Communications department participated in the Duvenbeck AI Workshop on October 6, 2025. This document outlines the AI initiatives proposed by the Marketing & Communications team, including detailed problem statements, solutions, and project analysis.
+The Marketing & Communications department participated in the Duvenbeck AI Workshop on October 6, 2025.
 
 **Workshop Details:**
 
@@ -12,7 +12,7 @@ The Marketing & Communications department participated in the Duvenbeck AI Works
 
 ## AI Initiatives Summary
 
-The Marketing & Communications department identified 5 key AI initiatives, prioritized based on complexity, cost, ROI, risk, and strategic alignment:
+The Marketing & Communications department identified 5 key AI initiatives:
 
 | Priority | Initiative                     | Owner | Priority Level | Complexity | Cost | ROI | Risk | Strategic |
 | -------- | ------------------------------ | ----- | -------------- | ---------- | ---- | --- | ---- | --------- |
@@ -35,10 +35,10 @@ Media database analysis according to specific criteria
 **Project Metrics:**
 
 - Complexity: 2/5 - dependent on various external platforms, no single master data source
-- Cost: 3/5 - similar providers as in idea 4
+- Cost: 3/5 - similar providers as in idea "Monitoring: KPI/Data Analysis"
 - ROI: 4/5 - Targeted addressing of relevant trade media to reach target groups - building long-term relationships (trade media approach us for topics, brand distribution becomes easier/becoming a market opinion leader)
 - Risk: 5/5 - Research without sensitive data
-- Strategic Alignment: 4/5 - Building long-term relationships (trade media approach us for topics, brand distribution becomes easier/becoming a market opinion leader)
+- Strategic Alignment: 4/5
 
 **Project Brief:**
 
@@ -72,7 +72,7 @@ Extended functions to Google Alerts, listing from other platforms and overview d
 - Cost: 3/5 - Media monitoring: 900€ monthly/11 kEUR p.a., print monitoring possibly extra (providers: Cision, Meltwater)
 - ROI: 4/5 - Outcomes are immediately available and further actions can be adjusted, strategies can be adapted
 - Risk: 5/5 - Research without sensitive data
-- Strategic Alignment: 4/5 - Strategies can be adapted
+- Strategic Alignment: 4/5
 
 **Project Brief:**
 
@@ -104,7 +104,7 @@ AI analyzes campaign data in real time, recognizes trends and suggests optimizat
 - Cost: 3/5 - Costs depend on the channel and how often campaigns are run and how large the target group is (fixed costs - if through agency, variable costs - if DUV runs it on media itself)
 - ROI: 4/5 - the more precise the campaign, the better you reach the target group and the better the outcome
 - Risk: 5/5 - Customer data is protected by NDA, the outcome is anonymized, therefore uncritical | internal use
-- Strategic Alignment: 4/5 - Better campaign optimization and target group reach
+- Strategic Alignment: 4/5
 
 **Project Brief:**
 
@@ -119,7 +119,7 @@ AI analyzes campaign data in real time, recognizes trends and suggests optimizat
   Ethics & data protection: GDPR-compliant processing, anonymization
   Scalability: Integration into marketing automation systems
   Change management: Training for Marketing teams + specialist departments
-- **Timeline:** null
+- **Timeline:** To be determined
 - **Additional Comments:** Goal: Real-time optimization of campaigns, ROI increase, data-driven decisions
 
 ### 4. Q Gate with Training Assistant (Priority: 4)
@@ -155,14 +155,14 @@ We provide specifications and an image generation tool creates suggestions
 - Cost: 3/5 - Marketing images are very expensive due to licensing costs, which depend on media and use in countries as well as frequency (1-time use, multiple use), PR images are cheaper, BUT copyright is a big issue (PR images may not be used as marketing images)
 - ROI: 2/5 - One-time shooting per year: Long-term sustainability, the images are definitely on brand, licenses (rights) are not an issue
 - Risk: 1/5 - the legal side of image generation is viewed as very critical from our information perspective + the quality of generated images
-- Strategic Alignment: 4/5 - Consistent brand identity in visual communication
+- Strategic Alignment: 4/5
 
 **Project Brief:**
 To be developed
 
 ## Implementation Notes
 
-The Marketing & Communications initiatives focus on data-driven marketing optimization, media monitoring, and brand consistency. The top three priorities (Media Analysis, KPI Monitoring, and Campaign Performance Analysis) all have complete project briefs and share common leadership (Anastasia Nartschenko as sponsor, Melanie Mosler as project lead), enabling coordinated implementation.
+The Marketing & Communications initiatives focus on data-driven marketing optimization, media monitoring, and brand consistency. The top three priorities (Media Analysis in the Industry, Monitoring: KPI/Data Analysis, and Campaign Performance Analysis) all have complete project briefs and share common leadership (Anastasia Nartschenko as sponsor, Melanie Mosler as project lead), enabling coordinated implementation.
 
 ## Contact
 
