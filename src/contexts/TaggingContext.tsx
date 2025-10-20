@@ -195,7 +195,9 @@ export function TaggingProvider({
   const [error, setError] = useState<string | null>(null);
 
   // Helper function to convert API response tags to UI tags
-  const convertApiTagsToUiTags = (apiTags: Array<{ tag: string; category: string; confidence?: string }>): Tag[] => {
+  const convertApiTagsToUiTags = (
+    apiTags: Array<{ tag: string; category: string; confidence?: string }>
+  ): Tag[] => {
     return apiTags.map((apiTag) => ({
       text: apiTag.tag,
       category: categorizeTag(apiTag.tag),
@@ -223,7 +225,7 @@ export function TaggingProvider({
 
         // Check if tags exist in database via API
         const response = await fetch(`/api/tags/${ideaId}`);
-        
+
         if (response.ok) {
           const data = await response.json();
           if (data.tags && data.tags.length > 0) {
@@ -239,7 +241,7 @@ export function TaggingProvider({
         // If no tags exist, we'll use the fallback system
         const { generateFallbackTags } = await import("@/lib/fallbackTags");
         const fallbackTags = generateFallbackTags(ideaKey);
-        
+
         // Store the generated tags in database via API
         const tagStrings = fallbackTags.map((tag) => tag.text);
         await fetch(`/api/tags/${ideaId}`, {
@@ -247,12 +249,12 @@ export function TaggingProvider({
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ tags: tagStrings, category: "ai-generated" }),
         });
-        
+
         console.log("🏷️ Generated and stored new tags:", fallbackTags);
         return fallbackTags;
-
       } catch (err) {
-        const errorMessage = err instanceof Error ? err.message : "Unknown error occurred";
+        const errorMessage =
+          err instanceof Error ? err.message : "Unknown error occurred";
         console.error("🏷️ Error getting tags for idea key:", errorMessage);
         setError(errorMessage);
 

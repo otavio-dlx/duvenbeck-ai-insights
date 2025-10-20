@@ -1,9 +1,9 @@
-import { IdeaTagsService } from "../../src/services/database/ideaTagsService";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import { IdeaTagsService } from "../../src/services/database/ideaTagsService";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const { ideaId } = req.query;
-  
+
   if (typeof ideaId !== "string") {
     return res.status(400).json({ error: "Idea ID is required" });
   }
@@ -11,7 +11,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === "GET") {
     try {
       const hasExistingTags = await IdeaTagsService.hasTagsForIdea(ideaId);
-      
+
       if (hasExistingTags) {
         const tags = await IdeaTagsService.getTagsForIdea(ideaId);
         return res.status(200).json({ tags });
@@ -27,7 +27,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === "POST") {
     try {
       const { tags, category = "ai-generated" } = req.body;
-      
+
       if (!Array.isArray(tags)) {
         return res.status(400).json({ error: "Tags array is required" });
       }
