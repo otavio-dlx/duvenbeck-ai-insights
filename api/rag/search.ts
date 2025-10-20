@@ -106,9 +106,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       console.log(`Filter-only search returned ${searchResults.length} items`);
 
       // Debug: log what departments we actually got
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const depts = [
-        ...new Set(searchResults.map((r: any) => r.payload?.department)),
+        ...new Set(searchResults.map((r) => r.payload?.department)),
       ];
       console.log(`Departments in scroll results:`, depts);
     } else {
@@ -123,8 +122,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       const queryEmbedding = embeddingResponse.embedding.values;
 
       // Search in Qdrant
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const searchParams: any = {
+      const searchParams: {
+        vector: number[];
+        limit: number;
+        filter?: { must: unknown[] };
+      } = {
         vector: queryEmbedding,
         limit: limit,
       };
