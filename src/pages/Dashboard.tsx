@@ -16,6 +16,34 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
+
+// Helper function to format department names (same as in DynamicCollaboards)
+const formatDepartmentName = (key: string): string => {
+  const nameMap: Record<string, string> = {
+    accounting: "Accounting",
+    central_solution_design: "Central Solution Design",
+    compliance: "Compliance",
+    contract_logistics: "Contract Logistics",
+    controlling: "Controlling",
+    corp_dev: "Corporate Development",
+    esg: "Environmental, Social & Governance",
+    hr: "Human Resources",
+    it_business_solution_road: "IT",
+    it_plataform_services_digital_workplace: "IT",
+    it_shared_services: "IT",
+    marketing_communications: "Marketing & Communications",
+    qehs: "Quality, Environment, Health & Safety",
+    road_sales: "Road Sales",
+    strategic_kam: "Strategic Key Account Management",
+  };
+  return (
+    nameMap[key] ||
+    key
+      .split("_")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ")
+  );
+};
 import {
   Bar,
   BarChart,
@@ -45,6 +73,7 @@ export const Dashboard = () => {
     []
   );
   const [loadingTags, setLoadingTags] = useState(false);
+  const [departmentCount, setDepartmentCount] = useState<number>(0);
 
   // Load total ideas count and tags from all data files
   useEffect(() => {
@@ -89,6 +118,60 @@ export const Dashboard = () => {
     };
     loadData();
   }, [getTagsForIdea]);
+
+  // Load department count using the same logic as DynamicCollaboards
+  useEffect(() => {
+    const loadDepartmentCount = async () => {
+      try {
+        const keys = await listDataKeys();
+        const validDepartments: string[] = [];
+
+        for (const k of keys) {
+          try {
+            const data = await getIdeasFor(k);
+            if (!data) continue;
+
+            // Look for the 'home' array in the data structure
+            const home = data.home;
+            if (!Array.isArray(home) || home.length === 0) continue;
+
+            const homeData = home[0];
+            if (homeData && typeof homeData === 'object' && homeData !== null) {
+              const homeRecord = homeData as Record<string, unknown>;
+              const collaboardLink = homeRecord.collaboardLink;
+              const department = homeRecord.department;
+
+              if (
+                typeof collaboardLink === 'string' &&
+                collaboardLink.startsWith('http')
+              ) {
+                const deptName = typeof department === 'string' 
+                  ? department 
+                  : formatDepartmentName(k);
+                validDepartments.push(deptName);
+              }
+            }
+          } catch (err) {
+            console.warn(`Failed to read dataset ${k}:`, err);
+          }
+        }
+
+        // Deduplicate by department name (same as DynamicCollaboards)
+        const uniqueDepartments = new Map<string, string>();
+        for (const dept of validDepartments) {
+          if (!uniqueDepartments.has(dept)) {
+            uniqueDepartments.set(dept, dept);
+          }
+        }
+
+        setDepartmentCount(uniqueDepartments.size);
+      } catch (error) {
+        console.error("Failed to load department count:", error);
+        setDepartmentCount(0);
+      }
+    };
+    loadDepartmentCount();
+  }, []);
 
   // Extract unique departments
   const departments = useMemo(() => {
@@ -266,9 +349,8 @@ export const Dashboard = () => {
     });
 
     // Calculate unique departments from actual department workspaces (data files)
-    // Count unique department names from the ideasByDept object which represents actual departments with data
-    const uniqueDepts =
-      selectedDepartment === "all" ? Object.keys(ideasByDept).length : 1;
+    // Use the loaded department count from listDataKeys
+    const uniqueDepts = selectedDepartment === "all" ? departmentCount : 1;
 
     // Use the total ideas count from getAllIdeasForCalculator (same as PriorityAnalysis)
     // This ensures consistency between Dashboard and PriorityAnalysis pages
@@ -287,7 +369,7 @@ export const Dashboard = () => {
       .slice(0, 10);
 
     return { metrics, departmentData };
-  }, [filteredParticipants, selectedDepartment, totalIdeasFromFiles]);
+  }, [filteredParticipants, selectedDepartment, totalIdeasFromFiles, departmentCount]);
 
   const dayData = useMemo(() => {
     const day1Count = participantsData.filter((p) => p.day1).length;
