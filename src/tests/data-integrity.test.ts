@@ -1,69 +1,105 @@
-import { describe, it, expect } from 'vitest';
-import fs from 'fs';
-import path from 'path';
+import fs from "node:fs";
+import path from "node:path";
+import { describe, expect, it } from "vitest";
 
-// Carregar os arquivos de tradução uma vez
-const enTranslations = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../i18n/locales/en.json'), 'utf-8'));
-const deTranslations = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../i18n/locales/de.json'), 'utf-8'));
+// Load translation files once
+const enTranslations = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "../i18n/locales/en.json"), "utf-8")
+);
+const deTranslations = JSON.parse(
+  fs.readFileSync(path.resolve(__dirname, "../i18n/locales/de.json"), "utf-8")
+);
 
-// Função auxiliar para buscar um valor aninhado em um objeto
-const getNestedValue = (obj: any, key: string) => {
+// Helper function to get nested values from an object
+const getNestedValue = (obj: Record<string, unknown>, key: string): unknown => {
   if (!key) return undefined;
-  return key.split('.').reduce((acc, part) => acc && acc[part], obj);
+  const keys = key.split(".");
+  let current = obj;
+  for (const k of keys) {
+    if (current && typeof current === "object" && k in current) {
+      current = current[k] as Record<string, unknown>;
+    } else {
+      return undefined;
+    }
+  }
+  return current;
 };
 
-const dataDir = path.resolve(__dirname, '../data');
-const departmentDataFiles = fs.readdirSync(dataDir)
-  .filter(file => file.endsWith('.ts') && !['types.ts', 'participants.ts'].includes(file));
+const dataDir = path.resolve(__dirname, "../data");
+const departmentDataFiles = fs
+  .readdirSync(dataDir)
+  .filter(
+    (file) =>
+      file.endsWith(".ts") && !["types.ts", "participants.ts"].includes(file)
+  );
 
-describe('Data Integrity and Translation Keys', () => {
-
-  it('should find department data files to test', () => {
+describe("Data Integrity and Translation Keys", () => {
+  it("should find department data files to test", () => {
     expect(departmentDataFiles.length).toBeGreaterThan(0);
   });
 
-  departmentDataFiles.forEach(async (file) => {
-    const departmentName = file.replace('.ts', '');
-    const mod = await import(`../data/${departmentName}.ts`);
-
-    if (!mod.ideas || !Array.isArray(mod.ideas.ideas)) {
-      return; // Pula arquivos que não têm a estrutura esperada
-    }
+  // Test each department synchronously
+  for (const file of departmentDataFiles) {
+    const departmentName = file.replace(".ts", "");
 
     describe(`Department: ${departmentName}`, () => {
-      mod.ideas.ideas.forEach((idea: any, index: number) => {
-        const ideaIdentifier = idea.ideaKey || `unidentified-idea-${index}`;
+      it("should have valid translation keys", async () => {
+        try {
+          const mod = await import(`../data/${departmentName}.ts`);
 
-        const keysToTest: (keyof any)[] = [
-          'ideaKey',
-          'problemKey',
-          'solutionKey',
-          'complexityNoteKey',
-          'costNoteKey',
-          'roiNoteKey',
-          'riskNoteKey',
-          'strategicNoteKey'
-        ];
-
-        keysToTest.forEach(key => {
-          const translationKey = idea[key];
-          if (translationKey) {
-            it(`[${ideaIdentifier}] - key '${key}' (${translationKey}) should have a valid English translation`, () => {
-              const translation = getNestedValue(enTranslations, translationKey);
-              expect(translation, `English translation for ${translationKey} not found`).toBeDefined();
-              expect(translation).not.toBeNull();
-              expect(translation).not.toBe('');
-            });
-
-            it(`[${ideaIdentifier}] - key '${key}' (${translationKey}) should have a valid German translation`, () => {
-              const translation = getNestedValue(deTranslations, translationKey);
-              expect(translation, `German translation for ${translationKey} not found`).toBeDefined();
-              expect(translation).not.toBeNull();
-              expect(translation).not.toBe('');
-            });
+          if (!mod.ideas || !Array.isArray(mod.ideas.ideas)) {
+            console.warn(
+              `Skipping ${departmentName}: no ideas structure found`
+            );
+            return;
           }
-        });
+
+          const keysToTest: string[] = [
+            "ideaKey",
+            "problemKey",
+            "solutionKey",
+            "complexityNoteKey",
+            "costNoteKey",
+            "roiNoteKey",
+            "riskNoteKey",
+            "strategicNoteKey",
+          ];
+
+          for (const idea of mod.ideas.ideas) {
+            for (const key of keysToTest) {
+              const translationKey = idea[key];
+              if (translationKey) {
+                // Test English translation
+                const enTranslation = getNestedValue(
+                  enTranslations,
+                  translationKey
+                );
+                expect(
+                  enTranslation,
+                  `English translation for ${translationKey} not found in ${departmentName}`
+                ).toBeDefined();
+                expect(enTranslation).not.toBeNull();
+                expect(enTranslation).not.toBe("");
+
+                // Test German translation
+                const deTranslation = getNestedValue(
+                  deTranslations,
+                  translationKey
+                );
+                expect(
+                  deTranslation,
+                  `German translation for ${translationKey} not found in ${departmentName}`
+                ).toBeDefined();
+                expect(deTranslation).not.toBeNull();
+                expect(deTranslation).not.toBe("");
+              }
+            }
+          }
+        } catch (error) {
+          console.error(`Error testing ${departmentName}:`, error);
+          throw error;
+        }
       });
     });
-  });
+  }
 });

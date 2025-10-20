@@ -173,6 +173,17 @@ Examples: `components: add LoginGate fallback`, `data: update compliance metrics
 - Data files: `snake_case.ts`
 - Tests: `{filename}.test.{tsx|ts}`
 
+### Code Language Requirements
+
+**CRITICAL**: All code, comments, variables, functions, and documentation must be written in English only.
+
+- ❌ **NEVER use Portuguese** in code comments, variable names, function names, or any code-related text
+- ✅ **Always use English** for all technical content
+- ✅ Comments should be in English: `// Validate translation keys`
+- ❌ Never use Portuguese: `// Valida chaves de tradução`
+
+**Translation data content**: Only the actual user-facing content in translation files (`de.json`, `en.json`) can contain non-English text.
+
 ## Common Gotchas
 
 1. **Translation Keys**: Always validate keys exist in both language files before using

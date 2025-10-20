@@ -1,18 +1,8 @@
-# Welcome to your Lovable project
+# Duvenbeck AI Insights Dashboard
 
-## Project info
+A React + TypeScript dashboard for visualizing AI initiative ideas from comprehensive workshops across all departments at Duvenbeck.
 
-**URL**: https://lovable.dev/projects/5a4ac7b1-bddc-4ab4-8522-9a1e39004185
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/5a4ac7b1-bddc-4ab4-8522-9a1e39004185) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 Live Demo
 
 **Use your preferred IDE**
 
@@ -34,6 +24,49 @@ npm i
 
 # Step 4: Start the development server with auto-reloading and an instant preview.
 npm run dev
+```
+
+## 🧪 Testing & Data Quality
+
+This project includes comprehensive data validation tests to ensure data integrity between frontend, documentation, and translation files.
+
+### Running Tests
+
+```bash
+# Run all tests
+npm test
+
+# Run tests once (non-watch mode)
+npm run test:run
+
+# Run only data validation tests
+npm run test:data
+
+# Generate data quality report
+npm run data-quality-report
+```
+
+### Important: Tests vs Build/Deploy
+
+**The data validation tests are designed to identify data quality issues but will NOT prevent:**
+
+- ✅ Local development (`npm run dev`)
+- ✅ Production builds (`npm run build`)
+- ✅ Vercel deployments
+
+This ensures that data issues don't block development or deployment while still providing visibility into what needs to be fixed.
+
+### Data Quality Report
+
+Run `npm run data-quality-report` to generate a detailed report of any data issues:
+
+- **Translation Issues**: Empty translation keys in `src/i18n/locales/`
+- **Owner Issues**: Missing owner assignments in department data
+- **Metrics Issues**: Values outside the 1-5 range for complexity, cost, ROI, risk, strategic alignment
+- **Structure Issues**: Missing required fields or incorrect data formats
+
+The report helps identify exactly what data needs to be collected from the team.
+
 ```
 
 **Edit a file directly in GitHub**
@@ -77,3 +110,4 @@ Qdrant:
 curl \
  -X GET 'https://8959e9b0-ec49-4675-86ba-2fa8a597acd0.europe-west3-0.gcp.cloud.qdrant.io:6333' \
  --header 'api-key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.wEhKxw4ekc03-fcun-YbMg3tvGdNkCCGSbIeunYfE_g'
+```

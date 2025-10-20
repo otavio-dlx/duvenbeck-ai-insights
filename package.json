@@ -9,6 +9,7 @@
     "dev:api": "tsx watch server/index.ts",
     "build": "vite build",
     "build:dev": "vite build --mode development",
+    "build:ci": "npm run lint && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "upload-to-vector-db": "tsx scripts/uploadToVectorDB.ts",
@@ -16,7 +17,10 @@
     "test-translations": "tsx scripts/testTranslations.ts",
     "test-search": "tsx scripts/testSearchFlow.ts",
     "test": "vitest",
-    "test:e2e": "playwright test"
+    "test:run": "vitest --run",
+    "test:data": "vitest --run src/tests/",
+    "test:e2e": "playwright test",
+    "data-quality-report": "tsx scripts/generateDataQualityReport.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
