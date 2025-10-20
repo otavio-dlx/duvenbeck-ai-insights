@@ -1,8 +1,8 @@
 import { TagList } from "@/components/ui/tag";
 import { Tag } from "@/contexts/TaggingContext";
-import { LocalizableString } from "@/data/types";
 import { useTagging } from "@/hooks/useTagging";
 import { getLocalizedString } from "@/lib/data";
+import { LocalizableString } from "@/types/shared";
 import { useEffect, useState } from "react";
 
 interface IdeaRowWithTagsProps {

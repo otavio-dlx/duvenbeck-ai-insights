@@ -18,7 +18,7 @@ import * as participantsData from "@/data/participants";
 import * as qehsData from "@/data/qehs";
 import * as roadSalesData from "@/data/road_sales";
 import * as strategicKamData from "@/data/strategic_kam";
-import { NewFormatIdea } from "@/data/types";
+import { NewFormatIdea } from "@/types/ideas";
 
 interface VectorDocument {
   id: string;

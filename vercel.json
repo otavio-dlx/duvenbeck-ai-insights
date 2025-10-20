@@ -1,11 +1,11 @@
 {
-  "buildCommand": "vite build",
-  "devCommand": "vite",
-  "framework": null,
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
+  "buildCommand": "pnpm run build:ci",
+  "outputDirectory": "dist",
+  "installCommand": "pnpm install",
+  "framework": "vite",
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "@vercel/node@5.3.26"
     }
-  ]
+  }
 }

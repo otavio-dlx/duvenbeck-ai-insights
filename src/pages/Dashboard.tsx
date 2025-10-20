@@ -158,98 +158,106 @@ export const Dashboard = () => {
         const deptKeys = deptMappings[dept] || [
           dept.toLowerCase().replace(/[^a-z0-9]/g, "_"),
         ];
-        const deptData = import.meta.glob("../data/*.ts", { eager: true });
+        const deptData = import.meta.glob("../data/*.ts");
         const deptFiles = Object.entries(deptData).filter(([path]) =>
           deptKeys.some((key) => path.toLowerCase().includes(key))
         );
 
-        deptFiles.forEach(([_, module]) => {
-          // Define a type for the expected module structure
-          type IdeasModule = {
-            ideas?: {
-              home?: unknown[];
-              ideas?: Array<{ finalPrio?: string | number; ideaKey?: string }>;
+        deptFiles.forEach(async ([path, importer]) => {
+          try {
+            const module = await importer();
+            // Define a type for the expected module structure
+            type IdeasModule = {
+              ideas?: {
+                home?: unknown[];
+                ideas?: Array<{
+                  finalPrio?: string | number;
+                  ideaKey?: string;
+                }>;
+              };
             };
-          };
-          const moduleData = (module as IdeasModule).ideas;
-          const ideas = moduleData?.ideas;
+            const moduleData = (module as IdeasModule).ideas;
+            const ideas = moduleData?.ideas;
 
-          // Check for new format first (structured ideas array)
-          if (Array.isArray(ideas)) {
-            const validIdeas = ideas.filter(
-              (item) =>
-                item &&
-                typeof item === "object" &&
-                "ideaKey" in item &&
-                item.ideaKey
-            );
-            const count = validIdeas.length;
-            ideasByDept[dept] = (ideasByDept[dept] || 0) + count;
-            totalIdeasCount += count;
-            return; // Skip old format processing
-          }
-
-          // Fall back to old format (Priorisierungsmatrix) - check the full module data
-          const fullModuleData = moduleData as Record<string, unknown>;
-          if (
-            fullModuleData &&
-            typeof fullModuleData === "object" &&
-            "Priorisierungsmatrix" in fullModuleData &&
-            Array.isArray(fullModuleData.Priorisierungsmatrix)
-          ) {
-            // Count ideas from the Priorisierungsmatrix
-            const matrixIdeas = (
-              fullModuleData.Priorisierungsmatrix as Record<string, unknown>[]
-            ).filter((item: Record<string, unknown>) => {
-              if (!item || typeof item !== "object") return false;
-
-              // Skip empty rows
-              if (Object.values(item).every((val) => !val)) return false;
-
-              // Skip header rows
-              if (
-                Object.values(item).some(
-                  (val) =>
-                    typeof val === "string" &&
-                    ["Priorisierungsmatrix", "Titel"].includes(val)
-                )
-              )
-                return false;
-
-              // Check for Problem and/or Solution fields
-              const hasValidContent = Object.entries(item).some(
-                ([key, value]) => {
-                  if (
-                    !value ||
-                    typeof value !== "string" ||
-                    value.trim().length === 0
-                  )
-                    return false;
-
-                  const problemField =
-                    key === "Problem" ||
-                    key.toLowerCase().includes("problem") ||
-                    key === "Unnamed: 1";
-
-                  const solutionField =
-                    key === "Lösung" ||
-                    key === "Lösung." ||
-                    key.toLowerCase().includes("losung") ||
-                    key.toLowerCase().includes("solution") ||
-                    key === "Unnamed: 2";
-
-                  return (
-                    (problemField || solutionField) && value.trim().length > 0
-                  );
-                }
+            // Check for new format first (structured ideas array)
+            if (Array.isArray(ideas)) {
+              const validIdeas = ideas.filter(
+                (item) =>
+                  item &&
+                  typeof item === "object" &&
+                  "ideaKey" in item &&
+                  item.ideaKey
               );
+              const count = validIdeas.length;
+              ideasByDept[dept] = (ideasByDept[dept] || 0) + count;
+              totalIdeasCount += count;
+              return; // Skip old format processing
+            }
 
-              return hasValidContent;
-            });
+            // Fall back to old format (Priorisierungsmatrix) - check the full module data
+            const fullModuleData = moduleData as Record<string, unknown>;
+            if (
+              fullModuleData &&
+              typeof fullModuleData === "object" &&
+              "Priorisierungsmatrix" in fullModuleData &&
+              Array.isArray(fullModuleData.Priorisierungsmatrix)
+            ) {
+              // Count ideas from the Priorisierungsmatrix
+              const matrixIdeas = (
+                fullModuleData.Priorisierungsmatrix as Record<string, unknown>[]
+              ).filter((item: Record<string, unknown>) => {
+                if (!item || typeof item !== "object") return false;
 
-            const count = matrixIdeas.length;
-            ideasByDept[dept] = (ideasByDept[dept] || 0) + count;
-            totalIdeasCount += count;
+                // Skip empty rows
+                if (Object.values(item).every((val) => !val)) return false;
+
+                // Skip header rows
+                if (
+                  Object.values(item).some(
+                    (val) =>
+                      typeof val === "string" &&
+                      ["Priorisierungsmatrix", "Titel"].includes(val)
+                  )
+                )
+                  return false;
+
+                // Check for Problem and/or Solution fields
+                const hasValidContent = Object.entries(item).some(
+                  ([key, value]) => {
+                    if (
+                      !value ||
+                      typeof value !== "string" ||
+                      value.trim().length === 0
+                    )
+                      return false;
+
+                    const problemField =
+                      key === "Problem" ||
+                      key.toLowerCase().includes("problem") ||
+                      key === "Unnamed: 1";
+
+                    const solutionField =
+                      key === "Lösung" ||
+                      key === "Lösung." ||
+                      key.toLowerCase().includes("losung") ||
+                      key.toLowerCase().includes("solution") ||
+                      key === "Unnamed: 2";
+
+                    return (
+                      (problemField || solutionField) && value.trim().length > 0
+                    );
+                  }
+                );
+
+                return hasValidContent;
+              });
+
+              const count = matrixIdeas.length;
+              ideasByDept[dept] = (ideasByDept[dept] || 0) + count;
+              totalIdeasCount += count;
+            }
+          } catch (error) {
+            console.warn(`Error loading department data for ${path}:`, error);
           }
         });
       } catch (error) {

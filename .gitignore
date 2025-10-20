@@ -22,7 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.cursor
 
 # Environment variables
 .env
+.env.production
 .vercel

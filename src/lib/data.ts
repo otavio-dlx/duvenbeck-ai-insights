@@ -2,7 +2,7 @@
 // Uses Vite's `import.meta.glob` to lazily import all modules that export `ideas`.
 
 import i18next from "i18next";
-import { LocalizableString, TranslatedString } from "../data/types";
+import { LocalizableString, TranslatedString } from "../types/shared";
 
 type IdeasModule = {
   ideas: Record<string, unknown>;
@@ -44,7 +44,7 @@ export async function loadAllData(): Promise<Record<string, IdeasModule>> {
       try {
         const mod = await importer();
         const parts = path.split("/");
-        const last = parts[parts.length - 1] || path;
+        const last = parts.at(-1) || path;
         const key = last.replace(/\.ts$/, "");
         if ((mod as IdeasModule)?.ideas) res[key] = mod as IdeasModule;
       } catch (err) {
@@ -61,7 +61,7 @@ export async function listDataKeys(): Promise<string[]> {
   const modules = import.meta.glob("../data/*.ts");
   const keys = Object.keys(modules).map((path) => {
     const parts = path.split("/");
-    const last = parts[parts.length - 1] || path;
+    const last = parts.at(-1) || path;
     return last.replace(/\.ts$/, "");
   });
   return keys.sort((a, b) => a.localeCompare(b));
