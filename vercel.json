@@ -1,7 +1,13 @@
 {
-  "buildCommand": "npm run build:ci",
-  "devCommand": "vite",
+  "buildCommand": "pnpm run build:ci",
+  "devCommand": "pnpm run dev:vite",
+  "installCommand": "pnpm install",
   "framework": null,
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "@vercel/node"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",

@@ -99,7 +99,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       searchResults = scrollResult.points.map((point: any) => ({
         id: point.id,
-        score: 1.0, // Dummy score - all filtered items are equally relevant
+        score: 1, // Dummy score - all filtered items are equally relevant
         payload: point.payload,
       }));
 

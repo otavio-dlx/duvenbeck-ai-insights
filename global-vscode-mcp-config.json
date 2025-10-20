@@ -1,0 +1,30 @@
+{
+  "github.copilot.chat.experimental.codeGeneration.instructions": [
+    {
+      "text": "You have access to Context7 MCP server for comprehensive programming language and tech stack documentation. Use it when you need authoritative information about APIs, frameworks, libraries, or programming concepts."
+    }
+  ],
+  "mcp.servers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {
+        "CONTEXT7_API_KEY": "${env:CONTEXT7_API_KEY}"
+      },
+      "disabled": false,
+      "alwaysAllow": [
+        "search_documentation",
+        "get_api_reference",
+        "explain_concept",
+        "find_examples",
+        "get_best_practices",
+        "compare_technologies",
+        "get_code_samples",
+        "find_tutorials"
+      ]
+    }
+  }
+}
