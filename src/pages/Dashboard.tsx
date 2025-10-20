@@ -75,13 +75,15 @@ export const Dashboard = () => {
   );
   const [loadingTags, setLoadingTags] = useState(false);
   const [departmentCount, setDepartmentCount] = useState<number>(0);
-  const [allIdeasData, setAllIdeasData] = useState<Array<{
-    id: string;
-    name: string;
-    description: string;
-    department: string;
-    scores: DuvenbeckScoringCriteria;
-  }>>([]);
+  const [allIdeasData, setAllIdeasData] = useState<
+    Array<{
+      id: string;
+      name: string;
+      description: string;
+      department: string;
+      scores: DuvenbeckScoringCriteria;
+    }>
+  >([]);
 
   // Load total ideas count and tags from all data files
   useEffect(() => {
@@ -266,11 +268,13 @@ export const Dashboard = () => {
     }
 
     // Filter departments based on selection
-    const filteredIdeasByDept = 
-      selectedDepartment === "all" 
+    const filteredIdeasByDept =
+      selectedDepartment === "all"
         ? ideasByDept
         : Object.fromEntries(
-            Object.entries(ideasByDept).filter(([dept]) => dept === selectedDepartment)
+            Object.entries(ideasByDept).filter(
+              ([dept]) => dept === selectedDepartment
+            )
           );
 
     // Calculate unique departments from actual department workspaces (data files)
