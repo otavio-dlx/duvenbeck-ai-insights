@@ -931,7 +931,7 @@
       }
     }
   },
-  "it_platform_services": {
+  "it_platform_services_digital_workplace": {
     "ideas": {
       "ticket_quality_prioritization": "Request Quality Tickets and Prioritization",
       "meeting_minutes": "Meeting Minutes",
