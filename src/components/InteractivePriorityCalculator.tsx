@@ -131,6 +131,8 @@ import {
   ZAxis,
 } from "recharts";
 import { IdeaTagsSection } from "./IdeaTagsSection";
+import { TagList } from "@/components/ui/tag";
+import { useTagging } from "@/hooks/useTagging";
 
 interface InteractivePriorityCalculatorProps {
   ideas: Array<{
@@ -256,6 +258,7 @@ export function InteractivePriorityCalculator({
   const [selectedIdea, setSelectedIdea] = useState<(typeof ideas)[0] | null>(
     null
   );
+  const { taggedIdeas } = useTagging();
   const [projectBrief, setProjectBrief] = useState<string>("");
 
   // Sorting state
@@ -681,9 +684,23 @@ export function InteractivePriorityCalculator({
                           #{result.rank}
                         </TableCell>
                         <TableCell>
-                          {idea
-                            ? getTranslatedInitiativeName(idea.id, idea.name)
-                            : result.name}
+                          <div className="flex flex-col">
+                            <div>
+                              {idea
+                                ? getTranslatedInitiativeName(idea.id, idea.name)
+                                : result.name}
+                            </div>
+                            <div className="mt-1">
+                              {/* Render tags for the idea if available in tagging context */}
+                              {(() => {
+                                const ideaText = idea
+                                  ? getTranslatedInitiativeName(idea.id, idea.name)
+                                  : result.name;
+                                const tags = taggedIdeas.find((t) => t.ideaText === ideaText)?.tags || [];
+                                return <TagList tags={tags as any} size="sm" maxTags={3} />;
+                              })()}
+                            </div>
+                          </div>
                         </TableCell>
                         <TableCell>
                           {idea
