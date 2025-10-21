@@ -1,47 +1,74 @@
-  /**
-   * Returns the translation key for a note type for a given department and idea.
-   * Example: getNoteTranslationKey('contract_logistics', 'target_prices', 'complexity')
-   *   => 'contract_logistics.notes.complexity.target_prices'
-   */
-  function getNoteTranslationKey(
-    t: (key: string, options?: any) => any,
-    department: string,
-    ideaId: string,
-    type: "complexity" | "roi" | "cost" | "risk" | "strategic"
-  ) {
-    // If any required part is empty, null, undefined, or blank, return undefined
-    if (!department || !ideaId || !type) return undefined;
-    if (
-      department === "null" || department === "undefined" || department === "" ||
-      ideaId === "null" || ideaId === "undefined" || ideaId === ""
-    ) return undefined;
-    // ideaId may be a full key like 'contract_logistics.ideas.target_prices', so extract last part
-    const shortId = ideaId.split(".").pop();
-    if (!shortId || shortId === "null" || shortId === "undefined" || shortId === "") return undefined;
-
-    // Check if department.notes exists in translation resources
-    const notesObj = t(`${department}.notes`, { returnObjects: true });
-    if (!notesObj || typeof notesObj !== "object" || Object.keys(notesObj).length === 0) {
-      return undefined;
-    }
-    return `${department}.notes.${type}.${shortId}`;
-  }
-  // Helper to extract note keys from idea
-  const getNoteKey = (
-    idea: any,
-    type: "complexity" | "roi"
-  ): string | undefined => {
-    if (idea && typeof idea === "object") {
-      if (idea[`${type}NoteKey`]) return idea[`${type}NoteKey`];
-      if (idea.department && idea.id) {
-        // Strip prefix from id (e.g., 'contract_logistics.ideas.target_prices' -> 'target_prices')
-        const idParts = idea.id.split(".");
-        const shortId = idParts[idParts.length - 1];
-        return `${idea.department}.notes.${type}.${shortId}`;
-      }
-    }
+/**
+ * Returns the translation key for a note type for a given department and idea.
+ * Example: getNoteTranslationKey('contract_logistics', 'target_prices', 'complexity')
+ *   => 'contract_logistics.notes.complexity.target_prices'
+ */
+function getNoteTranslationKey(
+  t: (key: string, options?: Record<string, unknown>) => string,
+  department: string,
+  ideaId: string,
+  type: "complexity" | "roi" | "cost" | "risk" | "strategic"
+) {
+  // If any required part is empty, null, undefined, or blank, return undefined
+  if (!department || !ideaId || !type) return undefined;
+  if (
+    department === "null" ||
+    department === "undefined" ||
+    department === "" ||
+    ideaId === "null" ||
+    ideaId === "undefined" ||
+    ideaId === ""
+  )
     return undefined;
-  };
+  // ideaId may be a full key like 'contract_logistics.ideas.target_prices', so extract last part
+  const shortId = ideaId.split(".").at(-1);
+  if (
+    !shortId ||
+    shortId === "null" ||
+    shortId === "undefined" ||
+    shortId === ""
+  )
+    return undefined;
+
+  // Check if department.notes exists in translation resources
+  const notesObj = t(`${department}.notes`, { returnObjects: true });
+  if (
+    !notesObj ||
+    typeof notesObj !== "object" ||
+    Object.keys(notesObj).length === 0
+  ) {
+    return undefined;
+  }
+  return `${department}.notes.${type}.${shortId}`;
+}
+
+// Define interface for idea object with note keys
+interface IdeaWithNotes {
+  id?: string;
+  department?: string;
+  complexityNoteKey?: string;
+  roiNoteKey?: string;
+  costNoteKey?: string;
+  riskNoteKey?: string;
+  strategicNoteKey?: string;
+}
+
+// Helper to extract note keys from idea
+const getNoteKey = (
+  idea: IdeaWithNotes,
+  type: "complexity" | "roi"
+): string | undefined => {
+  if (idea && typeof idea === "object") {
+    if (idea[`${type}NoteKey`]) return idea[`${type}NoteKey`];
+    if (idea.department && idea.id) {
+      // Strip prefix from id (e.g., 'contract_logistics.ideas.target_prices' -> 'target_prices')
+      const idParts = idea.id.split(".");
+      const shortId = idParts.at(-1);
+      return `${idea.department}.notes.${type}.${shortId}`;
+    }
+  }
+  return undefined;
+};
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -64,7 +91,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Slider } from "@/components/ui/slider";
 import {
   Table,
   TableBody,
@@ -73,7 +99,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Tooltip,
   TooltipContent,
@@ -86,7 +111,7 @@ import {
   DuvenbeckScoringCriteria,
   WeightingConfig,
 } from "@/lib/priority-calculator";
-import { Download, ExternalLink, Info, RotateCcw } from "lucide-react";
+import { Download, Info, RotateCcw } from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -209,32 +234,6 @@ export function InteractivePriorityCalculator({
     }
   };
 
-  // Helper function to get complexity assessment
-  const getComplexityAssessment = (score: number) => {
-    if (score >= 4) return t("priorityAnalysis.modal.complexityLevels.low");
-    if (score >= 3)
-      return t("priorityAnalysis.modal.complexityLevels.moderate");
-    if (score >= 2) return t("priorityAnalysis.modal.complexityLevels.high");
-    return t("priorityAnalysis.modal.complexityLevels.veryHigh");
-  };
-
-  // Helper function to get cost assessment
-  const getCostAssessment = (score: number) => {
-    if (score >= 4) return t("priorityAnalysis.modal.costLevels.low");
-    if (score >= 3) return t("priorityAnalysis.modal.costLevels.moderate");
-    if (score >= 2) return t("priorityAnalysis.modal.costLevels.high");
-    return t("priorityAnalysis.modal.costLevels.veryHigh");
-  };
-
-  // Helper function to get ROI assessment
-  const getRoiAssessment = (score: number) => {
-    if (score >= 5) return t("priorityAnalysis.modal.roiLevels.exceptional");
-    if (score >= 4) return t("priorityAnalysis.modal.roiLevels.high");
-    if (score >= 3) return t("priorityAnalysis.modal.roiLevels.moderate");
-    if (score >= 2) return t("priorityAnalysis.modal.roiLevels.low");
-    return t("priorityAnalysis.modal.roiLevels.minimal");
-  };
-
   // Helper functions to get translated initiative names and descriptions
   const getTranslatedInitiativeName = (
     ideaId: string,
@@ -245,19 +244,9 @@ export function InteractivePriorityCalculator({
     return fallbackName;
   };
 
-  const getTranslatedInitiativeDescription = (
-    ideaId: string,
-    fallbackDescription: string,
-    initiativeName: string
-  ) => {
-    // The description should already be translated by the data-mapper
-    // Just return the fallback description which is the already-translated description
-    return fallbackDescription;
-  };
   const [weights, setWeights] = useState<WeightingConfig>(
     DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS
   );
-  const [selectedScenario, setSelectedScenario] = useState<string>("custom");
   const [selectedIdea, setSelectedIdea] = useState<(typeof ideas)[0] | null>(
     null
   );
@@ -308,12 +297,15 @@ export function InteractivePriorityCalculator({
   // Helper function to create modal sections adapted for InteractivePriorityCalculator data
   const createModalSections = (idea: (typeof ideas)[0]): ModalSection[] => {
     // Helper to get translation or fallback to noDataAvailable
-    const getNoteTextForType = (idea: any, type: "complexity" | "roi" | "cost" | "risk" | "strategic") => {
+    const getNoteTextForType = (
+      idea: IdeaWithNotes & { department?: string; id?: string },
+      type: "complexity" | "roi" | "cost" | "risk" | "strategic"
+    ) => {
       // Prefer explicit note key property if present
       const explicitKey = idea[`${type}NoteKey`];
       if (explicitKey) {
         const translated = t(explicitKey);
-        return translated !== explicitKey ? translated : undefined;
+        return translated === explicitKey ? undefined : translated;
       }
       // Fallback: construct key from department and short id
       const department = idea.department?.toLowerCase().replace(/ /g, "_");
@@ -321,7 +313,7 @@ export function InteractivePriorityCalculator({
       const constructedKey = getNoteTranslationKey(t, department, id, type);
       if (!constructedKey) return undefined;
       const translated = t(constructedKey);
-      return translated !== constructedKey ? translated : undefined;
+      return translated === constructedKey ? undefined : translated;
     };
 
     return [
@@ -378,18 +370,18 @@ export function InteractivePriorityCalculator({
             value: getNoteTextForType(idea, "roi"),
             description: "",
           },
-           {
+          {
             label: t("priorityAnalysis.calculator.risk"),
             value: getNoteTextForType(idea, "risk"),
             description: "",
           },
-           {
+          {
             label: t("priorityAnalysis.calculator.strategicAlignment"),
             value: getNoteTextForType(idea, "strategic"),
             description: "",
           },
         ],
-      }
+      },
     ];
   };
 
@@ -398,56 +390,9 @@ export function InteractivePriorityCalculator({
     return DuvenbeckPriorityCalculator.rankIdeas(ideas, weights);
   }, [ideas, weights]);
 
-  // Available scenarios
-  const scenarios = DuvenbeckPriorityCalculator.getWeightScenarios();
-
-  // Handle weight changes
-  const handleWeightChange = (
-    criterion: keyof WeightingConfig,
-    value: number[]
-  ) => {
-    const newWeights = { ...weights, [criterion]: value[0] };
-
-    // Auto-adjust other weights to maintain 100% total
-    const otherCriteria = Object.keys(weights).filter(
-      (key) => key !== criterion
-    ) as Array<keyof WeightingConfig>;
-    const currentTotal = Object.values(newWeights).reduce(
-      (sum, w) => sum + w,
-      0
-    );
-
-    if (currentTotal !== 100) {
-      const excess = currentTotal - 100;
-      const adjustmentPerCriterion = excess / otherCriteria.length;
-
-      otherCriteria.forEach((key) => {
-        newWeights[key] = Math.max(
-          1,
-          Math.min(50, newWeights[key] - adjustmentPerCriterion)
-        );
-      });
-    }
-
-    setWeights(newWeights);
-    setSelectedScenario("custom");
-  };
-
-  // Handle scenario selection
-  const handleScenarioChange = (scenarioName: string) => {
-    if (scenarioName === "custom") return;
-
-    const scenario = scenarios.find((s) => s.name === scenarioName);
-    if (scenario) {
-      setWeights(scenario.weights);
-      setSelectedScenario(scenarioName);
-    }
-  };
-
   // Reset to default weights
   const resetWeights = () => {
     setWeights(DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS);
-    setSelectedScenario("Default (Balanced)");
   };
 
   // Export results
@@ -499,8 +444,6 @@ export function InteractivePriorityCalculator({
     URL.revokeObjectURL(url);
   };
 
-  const totalWeight = Object.values(weights).reduce((sum, w) => sum + w, 0);
-
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -528,18 +471,20 @@ export function InteractivePriorityCalculator({
       {/* Filter and Rankings Side by Side */}
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Department Filter Sidebar */}
-        {departments && selectedDepartment !== undefined && onDepartmentChange && (
-          <div className="w-full lg:w-72 flex-shrink-0">
-            <FilterPanel
-              departments={departments}
-              selectedDepartment={selectedDepartment}
-              onDepartmentChange={onDepartmentChange}
-              selectedDay="all"
-              onDayChange={() => {}}
-              onReset={() => onDepartmentChange("all")}
-            />
-          </div>
-        )}
+        {departments &&
+          selectedDepartment !== undefined &&
+          onDepartmentChange && (
+            <div className="w-full lg:w-72 flex-shrink-0">
+              <FilterPanel
+                departments={departments}
+                selectedDepartment={selectedDepartment}
+                onDepartmentChange={onDepartmentChange}
+                selectedDay="all"
+                onDayChange={() => {}}
+                onReset={() => onDepartmentChange("all")}
+              />
+            </div>
+          )}
 
         {/* Rankings Panel Only */}
         <div className="flex-1">
@@ -562,10 +507,7 @@ export function InteractivePriorityCalculator({
                             <TooltipTrigger>
                               <Info className="h-3 w-3 text-muted-foreground" />
                             </TooltipTrigger>
-                            <TooltipContent
-                              side="bottom"
-                              className="max-w-xs"
-                            >
+                            <TooltipContent side="bottom" className="max-w-xs">
                               {t("priorityAnalysis.rankings.rankTooltip")}
                             </TooltipContent>
                           </Tooltip>
@@ -581,7 +523,9 @@ export function InteractivePriorityCalculator({
                               <Info className="h-3 w-3 text-muted-foreground" />
                             </TooltipTrigger>
                             <TooltipContent side="bottom" className="max-w-xs">
-                              {t("priorityAnalysis.rankings.aiInitiativeTooltip")}
+                              {t(
+                                "priorityAnalysis.rankings.aiInitiativeTooltip"
+                              )}
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
@@ -633,9 +577,7 @@ export function InteractivePriorityCalculator({
                         key={result.id}
                         className="cursor-pointer hover:bg-muted/50 transition-colors"
                         onClick={() => {
-                          const idea = ideas.find(
-                            (i) => i.id === result.id
-                          );
+                          const idea = ideas.find((i) => i.id === result.id);
                           if (idea) {
                             setSelectedIdea(idea);
                             const modalSections = createModalSections(idea);
@@ -658,18 +600,14 @@ export function InteractivePriorityCalculator({
                         </TableCell>
                         <TableCell>
                           <Badge
-                            variant={getScoreBadgeVariant(
-                              result.finalScore
-                            )}
+                            variant={getScoreBadgeVariant(result.finalScore)}
                           >
                             {result.finalScore}
                           </Badge>
                         </TableCell>
                         <TableCell>
                           <Badge
-                            variant={getCategoryBadgeVariant(
-                              result.category
-                            )}
+                            variant={getCategoryBadgeVariant(result.category)}
                           >
                             {translateCategory(result.category)}
                           </Badge>
@@ -683,12 +621,12 @@ export function InteractivePriorityCalculator({
           </Card>
         </div>
       </div>
-                    {/* Idea Details Modal */}
-                    <Dialog
-                      open={selectedIdea !== null}
-                      onOpenChange={() => setSelectedIdea(null)}
-                    >
-                      <DialogContent className="max-w-6xl max-h-[95vh] p-0 gap-0 bg-white">
+      {/* Idea Details Modal */}
+      <Dialog
+        open={selectedIdea !== null}
+        onOpenChange={() => setSelectedIdea(null)}
+      >
+        <DialogContent className="max-w-6xl max-h-[95vh] p-0 gap-0 bg-white">
           <DialogHeader className="p-8 pb-6 border-b border-gray-200 bg-white">
             <DialogTitle className="text-3xl font-bold text-gray-900 leading-tight">
               {selectedIdea
@@ -724,8 +662,8 @@ export function InteractivePriorityCalculator({
                 (section: ModalSection, sectionIndex: number) => (
                   <div
                     key={`section-${section.type}-${sectionIndex}`}
-                    className={`${section.type !== "hero" ? "p-6" : ""} ${
-                      section.type !== "hero" ? "border-b border-border/10" : ""
+                    className={`${section.type === "hero" ? "" : "p-6"} ${
+                      section.type === "hero" ? "" : "border-b border-border/10"
                     }`}
                   >
                     {/* Quick Stats Section */}
@@ -1102,7 +1040,7 @@ function InsightsBubbleChart({
     return (ideaId: string, fallbackName: string) => {
       const translationKey = `priorityAnalysis.initiatives.${ideaId}.name`;
       const translated = t(translationKey);
-      return translated !== translationKey ? translated : fallbackName;
+      return translated === translationKey ? fallbackName : translated;
     };
   }, [t]);
 
@@ -1250,7 +1188,7 @@ function InsightsBubbleChart({
   const groupedData = useMemo(() => {
     const groups = new Map<string, typeof chartData>();
 
-    chartData.forEach((item) => {
+    for (const item of chartData) {
       const groupKey = getGroupKey(item, groupBy);
 
       if (!groups.has(groupKey)) {
@@ -1260,7 +1198,7 @@ function InsightsBubbleChart({
       if (groupItems) {
         groupItems.push(item);
       }
-    });
+    }
 
     const result = Array.from(groups.entries()).map(([group, items]) => ({
       group,
@@ -1490,6 +1428,16 @@ function ScenarioComparison({
   ideas: InteractivePriorityCalculatorProps["ideas"];
 }>) {
   const { t } = useTranslation();
+
+  const getTranslatedInitiativeName = (
+    ideaId: string,
+    fallbackName: string
+  ) => {
+    const translationKey = `priorityAnalysis.initiatives.${ideaId}.name`;
+    const translated = t(translationKey);
+    return translated === translationKey ? fallbackName : translated;
+  };
+
   const scenarios = DuvenbeckPriorityCalculator.getWeightScenarios().slice(
     0,
     4
@@ -1524,17 +1472,6 @@ function ScenarioComparison({
               <div className="space-y-2">
                 {scenario.rankings.map((result, index) => {
                   const idea = ideas.find((i) => i.id === result.id);
-                  function getTranslatedInitiativeName(
-                    id: string,
-                    name: string,
-                    t: (key: string) => string
-                  ):
-                    | import("react").ReactNode
-                    | Iterable<import("react").ReactNode> {
-                    const translationKey = `priorityAnalysis.initiatives.${id}.name`;
-                    const translated = t(translationKey);
-                    return translated !== translationKey ? translated : name;
-                  }
                   return (
                     <div
                       key={result.id}
@@ -1548,7 +1485,7 @@ function ScenarioComparison({
                           {index + 1}
                         </Badge>
                         {idea
-                          ? getTranslatedInitiativeName(idea.id, result.name, t)
+                          ? getTranslatedInitiativeName(idea.id, result.name)
                           : result.name}
                       </span>
                       <Badge variant="secondary">{result.finalScore}</Badge>
