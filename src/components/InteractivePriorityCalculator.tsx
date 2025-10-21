@@ -259,7 +259,7 @@ export function InteractivePriorityCalculator({
   const [projectBrief, setProjectBrief] = useState<string>("");
 
   // Sorting state
-  type SortableColumn = "rank" | "name" | "department" | "score" | "category";
+  type SortableColumn = "rank" | "name" | "department" | "score";
   type SortDirection = "asc" | "desc";
   const [sortColumn, setSortColumn] = useState<SortableColumn>("rank");
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
@@ -452,10 +452,7 @@ export function InteractivePriorityCalculator({
           valueA = a.finalScore;
           valueB = b.finalScore;
           break;
-        case "category":
-          valueA = a.category.toLowerCase();
-          valueB = b.category.toLowerCase();
-          break;
+        
       }
 
       if (valueA < valueB) {
@@ -482,7 +479,6 @@ export function InteractivePriorityCalculator({
       t("priorityAnalysis.rankings.aiInitiative"),
       t("priorityAnalysis.rankings.department"),
       t("priorityAnalysis.breakdown.total"),
-      t("priorityAnalysis.rankings.category"),
       t("priorityAnalysis.calculator.complexity"),
       t("priorityAnalysis.calculator.cost"),
       t("priorityAnalysis.calculator.roi"),
@@ -503,7 +499,6 @@ export function InteractivePriorityCalculator({
           }"`,
           idea ? getDepartmentDisplayName(idea.department) : "",
           result.finalScore,
-          result.category,
           result.breakdown.complexity.score,
           result.breakdown.cost.score,
           result.breakdown.roi.score,
@@ -663,25 +658,7 @@ export function InteractivePriorityCalculator({
                         </TooltipProvider>
                       </button>
                     </TableHead>
-                    <TableHead>
-                      <button
-                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
-                        onClick={() => handleSort("category")}
-                        aria-label={`Sort by ${t(
-                          "priorityAnalysis.rankings.category"
-                        )}`}
-                      >
-                        {t("priorityAnalysis.rankings.category")}
-                        {getSortIcon("category")}
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipContent side="bottom" className="max-w-xs">
-                              {t("priorityAnalysis.rankings.categoryTooltip")}
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </button>
-                    </TableHead>
+                    
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -720,13 +697,7 @@ export function InteractivePriorityCalculator({
                             {result.finalScore}
                           </Badge>
                         </TableCell>
-                        <TableCell>
-                          <Badge
-                            variant={getCategoryBadgeVariant(result.category)}
-                          >
-                            {translateCategory(result.category)}
-                          </Badge>
-                        </TableCell>
+                        
                       </TableRow>
                     );
                   })}
@@ -769,6 +740,7 @@ export function InteractivePriorityCalculator({
                     selectedIdea.id,
                     selectedIdea.name
                   )}
+                  variant="modalRed"
                 />
               </div>
             )}

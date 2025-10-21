@@ -3,6 +3,7 @@ import { QdrantClient } from "@qdrant/js-client-rest";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
+import { pool, ensureTagsTable } from "./db";
 
 dotenv.config();
 
@@ -160,9 +161,143 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok", timestamp: new Date().toISOString() });
 });
 
+// Tags CRUD endpoints
+// GET /api/tags?ideaText=...
+app.get("/api/tags", async (req, res) => {
+  const ideaText = String(req.query.ideaText || "");
+  try {
+    const client = await pool.connect();
+    try {
+      const result = await client.query(
+        `SELECT tag_text as text FROM tags WHERE idea_text = $1 ORDER BY created_at DESC`,
+        [ideaText]
+      );
+      res.json({ tags: result.rows.map((r) => ({ text: r.text })) });
+    } finally {
+      client.release();
+    }
+  } catch (err) {
+    console.error("Error fetching tags:", err);
+    res.status(500).json({ error: "Failed to fetch tags" });
+  }
+});
+
+// GET /api/tags/all - return all tags grouped by idea
+app.get("/api/tags/all", async (req, res) => {
+  try {
+    const client = await pool.connect();
+    try {
+      const result = await client.query(`SELECT idea_text, tag_text as text, created_at FROM tags ORDER BY idea_text, created_at DESC`);
+      const map: Record<string, Array<{ text: string; created_at: string }>> = {};
+      result.rows.forEach((r) => {
+        if (!map[r.idea_text]) map[r.idea_text] = [];
+        map[r.idea_text].push({ text: r.text, created_at: r.created_at });
+      });
+      res.json({ tagsByIdea: map });
+    } finally {
+      client.release();
+    }
+  } catch (err) {
+    console.error("Error fetching all tags:", err);
+    res.status(500).json({ error: "Failed to fetch all tags" });
+  }
+});
+
+// POST /api/tags { ideaText, tagText }
+app.post("/api/tags", async (req, res) => {
+  const { ideaText, tagText } = req.body;
+  if (!ideaText || !tagText) return res.status(400).json({ error: "ideaText and tagText are required" });
+  try {
+    const client = await pool.connect();
+    try {
+      await client.query("BEGIN");
+      // Normalize tag text
+      const normalizedTag = String(tagText).trim();
+
+      // Check current tag count for the idea
+      const countRes = await client.query(`SELECT COUNT(*)::int AS cnt FROM tags WHERE idea_text = $1`, [ideaText]);
+      const cnt = parseInt(countRes.rows[0].cnt, 10);
+      if (cnt >= 5) {
+        await client.query("ROLLBACK");
+        return res.status(400).json({ error: "Max 5 tags allowed per idea" });
+      }
+      // Insert, rely on unique index to prevent duplicates
+      try {
+        await client.query(`INSERT INTO tags (idea_text, tag_text) VALUES ($1, $2)`, [ideaText, normalizedTag]);
+      } catch (err) {
+        // Unique violation
+        await client.query("ROLLBACK");
+        return res.status(409).json({ error: "Tag already exists for idea" });
+      }
+      await client.query("COMMIT");
+      res.json({ ok: true });
+    } finally {
+      client.release();
+    }
+  } catch (err) {
+    console.error("Error inserting tag:", err);
+    res.status(500).json({ error: "Failed to insert tag" });
+  }
+});
+
+// PUT /api/tags { ideaText, oldTagText, newTagText }
+app.put("/api/tags", async (req, res) => {
+  const { ideaText, oldTagText, newTagText } = req.body;
+  if (!ideaText || !oldTagText || !newTagText) return res.status(400).json({ error: "ideaText, oldTagText and newTagText are required" });
+  try {
+    const client = await pool.connect();
+    try {
+      await client.query("BEGIN");
+      // Normalize tag texts
+      const normalizedNew = String(newTagText).trim();
+      const normalizedOld = String(oldTagText).trim();
+
+      // If newTagText already exists (case-insensitive), it's a conflict
+      const dup = await client.query(`SELECT 1 FROM tags WHERE idea_text = $1 AND lower(tag_text) = lower($2)`, [ideaText, normalizedNew]);
+      if ((dup?.rowCount ?? 0) > 0) {
+        await client.query("ROLLBACK");
+        return res.status(409).json({ error: "New tag text already exists for idea" });
+      }
+      await client.query(`UPDATE tags SET tag_text = $3 WHERE idea_text = $1 AND tag_text = $2`, [ideaText, normalizedOld, normalizedNew]);
+      await client.query("COMMIT");
+      res.json({ ok: true });
+    } finally {
+      client.release();
+    }
+  } catch (err) {
+    console.error("Error updating tag:", err);
+    res.status(500).json({ error: "Failed to update tag" });
+  }
+});
+
+// DELETE /api/tags { ideaText, tagText }
+app.delete("/api/tags", async (req, res) => {
+  const { ideaText, tagText } = req.body;
+  if (!ideaText || !tagText) return res.status(400).json({ error: "ideaText and tagText are required" });
+  try {
+    const client = await pool.connect();
+    try {
+      await client.query(
+        `DELETE FROM tags WHERE idea_text = $1 AND tag_text = $2`,
+        [ideaText, tagText]
+      );
+      res.json({ ok: true });
+    } finally {
+      client.release();
+    }
+  } catch (err) {
+    console.error("Error deleting tag:", err);
+    res.status(500).json({ error: "Failed to delete tag" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`\n🚀 API Server running at http://localhost:${PORT}`);
   console.log(`📍 Endpoints:`);
   console.log(`   - POST http://localhost:${PORT}/api/rag/search`);
   console.log(`   - GET  http://localhost:${PORT}/api/health\n`);
+  // Ensure tags table exists at startup
+  ensureTagsTable()
+    .then(() => console.log("Tags table ensured"))
+    .catch((err) => console.error("Failed to ensure tags table:", err));
 });
