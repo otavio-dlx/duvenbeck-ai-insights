@@ -758,7 +758,7 @@ export function InteractivePriorityCalculator({
 
                     {/* Two Column Layout for Problem/Solution */}
                     {section.type === "twoColumn" && (
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                      <div className="mb-8">
                         <div className="bg-white rounded-lg p-6 border-l-4 border-red-500 shadow-sm">
                           <div className="flex items-center mb-4">
                             <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
@@ -768,17 +768,6 @@ export function InteractivePriorityCalculator({
                           </div>
                           <p className="text-sm leading-relaxed text-gray-700 whitespace-pre-line">
                             {section.leftSection?.content}
-                          </p>
-                        </div>
-                        <div className="bg-white rounded-lg p-6 border-l-4 border-gray-300 shadow-sm">
-                          <div className="flex items-center mb-4">
-                            <div className="w-3 h-3 bg-gray-400 rounded-full mr-3"></div>
-                            <h3 className="text-lg font-bold text-gray-700">
-                              {section.rightSection?.title}
-                            </h3>
-                          </div>
-                          <p className="text-sm leading-relaxed text-gray-700 whitespace-pre-line">
-                            {section.rightSection?.content}
                           </p>
                         </div>
                       </div>
