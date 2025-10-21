@@ -111,7 +111,13 @@ import {
   DuvenbeckScoringCriteria,
   WeightingConfig,
 } from "@/lib/priority-calculator";
-import { Download, Info, RotateCcw } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  Download,
+  Info,
+  RotateCcw,
+} from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -252,10 +258,42 @@ export function InteractivePriorityCalculator({
   );
   const [projectBrief, setProjectBrief] = useState<string>("");
 
+  // Sorting state
+  type SortableColumn = "rank" | "name" | "department" | "score" | "category";
+  type SortDirection = "asc" | "desc";
+  const [sortColumn, setSortColumn] = useState<SortableColumn>("rank");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
+
   const getMetricLevelText = (value: number): string => {
     if (value > 3) return "High";
     if (value > 1) return "Medium";
     return "Low";
+  };
+
+  // Handle column sorting
+  const handleSort = (column: SortableColumn) => {
+    if (sortColumn === column) {
+      // Toggle direction if same column
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+    } else {
+      // New column, default to ascending
+      setSortColumn(column);
+      setSortDirection("asc");
+    }
+  };
+
+  // Get sort icon for a column
+  const getSortIcon = (column: SortableColumn) => {
+    if (sortColumn !== column) {
+      return (
+        <ChevronUp className="h-3 w-3 text-muted-foreground opacity-0 group-hover:opacity-50" />
+      );
+    }
+    return sortDirection === "asc" ? (
+      <ChevronUp className="h-3 w-3 text-muted-foreground" />
+    ) : (
+      <ChevronDown className="h-3 w-3 text-muted-foreground" />
+    );
   };
 
   // Helper function to get idea owner based on ID
@@ -387,8 +425,50 @@ export function InteractivePriorityCalculator({
 
   // Calculate current rankings
   const currentRankings = useMemo(() => {
-    return DuvenbeckPriorityCalculator.rankIdeas(ideas, weights);
-  }, [ideas, weights]);
+    const baseRankings = DuvenbeckPriorityCalculator.rankIdeas(ideas, weights);
+
+    // Apply sorting
+    const sortedRankings = [...baseRankings].sort((a, b) => {
+      let valueA: string | number;
+      let valueB: string | number;
+
+      switch (sortColumn) {
+        case "rank":
+          valueA = a.rank;
+          valueB = b.rank;
+          break;
+        case "name":
+          valueA = a.name.toLowerCase();
+          valueB = b.name.toLowerCase();
+          break;
+        case "department": {
+          const ideaA = ideas.find((i) => i.id === a.id);
+          const ideaB = ideas.find((i) => i.id === b.id);
+          valueA = (ideaA?.department || "").toLowerCase();
+          valueB = (ideaB?.department || "").toLowerCase();
+          break;
+        }
+        case "score":
+          valueA = a.finalScore;
+          valueB = b.finalScore;
+          break;
+        case "category":
+          valueA = a.category.toLowerCase();
+          valueB = b.category.toLowerCase();
+          break;
+      }
+
+      if (valueA < valueB) {
+        return sortDirection === "asc" ? -1 : 1;
+      }
+      if (valueA > valueB) {
+        return sortDirection === "asc" ? 1 : -1;
+      }
+      return 0;
+    });
+
+    return sortedRankings;
+  }, [ideas, weights, sortColumn, sortDirection]);
 
   // Reset to default weights
   const resetWeights = () => {
@@ -500,8 +580,15 @@ export function InteractivePriorityCalculator({
                 <TableHeader>
                   <TableRow>
                     <TableHead className="w-12">
-                      <div className="flex items-center gap-1">
+                      <button
+                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                        onClick={() => handleSort("rank")}
+                        aria-label={`Sort by ${t(
+                          "priorityAnalysis.rankings.rank"
+                        )}`}
+                      >
                         {t("priorityAnalysis.rankings.rank")}
+                        {getSortIcon("rank")}
                         <TooltipProvider>
                           <Tooltip>
                             <TooltipTrigger>
@@ -512,11 +599,18 @@ export function InteractivePriorityCalculator({
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
-                      </div>
+                      </button>
                     </TableHead>
                     <TableHead>
-                      <div className="flex items-center gap-1">
+                      <button
+                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                        onClick={() => handleSort("name")}
+                        aria-label={`Sort by ${t(
+                          "priorityAnalysis.rankings.aiInitiative"
+                        )}`}
+                      >
                         {t("priorityAnalysis.rankings.aiInitiative")}
+                        {getSortIcon("name")}
                         <TooltipProvider>
                           <Tooltip>
                             <TooltipTrigger>
@@ -529,11 +623,18 @@ export function InteractivePriorityCalculator({
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
-                      </div>
+                      </button>
                     </TableHead>
                     <TableHead>
-                      <div className="flex items-center gap-1">
+                      <button
+                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                        onClick={() => handleSort("department")}
+                        aria-label={`Sort by ${t(
+                          "priorityAnalysis.rankings.department"
+                        )}`}
+                      >
                         {t("priorityAnalysis.rankings.department")}
+                        {getSortIcon("department")}
                         <TooltipProvider>
                           <Tooltip>
                             <TooltipContent side="bottom" className="max-w-xs">
@@ -541,11 +642,18 @@ export function InteractivePriorityCalculator({
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
-                      </div>
+                      </button>
                     </TableHead>
                     <TableHead>
-                      <div className="flex items-center gap-1">
+                      <button
+                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                        onClick={() => handleSort("score")}
+                        aria-label={`Sort by ${t(
+                          "priorityAnalysis.rankings.score"
+                        )}`}
+                      >
                         {t("priorityAnalysis.rankings.score")}
+                        {getSortIcon("score")}
                         <TooltipProvider>
                           <Tooltip>
                             <TooltipContent side="bottom" className="max-w-xs">
@@ -553,11 +661,18 @@ export function InteractivePriorityCalculator({
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
-                      </div>
+                      </button>
                     </TableHead>
                     <TableHead>
-                      <div className="flex items-center gap-1">
+                      <button
+                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                        onClick={() => handleSort("category")}
+                        aria-label={`Sort by ${t(
+                          "priorityAnalysis.rankings.category"
+                        )}`}
+                      >
                         {t("priorityAnalysis.rankings.category")}
+                        {getSortIcon("category")}
                         <TooltipProvider>
                           <Tooltip>
                             <TooltipContent side="bottom" className="max-w-xs">
@@ -565,7 +680,7 @@ export function InteractivePriorityCalculator({
                             </TooltipContent>
                           </Tooltip>
                         </TooltipProvider>
-                      </div>
+                      </button>
                     </TableHead>
                   </TableRow>
                 </TableHeader>
