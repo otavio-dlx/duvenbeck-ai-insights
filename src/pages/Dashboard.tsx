@@ -16,6 +16,7 @@ import {
   Users,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
+import { useFilters } from "@/hooks/useFilters";
 import { useTranslation } from "react-i18next";
 import {
   Bar,
@@ -65,8 +66,15 @@ const formatDepartmentName = (key: string): string => {
 export const Dashboard = () => {
   const { t } = useTranslation();
   const { getTagsForIdea } = useTagging();
-  const [selectedDepartment, setSelectedDepartment] = useState("all");
-  const [selectedDay, setSelectedDay] = useState("all");
+  // use shared filter logic but keep state local to this page
+  const {
+    selectedDepartment,
+    selectedDay,
+    setSelectedDepartment,
+    setSelectedDay,
+    reset,
+    filterParticipants,
+  } = useFilters();
   const [totalIdeasFromFiles, setTotalIdeasFromFiles] = useState<number | null>(
     null
   );
@@ -244,18 +252,7 @@ export const Dashboard = () => {
   }, []);
 
   // Filter participants based on selections
-  const filteredParticipants = useMemo(() => {
-    return participantsData.filter((p) => {
-      const deptMatch =
-        selectedDepartment === "all" || p.groupName === selectedDepartment;
-      const dayMatch =
-        selectedDay === "all" ||
-        (selectedDay === "day1" && p.day1) ||
-        (selectedDay === "day2" && p.day2) ||
-        (selectedDay === "day3" && p.day3);
-      return deptMatch && dayMatch;
-    });
-  }, [selectedDepartment, selectedDay]);
+  const filteredParticipants = useMemo(() => filterParticipants(participantsData), [filterParticipants]);
 
   // Calculate metrics and department data
   const { metrics, departmentData } = useMemo(() => {
@@ -329,10 +326,7 @@ export const Dashboard = () => {
     "hsl(var(--chart-10, 60 65% 65%))",
   ];
 
-  const handleReset = () => {
-    setSelectedDepartment("all");
-    setSelectedDay("all");
-  };
+  const handleReset = reset;
 
   // ...existing code...
 

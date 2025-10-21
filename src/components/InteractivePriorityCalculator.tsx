@@ -215,6 +215,11 @@ interface InteractivePriorityCalculatorProps {
   departments?: string[];
   selectedDepartment?: string;
   onDepartmentChange?: (value: string) => void;
+  onReset?: () => void;
+  // Tag filter props (optional)
+  tags?: string[];
+  selectedTag?: string;
+  onTagChange?: (value: string) => void;
 }
 
 export function InteractivePriorityCalculator({
@@ -222,6 +227,10 @@ export function InteractivePriorityCalculator({
   departments,
   selectedDepartment,
   onDepartmentChange,
+  onReset,
+  tags,
+  selectedTag,
+  onTagChange,
 }: Readonly<InteractivePriorityCalculatorProps>) {
   // Restore original: no tag filter, no filteredIdeas
   const { t } = useTranslation();
@@ -549,7 +558,7 @@ export function InteractivePriorityCalculator({
       {/* Filter and Rankings Side by Side */}
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Department Filter Sidebar */}
-        {departments &&
+            {departments &&
           selectedDepartment !== undefined &&
           onDepartmentChange && (
             <div className="w-full lg:w-72 flex-shrink-0">
@@ -559,7 +568,10 @@ export function InteractivePriorityCalculator({
                 onDepartmentChange={onDepartmentChange}
                 selectedDay="all"
                 onDayChange={() => {}}
-                onReset={() => onDepartmentChange("all")}
+                onReset={typeof onReset === 'function' ? onReset : () => onDepartmentChange("all")}
+                tags={tags}
+                selectedTag={selectedTag}
+                onTagChange={onTagChange}
               />
             </div>
           )}

@@ -6,6 +6,8 @@ import { getAllIdeasForCalculator } from "@/lib/data-mapper";
 import { DuvenbeckScoringCriteria } from "@/lib/priority-calculator";
 import { ArrowLeft } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useFilters } from "@/hooks/useFilters";
+import { useTagging } from "@/hooks/useTagging";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
@@ -22,7 +24,13 @@ export default function PriorityAnalysisPage() {
   const [allIdeas, setAllIdeas] = useState<Idea[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedDepartment, setSelectedDepartment] = useState("all");
+  // Keep filters independent per page but reuse the filter logic
+  const { selectedDepartment, setSelectedDepartment, selectedDay, setSelectedDay, filterIdeas } = useFilters();
+  const { taggedIdeas, getTagsForIdea } = useTagging();
+  const [selectedTag, setSelectedTag] = useState<string>("all");
+
+  // Derive tag list from taggedIdeas (fallback to empty)
+  const tags = Array.from(new Set(taggedIdeas.flatMap((t) => t.tags.map((tg) => tg.text)))).filter(Boolean).sort();
 
   useEffect(() => {
     const loadIdeas = async () => {
@@ -84,11 +92,24 @@ export default function PriorityAnalysisPage() {
   // Compute unique department list from loaded ideas
   const departments = Array.from(new Set(allIdeas.map((idea) => idea.department))).sort();
 
-  // Filter ideas by selected department
-  const filteredIdeas =
-    selectedDepartment === "all"
-      ? allIdeas
-      : allIdeas.filter((idea) => idea.department === selectedDepartment);
+  // Filter ideas by selected department using shared logic
+  let filteredIdeas = filterIdeas(allIdeas);
+
+  // If a tag is selected, further filter by ideas that have that tag (use tagging context)
+  if (selectedTag && selectedTag !== "all") {
+    filteredIdeas = filteredIdeas.filter((idea) => {
+      // idea.description is used as ideaText when tags were created elsewhere in the app
+      const candidates = [idea.name, idea.description].filter(Boolean).map((s) => String(s).trim());
+      const record = taggedIdeas.find((t) => candidates.includes(String(t.ideaText).trim()));
+      if (!record) return false;
+      return record.tags.some((tg) => tg.text === selectedTag);
+    });
+  }
+
+  const handleReset = () => {
+    setSelectedDepartment("all");
+    setSelectedTag("all");
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
@@ -122,6 +143,10 @@ export default function PriorityAnalysisPage() {
           departments={departments}
           selectedDepartment={selectedDepartment}
           onDepartmentChange={setSelectedDepartment}
+          tags={tags}
+          selectedTag={selectedTag}
+          onTagChange={setSelectedTag}
+          onReset={handleReset}
         />
 
         {/* Usage Instructions */}
