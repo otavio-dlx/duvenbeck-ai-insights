@@ -703,9 +703,26 @@ export function DynamicCollaboards({
       // Filter by selected department
       let filteredFound = found;
       if (selectedDepartment !== "all") {
-        filteredFound = found.filter(
+        filteredFound = filteredFound.filter(
           (item) => item.department === selectedDepartment
         );
+      }
+
+      // Filter by selected day (map day1/day2/day3 to workshop dates)
+      // Workshop took place on 2025-10-06 (day1), 2025-10-07 (day2), 2025-10-08 (day3)
+      if (selectedDay && selectedDay !== "all") {
+        const dayToDateMap: Record<string, string> = {
+          day1: "2025-10-06",
+          day2: "2025-10-07",
+          day3: "2025-10-08",
+        };
+        const targetDate = dayToDateMap[selectedDay];
+        if (targetDate) {
+          filteredFound = filteredFound.filter((item) => {
+            // Compare ISO date strings (item.date may be empty)
+            return item.date === targetDate;
+          });
+        }
       }
 
       // Deduplicate by department name (keep first occurrence)
@@ -728,7 +745,7 @@ export function DynamicCollaboards({
     return () => {
       mounted = false;
     };
-  }, [selectedDepartment]);
+  }, [selectedDepartment, selectedDay]);
 
   if (links.length === 0)
     return (
