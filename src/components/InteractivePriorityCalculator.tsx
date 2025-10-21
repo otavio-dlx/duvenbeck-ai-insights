@@ -1,3 +1,47 @@
+  /**
+   * Returns the translation key for a note type for a given department and idea.
+   * Example: getNoteTranslationKey('contract_logistics', 'target_prices', 'complexity')
+   *   => 'contract_logistics.notes.complexity.target_prices'
+   */
+  function getNoteTranslationKey(
+    t: (key: string, options?: any) => any,
+    department: string,
+    ideaId: string,
+    type: "complexity" | "roi" | "cost" | "risk" | "strategic"
+  ) {
+    // If any required part is empty, null, undefined, or blank, return undefined
+    if (!department || !ideaId || !type) return undefined;
+    if (
+      department === "null" || department === "undefined" || department === "" ||
+      ideaId === "null" || ideaId === "undefined" || ideaId === ""
+    ) return undefined;
+    // ideaId may be a full key like 'contract_logistics.ideas.target_prices', so extract last part
+    const shortId = ideaId.split(".").pop();
+    if (!shortId || shortId === "null" || shortId === "undefined" || shortId === "") return undefined;
+
+    // Check if department.notes exists in translation resources
+    const notesObj = t(`${department}.notes`, { returnObjects: true });
+    if (!notesObj || typeof notesObj !== "object" || Object.keys(notesObj).length === 0) {
+      return undefined;
+    }
+    return `${department}.notes.${type}.${shortId}`;
+  }
+  // Helper to extract note keys from idea
+  const getNoteKey = (
+    idea: any,
+    type: "complexity" | "roi"
+  ): string | undefined => {
+    if (idea && typeof idea === "object") {
+      if (idea[`${type}NoteKey`]) return idea[`${type}NoteKey`];
+      if (idea.department && idea.id) {
+        // Strip prefix from id (e.g., 'contract_logistics.ideas.target_prices' -> 'target_prices')
+        const idParts = idea.id.split(".");
+        const shortId = idParts[idParts.length - 1];
+        return `${idea.department}.notes.${type}.${shortId}`;
+      }
+    }
+    return undefined;
+  };
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -263,6 +307,23 @@ export function InteractivePriorityCalculator({
 
   // Helper function to create modal sections adapted for InteractivePriorityCalculator data
   const createModalSections = (idea: (typeof ideas)[0]): ModalSection[] => {
+    // Helper to get translation or fallback to noDataAvailable
+    const getNoteTextForType = (idea: any, type: "complexity" | "roi" | "cost" | "risk" | "strategic") => {
+      // Prefer explicit note key property if present
+      const explicitKey = idea[`${type}NoteKey`];
+      if (explicitKey) {
+        const translated = t(explicitKey);
+        return translated !== explicitKey ? translated : undefined;
+      }
+      // Fallback: construct key from department and short id
+      const department = idea.department?.toLowerCase().replace(/ /g, "_");
+      const id = idea.id;
+      const constructedKey = getNoteTranslationKey(t, department, id, type);
+      if (!constructedKey) return undefined;
+      const translated = t(constructedKey);
+      return translated !== constructedKey ? translated : undefined;
+    };
+
     return [
       {
         type: "quickStats",
@@ -292,98 +353,43 @@ export function InteractivePriorityCalculator({
         ],
       },
       {
-        type: "twoColumn",
-        leftSection: {
-          title: t("priorityAnalysis.modal.problemStatement"),
-          content:
-            idea.description?.split(".")[0] + "." || t("modal.noDataAvailable"),
-          icon: "",
-          bgColor: "red",
-        },
-        rightSection: {
-          title: t("priorityAnalysis.modal.proposedSolution"),
-          content: getTranslatedInitiativeDescription(
-            idea.id,
-            idea.description || "",
-            idea.name
-          ),
-          icon: "",
-          bgColor: "neutral",
-        },
+        type: "placeholder",
+        title: t("priorityAnalysis.modal.problemStatement"),
+        content:
+          idea.description?.split(".")[0] + "." || t("modal.noDataAvailable"),
+        icon: "",
       },
       {
-        type: "metricsGrid",
-        title: t("modal.projectMetrics"),
-        description: t("modal.metricsDescription"),
-        metrics: [
-          {
-            id: "complexity",
-            label: t("modal.complexity"),
-            value: idea.scores.complexity,
-            maxValue: 5,
-            icon: "",
-            color: "neutral",
-            description: t("modal.complexityDesc"),
-          },
-          {
-            id: "cost",
-            label: t("modal.cost"),
-            value: idea.scores.cost,
-            maxValue: 5,
-            icon: "",
-            color: "red",
-            description: t("modal.costDesc"),
-          },
-          {
-            id: "roi",
-            label: t("modal.roi"),
-            value: idea.scores.roi,
-            maxValue: 5,
-            icon: "",
-            color: "neutral",
-            description: t("modal.roiDesc"),
-          },
-          {
-            id: "risk",
-            label: t("modal.risk"),
-            value: idea.scores.risk,
-            maxValue: 5,
-            icon: "",
-            color: "red",
-            description: t("modal.riskDesc"),
-          },
-          {
-            id: "strategic",
-            label: t("modal.strategicAlignment"),
-            value: idea.scores.strategicAlignment,
-            maxValue: 5,
-            icon: "",
-            color: "neutral",
-            description: t("modal.strategicDesc"),
-          },
-        ],
-      },
-      {
-        type: "summary",
-        title: t("modal.projectSummary"),
+        type: "additionalInfo",
+        title: "Notes",
         items: [
           {
-            label: t("modal.implementationComplexity"),
-            value: `${idea.scores.complexity}/5`,
-            description: getComplexityAssessment(idea.scores.complexity),
+            label: t("priorityAnalysis.calculator.complexity"),
+            value: getNoteTextForType(idea, "complexity"),
+            description: "",
           },
           {
-            label: t("modal.investmentLevel"),
-            value: `${idea.scores.cost}/5`,
-            description: getCostAssessment(idea.scores.cost),
+            label: t("priorityAnalysis.calculator.cost"),
+            value: getNoteTextForType(idea, "cost"),
+            description: "",
           },
           {
-            label: t("modal.expectedReturn"),
-            value: `${idea.scores.roi}/5`,
-            description: getRoiAssessment(idea.scores.roi),
+            label: t("priorityAnalysis.calculator.roi"),
+            value: getNoteTextForType(idea, "roi"),
+            description: "",
+          },
+           {
+            label: t("priorityAnalysis.calculator.risk"),
+            value: getNoteTextForType(idea, "risk"),
+            description: "",
+          },
+           {
+            label: t("priorityAnalysis.calculator.strategicAlignment"),
+            value: getNoteTextForType(idea, "strategic"),
+            description: "",
           },
         ],
-      },
+      }
     ];
   };
 
@@ -724,7 +730,7 @@ export function InteractivePriorityCalculator({
                   >
                     {/* Quick Stats Section */}
                     {section.type === "quickStats" && (
-                      <div className="bg-gray-50 rounded-lg p-6 mb-6">
+                      <div className="bg-gray-50 rounded-lg p-6 mb-2">
                         <h3 className="text-xl font-bold mb-6 text-gray-900">
                           {section.title}
                         </h3>
@@ -916,7 +922,7 @@ export function InteractivePriorityCalculator({
 
                     {/* Placeholder Section */}
                     {section.type === "placeholder" && (
-                      <div className="flex items-start gap-4 p-6 bg-gray-50 border border-gray-200 rounded-lg mx-6">
+                      <div className="flex items-start gap-4 p-6 bg-gray-50 border border-gray-200 rounded-lg mx-6 mt-0">
                         <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                         <div>
                           <h3 className="font-semibold mb-2 text-gray-900">
