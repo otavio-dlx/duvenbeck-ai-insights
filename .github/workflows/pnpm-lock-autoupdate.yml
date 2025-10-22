@@ -1,0 +1,36 @@
+name: Auto-update pnpm-lock.yaml
+
+on:
+    push:
+        paths:
+            - "package.json"
+    workflow_dispatch:
+
+jobs:
+    update-lockfile:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "18.x"
+                  cache: "pnpm"
+
+            - name: Install pnpm
+              run: npm install -g pnpm
+
+            - name: Install dependencies and update lockfile
+              run: pnpm install
+
+            - name: Commit and push updated lockfile
+              run: |
+                  git config --global user.name 'github-actions[bot]'
+                  git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+                  git add pnpm-lock.yaml
+                  git diff --cached --quiet || git commit -m "chore: auto-update pnpm-lock.yaml via GitHub Actions"
+                  git push
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
