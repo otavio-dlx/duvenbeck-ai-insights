@@ -43,7 +43,12 @@ describe("Data Integrity and Translation Keys", () => {
     const departmentName = file.replace(".ts", "");
 
     // Skip failing departments temporarily
-    const skipDepartments = ["compliance", "corp_dev", "hr", "marketing_communications"];
+    const skipDepartments = [
+      "compliance",
+      "corp_dev",
+      "hr",
+      "marketing_communications",
+    ];
     const shouldSkip = skipDepartments.includes(departmentName);
 
     const describeFn = shouldSkip ? describe.skip : describe;
