@@ -49,6 +49,8 @@ export async function getAllIdeasForCalculator() {
       description: string;
       department: string;
       scores: DuvenbeckScoringCriteria;
+      problemKey?: string;
+      solutionKey?: string;
     }> = [];
 
     await Promise.all(
@@ -74,6 +76,8 @@ export async function getAllIdeasForCalculator() {
                   "AI Initiative",
                 department: departmentName,
                 scores: mapIdeaToScoringCriteria(idea),
+                problemKey: idea.problemKey,
+                solutionKey: idea.solutionKey,
               })
             );
 

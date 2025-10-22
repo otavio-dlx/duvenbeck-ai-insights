@@ -1459,6 +1459,7 @@
       "workshopSession": "AI Workshop Session",
       "problemSolutionDef": "Problem & Solution Definition",
       "problemStatement": "Problem Statement:",
+      "solutionStatement": "Solution Statement:",
       "proposedSolution": "Proposed AI Solution:",
       "scoringRationale": "Detailed Scoring Rationale",
       "technicalComplexity": "Technical Complexity",

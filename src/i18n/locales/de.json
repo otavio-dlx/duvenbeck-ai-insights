@@ -1103,8 +1103,8 @@
     "allDepartments": "Alle Abteilungen",
     "day": "Tag",
     "allDays": "Alle Tage",
-  "tag": "Schlagwort",
-  "allTags": "Alle Schlagwörter",
+    "tag": "Schlagwort",
+    "allTags": "Alle Schlagwörter",
     "participant": "Teilnehmer",
     "allParticipants": "Alle Teilnehmer",
     "reset": "Zurücksetzen"
@@ -1459,6 +1459,7 @@
       "workshopSession": "KI-Workshop-Sitzung",
       "problemSolutionDef": "Problem- & Lösungsdefinition",
       "problemStatement": "Problemstellung:",
+      "solutionStatement": "Lösungsansatz:",
       "proposedSolution": "Vorgeschlagene KI-Lösung:",
       "scoringRationale": "Detaillierte Bewertungslogik",
       "technicalComplexity": "Technische Komplexität",

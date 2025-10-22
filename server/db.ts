@@ -39,3 +39,23 @@ export async function ensureTagsTable() {
     client.release();
   }
 }
+
+// Ensure manual_order table exists
+export async function ensureManualOrderTable() {
+  const client = await pool.connect();
+  try {
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS manual_order (
+        id SERIAL PRIMARY KEY,
+        user_id TEXT NOT NULL DEFAULT 'default',
+        department TEXT,
+        idea_ids TEXT[] NOT NULL,
+        created_at TIMESTAMPTZ DEFAULT now(),
+        updated_at TIMESTAMPTZ DEFAULT now(),
+        UNIQUE(user_id, department)
+      );
+    `);
+  } finally {
+    client.release();
+  }
+}
