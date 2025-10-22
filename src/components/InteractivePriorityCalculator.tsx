@@ -321,8 +321,12 @@ export function InteractivePriorityCalculator({
         const translated = t(explicitKey);
         return translated === explicitKey ? undefined : translated;
       }
-      // Fallback: construct key from department and short id
-      const department = idea.department?.toLowerCase().replaceAll(" ", "_");
+      // Fallback: construct key from department data key (preferred) or derived from display name
+      const department =
+        // If the mapper preserved a data file key (e.g. 'corp_dev'), use it directly
+        // Avoid explicit `any` to satisfy eslint: cast through `unknown` to a narrow shape
+        (idea as unknown as { departmentKey?: string }).departmentKey ||
+        idea.department?.toLowerCase().replaceAll(" ", "_");
       const id = idea.id;
       const constructedKey = getNoteTranslationKey(t, department, id, type);
       if (!constructedKey) return undefined;
