@@ -1103,6 +1103,8 @@
     "allDepartments": "All Departments",
     "day": "Day",
     "allDays": "All Days",
+    "tag": "Tag",
+    "allTags": "All Tags",
     "participant": "Participant",
     "allParticipants": "All Participants",
     "reset": "Reset"

@@ -1,6 +1,8 @@
 import { Header } from "@/components/Header";
 import { InteractivePriorityCalculator } from "@/components/InteractivePriorityCalculator";
 import { Button } from "@/components/ui/button";
+import { useFilters } from "@/hooks/useFilters";
+import { useTagging } from "@/hooks/useTagging";
 import { getAllIdeasForCalculator } from "@/lib/data-mapper";
 import { DuvenbeckScoringCriteria } from "@/lib/priority-calculator";
 import { ArrowLeft } from "lucide-react";
@@ -21,6 +23,18 @@ export default function PriorityAnalysisPage() {
   const [allIdeas, setAllIdeas] = useState<Idea[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  // Keep filters independent per page but reuse the filter logic
+  const { selectedDepartment, setSelectedDepartment, filterIdeas } =
+    useFilters();
+  const { taggedIdeas } = useTagging();
+  const [selectedTag, setSelectedTag] = useState<string>("all");
+
+  // Derive tag list from taggedIdeas (fallback to empty)
+  const tags = Array.from(
+    new Set(taggedIdeas.flatMap((t) => t.tags.map((tg) => tg.text)))
+  )
+    .filter(Boolean)
+    .sort();
 
   useEffect(() => {
     const loadIdeas = async () => {
@@ -79,6 +93,34 @@ export default function PriorityAnalysisPage() {
     );
   }
 
+  // Compute unique department list from loaded ideas
+  const departments = Array.from(
+    new Set(allIdeas.map((idea) => idea.department))
+  ).sort();
+
+  // Filter ideas by selected department using shared logic
+  let filteredIdeas = filterIdeas(allIdeas);
+
+  // If a tag is selected, further filter by ideas that have that tag (use tagging context)
+  if (selectedTag && selectedTag !== "all") {
+    filteredIdeas = filteredIdeas.filter((idea) => {
+      // idea.description is used as ideaText when tags were created elsewhere in the app
+      const candidates = [idea.name, idea.description]
+        .filter(Boolean)
+        .map((s) => String(s).trim());
+      const record = taggedIdeas.find((t) =>
+        candidates.includes(String(t.ideaText).trim())
+      );
+      if (!record) return false;
+      return record.tags.some((tg) => tg.text === selectedTag);
+    });
+  }
+
+  const handleReset = () => {
+    setSelectedDepartment("all");
+    setSelectedTag("all");
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-background to-secondary/20">
       <Header />
@@ -104,20 +146,17 @@ export default function PriorityAnalysisPage() {
           </p>
         </div>
 
-        {/* Interactive Calculator */}
-        <InteractivePriorityCalculator ideas={allIdeas} />
-
-        {/* Usage Instructions */}
-        <div className="mt-8">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 className="font-medium text-blue-900 mb-2">
-              {t("priorityAnalysis.howToUse")}
-            </h3>
-            <p className="text-sm text-blue-700">
-              {t("priorityAnalysis.instructions")}
-            </p>
-          </div>
-        </div>
+        {/* Interactive Calculator with Department Filter */}
+        <InteractivePriorityCalculator
+          ideas={filteredIdeas}
+          departments={departments}
+          selectedDepartment={selectedDepartment}
+          onDepartmentChange={setSelectedDepartment}
+          tags={tags}
+          selectedTag={selectedTag}
+          onTagChange={setSelectedTag}
+          onReset={handleReset}
+        />
       </main>
     </div>
   );

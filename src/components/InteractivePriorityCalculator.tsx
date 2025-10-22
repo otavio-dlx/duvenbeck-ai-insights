@@ -1,3 +1,58 @@
+/**
+ * Returns the translation key for a note type for a given department and idea.
+ * Example: getNoteTranslationKey('contract_logistics', 'target_prices', 'complexity')
+ *   => 'contract_logistics.notes.complexity.target_prices'
+ */
+function getNoteTranslationKey(
+  t: (key: string, options?: Record<string, unknown>) => string,
+  department: string,
+  ideaId: string,
+  type: "complexity" | "roi" | "cost" | "risk" | "strategic"
+) {
+  // If any required part is empty, null, undefined, or blank, return undefined
+  if (!department || !ideaId || !type) return undefined;
+  if (
+    department === "null" ||
+    department === "undefined" ||
+    department === "" ||
+    ideaId === "null" ||
+    ideaId === "undefined" ||
+    ideaId === ""
+  )
+    return undefined;
+  // ideaId may be a full key like 'contract_logistics.ideas.target_prices', so extract last part
+  const shortId = ideaId.split(".").at(-1);
+  if (
+    !shortId ||
+    shortId === "null" ||
+    shortId === "undefined" ||
+    shortId === ""
+  )
+    return undefined;
+
+  // Check if department.notes exists in translation resources
+  const notesObj = t(`${department}.notes`, { returnObjects: true });
+  if (
+    !notesObj ||
+    typeof notesObj !== "object" ||
+    Object.keys(notesObj).length === 0
+  ) {
+    return undefined;
+  }
+  return `${department}.notes.${type}.${shortId}`;
+}
+
+// Define interface for idea object with note keys
+interface IdeaWithNotes {
+  id?: string;
+  department?: string;
+  complexityNoteKey?: string;
+  roiNoteKey?: string;
+  costNoteKey?: string;
+  riskNoteKey?: string;
+  strategicNoteKey?: string;
+}
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,7 +75,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Slider } from "@/components/ui/slider";
 import {
   Table,
   TableBody,
@@ -29,7 +83,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { TagList } from "@/components/ui/tag";
 import {
   Tooltip,
   TooltipContent,
@@ -37,12 +91,19 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Tag } from "@/contexts/TaggingContext";
+import { useTagging } from "@/hooks/useTagging";
 import {
   DuvenbeckPriorityCalculator,
   DuvenbeckScoringCriteria,
   WeightingConfig,
 } from "@/lib/priority-calculator";
-import { Download, ExternalLink, Info, RotateCcw } from "lucide-react";
+import {
+  ChevronDown,
+  ChevronUp,
+  Download,
+  Info,
+  RotateCcw,
+} from "lucide-react";
 import { useCallback, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -125,52 +186,41 @@ interface ModalSection {
   icon?: string;
 }
 
+import { FilterPanel } from "@/components/FilterPanel";
+
+interface InteractivePriorityCalculatorProps {
+  ideas: Array<{
+    id: string;
+    name: string;
+    description?: string;
+    department: string;
+    scores: DuvenbeckScoringCriteria;
+  }>;
+  departments?: string[];
+  selectedDepartment?: string;
+  onDepartmentChange?: (value: string) => void;
+  onReset?: () => void;
+  // Tag filter props (optional)
+  tags?: string[];
+  selectedTag?: string;
+  onTagChange?: (value: string) => void;
+}
+
 export function InteractivePriorityCalculator({
   ideas,
+  departments,
+  selectedDepartment,
+  onDepartmentChange,
+  onReset,
+  tags,
+  selectedTag,
+  onTagChange,
 }: Readonly<InteractivePriorityCalculatorProps>) {
+  // Restore original: no tag filter, no filteredIdeas
   const { t } = useTranslation();
 
   // Helper function to translate categories
-  const translateCategory = (category: string) => {
-    switch (category) {
-      case "Top Priority":
-        return t("priorityAnalysis.categories.topPriority");
-      case "High Priority":
-        return t("priorityAnalysis.categories.highPriority");
-      case "Medium Priority":
-        return t("priorityAnalysis.categories.mediumPriority");
-      case "Low Priority":
-        return t("priorityAnalysis.categories.lowPriority");
-      default:
-        return category;
-    }
-  };
-
-  // Helper function to get complexity assessment
-  const getComplexityAssessment = (score: number) => {
-    if (score >= 4) return t("priorityAnalysis.modal.complexityLevels.low");
-    if (score >= 3)
-      return t("priorityAnalysis.modal.complexityLevels.moderate");
-    if (score >= 2) return t("priorityAnalysis.modal.complexityLevels.high");
-    return t("priorityAnalysis.modal.complexityLevels.veryHigh");
-  };
-
-  // Helper function to get cost assessment
-  const getCostAssessment = (score: number) => {
-    if (score >= 4) return t("priorityAnalysis.modal.costLevels.low");
-    if (score >= 3) return t("priorityAnalysis.modal.costLevels.moderate");
-    if (score >= 2) return t("priorityAnalysis.modal.costLevels.high");
-    return t("priorityAnalysis.modal.costLevels.veryHigh");
-  };
-
-  // Helper function to get ROI assessment
-  const getRoiAssessment = (score: number) => {
-    if (score >= 5) return t("priorityAnalysis.modal.roiLevels.exceptional");
-    if (score >= 4) return t("priorityAnalysis.modal.roiLevels.high");
-    if (score >= 3) return t("priorityAnalysis.modal.roiLevels.moderate");
-    if (score >= 2) return t("priorityAnalysis.modal.roiLevels.low");
-    return t("priorityAnalysis.modal.roiLevels.minimal");
-  };
+  // Removed useless assignment: translateCategory
 
   // Helper functions to get translated initiative names and descriptions
   const getTranslatedInitiativeName = (
@@ -182,28 +232,51 @@ export function InteractivePriorityCalculator({
     return fallbackName;
   };
 
-  const getTranslatedInitiativeDescription = (
-    ideaId: string,
-    fallbackDescription: string,
-    initiativeName: string
-  ) => {
-    // The description should already be translated by the data-mapper
-    // Just return the fallback description which is the already-translated description
-    return fallbackDescription;
-  };
   const [weights, setWeights] = useState<WeightingConfig>(
     DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS
   );
-  const [selectedScenario, setSelectedScenario] = useState<string>("custom");
   const [selectedIdea, setSelectedIdea] = useState<(typeof ideas)[0] | null>(
     null
   );
+  const { taggedIdeas } = useTagging();
   const [projectBrief, setProjectBrief] = useState<string>("");
+
+  // Sorting state
+  type SortableColumn = "rank" | "name" | "department" | "score";
+  type SortDirection = "asc" | "desc";
+  const [sortColumn, setSortColumn] = useState<SortableColumn>("rank");
+  const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
 
   const getMetricLevelText = (value: number): string => {
     if (value > 3) return "High";
     if (value > 1) return "Medium";
     return "Low";
+  };
+
+  // Handle column sorting
+  const handleSort = (column: SortableColumn) => {
+    if (sortColumn === column) {
+      // Toggle direction if same column
+      setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+    } else {
+      // New column, default to ascending
+      setSortColumn(column);
+      setSortDirection("asc");
+    }
+  };
+
+  // Get sort icon for a column
+  const getSortIcon = (column: SortableColumn) => {
+    if (sortColumn !== column) {
+      return (
+        <ChevronUp className="h-3 w-3 text-muted-foreground opacity-0 group-hover:opacity-50" />
+      );
+    }
+    return sortDirection === "asc" ? (
+      <ChevronUp className="h-3 w-3 text-muted-foreground" />
+    ) : (
+      <ChevronDown className="h-3 w-3 text-muted-foreground" />
+    );
   };
 
   // Helper function to get idea owner based on ID
@@ -233,17 +306,30 @@ export function InteractivePriorityCalculator({
   };
 
   // Helper function to get badge variant based on category
-  const getCategoryBadgeVariant = (
-    category: string
-  ): "default" | "secondary" | "outline" | "destructive" => {
-    if (category === "Top Priority") return "default";
-    if (category === "High Priority") return "secondary";
-    if (category === "Medium Priority") return "outline";
-    return "destructive";
-  };
+  // Removed useless assignment: getCategoryBadgeVariant
 
   // Helper function to create modal sections adapted for InteractivePriorityCalculator data
   const createModalSections = (idea: (typeof ideas)[0]): ModalSection[] => {
+    // Helper to get translation or fallback to noDataAvailable
+    const getNoteTextForType = (
+      idea: IdeaWithNotes & { department?: string; id?: string },
+      type: "complexity" | "roi" | "cost" | "risk" | "strategic"
+    ) => {
+      // Prefer explicit note key property if present
+      const explicitKey = idea[`${type}NoteKey`];
+      if (explicitKey) {
+        const translated = t(explicitKey);
+        return translated === explicitKey ? undefined : translated;
+      }
+      // Fallback: construct key from department and short id
+      const department = idea.department?.toLowerCase().replaceAll(" ", "_");
+      const id = idea.id;
+      const constructedKey = getNoteTranslationKey(t, department, id, type);
+      if (!constructedKey) return undefined;
+      const translated = t(constructedKey);
+      return translated === constructedKey ? undefined : translated;
+    };
+
     return [
       {
         type: "quickStats",
@@ -273,95 +359,40 @@ export function InteractivePriorityCalculator({
         ],
       },
       {
-        type: "twoColumn",
-        leftSection: {
-          title: t("priorityAnalysis.modal.problemStatement"),
-          content:
-            idea.description?.split(".")[0] + "." || t("modal.noDataAvailable"),
-          icon: "",
-          bgColor: "red",
-        },
-        rightSection: {
-          title: t("priorityAnalysis.modal.proposedSolution"),
-          content: getTranslatedInitiativeDescription(
-            idea.id,
-            idea.description || "",
-            idea.name
-          ),
-          icon: "",
-          bgColor: "neutral",
-        },
+        type: "placeholder",
+        title: t("priorityAnalysis.modal.problemStatement"),
+        content:
+          idea.description?.split(".")[0] + "." || t("modal.noDataAvailable"),
+        icon: "",
       },
       {
-        type: "metricsGrid",
-        title: t("modal.projectMetrics"),
-        description: t("modal.metricsDescription"),
-        metrics: [
-          {
-            id: "complexity",
-            label: t("modal.complexity"),
-            value: idea.scores.complexity,
-            maxValue: 5,
-            icon: "",
-            color: "neutral",
-            description: t("modal.complexityDesc"),
-          },
-          {
-            id: "cost",
-            label: t("modal.cost"),
-            value: idea.scores.cost,
-            maxValue: 5,
-            icon: "",
-            color: "red",
-            description: t("modal.costDesc"),
-          },
-          {
-            id: "roi",
-            label: t("modal.roi"),
-            value: idea.scores.roi,
-            maxValue: 5,
-            icon: "",
-            color: "neutral",
-            description: t("modal.roiDesc"),
-          },
-          {
-            id: "risk",
-            label: t("modal.risk"),
-            value: idea.scores.risk,
-            maxValue: 5,
-            icon: "",
-            color: "red",
-            description: t("modal.riskDesc"),
-          },
-          {
-            id: "strategic",
-            label: t("modal.strategicAlignment"),
-            value: idea.scores.strategicAlignment,
-            maxValue: 5,
-            icon: "",
-            color: "neutral",
-            description: t("modal.strategicDesc"),
-          },
-        ],
-      },
-      {
-        type: "summary",
-        title: t("modal.projectSummary"),
+        type: "additionalInfo",
+        title: "Notes",
         items: [
           {
-            label: t("modal.implementationComplexity"),
-            value: `${idea.scores.complexity}/5`,
-            description: getComplexityAssessment(idea.scores.complexity),
+            label: t("priorityAnalysis.calculator.complexity"),
+            value: getNoteTextForType(idea, "complexity"),
+            description: "",
           },
           {
-            label: t("modal.investmentLevel"),
-            value: `${idea.scores.cost}/5`,
-            description: getCostAssessment(idea.scores.cost),
+            label: t("priorityAnalysis.calculator.cost"),
+            value: getNoteTextForType(idea, "cost"),
+            description: "",
           },
           {
-            label: t("modal.expectedReturn"),
-            value: `${idea.scores.roi}/5`,
-            description: getRoiAssessment(idea.scores.roi),
+            label: t("priorityAnalysis.calculator.roi"),
+            value: getNoteTextForType(idea, "roi"),
+            description: "",
+          },
+          {
+            label: t("priorityAnalysis.calculator.risk"),
+            value: getNoteTextForType(idea, "risk"),
+            description: "",
+          },
+          {
+            label: t("priorityAnalysis.calculator.strategicAlignment"),
+            value: getNoteTextForType(idea, "strategic"),
+            description: "",
           },
         ],
       },
@@ -370,59 +401,50 @@ export function InteractivePriorityCalculator({
 
   // Calculate current rankings
   const currentRankings = useMemo(() => {
-    return DuvenbeckPriorityCalculator.rankIdeas(ideas, weights);
-  }, [ideas, weights]);
+    const baseRankings = DuvenbeckPriorityCalculator.rankIdeas(ideas, weights);
 
-  // Available scenarios
-  const scenarios = DuvenbeckPriorityCalculator.getWeightScenarios();
+    // Apply sorting
+    const sortedRankings = [...baseRankings].sort((a, b) => {
+      let valueA: string | number;
+      let valueB: string | number;
 
-  // Handle weight changes
-  const handleWeightChange = (
-    criterion: keyof WeightingConfig,
-    value: number[]
-  ) => {
-    const newWeights = { ...weights, [criterion]: value[0] };
+      switch (sortColumn) {
+        case "rank":
+          valueA = a.rank;
+          valueB = b.rank;
+          break;
+        case "name":
+          valueA = a.name.toLowerCase();
+          valueB = b.name.toLowerCase();
+          break;
+        case "department": {
+          const ideaA = ideas.find((i) => i.id === a.id);
+          const ideaB = ideas.find((i) => i.id === b.id);
+          valueA = (ideaA?.department || "").toLowerCase();
+          valueB = (ideaB?.department || "").toLowerCase();
+          break;
+        }
+        case "score":
+          valueA = a.finalScore;
+          valueB = b.finalScore;
+          break;
+      }
 
-    // Auto-adjust other weights to maintain 100% total
-    const otherCriteria = Object.keys(weights).filter(
-      (key) => key !== criterion
-    ) as Array<keyof WeightingConfig>;
-    const currentTotal = Object.values(newWeights).reduce(
-      (sum, w) => sum + w,
-      0
-    );
+      if (valueA < valueB) {
+        return sortDirection === "asc" ? -1 : 1;
+      }
+      if (valueA > valueB) {
+        return sortDirection === "asc" ? 1 : -1;
+      }
+      return 0;
+    });
 
-    if (currentTotal !== 100) {
-      const excess = currentTotal - 100;
-      const adjustmentPerCriterion = excess / otherCriteria.length;
-
-      otherCriteria.forEach((key) => {
-        newWeights[key] = Math.max(
-          1,
-          Math.min(50, newWeights[key] - adjustmentPerCriterion)
-        );
-      });
-    }
-
-    setWeights(newWeights);
-    setSelectedScenario("custom");
-  };
-
-  // Handle scenario selection
-  const handleScenarioChange = (scenarioName: string) => {
-    if (scenarioName === "custom") return;
-
-    const scenario = scenarios.find((s) => s.name === scenarioName);
-    if (scenario) {
-      setWeights(scenario.weights);
-      setSelectedScenario(scenarioName);
-    }
-  };
+    return sortedRankings;
+  }, [ideas, weights, sortColumn, sortDirection]);
 
   // Reset to default weights
   const resetWeights = () => {
     setWeights(DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS);
-    setSelectedScenario("Default (Balanced)");
   };
 
   // Export results
@@ -432,7 +454,6 @@ export function InteractivePriorityCalculator({
       t("priorityAnalysis.rankings.aiInitiative"),
       t("priorityAnalysis.rankings.department"),
       t("priorityAnalysis.breakdown.total"),
-      t("priorityAnalysis.rankings.category"),
       t("priorityAnalysis.calculator.complexity"),
       t("priorityAnalysis.calculator.cost"),
       t("priorityAnalysis.calculator.roi"),
@@ -453,7 +474,6 @@ export function InteractivePriorityCalculator({
           }"`,
           idea ? getDepartmentDisplayName(idea.department) : "",
           result.finalScore,
-          result.category,
           result.breakdown.complexity.score,
           result.breakdown.cost.score,
           result.breakdown.roi.score,
@@ -473,8 +493,6 @@ export function InteractivePriorityCalculator({
     a.click();
     URL.revokeObjectURL(url);
   };
-
-  const totalWeight = Object.values(weights).reduce((sum, w) => sum + w, 0);
 
   return (
     <div className="space-y-6">
@@ -500,348 +518,200 @@ export function InteractivePriorityCalculator({
         </CardHeader>
       </Card>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Weight Configuration Panel */}
-        <div className="lg:col-span-1">
+      {/* Filter and Rankings Side by Side */}
+      <div className="flex flex-col lg:flex-row gap-6">
+        {/* Department Filter Sidebar */}
+        {departments &&
+          selectedDepartment !== undefined &&
+          onDepartmentChange && (
+            <div className="w-full lg:w-72 flex-shrink-0">
+              <FilterPanel
+                departments={departments}
+                selectedDepartment={selectedDepartment}
+                onDepartmentChange={onDepartmentChange}
+                selectedDay="all"
+                onDayChange={() => {}}
+                onReset={
+                  typeof onReset === "function"
+                    ? onReset
+                    : () => onDepartmentChange("all")
+                }
+                tags={tags}
+                selectedTag={selectedTag}
+                onTagChange={onTagChange}
+              />
+            </div>
+          )}
+
+        {/* Rankings Panel Only */}
+        <div className="flex-1">
           <Card>
             <CardHeader>
-              <CardTitle>
-                {t("priorityAnalysis.calculator.weightConfiguration")}
-              </CardTitle>
+              <CardTitle>{t("priorityAnalysis.rankings.title")}</CardTitle>
               <CardDescription>
-                {t("priorityAnalysis.calculator.total")}:{" "}
-                {Math.round(totalWeight)}%
-                {Math.abs(totalWeight - 100) > 0.1 && (
-                  <Badge variant="destructive" className="ml-2">
-                    {t("priorityAnalysis.calculator.mustEqual100")}
-                  </Badge>
-                )}
+                {t("priorityAnalysis.rankings.subtitle")}
               </CardDescription>
             </CardHeader>
-            <CardContent className="space-y-6">
-              {/* Scenario Selector */}
-              <div>
-                <label className="text-sm font-medium mb-2 block">
-                  {t("priorityAnalysis.calculator.predefinedScenarios")}
-                </label>
-                <Select
-                  value={selectedScenario}
-                  onValueChange={handleScenarioChange}
-                >
-                  <SelectTrigger>
-                    <SelectValue
-                      placeholder={t(
-                        "priorityAnalysis.calculator.selectScenario"
-                      )}
-                    />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="custom">
-                      {t("priorityAnalysis.calculator.customWeights")}
-                    </SelectItem>
-                    {scenarios.map((scenario) => (
-                      <SelectItem key={scenario.name} value={scenario.name}>
-                        {scenario.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                {selectedScenario !== "custom" && (
-                  <p className="text-xs text-muted-foreground mt-1">
-                    {
-                      scenarios.find((s) => s.name === selectedScenario)
-                        ?.description
-                    }
-                  </p>
-                )}
-              </div>
-
-              {/* Weight Sliders */}
-              {Object.entries(weights).map(([criterion, weight]) => (
-                <div key={criterion}>
-                  <div className="flex items-center justify-between mb-2">
-                    <label className="text-sm font-medium flex items-center gap-1">
-                      {criterion.charAt(0).toUpperCase() +
-                        criterion.slice(1).replace(/([A-Z])/g, " $1")}
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <Info className="h-3 w-3 text-muted-foreground" />
-                          </TooltipTrigger>
-                          <TooltipContent side="right" className="max-w-xs">
-                            <div className="space-y-1">
-                              {Object.entries(
-                                DuvenbeckPriorityCalculator.SCORING_GUIDELINES[
-                                  criterion as keyof typeof DuvenbeckPriorityCalculator.SCORING_GUIDELINES
-                                ]
-                              ).map(([score, desc]) => (
-                                <p key={score} className="text-xs">
-                                  <strong>{score}:</strong> {desc}
-                                </p>
-                              ))}
+            <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-12">
+                      <button
+                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                        onClick={() => handleSort("rank")}
+                        aria-label={`Sort by ${t(
+                          "priorityAnalysis.rankings.rank"
+                        )}`}
+                      >
+                        {t("priorityAnalysis.rankings.rank")}
+                        {getSortIcon("rank")}
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Info className="h-3 w-3 text-muted-foreground" />
+                            </TooltipTrigger>
+                            <TooltipContent side="bottom" className="max-w-xs">
+                              {t("priorityAnalysis.rankings.rankTooltip")}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </button>
+                    </TableHead>
+                    <TableHead>
+                      <button
+                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                        onClick={() => handleSort("name")}
+                        aria-label={`Sort by ${t(
+                          "priorityAnalysis.rankings.aiInitiative"
+                        )}`}
+                      >
+                        {t("priorityAnalysis.rankings.aiInitiative")}
+                        {getSortIcon("name")}
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <Info className="h-3 w-3 text-muted-foreground" />
+                            </TooltipTrigger>
+                            <TooltipContent side="bottom" className="max-w-xs">
+                              {t(
+                                "priorityAnalysis.rankings.aiInitiativeTooltip"
+                              )}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </button>
+                    </TableHead>
+                    <TableHead>
+                      <button
+                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                        onClick={() => handleSort("department")}
+                        aria-label={`Sort by ${t(
+                          "priorityAnalysis.rankings.department"
+                        )}`}
+                      >
+                        {t("priorityAnalysis.rankings.department")}
+                        {getSortIcon("department")}
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipContent side="bottom" className="max-w-xs">
+                              {t("priorityAnalysis.rankings.departmentTooltip")}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </button>
+                    </TableHead>
+                    <TableHead>
+                      <button
+                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                        onClick={() => handleSort("score")}
+                        aria-label={`Sort by ${t(
+                          "priorityAnalysis.rankings.score"
+                        )}`}
+                      >
+                        {t("priorityAnalysis.rankings.score")}
+                        {getSortIcon("score")}
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipContent side="bottom" className="max-w-xs">
+                              {t("priorityAnalysis.rankings.scoreTooltip")}
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </button>
+                    </TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  {currentRankings.map((result) => {
+                    const idea = ideas.find((i) => i.id === result.id);
+                    return (
+                      <TableRow
+                        key={result.id}
+                        className="cursor-pointer hover:bg-muted/50 transition-colors"
+                        onClick={() => {
+                          const idea = ideas.find((i) => i.id === result.id);
+                          if (idea) {
+                            setSelectedIdea(idea);
+                            const modalSections = createModalSections(idea);
+                            setProjectBrief(JSON.stringify(modalSections));
+                          }
+                        }}
+                      >
+                        <TableCell className="font-medium">
+                          #{result.rank}
+                        </TableCell>
+                        <TableCell>
+                          <div className="flex flex-col">
+                            <div>
+                              {idea
+                                ? getTranslatedInitiativeName(
+                                    idea.id,
+                                    idea.name
+                                  )
+                                : result.name}
                             </div>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </label>
-                    <Badge variant="secondary">{Math.round(weight)}%</Badge>
-                  </div>
-                  <Slider
-                    value={[weight]}
-                    onValueChange={(value) =>
-                      handleWeightChange(
-                        criterion as keyof WeightingConfig,
-                        value
-                      )
-                    }
-                    max={50}
-                    min={1}
-                    step={1}
-                    className="w-full"
-                  />
-                </div>
-              ))}
+                            <div className="mt-1">
+                              {/* Render tags for the idea if available in tagging context */}
+                              {(() => {
+                                const ideaText = idea
+                                  ? getTranslatedInitiativeName(
+                                      idea.id,
+                                      idea.name
+                                    )
+                                  : result.name;
+                                const tags =
+                                  taggedIdeas.find(
+                                    (t) => t.ideaText === ideaText
+                                  )?.tags || [];
+                                return (
+                                  <TagList tags={tags} size="sm" maxTags={3} />
+                                );
+                              })()}
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          {idea
+                            ? getDepartmentDisplayName(idea.department)
+                            : ""}
+                        </TableCell>
+                        <TableCell>
+                          <Badge
+                            variant={getScoreBadgeVariant(result.finalScore)}
+                          >
+                            {result.finalScore}
+                          </Badge>
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
             </CardContent>
           </Card>
         </div>
-
-        {/* Results Panel */}
-        <div className="lg:col-span-2">
-          <Tabs defaultValue="rankings" className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="rankings" className="cursor-pointer">
-                {t("priorityAnalysis.tabs.rankings")}
-              </TabsTrigger>
-              <TabsTrigger value="breakdown" className="cursor-pointer">
-                {t("priorityAnalysis.tabs.insights")}
-              </TabsTrigger>
-              <TabsTrigger value="scenarios" className="cursor-pointer">
-                {t("priorityAnalysis.tabs.scenarios")}
-              </TabsTrigger>
-            </TabsList>
-
-            {/* Rankings Tab */}
-            <TabsContent value="rankings">
-              <Card>
-                <CardHeader>
-                  <CardTitle>{t("priorityAnalysis.rankings.title")}</CardTitle>
-                  <CardDescription>
-                    {t("priorityAnalysis.rankings.subtitle")}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-12">
-                          <div className="flex items-center gap-1">
-                            {t("priorityAnalysis.rankings.rank")}
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger>
-                                  <Info className="h-3 w-3 text-muted-foreground" />
-                                </TooltipTrigger>
-                                <TooltipContent
-                                  side="bottom"
-                                  className="max-w-xs"
-                                >
-                                  <p className="text-xs">
-                                    {t(
-                                      "priorityAnalysis.rankings.tooltips.rank"
-                                    )}
-                                  </p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          </div>
-                        </TableHead>
-                        <TableHead>
-                          <div className="flex items-center gap-1">
-                            {t("priorityAnalysis.rankings.aiInitiative")}
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger>
-                                  <Info className="h-3 w-3 text-muted-foreground" />
-                                </TooltipTrigger>
-                                <TooltipContent
-                                  side="bottom"
-                                  className="max-w-xs"
-                                >
-                                  <p className="text-xs">
-                                    {t(
-                                      "priorityAnalysis.rankings.tooltips.aiInitiative"
-                                    )}
-                                  </p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          </div>
-                        </TableHead>
-                        <TableHead>
-                          <div className="flex items-center gap-1">
-                            {t("priorityAnalysis.rankings.department")}
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger>
-                                  <Info className="h-3 w-3 text-muted-foreground" />
-                                </TooltipTrigger>
-                                <TooltipContent
-                                  side="bottom"
-                                  className="max-w-xs"
-                                >
-                                  <p className="text-xs">
-                                    {t(
-                                      "priorityAnalysis.rankings.tooltips.department"
-                                    )}
-                                  </p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          </div>
-                        </TableHead>
-                        <TableHead>
-                          <div className="flex items-center gap-1">
-                            {t("priorityAnalysis.rankings.score")}
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger>
-                                  <Info className="h-3 w-3 text-muted-foreground" />
-                                </TooltipTrigger>
-                                <TooltipContent
-                                  side="bottom"
-                                  className="max-w-xs"
-                                >
-                                  <p className="text-xs">
-                                    {t(
-                                      "priorityAnalysis.rankings.tooltips.score"
-                                    )}
-                                  </p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          </div>
-                        </TableHead>
-                        <TableHead>
-                          <div className="flex items-center gap-1">
-                            {t("priorityAnalysis.rankings.category")}
-                            <TooltipProvider>
-                              <Tooltip>
-                                <TooltipTrigger>
-                                  <Info className="h-3 w-3 text-muted-foreground" />
-                                </TooltipTrigger>
-                                <TooltipContent
-                                  side="bottom"
-                                  className="max-w-xs"
-                                >
-                                  <p className="text-xs">
-                                    {t(
-                                      "priorityAnalysis.rankings.tooltips.category"
-                                    )}
-                                  </p>
-                                </TooltipContent>
-                              </Tooltip>
-                            </TooltipProvider>
-                          </div>
-                        </TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {currentRankings.map((result) => {
-                        const idea = ideas.find((i) => i.id === result.id);
-                        return (
-                          <TableRow
-                            key={result.id}
-                            className="cursor-pointer hover:bg-muted/50 transition-colors"
-                            onClick={() => {
-                              const idea = ideas.find(
-                                (i) => i.id === result.id
-                              );
-                              if (idea) {
-                                setSelectedIdea(idea);
-                                const modalSections = createModalSections(idea);
-                                setProjectBrief(JSON.stringify(modalSections));
-                              }
-                            }}
-                          >
-                            <TableCell className="font-medium">
-                              #{result.rank}
-                            </TableCell>
-                            <TableCell>
-                              <div>
-                                <div className="font-medium flex items-center gap-2">
-                                  {idea
-                                    ? getTranslatedInitiativeName(
-                                        idea.id,
-                                        result.name
-                                      )
-                                    : result.name}
-                                  <ExternalLink className="h-3 w-3 text-muted-foreground" />
-                                </div>
-                                {idea?.description && (
-                                  <div className="text-sm text-muted-foreground line-clamp-2">
-                                    {getTranslatedInitiativeDescription(
-                                      idea.id,
-                                      idea.description,
-                                      idea.name
-                                    )}
-                                  </div>
-                                )}
-                              </div>
-                            </TableCell>
-                            <TableCell>
-                              {idea
-                                ? getDepartmentDisplayName(idea.department)
-                                : ""}
-                            </TableCell>
-                            <TableCell>
-                              <Badge
-                                variant={getScoreBadgeVariant(
-                                  result.finalScore
-                                )}
-                              >
-                                {result.finalScore}
-                              </Badge>
-                            </TableCell>
-                            <TableCell>
-                              <Badge
-                                variant={getCategoryBadgeVariant(
-                                  result.category
-                                )}
-                              >
-                                {translateCategory(result.category)}
-                              </Badge>
-                            </TableCell>
-                          </TableRow>
-                        );
-                      })}
-                    </TableBody>
-                  </Table>
-                </CardContent>
-              </Card>
-            </TabsContent>
-
-            {/* Interactive Insights Tab */}
-            <TabsContent value="breakdown">
-              <InsightsBubbleChart
-                ideas={ideas}
-                rankings={currentRankings}
-                getDepartmentDisplayName={getDepartmentDisplayName}
-                onIdeaClick={(idea) => {
-                  setSelectedIdea(idea);
-                  const modalSections = createModalSections(idea);
-                  setProjectBrief(JSON.stringify(modalSections));
-                }}
-              />
-            </TabsContent>
-
-            {/* Scenario Comparison Tab */}
-            <TabsContent value="scenarios">
-              <ScenarioComparison ideas={ideas} />
-            </TabsContent>
-          </Tabs>
-        </div>
       </div>
-
       {/* Idea Details Modal */}
       <Dialog
         open={selectedIdea !== null}
@@ -875,6 +745,7 @@ export function InteractivePriorityCalculator({
                     selectedIdea.id,
                     selectedIdea.name
                   )}
+                  variant="modalRed"
                 />
               </div>
             )}
@@ -883,47 +754,45 @@ export function InteractivePriorityCalculator({
                 (section: ModalSection, sectionIndex: number) => (
                   <div
                     key={`section-${section.type}-${sectionIndex}`}
-                    className={`${section.type !== "hero" ? "p-6" : ""} ${
-                      section.type !== "hero" ? "border-b border-border/10" : ""
+                    className={`${section.type === "hero" ? "" : "p-6"} ${
+                      section.type === "hero" ? "" : "border-b border-border/10"
                     }`}
                   >
                     {/* Quick Stats Section */}
                     {section.type === "quickStats" && (
-                      <div className="bg-gray-50 rounded-lg p-6 mb-6">
+                      <div className="bg-gray-50 rounded-lg p-6 mb-2">
                         <h3 className="text-xl font-bold mb-6 text-gray-900">
                           {section.title}
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                          {section.stats?.map(
-                            (stat: ModalStat, idx: number) => (
-                              <div
-                                key={`stat-${stat.label}-${stat.value}-${idx}`}
-                                className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
-                              >
-                                <div className="text-center">
-                                  <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                                    {stat.label}
-                                  </div>
-                                  <div
-                                    className={`text-2xl font-bold ${
-                                      stat.color === "red"
-                                        ? "text-red-600"
-                                        : "text-gray-900"
-                                    }`}
-                                  >
-                                    {stat.value}
-                                  </div>
+                          {section.stats?.map((stat: ModalStat) => (
+                            <div
+                              key={`stat-${stat.label}-${stat.value}-${sectionIndex}`}
+                              className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+                            >
+                              <div className="text-center">
+                                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                                  {stat.label}
+                                </div>
+                                <div
+                                  className={`text-2xl font-bold ${
+                                    stat.color === "red"
+                                      ? "text-red-600"
+                                      : "text-gray-900"
+                                  }`}
+                                >
+                                  {stat.value}
                                 </div>
                               </div>
-                            )
-                          )}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     )}
 
                     {/* Two Column Layout for Problem/Solution */}
                     {section.type === "twoColumn" && (
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                      <div className="mb-8">
                         <div className="bg-white rounded-lg p-6 border-l-4 border-red-500 shadow-sm">
                           <div className="flex items-center mb-4">
                             <div className="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
@@ -933,17 +802,6 @@ export function InteractivePriorityCalculator({
                           </div>
                           <p className="text-sm leading-relaxed text-gray-700 whitespace-pre-line">
                             {section.leftSection?.content}
-                          </p>
-                        </div>
-                        <div className="bg-white rounded-lg p-6 border-l-4 border-gray-300 shadow-sm">
-                          <div className="flex items-center mb-4">
-                            <div className="w-3 h-3 bg-gray-400 rounded-full mr-3"></div>
-                            <h3 className="text-lg font-bold text-gray-700">
-                              {section.rightSection?.title}
-                            </h3>
-                          </div>
-                          <p className="text-sm leading-relaxed text-gray-700 whitespace-pre-line">
-                            {section.rightSection?.content}
                           </p>
                         </div>
                       </div>
@@ -963,68 +821,66 @@ export function InteractivePriorityCalculator({
                           )}
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                          {section.metrics?.map(
-                            (metric: ModalMetric, idx: number) => (
-                              <div
-                                key={`metric-${metric.id}`}
-                                className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200"
-                              >
-                                <div className="mb-4">
-                                  <div className="flex items-center justify-between mb-2">
-                                    <h4 className="font-semibold text-lg text-gray-900">
-                                      {metric.label}
-                                    </h4>
-                                    <div
-                                      className={`px-3 py-1 rounded-full text-sm font-bold ${
-                                        metric.color === "red"
-                                          ? "bg-red-50 text-red-700 border border-red-200"
-                                          : "bg-gray-50 text-gray-700 border border-gray-200"
-                                      }`}
-                                    >
-                                      {metric.value}/{metric.maxValue}
-                                    </div>
+                          {section.metrics?.map((metric: ModalMetric) => (
+                            <div
+                              key={`metric-${metric.id}`}
+                              className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200"
+                            >
+                              <div className="mb-4">
+                                <div className="flex items-center justify-between mb-2">
+                                  <h4 className="font-semibold text-lg text-gray-900">
+                                    {metric.label}
+                                  </h4>
+                                  <div
+                                    className={`px-3 py-1 rounded-full text-sm font-bold ${
+                                      metric.color === "red"
+                                        ? "bg-red-50 text-red-700 border border-red-200"
+                                        : "bg-gray-50 text-gray-700 border border-gray-200"
+                                    }`}
+                                  >
+                                    {metric.value}/{metric.maxValue}
                                   </div>
-                                  <p className="text-xs text-gray-500 leading-relaxed">
-                                    {metric.description}
+                                </div>
+                                <p className="text-xs text-gray-500 leading-relaxed">
+                                  {metric.description}
+                                </p>
+                              </div>
+
+                              {/* Progress Bar */}
+                              <div className="mb-4">
+                                <div className="flex gap-1 mb-3">
+                                  {Array.from(
+                                    { length: metric.maxValue },
+                                    (_, i) => {
+                                      const isActive = i < metric.value;
+                                      const barColor = isActive
+                                        ? "bg-red-500"
+                                        : "bg-gray-200";
+
+                                      return (
+                                        <div
+                                          key={i}
+                                          className={`flex-1 h-2 rounded-full ${barColor}`}
+                                        />
+                                      );
+                                    }
+                                  )}
+                                </div>
+                                <div className="text-xs text-gray-500 text-center font-medium">
+                                  {getMetricLevelText(metric.value)}
+                                </div>
+                              </div>
+
+                              {/* Note */}
+                              {metric.note && (
+                                <div className="pt-4 border-t border-gray-100">
+                                  <p className="text-xs text-gray-600 leading-relaxed">
+                                    {metric.note}
                                   </p>
                                 </div>
-
-                                {/* Progress Bar */}
-                                <div className="mb-4">
-                                  <div className="flex gap-1 mb-3">
-                                    {Array.from(
-                                      { length: metric.maxValue },
-                                      (_, i) => {
-                                        const isActive = i < metric.value;
-                                        const barColor = isActive
-                                          ? "bg-red-500"
-                                          : "bg-gray-200";
-
-                                        return (
-                                          <div
-                                            key={i}
-                                            className={`flex-1 h-2 rounded-full ${barColor}`}
-                                          />
-                                        );
-                                      }
-                                    )}
-                                  </div>
-                                  <div className="text-xs text-gray-500 text-center font-medium">
-                                    {getMetricLevelText(metric.value)}
-                                  </div>
-                                </div>
-
-                                {/* Note */}
-                                {metric.note && (
-                                  <div className="pt-4 border-t border-gray-100">
-                                    <p className="text-xs text-gray-600 leading-relaxed">
-                                      {metric.note}
-                                    </p>
-                                  </div>
-                                )}
-                              </div>
-                            )
-                          )}
+                              )}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     )}
@@ -1092,7 +948,7 @@ export function InteractivePriorityCalculator({
 
                     {/* Placeholder Section */}
                     {section.type === "placeholder" && (
-                      <div className="flex items-start gap-4 p-6 bg-gray-50 border border-gray-200 rounded-lg mx-6">
+                      <div className="flex items-start gap-4 p-6 bg-gray-50 border border-gray-200 rounded-lg mx-6 mt-0">
                         <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
                         <div>
                           <h3 className="font-semibold mb-2 text-gray-900">
@@ -1233,6 +1089,7 @@ interface InsightsBubbleChartProps {
   getDepartmentDisplayName: (department: string) => string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function InsightsBubbleChart({
   ideas,
   rankings,
@@ -1272,7 +1129,7 @@ function InsightsBubbleChart({
     return (ideaId: string, fallbackName: string) => {
       const translationKey = `priorityAnalysis.initiatives.${ideaId}.name`;
       const translated = t(translationKey);
-      return translated !== translationKey ? translated : fallbackName;
+      return translated === translationKey ? fallbackName : translated;
     };
   }, [t]);
 
@@ -1420,7 +1277,7 @@ function InsightsBubbleChart({
   const groupedData = useMemo(() => {
     const groups = new Map<string, typeof chartData>();
 
-    chartData.forEach((item) => {
+    for (const item of chartData) {
       const groupKey = getGroupKey(item, groupBy);
 
       if (!groups.has(groupKey)) {
@@ -1430,7 +1287,7 @@ function InsightsBubbleChart({
       if (groupItems) {
         groupItems.push(item);
       }
-    });
+    }
 
     const result = Array.from(groups.entries()).map(([group, items]) => ({
       group,
@@ -1654,12 +1511,23 @@ function InsightsBubbleChart({
 }
 
 // Scenario Comparison Component
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ScenarioComparison({
   ideas,
 }: Readonly<{
   ideas: InteractivePriorityCalculatorProps["ideas"];
 }>) {
   const { t } = useTranslation();
+
+  const getTranslatedInitiativeName = (
+    ideaId: string,
+    fallbackName: string
+  ) => {
+    const translationKey = `priorityAnalysis.initiatives.${ideaId}.name`;
+    const translated = t(translationKey);
+    return translated === translationKey ? fallbackName : translated;
+  };
+
   const scenarios = DuvenbeckPriorityCalculator.getWeightScenarios().slice(
     0,
     4
@@ -1694,17 +1562,6 @@ function ScenarioComparison({
               <div className="space-y-2">
                 {scenario.rankings.map((result, index) => {
                   const idea = ideas.find((i) => i.id === result.id);
-                  function getTranslatedInitiativeName(
-                    id: string,
-                    name: string,
-                    t: (key: string) => string
-                  ):
-                    | import("react").ReactNode
-                    | Iterable<import("react").ReactNode> {
-                    const translationKey = `priorityAnalysis.initiatives.${id}.name`;
-                    const translated = t(translationKey);
-                    return translated !== translationKey ? translated : name;
-                  }
                   return (
                     <div
                       key={result.id}
@@ -1718,7 +1575,7 @@ function ScenarioComparison({
                           {index + 1}
                         </Badge>
                         {idea
-                          ? getTranslatedInitiativeName(idea.id, result.name, t)
+                          ? getTranslatedInitiativeName(idea.id, result.name)
                           : result.name}
                       </span>
                       <Badge variant="secondary">{result.finalScore}</Badge>

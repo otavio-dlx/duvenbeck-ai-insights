@@ -8,6 +8,7 @@ import ChatPage from "@/pages/ChatPage";
 import { Dashboard } from "@/pages/Dashboard";
 import PriorityAnalysisPage from "@/pages/PriorityAnalysis";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound";
@@ -35,6 +36,7 @@ const App = () => (
           </LoginGate>
         </BrowserRouter>
         <SpeedInsights />
+        <Analytics />
       </TooltipProvider>
     </TaggingProvider>
   </QueryClientProvider>

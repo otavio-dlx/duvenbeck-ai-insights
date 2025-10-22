@@ -1,0 +1,44 @@
+name: CI
+
+on:
+    push:
+        branches: [main, develop]
+    pull_request:
+        branches: [main, develop]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Install pnpm
+              uses: pnpm/action-setup@v4
+              with:
+                  version: 8
+
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "20"
+                  cache: "pnpm"
+
+            - name: Install dependencies
+              run: |
+                  if pnpm install --frozen-lockfile; then
+                    echo "Lockfile is up to date"
+                  else
+                    echo "Lockfile is out of sync, updating..."
+                    pnpm install
+                    echo "⚠️  Lockfile was out of sync and has been updated. Please commit the changes."
+                  fi
+
+            - name: Run linting
+              run: pnpm run lint
+
+            - name: Run tests
+              run: pnpm test:run
+
+            - name: Build project
+              run: pnpm run build

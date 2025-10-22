@@ -60,6 +60,11 @@ npm run test-search           # Test search functionality
 # Testing
 npm test              # Unit tests (Vitest)
 npm run test:e2e      # E2E tests (Playwright)
+
+# Dependency Management
+# Always run `pnpm install` after any change to `package.json` to update `pnpm-lock.yaml`.
+# This prevents lockfile mismatch errors in CI/CD and Vercel builds.
+# If you forget, GitHub Actions will auto-update the lockfile (see `.github/workflows/pnpm-lock-autoupdate.yml`).
 ```
 
 ### Data Management Workflow

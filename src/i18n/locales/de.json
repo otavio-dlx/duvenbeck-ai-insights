@@ -1103,6 +1103,8 @@
     "allDepartments": "Alle Abteilungen",
     "day": "Tag",
     "allDays": "Alle Tage",
+  "tag": "Schlagwort",
+  "allTags": "Alle Schlagwörter",
     "participant": "Teilnehmer",
     "allParticipants": "Alle Teilnehmer",
     "reset": "Zurücksetzen"

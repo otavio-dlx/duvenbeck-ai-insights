@@ -4,6 +4,7 @@ import { MetricCard } from "@/components/MetricCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { participantsData } from "@/data/participants";
+import { useFilters } from "@/hooks/useFilters";
 import { useTagging } from "@/hooks/useTagging";
 import { getIdeasFor, listDataKeys } from "@/lib/data";
 import { getAllIdeasForCalculator } from "@/lib/data-mapper";
@@ -65,8 +66,15 @@ const formatDepartmentName = (key: string): string => {
 export const Dashboard = () => {
   const { t } = useTranslation();
   const { getTagsForIdea } = useTagging();
-  const [selectedDepartment, setSelectedDepartment] = useState("all");
-  const [selectedDay, setSelectedDay] = useState("all");
+  // use shared filter logic but keep state local to this page
+  const {
+    selectedDepartment,
+    selectedDay,
+    setSelectedDepartment,
+    setSelectedDay,
+    reset,
+    filterParticipants,
+  } = useFilters();
   const [totalIdeasFromFiles, setTotalIdeasFromFiles] = useState<number | null>(
     null
   );
@@ -244,18 +252,10 @@ export const Dashboard = () => {
   }, []);
 
   // Filter participants based on selections
-  const filteredParticipants = useMemo(() => {
-    return participantsData.filter((p) => {
-      const deptMatch =
-        selectedDepartment === "all" || p.groupName === selectedDepartment;
-      const dayMatch =
-        selectedDay === "all" ||
-        (selectedDay === "day1" && p.day1) ||
-        (selectedDay === "day2" && p.day2) ||
-        (selectedDay === "day3" && p.day3);
-      return deptMatch && dayMatch;
-    });
-  }, [selectedDepartment, selectedDay]);
+  const filteredParticipants = useMemo(
+    () => filterParticipants(participantsData),
+    [filterParticipants]
+  );
 
   // Calculate metrics and department data
   const { metrics, departmentData } = useMemo(() => {
@@ -304,18 +304,6 @@ export const Dashboard = () => {
     allIdeasData,
   ]);
 
-  const dayData = useMemo(() => {
-    const day1Count = participantsData.filter((p) => p.day1).length;
-    const day2Count = participantsData.filter((p) => p.day2).length;
-    const day3Count = participantsData.filter((p) => p.day3).length;
-
-    return [
-      { name: t("common.day1"), value: day1Count },
-      { name: t("common.day2"), value: day2Count },
-      { name: t("common.day3"), value: day3Count },
-    ];
-  }, [t]);
-
   const COLORS = [
     "hsl(var(--chart-1))",
     "hsl(var(--chart-2))",
@@ -329,10 +317,7 @@ export const Dashboard = () => {
     "hsl(var(--chart-10, 60 65% 65%))",
   ];
 
-  const handleReset = () => {
-    setSelectedDepartment("all");
-    setSelectedDay("all");
-  };
+  const handleReset = reset;
 
   // ...existing code...
 
@@ -709,9 +694,26 @@ export function DynamicCollaboards({
       // Filter by selected department
       let filteredFound = found;
       if (selectedDepartment !== "all") {
-        filteredFound = found.filter(
+        filteredFound = filteredFound.filter(
           (item) => item.department === selectedDepartment
         );
+      }
+
+      // Filter by selected day (map day1/day2/day3 to workshop dates)
+      // Workshop took place on 2025-10-06 (day1), 2025-10-07 (day2), 2025-10-08 (day3)
+      if (selectedDay && selectedDay !== "all") {
+        const dayToDateMap: Record<string, string> = {
+          day1: "2025-10-06",
+          day2: "2025-10-07",
+          day3: "2025-10-08",
+        };
+        const targetDate = dayToDateMap[selectedDay];
+        if (targetDate) {
+          filteredFound = filteredFound.filter((item) => {
+            // Compare ISO date strings (item.date may be empty)
+            return item.date === targetDate;
+          });
+        }
       }
 
       // Deduplicate by department name (keep first occurrence)
@@ -734,7 +736,7 @@ export function DynamicCollaboards({
     return () => {
       mounted = false;
     };
-  }, [selectedDepartment]);
+  }, [selectedDepartment, selectedDay]);
 
   if (links.length === 0)
     return (
