@@ -95,7 +95,6 @@ import { useTagging } from "@/hooks/useTagging";
 import {
   DuvenbeckPriorityCalculator,
   DuvenbeckScoringCriteria,
-  WeightingConfig,
   type PriorityResult,
 } from "@/lib/priority-calculator";
 import { ManualOrderService } from "@/services/manualOrderService";
@@ -122,7 +121,6 @@ import {
   Download,
   GripVertical,
   Info,
-  RotateCcw,
 } from "lucide-react";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -340,9 +338,7 @@ export function InteractivePriorityCalculator({
     return fallbackName;
   };
 
-  const [weights, setWeights] = useState<WeightingConfig>(
-    DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS
-  );
+  const weights = DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS;
   const [selectedIdea, setSelectedIdea] = useState<(typeof ideas)[0] | null>(
     null
   );
@@ -614,11 +610,6 @@ export function InteractivePriorityCalculator({
     return sortedRankings;
   }, [ideas, weights, sortColumn, sortDirection, manualOrder]);
 
-  // Reset to default weights
-  const resetWeights = () => {
-    setWeights(DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS);
-  };
-
   // Export results
   const exportResults = () => {
     const csvHeaders = [
@@ -668,28 +659,6 @@ export function InteractivePriorityCalculator({
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center justify-between">
-            <span>{t("priorityAnalysis.calculator.title")}</span>
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={resetWeights}>
-                <RotateCcw className="h-4 w-4 mr-2" />
-                {t("priorityAnalysis.calculator.reset")}
-              </Button>
-              <Button variant="outline" size="sm" onClick={exportResults}>
-                <Download className="h-4 w-4 mr-2" />
-                {t("priorityAnalysis.calculator.exportCsv")}
-              </Button>
-            </div>
-          </CardTitle>
-          <CardDescription>
-            {t("priorityAnalysis.calculator.subtitle")}
-          </CardDescription>
-        </CardHeader>
-      </Card>
-
       {/* Filter and Rankings Side by Side */}
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Department Filter Sidebar */}
@@ -719,7 +688,13 @@ export function InteractivePriorityCalculator({
         <div className="flex-1">
           <Card>
             <CardHeader>
-              <CardTitle>{t("priorityAnalysis.rankings.title")}</CardTitle>
+              <CardTitle className="flex items-center justify-between">
+                <span>{t("priorityAnalysis.rankings.title")}</span>
+                <Button variant="outline" size="sm" onClick={exportResults}>
+                  <Download className="h-4 w-4 mr-2" />
+                  {t("priorityAnalysis.calculator.exportCsv")}
+                </Button>
+              </CardTitle>
               <CardDescription>
                 {t("priorityAnalysis.rankings.subtitle")}
               </CardDescription>

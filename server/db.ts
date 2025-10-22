@@ -30,7 +30,7 @@ export async function ensureTagsTable() {
     try {
       await client.query(`DROP INDEX IF EXISTS tags_idea_tag_unique_idx`);
     } catch (_err) {
-      // eslint-disable-line @typescript-eslint/no-unused-vars
+       
       // ignore
     }
     await client.query(`

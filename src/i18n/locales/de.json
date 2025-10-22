@@ -1365,17 +1365,16 @@
     }
   },
   "priorityAnalysis": {
-    "title": "Prioritäts-Rechner",
-    "subtitle": "Interaktiver Prioritäts-Rechner basierend auf der offiziellen Duvenbeck Bewertungsmatrix. Passen Sie die Gewichtungskriterien an, um Sensitivitätsanalysen durchzuführen und die strategischsten AI-Initiativen aller Abteilungen zu identifizieren.",
+    "title": "Prioritäts-Analyse",
+    "subtitle": "Umfassende Liste aller Probleme und Ideen, die während des AI-Workshops aufgeworfen wurden, dargestellt in einer interaktiven Tabelle mit sortierbaren Spaltenüberschriften, ziehbaren Zeilen zur Neuanordnung, anklickbaren Elementen für detaillierte Informationen und erweiterten Filterfunktionen.",
     "backToDashboard": "Zurück zum Dashboard",
     "loading": "Lade AI-Initiativen...",
     "retry": "Erneut versuchen",
     "howToUse": "Bedienungsanleitung",
     "instructions": "Passen Sie die Gewichtungsregler oben an, um Ihre strategischen Prioritäten widerzuspiegeln. Das Ranking wird automatisch aktualisiert, um zu zeigen, welche Initiativen am besten zu Ihren gewählten Kriterien passen. Verwenden Sie die Szenario-Schaltflächen für gängige Priorisierungsansätze.",
     "calculator": {
-      "title": "Interaktiver Prioritäts-Rechner",
-      "subtitle": "Passen Sie die Gewichtungskriterien an, um zu sehen, wie sich die Prioritäten der AI-Initiativen in Echtzeit ändern. Basierend auf der offiziellen Duvenbeck Bewertungsmatrix.",
-      "reset": "Zurücksetzen",
+      "title": "Prioritätsanalyse",
+      "subtitle": "Umfassende Liste aller Probleme und Ideen, die während des AI-Workshops aufgeworfen wurden, präsentiert in einer interaktiven Tabelle mit sortierbaren Überschriften, ziehbaren Zeilen zur Neuanordnung, anklickbaren Elementen für detaillierte Informationen und erweiterten Filterfunktionen.",
       "exportCsv": "CSV exportieren",
       "weightConfiguration": "Gewichtungskonfiguration",
       "total": "Gesamt",
