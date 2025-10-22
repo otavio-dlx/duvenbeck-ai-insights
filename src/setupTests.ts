@@ -40,17 +40,21 @@ if (!globalThis.crypto) {
 }
 
 // Set up additional globals that might be expected
-globalThis.TextEncoder = globalThis.TextEncoder || class TextEncoder {
-  encode(input: string) {
-    return Buffer.from(input, 'utf-8');
-  }
-} as any;
+globalThis.TextEncoder =
+  globalThis.TextEncoder ||
+  (class TextEncoder {
+    encode(input: string) {
+      return Buffer.from(input, "utf-8");
+    }
+  } as any);
 
-globalThis.TextDecoder = globalThis.TextDecoder || class TextDecoder {
-  decode(input: Uint8Array) {
-    return Buffer.from(input).toString('utf-8');
-  }
-} as any;
+globalThis.TextDecoder =
+  globalThis.TextDecoder ||
+  (class TextDecoder {
+    decode(input: Uint8Array) {
+      return Buffer.from(input).toString("utf-8");
+    }
+  } as any);
 
 import "@testing-library/jest-dom";
 import { vi } from "vitest";
