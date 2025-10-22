@@ -1,10 +1,11 @@
 import dotenv from "dotenv";
-import { Pool } from "pg";
 import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
 
 dotenv.config();
 
-const connectionString = process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
+const connectionString =
+  process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
 if (!connectionString) {
   throw new Error("DATABASE_URL is not set in environment");
 }
@@ -28,12 +29,33 @@ export async function ensureTagsTable() {
     // Drop old index (if any) and create a CI unique index
     try {
       await client.query(`DROP INDEX IF EXISTS tags_idea_tag_unique_idx`);
-    } catch (_err) { // eslint-disable-line @typescript-eslint/no-unused-vars
+    } catch (_err) {
+       
       // ignore
     }
     await client.query(`
       CREATE UNIQUE INDEX IF NOT EXISTS tags_idea_tag_unique_ci_idx
         ON tags (idea_text, lower(tag_text));
+    `);
+  } finally {
+    client.release();
+  }
+}
+
+// Ensure manual_order table exists
+export async function ensureManualOrderTable() {
+  const client = await pool.connect();
+  try {
+    await client.query(`
+      CREATE TABLE IF NOT EXISTS manual_order (
+        id SERIAL PRIMARY KEY,
+        user_id TEXT NOT NULL DEFAULT 'default',
+        department TEXT,
+        idea_ids TEXT[] NOT NULL,
+        created_at TIMESTAMPTZ DEFAULT now(),
+        updated_at TIMESTAMPTZ DEFAULT now(),
+        UNIQUE(user_id, department)
+      );
     `);
   } finally {
     client.release();

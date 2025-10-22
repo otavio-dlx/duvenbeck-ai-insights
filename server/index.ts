@@ -3,7 +3,7 @@ import { QdrantClient } from "@qdrant/js-client-rest";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
-import { ensureTagsTable, pool } from "./db";
+import { ensureManualOrderTable, ensureTagsTable, pool } from "./db";
 
 dotenv.config();
 
@@ -315,6 +315,68 @@ app.delete("/api/tags", async (req, res) => {
   }
 });
 
+// GET /api/manual-order?department=...
+app.get("/api/manual-order", async (req, res) => {
+  const { department } = req.query;
+  const userId = req.query.userId || "default";
+
+  if (!department) {
+    return res.status(400).json({ error: "department is required" });
+  }
+
+  try {
+    const client = await pool.connect();
+    try {
+      const result = await client.query(
+        `SELECT idea_ids FROM manual_order WHERE user_id = $1 AND department = $2`,
+        [userId, department]
+      );
+
+      if (result.rows.length === 0) {
+        return res.json({ ideaIds: [] });
+      }
+
+      res.json({ ideaIds: result.rows[0].idea_ids });
+    } finally {
+      client.release();
+    }
+  } catch (err) {
+    console.error("Error fetching manual order:", err);
+    res.status(500).json({ error: "Failed to fetch manual order" });
+  }
+});
+
+// POST /api/manual-order { department, ideaIds, userId? }
+app.post("/api/manual-order", async (req, res) => {
+  const { department, ideaIds } = req.body;
+  const userId = req.body.userId || "default";
+
+  if (!department || !Array.isArray(ideaIds)) {
+    return res
+      .status(400)
+      .json({ error: "department and ideaIds array are required" });
+  }
+
+  try {
+    const client = await pool.connect();
+    try {
+      await client.query(
+        `INSERT INTO manual_order (user_id, department, idea_ids, updated_at)
+         VALUES ($1, $2, $3, now())
+         ON CONFLICT (user_id, department)
+         DO UPDATE SET idea_ids = $3, updated_at = now()`,
+        [userId, department, ideaIds]
+      );
+      res.json({ ok: true });
+    } finally {
+      client.release();
+    }
+  } catch (err) {
+    console.error("Error saving manual order:", err);
+    res.status(500).json({ error: "Failed to save manual order" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`\n🚀 API Server running at http://localhost:${PORT}`);
   console.log(`📍 Endpoints:`);
@@ -323,5 +385,12 @@ app.listen(PORT, () => {
   // Ensure tags table exists at startup
   ensureTagsTable()
     .then(() => console.log("Tags table ensured"))
-    .catch((_err) => console.error("Failed to ensure tags table:", _err));
+    .catch((error_) => console.error("Failed to ensure tags table:", error_));
+
+  // Ensure manual_order table exists at startup
+  ensureManualOrderTable()
+    .then(() => console.log("Manual order table ensured"))
+    .catch((error_) =>
+      console.error("Failed to ensure manual order table:", error_)
+    );
 });

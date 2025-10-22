@@ -90,21 +90,39 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { Tag } from "@/contexts/TaggingContext";
+import { Tag, type TaggedIdea } from "@/contexts/TaggingContext";
 import { useTagging } from "@/hooks/useTagging";
 import {
   DuvenbeckPriorityCalculator,
   DuvenbeckScoringCriteria,
-  WeightingConfig,
+  type PriorityResult,
 } from "@/lib/priority-calculator";
+import { ManualOrderService } from "@/services/manualOrderService";
+import {
+  closestCenter,
+  DndContext,
+  DragEndEvent,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 import {
   ChevronDown,
   ChevronUp,
   Download,
+  GripVertical,
   Info,
-  RotateCcw,
 } from "lucide-react";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import {
   CartesianGrid,
@@ -118,14 +136,18 @@ import {
 } from "recharts";
 import { IdeaTagsSection } from "./IdeaTagsSection";
 
+type IdeaType = {
+  id: string;
+  name: string;
+  description?: string;
+  department: string;
+  scores: DuvenbeckScoringCriteria;
+  problemKey?: string;
+  solutionKey?: string;
+};
+
 interface InteractivePriorityCalculatorProps {
-  ideas: Array<{
-    id: string;
-    name: string;
-    description?: string;
-    department: string;
-    scores: DuvenbeckScoringCriteria;
-  }>;
+  ideas: Array<IdeaType>;
 }
 
 // Define interfaces for modal section types
@@ -195,6 +217,8 @@ interface InteractivePriorityCalculatorProps {
     description?: string;
     department: string;
     scores: DuvenbeckScoringCriteria;
+    problemKey?: string;
+    solutionKey?: string;
   }>;
   departments?: string[];
   selectedDepartment?: string;
@@ -204,6 +228,88 @@ interface InteractivePriorityCalculatorProps {
   tags?: string[];
   selectedTag?: string;
   onTagChange?: (value: string) => void;
+}
+
+// Sortable Table Row Component
+interface SortableTableRowProps {
+  readonly result: PriorityResult & { id: string; name: string };
+  readonly idea?: IdeaType;
+  readonly taggedIdeas: TaggedIdea[];
+  readonly getTranslatedInitiativeName: (
+    id: string,
+    fallback: string
+  ) => string;
+  readonly getDepartmentDisplayName: (department: string) => string;
+  readonly onRowClick: (idea: IdeaType) => void;
+}
+
+function SortableTableRow({
+  result,
+  idea,
+  taggedIdeas,
+  getTranslatedInitiativeName,
+  getDepartmentDisplayName,
+  onRowClick,
+}: SortableTableRowProps) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: result.id });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+  };
+
+  return (
+    <TableRow
+      ref={setNodeRef}
+      style={style}
+      className="cursor-pointer hover:bg-muted/50 transition-colors"
+      onClick={() => {
+        if (idea) {
+          onRowClick(idea);
+        }
+      }}
+      {...attributes}
+      {...listeners}
+    >
+      <TableCell className="font-medium cursor-grab active:cursor-grabbing">
+        <div className="flex items-center gap-2">
+          <GripVertical className="h-4 w-4 text-muted-foreground" />
+          {result.rank}
+        </div>
+      </TableCell>
+      <TableCell>
+        <div className="flex flex-col">
+          <div>
+            {idea
+              ? getTranslatedInitiativeName(idea.id, result.name)
+              : result.name}
+          </div>
+          <div className="mt-1">
+            {(() => {
+              const ideaText = idea
+                ? getTranslatedInitiativeName(idea.id, result.name)
+                : result.name;
+              const tags =
+                taggedIdeas.find((t: TaggedIdea) => t.ideaText === ideaText)
+                  ?.tags || [];
+              return <TagList tags={tags} size="sm" maxTags={3} />;
+            })()}
+          </div>
+        </div>
+      </TableCell>
+      <TableCell>
+        {idea ? getDepartmentDisplayName(idea.department) : ""}
+      </TableCell>
+    </TableRow>
+  );
 }
 
 export function InteractivePriorityCalculator({
@@ -232,17 +338,70 @@ export function InteractivePriorityCalculator({
     return fallbackName;
   };
 
-  const [weights, setWeights] = useState<WeightingConfig>(
-    DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS
-  );
+  const weights = DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS;
   const [selectedIdea, setSelectedIdea] = useState<(typeof ideas)[0] | null>(
     null
   );
   const { taggedIdeas } = useTagging();
   const [projectBrief, setProjectBrief] = useState<string>("");
 
+  // Manual ordering state for drag and drop
+  const [manualOrder, setManualOrder] = useState<string[]>([]);
+
+  // Load manual order on component mount or when selectedDepartment changes
+  useEffect(() => {
+    if (selectedDepartment) {
+      ManualOrderService.loadManualOrder(selectedDepartment)
+        .then((loadedOrder) => {
+          setManualOrder(loadedOrder);
+        })
+        .catch((error) => {
+          console.error("Failed to load manual order:", error);
+        });
+    }
+  }, [selectedDepartment]);
+
+  // Save manual order when it changes
+  useEffect(() => {
+    if (selectedDepartment && manualOrder.length > 0) {
+      ManualOrderService.saveManualOrder(selectedDepartment, manualOrder)
+        .then((success) => {
+          if (!success) {
+            console.error("Failed to save manual order");
+          }
+        })
+        .catch((error) => {
+          console.error("Error saving manual order:", error);
+        });
+    }
+  }, [manualOrder, selectedDepartment]);
+
+  // Drag and drop sensors
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  // Handle drag end
+  const handleDragEnd = (event: DragEndEvent) => {
+    const { active, over } = event;
+
+    if (over && active.id !== over.id) {
+      const oldIndex = currentRankings.findIndex(
+        (item) => item.id === active.id
+      );
+      const newIndex = currentRankings.findIndex((item) => item.id === over.id);
+
+      const newOrder = arrayMove(currentRankings, oldIndex, newIndex);
+      const newManualOrder = newOrder.map((item) => item.id);
+      setManualOrder(newManualOrder);
+    }
+  };
+
   // Sorting state
-  type SortableColumn = "rank" | "name" | "department" | "score";
+  type SortableColumn = "rank" | "name" | "department";
   type SortDirection = "asc" | "desc";
   const [sortColumn, setSortColumn] = useState<SortableColumn>("rank");
   const [sortDirection, setSortDirection] = useState<SortDirection>("asc");
@@ -295,16 +454,6 @@ export function InteractivePriorityCalculator({
     return department;
   };
 
-  // Helper function to get badge variant based on score
-  const getScoreBadgeVariant = (
-    score: number
-  ): "default" | "secondary" | "outline" | "destructive" => {
-    if (score >= 80) return "default";
-    if (score >= 65) return "secondary";
-    if (score >= 45) return "outline";
-    return "destructive";
-  };
-
   // Helper function to get badge variant based on category
   // Removed useless assignment: getCategoryBadgeVariant
 
@@ -351,22 +500,22 @@ export function InteractivePriorityCalculator({
             icon: "",
             color: "green",
           },
-          {
-            label: t("priorityAnalysis.rankings.score"),
-            value: String(
-              DuvenbeckPriorityCalculator.rankIdeas([idea], weights)[0]
-                ?.finalScore || 0
-            ),
-            icon: "",
-            color: "purple",
-          },
         ],
       },
       {
         type: "placeholder",
         title: t("priorityAnalysis.modal.problemStatement"),
-        content:
-          idea.description?.split(".")[0] + "." || t("modal.noDataAvailable"),
+        content: idea.problemKey
+          ? t(idea.problemKey)
+          : t("modal.noDataAvailable"),
+        icon: "",
+      },
+      {
+        type: "placeholder",
+        title: t("priorityAnalysis.modal.solutionStatement"),
+        content: idea.solutionKey
+          ? t(idea.solutionKey)
+          : t("modal.noDataAvailable"),
         icon: "",
       },
       {
@@ -407,8 +556,31 @@ export function InteractivePriorityCalculator({
   const currentRankings = useMemo(() => {
     const baseRankings = DuvenbeckPriorityCalculator.rankIdeas(ideas, weights);
 
+    // If manual order exists, reorder based on manual order
+    let orderedRankings = baseRankings;
+    if (manualOrder.length > 0) {
+      // Create a map of idea IDs to their rankings
+      const rankingMap = new Map(baseRankings.map((r) => [r.id, r]));
+
+      // Reorder based on manual order, then add any remaining items
+      const manualOrdered = manualOrder
+        .map((id) => rankingMap.get(id))
+        .filter(Boolean);
+
+      // Add any items not in manual order
+      const remaining = baseRankings.filter((r) => !manualOrder.includes(r.id));
+
+      orderedRankings = [...manualOrdered, ...remaining];
+
+      // Update ranks based on new order
+      orderedRankings = orderedRankings.map((ranking, index) => ({
+        ...ranking,
+        rank: index + 1,
+      }));
+    }
+
     // Apply sorting
-    const sortedRankings = [...baseRankings].sort((a, b) => {
+    const sortedRankings = [...orderedRankings].sort((a, b) => {
       let valueA: string | number;
       let valueB: string | number;
 
@@ -428,10 +600,6 @@ export function InteractivePriorityCalculator({
           valueB = (ideaB?.department || "").toLowerCase();
           break;
         }
-        case "score":
-          valueA = a.finalScore;
-          valueB = b.finalScore;
-          break;
       }
 
       if (valueA < valueB) {
@@ -444,12 +612,7 @@ export function InteractivePriorityCalculator({
     });
 
     return sortedRankings;
-  }, [ideas, weights, sortColumn, sortDirection]);
-
-  // Reset to default weights
-  const resetWeights = () => {
-    setWeights(DuvenbeckPriorityCalculator.DEFAULT_WEIGHTS);
-  };
+  }, [ideas, weights, sortColumn, sortDirection, manualOrder]);
 
   // Export results
   const exportResults = () => {
@@ -500,28 +663,6 @@ export function InteractivePriorityCalculator({
 
   return (
     <div className="space-y-6">
-      {/* Header */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center justify-between">
-            <span>{t("priorityAnalysis.calculator.title")}</span>
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm" onClick={resetWeights}>
-                <RotateCcw className="h-4 w-4 mr-2" />
-                {t("priorityAnalysis.calculator.reset")}
-              </Button>
-              <Button variant="outline" size="sm" onClick={exportResults}>
-                <Download className="h-4 w-4 mr-2" />
-                {t("priorityAnalysis.calculator.exportCsv")}
-              </Button>
-            </div>
-          </CardTitle>
-          <CardDescription>
-            {t("priorityAnalysis.calculator.subtitle")}
-          </CardDescription>
-        </CardHeader>
-      </Card>
-
       {/* Filter and Rankings Side by Side */}
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Department Filter Sidebar */}
@@ -551,167 +692,133 @@ export function InteractivePriorityCalculator({
         <div className="flex-1">
           <Card>
             <CardHeader>
-              <CardTitle>{t("priorityAnalysis.rankings.title")}</CardTitle>
+              <CardTitle className="flex items-center justify-between">
+                <span>{t("priorityAnalysis.rankings.title")}</span>
+                <Button variant="outline" size="sm" onClick={exportResults}>
+                  <Download className="h-4 w-4 mr-2" />
+                  {t("priorityAnalysis.calculator.exportCsv")}
+                </Button>
+              </CardTitle>
               <CardDescription>
                 {t("priorityAnalysis.rankings.subtitle")}
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-12">
-                      <button
-                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
-                        onClick={() => handleSort("rank")}
-                        aria-label={`Sort by ${t(
-                          "priorityAnalysis.rankings.rank"
-                        )}`}
-                      >
-                        {t("priorityAnalysis.rankings.rank")}
-                        {getSortIcon("rank")}
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <Info className="h-3 w-3 text-muted-foreground" />
-                            </TooltipTrigger>
-                            <TooltipContent side="bottom" className="max-w-xs">
-                              {t("priorityAnalysis.rankings.rankTooltip")}
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </button>
-                    </TableHead>
-                    <TableHead>
-                      <button
-                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
-                        onClick={() => handleSort("name")}
-                        aria-label={`Sort by ${t(
-                          "priorityAnalysis.rankings.aiInitiative"
-                        )}`}
-                      >
-                        {t("priorityAnalysis.rankings.aiInitiative")}
-                        {getSortIcon("name")}
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger>
-                              <Info className="h-3 w-3 text-muted-foreground" />
-                            </TooltipTrigger>
-                            <TooltipContent side="bottom" className="max-w-xs">
-                              {t(
-                                "priorityAnalysis.rankings.aiInitiativeTooltip"
-                              )}
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </button>
-                    </TableHead>
-                    <TableHead>
-                      <button
-                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
-                        onClick={() => handleSort("department")}
-                        aria-label={`Sort by ${t(
-                          "priorityAnalysis.rankings.department"
-                        )}`}
-                      >
-                        {t("priorityAnalysis.rankings.department")}
-                        {getSortIcon("department")}
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipContent side="bottom" className="max-w-xs">
-                              {t("priorityAnalysis.rankings.departmentTooltip")}
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </button>
-                    </TableHead>
-                    <TableHead>
-                      <button
-                        className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
-                        onClick={() => handleSort("score")}
-                        aria-label={`Sort by ${t(
-                          "priorityAnalysis.rankings.score"
-                        )}`}
-                      >
-                        {t("priorityAnalysis.rankings.score")}
-                        {getSortIcon("score")}
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipContent side="bottom" className="max-w-xs">
-                              {t("priorityAnalysis.rankings.scoreTooltip")}
-                            </TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </button>
-                    </TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {currentRankings.map((result) => {
-                    const idea = ideas.find((i) => i.id === result.id);
-                    return (
-                      <TableRow
-                        key={result.id}
-                        className="cursor-pointer hover:bg-muted/50 transition-colors"
-                        onClick={() => {
-                          const idea = ideas.find((i) => i.id === result.id);
-                          if (idea) {
-                            setSelectedIdea(idea);
-                            const modalSections = createModalSections(idea);
-                            setProjectBrief(JSON.stringify(modalSections));
-                          }
-                        }}
-                      >
-                        <TableCell className="font-medium">
-                          #{result.rank}
-                        </TableCell>
-                        <TableCell>
-                          <div className="flex flex-col">
-                            <div>
-                              {idea
-                                ? getTranslatedInitiativeName(
-                                    idea.id,
-                                    idea.name
-                                  )
-                                : result.name}
-                            </div>
-                            <div className="mt-1">
-                              {/* Render tags for the idea if available in tagging context */}
-                              {(() => {
-                                const ideaText = idea
-                                  ? getTranslatedInitiativeName(
-                                      idea.id,
-                                      idea.name
-                                    )
-                                  : result.name;
-                                const tags =
-                                  taggedIdeas.find(
-                                    (t) => t.ideaText === ideaText
-                                  )?.tags || [];
-                                return (
-                                  <TagList tags={tags} size="sm" maxTags={3} />
-                                );
-                              })()}
-                            </div>
-                          </div>
-                        </TableCell>
-                        <TableCell>
-                          {idea
-                            ? getDepartmentDisplayName(idea.department)
-                            : ""}
-                        </TableCell>
-                        <TableCell>
-                          <Badge
-                            variant={getScoreBadgeVariant(result.finalScore)}
-                          >
-                            {result.finalScore}
-                          </Badge>
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-                </TableBody>
-              </Table>
+              <DndContext
+                sensors={sensors}
+                collisionDetection={closestCenter}
+                onDragEnd={handleDragEnd}
+              >
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-12">
+                        <button
+                          className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                          onClick={() => handleSort("rank")}
+                          aria-label={`Sort by ${t(
+                            "priorityAnalysis.rankings.rank"
+                          )}`}
+                        >
+                          {t("priorityAnalysis.rankings.rank")}
+                          {getSortIcon("rank")}
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Info className="h-3 w-3 text-muted-foreground" />
+                              </TooltipTrigger>
+                              <TooltipContent
+                                side="bottom"
+                                className="max-w-xs"
+                              >
+                                {t("priorityAnalysis.rankings.rankTooltip")}
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </button>
+                      </TableHead>
+                      <TableHead>
+                        <button
+                          className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                          onClick={() => handleSort("name")}
+                          aria-label={`Sort by ${t(
+                            "priorityAnalysis.rankings.aiInitiative"
+                          )}`}
+                        >
+                          {t("priorityAnalysis.rankings.aiInitiative")}
+                          {getSortIcon("name")}
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipTrigger>
+                                <Info className="h-3 w-3 text-muted-foreground" />
+                              </TooltipTrigger>
+                              <TooltipContent
+                                side="bottom"
+                                className="max-w-xs"
+                              >
+                                {t(
+                                  "priorityAnalysis.rankings.aiInitiativeTooltip"
+                                )}
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </button>
+                      </TableHead>
+                      <TableHead>
+                        <button
+                          className="flex items-center gap-1 cursor-pointer group hover:text-foreground transition-colors bg-transparent border-none p-0 text-left font-medium text-muted-foreground"
+                          onClick={() => handleSort("department")}
+                          aria-label={`Sort by ${t(
+                            "priorityAnalysis.rankings.department"
+                          )}`}
+                        >
+                          {t("priorityAnalysis.rankings.department")}
+                          {getSortIcon("department")}
+                          <TooltipProvider>
+                            <Tooltip>
+                              <TooltipContent
+                                side="bottom"
+                                className="max-w-xs"
+                              >
+                                {t(
+                                  "priorityAnalysis.rankings.departmentTooltip"
+                                )}
+                              </TooltipContent>
+                            </Tooltip>
+                          </TooltipProvider>
+                        </button>
+                      </TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <SortableContext
+                      items={currentRankings.map((r) => r.id)}
+                      strategy={verticalListSortingStrategy}
+                    >
+                      {currentRankings.map((result) => {
+                        const idea = ideas.find((i) => i.id === result.id);
+                        return (
+                          <SortableTableRow
+                            key={result.id}
+                            result={result}
+                            idea={idea}
+                            taggedIdeas={taggedIdeas}
+                            getTranslatedInitiativeName={
+                              getTranslatedInitiativeName
+                            }
+                            getDepartmentDisplayName={getDepartmentDisplayName}
+                            onRowClick={(idea) => {
+                              setSelectedIdea(idea);
+                              const modalSections = createModalSections(idea);
+                              setProjectBrief(JSON.stringify(modalSections));
+                            }}
+                          />
+                        );
+                      })}
+                    </SortableContext>
+                  </TableBody>
+                </Table>
+              </DndContext>
             </CardContent>
           </Card>
         </div>
@@ -1018,9 +1125,6 @@ function CustomTooltip({
           {axisLabels[yAxis]}: {data.y}/5
         </p>
         <p className="text-sm">
-          {t("priorityAnalysis.rankings.score")}: {data.z}
-        </p>
-        <p className="text-sm">
           {t("priorityAnalysis.rankings.rank")}: #{data.rank}
         </p>
       </div>
@@ -1068,6 +1172,8 @@ interface InsightsBubbleChartProps {
     description?: string;
     department: string;
     scores: DuvenbeckScoringCriteria;
+    problemKey?: string;
+    solutionKey?: string;
   }>;
   rankings: Array<{
     id: string;

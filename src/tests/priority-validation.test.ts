@@ -239,9 +239,9 @@ describe("Priority Calculations Validation", () => {
         if (typeof key === "string") {
           expect(key).toMatch(/^[a-z_0-9]+\.ideas\.[a-z_0-9]+$/);
           expect(
-            key.startsWith(departmentName.replace(/-/g, "_") + "."),
-            `Key "${key}" in department "${departmentName}" does not start with "${departmentName.replace(
-              /-/g,
+            key.startsWith(departmentName.replaceAll("-", "_") + "."),
+            `Key "${key}" in department "${departmentName}" does not start with "${departmentName.replaceAll(
+              "-",
               "_"
             )}."`
           ).toBe(true);

@@ -34,7 +34,7 @@ export default function PriorityAnalysisPage() {
     new Set(taggedIdeas.flatMap((t) => t.tags.map((tg) => tg.text)))
   )
     .filter(Boolean)
-    .sort();
+    .sort((a, b) => a.localeCompare(b));
 
   useEffect(() => {
     const loadIdeas = async () => {
@@ -80,7 +80,7 @@ export default function PriorityAnalysisPage() {
             <div className="text-center">
               <p className="text-red-600">{error}</p>
               <Button
-                onClick={() => window.location.reload()}
+                onClick={() => globalThis.location.reload()}
                 className="mt-4"
                 variant="outline"
               >
@@ -96,7 +96,7 @@ export default function PriorityAnalysisPage() {
   // Compute unique department list from loaded ideas
   const departments = Array.from(
     new Set(allIdeas.map((idea) => idea.department))
-  ).sort();
+  ).sort((a, b) => a.localeCompare(b));
 
   // Filter ideas by selected department using shared logic
   let filteredIdeas = filterIdeas(allIdeas);
@@ -105,11 +105,13 @@ export default function PriorityAnalysisPage() {
   if (selectedTag && selectedTag !== "all") {
     filteredIdeas = filteredIdeas.filter((idea) => {
       // idea.description is used as ideaText when tags were created elsewhere in the app
-      const candidates = [idea.name, idea.description]
-        .filter(Boolean)
-        .map((s) => String(s).trim());
+      const candidates = new Set(
+        [idea.name, idea.description]
+          .filter(Boolean)
+          .map((s) => String(s).trim())
+      );
       const record = taggedIdeas.find((t) =>
-        candidates.includes(String(t.ideaText).trim())
+        candidates.has(String(t.ideaText).trim())
       );
       if (!record) return false;
       return record.tags.some((tg) => tg.text === selectedTag);
