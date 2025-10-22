@@ -53,22 +53,7 @@ interface IdeaWithNotes {
   strategicNoteKey?: string;
 }
 
-// Helper to extract note keys from idea
-const getNoteKey = (
-  idea: IdeaWithNotes,
-  type: "complexity" | "roi"
-): string | undefined => {
-  if (idea && typeof idea === "object") {
-    if (idea[`${type}NoteKey`]) return idea[`${type}NoteKey`];
-    if (idea.department && idea.id) {
-      // Strip prefix from id (e.g., 'contract_logistics.ideas.target_prices' -> 'target_prices')
-      const idParts = idea.id.split(".");
-      const shortId = idParts.at(-1);
-      return `${idea.department}.notes.${type}.${shortId}`;
-    }
-  }
-  return undefined;
-};
+
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -99,6 +84,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { TagList } from "@/components/ui/tag";
 import {
   Tooltip,
   TooltipContent,
@@ -106,6 +92,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Tag } from "@/contexts/TaggingContext";
+import { useTagging } from "@/hooks/useTagging";
 import {
   DuvenbeckPriorityCalculator,
   DuvenbeckScoringCriteria,
@@ -131,8 +118,6 @@ import {
   ZAxis,
 } from "recharts";
 import { IdeaTagsSection } from "./IdeaTagsSection";
-import { TagList } from "@/components/ui/tag";
-import { useTagging } from "@/hooks/useTagging";
 
 interface InteractivePriorityCalculatorProps {
   ideas: Array<{
@@ -236,20 +221,7 @@ export function InteractivePriorityCalculator({
   const { t } = useTranslation();
 
   // Helper function to translate categories
-  const translateCategory = (category: string) => {
-    switch (category) {
-      case "Top Priority":
-        return t("priorityAnalysis.categories.topPriority");
-      case "High Priority":
-        return t("priorityAnalysis.categories.highPriority");
-      case "Medium Priority":
-        return t("priorityAnalysis.categories.mediumPriority");
-      case "Low Priority":
-        return t("priorityAnalysis.categories.lowPriority");
-      default:
-        return category;
-    }
-  };
+  // Removed useless assignment: translateCategory
 
   // Helper functions to get translated initiative names and descriptions
   const getTranslatedInitiativeName = (
@@ -335,14 +307,7 @@ export function InteractivePriorityCalculator({
   };
 
   // Helper function to get badge variant based on category
-  const getCategoryBadgeVariant = (
-    category: string
-  ): "default" | "secondary" | "outline" | "destructive" => {
-    if (category === "Top Priority") return "default";
-    if (category === "High Priority") return "secondary";
-    if (category === "Medium Priority") return "outline";
-    return "destructive";
-  };
+  // Removed useless assignment: getCategoryBadgeVariant
 
   // Helper function to create modal sections adapted for InteractivePriorityCalculator data
   const createModalSections = (idea: (typeof ideas)[0]): ModalSection[] => {
@@ -358,7 +323,7 @@ export function InteractivePriorityCalculator({
         return translated === explicitKey ? undefined : translated;
       }
       // Fallback: construct key from department and short id
-      const department = idea.department?.toLowerCase().replace(/ /g, "_");
+      const department = idea.department?.toLowerCase().replaceAll(" ", "_");
       const id = idea.id;
       const constructedKey = getNoteTranslationKey(t, department, id, type);
       if (!constructedKey) return undefined;
@@ -464,7 +429,6 @@ export function InteractivePriorityCalculator({
           valueA = a.finalScore;
           valueB = b.finalScore;
           break;
-        
       }
 
       if (valueA < valueB) {
@@ -558,7 +522,7 @@ export function InteractivePriorityCalculator({
       {/* Filter and Rankings Side by Side */}
       <div className="flex flex-col lg:flex-row gap-6">
         {/* Department Filter Sidebar */}
-            {departments &&
+        {departments &&
           selectedDepartment !== undefined &&
           onDepartmentChange && (
             <div className="w-full lg:w-72 flex-shrink-0">
@@ -568,7 +532,11 @@ export function InteractivePriorityCalculator({
                 onDepartmentChange={onDepartmentChange}
                 selectedDay="all"
                 onDayChange={() => {}}
-                onReset={typeof onReset === 'function' ? onReset : () => onDepartmentChange("all")}
+                onReset={
+                  typeof onReset === "function"
+                    ? onReset
+                    : () => onDepartmentChange("all")
+                }
                 tags={tags}
                 selectedTag={selectedTag}
                 onTagChange={onTagChange}
@@ -673,7 +641,6 @@ export function InteractivePriorityCalculator({
                         </TooltipProvider>
                       </button>
                     </TableHead>
-                    
                   </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -699,17 +666,28 @@ export function InteractivePriorityCalculator({
                           <div className="flex flex-col">
                             <div>
                               {idea
-                                ? getTranslatedInitiativeName(idea.id, idea.name)
+                                ? getTranslatedInitiativeName(
+                                    idea.id,
+                                    idea.name
+                                  )
                                 : result.name}
                             </div>
                             <div className="mt-1">
                               {/* Render tags for the idea if available in tagging context */}
                               {(() => {
                                 const ideaText = idea
-                                  ? getTranslatedInitiativeName(idea.id, idea.name)
+                                  ? getTranslatedInitiativeName(
+                                      idea.id,
+                                      idea.name
+                                    )
                                   : result.name;
-                                const tags = taggedIdeas.find((t) => t.ideaText === ideaText)?.tags || [];
-                                return <TagList tags={tags as any} size="sm" maxTags={3} />;
+                                const tags =
+                                  taggedIdeas.find(
+                                    (t) => t.ideaText === ideaText
+                                  )?.tags || [];
+                                return (
+                                  <TagList tags={tags} size="sm" maxTags={3} />
+                                );
                               })()}
                             </div>
                           </div>
@@ -726,7 +704,6 @@ export function InteractivePriorityCalculator({
                             {result.finalScore}
                           </Badge>
                         </TableCell>
-                        
                       </TableRow>
                     );
                   })}
@@ -790,7 +767,7 @@ export function InteractivePriorityCalculator({
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                           {section.stats?.map(
-                            (stat: ModalStat, idx: number) => (
+                            (stat: ModalStat, _idx: number) => (
                               <div
                                 key={`stat-${stat.label}-${stat.value}-${idx}`}
                                 className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
@@ -848,7 +825,7 @@ export function InteractivePriorityCalculator({
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                           {section.metrics?.map(
-                            (metric: ModalMetric, idx: number) => (
+                            (metric: ModalMetric, _idx: number) => (
                               <div
                                 key={`metric-${metric.id}`}
                                 className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200"

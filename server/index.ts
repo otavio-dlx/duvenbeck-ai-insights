@@ -299,5 +299,5 @@ app.listen(PORT, () => {
   // Ensure tags table exists at startup
   ensureTagsTable()
     .then(() => console.log("Tags table ensured"))
-    .catch((err) => console.error("Failed to ensure tags table:", err));
+    .catch((_err) => console.error("Failed to ensure tags table:", _err)); // eslint-disable-line @typescript-eslint/no-unused-vars
 });

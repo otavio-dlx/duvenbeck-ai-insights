@@ -1,8 +1,6 @@
-import { TagList } from "@/components/ui/tag";
-import { Tag } from "@/contexts/TaggingContext";
-import { useTagging } from "@/hooks/useTagging";
-import { useState, useMemo } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useTagging } from "@/hooks/useTagging";
+import { useMemo, useState } from "react";
 
 interface IdeaTagsSectionProps {
   ideaText: string;
@@ -10,7 +8,11 @@ interface IdeaTagsSectionProps {
   variant?: "default" | "modalRed";
 }
 
-  export function IdeaTagsSection({ ideaText, className = "", variant = "default" }: IdeaTagsSectionProps) {
+export function IdeaTagsSection({
+  ideaText,
+  className = "",
+  variant = "default",
+}: Readonly<IdeaTagsSectionProps>) {
   const { taggedIdeas, addTagToIdea, removeTagFromIdea } = useTagging();
   const ideaTags = taggedIdeas.find((i) => i.ideaText === ideaText)?.tags || [];
   const { toast } = useToast();
@@ -21,11 +23,13 @@ interface IdeaTagsSectionProps {
   // Collect all unique tags used in any idea (except current idea)
   const allTags = useMemo(() => {
     const tagsSet = new Set<string>();
-    taggedIdeas.forEach((idea) => {
+    for (const idea of taggedIdeas) {
       if (idea.ideaText !== ideaText) {
-        idea.tags.forEach((tag) => tagsSet.add(tag.text));
+        for (const tag of idea.tags) {
+          tagsSet.add(tag.text);
+        }
       }
-    });
+    }
     return Array.from(tagsSet);
   }, [taggedIdeas, ideaText]);
 
@@ -41,11 +45,17 @@ interface IdeaTagsSectionProps {
     const tagText = (tagValue ?? newTagText).trim();
     if (!tagText) return;
     if (ideaTags.some((t) => t.text === tagText)) {
-      toast({ title: "Tag exists", description: `The tag \"${tagText}\" already exists.` });
+      toast({
+        title: "Tag exists",
+        description: `The tag "${tagText}" already exists.`,
+      });
       return;
     }
     if (ideaTags.length >= 5) {
-      toast({ title: "Max tags reached", description: "An idea can have at most 5 tags." });
+      toast({
+        title: "Max tags reached",
+        description: "An idea can have at most 5 tags.",
+      });
       return;
     }
 
@@ -54,12 +64,30 @@ interface IdeaTagsSectionProps {
       await addTagToIdea(ideaText, { text: tagText });
       setNewTagText("");
       setShowSuggestions(false);
-    } catch (err: any) {
+    } catch (err: unknown) {
       // server responses: 409 -> duplicate, 400 -> max tags
-      if (err?.status === 409 || err?.message?.includes("duplicate") ) {
-        toast({ title: "Tag exists", description: `The tag \"${tagText}\" already exists.` });
-      } else if (err?.status === 400 || err?.message?.includes("Max 5")) {
-        toast({ title: "Max tags reached", description: "An idea can have at most 5 tags." });
+      type ErrorWithStatusAndMessage = { status?: number; message?: string };
+      const errorObj = err as ErrorWithStatusAndMessage;
+      if (
+        (typeof err === "object" && err !== null && errorObj.status === 409) ||
+        (typeof err === "object" &&
+          err !== null &&
+          errorObj.message?.includes("duplicate"))
+      ) {
+        toast({
+          title: "Tag exists",
+          description: `The tag "${tagText}" already exists.`,
+        });
+      } else if (
+        (typeof err === "object" && err !== null && errorObj.status === 400) ||
+        (typeof err === "object" &&
+          err !== null &&
+          errorObj.message?.includes("Max 5"))
+      ) {
+        toast({
+          title: "Max tags reached",
+          description: "An idea can have at most 5 tags.",
+        });
       } else {
         toast({ title: "Failed to add tag", description: "Please try again." });
       }
@@ -70,13 +98,16 @@ interface IdeaTagsSectionProps {
   };
 
   return (
-    <div className={`bg-white rounded-lg p-6 border border-gray-200 shadow-sm ${className}`}>
+    <div
+      className={`bg-white rounded-lg p-6 border border-gray-200 shadow-sm ${className}`}
+    >
       <div className="mb-4">
         <div className="flex items-center gap-2 mb-2">
           <h3 className="text-lg font-bold text-gray-900">Tags</h3>
         </div>
         <p className="text-sm text-gray-600">
-          Add up to 5 tags to describe this idea. Tags help categorize and filter initiatives.
+          Add up to 5 tags to describe this idea. Tags help categorize and
+          filter initiatives.
         </p>
       </div>
       <div className="flex flex-wrap gap-2 mb-2">
@@ -99,8 +130,11 @@ interface IdeaTagsSectionProps {
                   setIsSubmitting(true);
                   try {
                     await removeTagFromIdea(ideaText, tag.text);
-                  } catch (err) {
-                    toast({ title: "Failed to remove tag", description: "Please try again." });
+                  } catch (err: unknown) {
+                    toast({
+                      title: "Failed to remove tag",
+                      description: "Please try again.",
+                    });
                     console.error("Failed to remove tag:", err);
                   } finally {
                     setIsSubmitting(false);
@@ -151,14 +185,18 @@ interface IdeaTagsSectionProps {
             {showSuggestions && filteredSuggestions.length > 0 && (
               <ul className="absolute left-0 top-full z-10 bg-white border border-gray-200 rounded shadow-md mt-1 w-full max-h-40 overflow-auto">
                 {filteredSuggestions.map((suggestion) => (
-                  <li
-                    key={suggestion}
-                    className={`px-2 py-1 text-sm cursor-pointer ${
-                      variant === "modalRed" ? "hover:bg-red-50" : "hover:bg-blue-50"
-                    }`}
-                    onMouseDown={() => handleAddTag(suggestion)}
-                  >
-                    {suggestion}
+                  <li key={suggestion}>
+                    <button
+                      type="button"
+                      className={`w-full text-left px-2 py-1 text-sm cursor-pointer ${
+                        variant === "modalRed"
+                          ? "hover:bg-red-50"
+                          : "hover:bg-blue-50"
+                      }`}
+                      onMouseDown={() => handleAddTag(suggestion)}
+                    >
+                      {suggestion}
+                    </button>
                   </li>
                 ))}
               </ul>
@@ -171,7 +209,9 @@ interface IdeaTagsSectionProps {
                 : "bg-blue-600 text-white px-3 py-1 rounded text-sm font-medium"
             }
             onClick={() => handleAddTag()}
-            disabled={!newTagText.trim() || ideaTags.length >= 5 || isSubmitting}
+            disabled={
+              !newTagText.trim() || ideaTags.length >= 5 || isSubmitting
+            }
           >
             {isSubmitting ? "Adding..." : "Add Tag"}
           </button>
