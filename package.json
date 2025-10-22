@@ -127,6 +127,8 @@
     "typescript-eslint": "^8.38.0",
     "vercel": "^48.2.9",
     "vite": "^5.4.19",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "webidl-conversions": "^8.0.0",
+    "whatwg-url": "^15.1.0"
   }
 }

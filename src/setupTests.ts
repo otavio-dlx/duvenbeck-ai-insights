@@ -3,13 +3,17 @@
 // Set up polyfills BEFORE any imports to ensure they're available during module loading
 import { URL, URLSearchParams } from "node:url";
 
+// Import the problematic packages to ensure they're loaded with polyfills available
+import "webidl-conversions";
+import "whatwg-url";
+
 // Comprehensive URL and Web API polyfills for webidl-conversions and whatwg-url
 // These packages expect certain globals to be available during module loading
-globalThis.URL ??= URL as any;
-globalThis.URLSearchParams ??= URLSearchParams as any;
+globalThis.URL = URL as any;
+globalThis.URLSearchParams = URLSearchParams as any;
 
 // Additional globals that webidl-conversions might expect
-globalThis.DOMException ??= class DOMException extends Error {
+globalThis.DOMException = class DOMException extends Error {
   constructor(message?: string, name?: string) {
     super(message);
     this.name = name || "DOMException";
@@ -26,7 +30,27 @@ if (!globalThis.crypto) {
       return array;
     },
   } as any;
+} else if (!globalThis.crypto.getRandomValues) {
+  globalThis.crypto.getRandomValues = (array: any) => {
+    for (let i = 0; i < array.length; i++) {
+      array[i] = Math.floor(Math.random() * 256);
+    }
+    return array;
+  };
 }
+
+// Set up additional globals that might be expected
+globalThis.TextEncoder = globalThis.TextEncoder || class TextEncoder {
+  encode(input: string) {
+    return Buffer.from(input, 'utf-8');
+  }
+} as any;
+
+globalThis.TextDecoder = globalThis.TextDecoder || class TextDecoder {
+  decode(input: Uint8Array) {
+    return Buffer.from(input).toString('utf-8');
+  }
+} as any;
 
 import "@testing-library/jest-dom";
 import { vi } from "vitest";
