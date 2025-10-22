@@ -148,18 +148,6 @@ export default function PriorityAnalysisPage() {
           onTagChange={setSelectedTag}
           onReset={handleReset}
         />
-
-        {/* Usage Instructions */}
-        <div className="mt-8">
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 className="font-medium text-blue-900 mb-2">
-              {t("priorityAnalysis.howToUse")}
-            </h3>
-            <p className="text-sm text-blue-700">
-              {t("priorityAnalysis.instructions")}
-            </p>
-          </div>
-        </div>
       </main>
     </div>
   );
