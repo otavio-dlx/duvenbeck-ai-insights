@@ -3,15 +3,20 @@ export interface ManualOrderData {
 }
 
 export class ManualOrderService {
-  private static readonly API_BASE = '/api/manual-order';
+  private static readonly API_BASE = "/api/manual-order";
 
   /**
    * Load manual order for a specific department
    */
-  static async loadManualOrder(department: string, userId: string = 'default'): Promise<string[]> {
+  static async loadManualOrder(
+    department: string,
+    userId: string = "default"
+  ): Promise<string[]> {
     try {
       const response = await fetch(
-        `${this.API_BASE}?department=${encodeURIComponent(department)}&userId=${encodeURIComponent(userId)}`
+        `${this.API_BASE}?department=${encodeURIComponent(
+          department
+        )}&userId=${encodeURIComponent(userId)}`
       );
 
       if (!response.ok) {
@@ -21,7 +26,7 @@ export class ManualOrderService {
       const data: ManualOrderData = await response.json();
       return data.ideaIds;
     } catch (error) {
-      console.error('Error loading manual order:', error);
+      console.error("Error loading manual order:", error);
       return [];
     }
   }
@@ -32,13 +37,13 @@ export class ManualOrderService {
   static async saveManualOrder(
     department: string,
     ideaIds: string[],
-    userId: string = 'default'
+    userId: string = "default"
   ): Promise<boolean> {
     try {
       const response = await fetch(this.API_BASE, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           department,
@@ -54,7 +59,7 @@ export class ManualOrderService {
       const result = await response.json();
       return result.ok === true;
     } catch (error) {
-      console.error('Error saving manual order:', error);
+      console.error("Error saving manual order:", error);
       return false;
     }
   }

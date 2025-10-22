@@ -318,7 +318,7 @@ app.delete("/api/tags", async (req, res) => {
 // GET /api/manual-order?department=...
 app.get("/api/manual-order", async (req, res) => {
   const { department } = req.query;
-  const userId = req.query.userId || 'default';
+  const userId = req.query.userId || "default";
 
   if (!department) {
     return res.status(400).json({ error: "department is required" });
@@ -349,10 +349,12 @@ app.get("/api/manual-order", async (req, res) => {
 // POST /api/manual-order { department, ideaIds, userId? }
 app.post("/api/manual-order", async (req, res) => {
   const { department, ideaIds } = req.body;
-  const userId = req.body.userId || 'default';
+  const userId = req.body.userId || "default";
 
   if (!department || !Array.isArray(ideaIds)) {
-    return res.status(400).json({ error: "department and ideaIds array are required" });
+    return res
+      .status(400)
+      .json({ error: "department and ideaIds array are required" });
   }
 
   try {
@@ -388,5 +390,7 @@ app.listen(PORT, () => {
   // Ensure manual_order table exists at startup
   ensureManualOrderTable()
     .then(() => console.log("Manual order table ensured"))
-    .catch((error_) => console.error("Failed to ensure manual order table:", error_));
+    .catch((error_) =>
+      console.error("Failed to ensure manual order table:", error_)
+    );
 });

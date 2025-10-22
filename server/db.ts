@@ -1,10 +1,11 @@
 import dotenv from "dotenv";
-import { Pool } from "pg";
 import { drizzle } from "drizzle-orm/node-postgres";
+import { Pool } from "pg";
 
 dotenv.config();
 
-const connectionString = process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
+const connectionString =
+  process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
 if (!connectionString) {
   throw new Error("DATABASE_URL is not set in environment");
 }
@@ -28,7 +29,8 @@ export async function ensureTagsTable() {
     // Drop old index (if any) and create a CI unique index
     try {
       await client.query(`DROP INDEX IF EXISTS tags_idea_tag_unique_idx`);
-    } catch (_err) { // eslint-disable-line @typescript-eslint/no-unused-vars
+    } catch (_err) {
+      // eslint-disable-line @typescript-eslint/no-unused-vars
       // ignore
     }
     await client.query(`

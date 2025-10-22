@@ -98,6 +98,7 @@ import {
   WeightingConfig,
   type PriorityResult,
 } from "@/lib/priority-calculator";
+import { ManualOrderService } from "@/services/manualOrderService";
 import {
   closestCenter,
   DndContext,
@@ -136,7 +137,6 @@ import {
   ZAxis,
 } from "recharts";
 import { IdeaTagsSection } from "./IdeaTagsSection";
-import { ManualOrderService } from "@/services/manualOrderService";
 
 type IdeaType = {
   id: string;
@@ -360,7 +360,7 @@ export function InteractivePriorityCalculator({
           setManualOrder(loadedOrder);
         })
         .catch((error) => {
-          console.error('Failed to load manual order:', error);
+          console.error("Failed to load manual order:", error);
         });
     }
   }, [selectedDepartment]);
@@ -371,11 +371,11 @@ export function InteractivePriorityCalculator({
       ManualOrderService.saveManualOrder(selectedDepartment, manualOrder)
         .then((success) => {
           if (!success) {
-            console.error('Failed to save manual order');
+            console.error("Failed to save manual order");
           }
         })
         .catch((error) => {
-          console.error('Error saving manual order:', error);
+          console.error("Error saving manual order:", error);
         });
     }
   }, [manualOrder, selectedDepartment]);
