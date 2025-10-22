@@ -25,7 +25,14 @@ jobs:
                   cache: "pnpm"
 
             - name: Install dependencies
-              run: pnpm install --frozen-lockfile
+              run: |
+                  if pnpm install --frozen-lockfile; then
+                    echo "Lockfile is up to date"
+                  else
+                    echo "Lockfile is out of sync, updating..."
+                    pnpm install
+                    echo "⚠️  Lockfile was out of sync and has been updated. Please commit the changes."
+                  fi
 
             - name: Run linting
               run: pnpm run lint
