@@ -277,11 +277,12 @@ function SortableTableRow({
         }
       }}
       {...attributes}
-      {...listeners}
     >
       <TableCell className="font-medium cursor-grab active:cursor-grabbing">
         <div className="flex items-center gap-2">
-          <GripVertical className="h-4 w-4 text-muted-foreground" />
+          <div {...listeners}>
+            <GripVertical className="h-4 w-4 text-muted-foreground" />
+          </div>
           {result.rank}
         </div>
       </TableCell>
@@ -720,7 +721,7 @@ export function InteractivePriorityCalculator({
                           {getSortIcon("rank")}
                           <TooltipProvider>
                             <Tooltip>
-                              <TooltipTrigger>
+                              <TooltipTrigger asChild>
                                 <Info className="h-3 w-3 text-muted-foreground" />
                               </TooltipTrigger>
                               <TooltipContent
@@ -745,7 +746,7 @@ export function InteractivePriorityCalculator({
                           {getSortIcon("name")}
                           <TooltipProvider>
                             <Tooltip>
-                              <TooltipTrigger>
+                              <TooltipTrigger asChild>
                                 <Info className="h-3 w-3 text-muted-foreground" />
                               </TooltipTrigger>
                               <TooltipContent
@@ -772,6 +773,9 @@ export function InteractivePriorityCalculator({
                           {getSortIcon("department")}
                           <TooltipProvider>
                             <Tooltip>
+                              <TooltipTrigger asChild>
+                                <Info className="h-3 w-3 text-muted-foreground" />
+                              </TooltipTrigger>
                               <TooltipContent
                                 side="bottom"
                                 className="max-w-xs"
