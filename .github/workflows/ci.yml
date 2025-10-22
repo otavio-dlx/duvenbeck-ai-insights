@@ -1,35 +1,35 @@
 name: CI
 
 on:
-  push:
-    branches: [ main, develop ]
-  pull_request:
-    branches: [ main, develop ]
+    push:
+        branches: [main, develop]
+    pull_request:
+        branches: [main, develop]
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+            - name: Install pnpm
+              run: npm install -g pnpm
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "18.x"
-          cache: "pnpm"
+            - name: Set up Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "18.x"
+                  cache: "pnpm"
 
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+            - name: Install dependencies
+              run: pnpm install --frozen-lockfile
 
-      - name: Run linting
-        run: pnpm run lint
+            - name: Run linting
+              run: pnpm run lint
 
-      - name: Run tests
-        run: pnpm test:run
+            - name: Run tests
+              run: pnpm test:run
 
-      - name: Build project
-        run: pnpm run build
+            - name: Build project
+              run: pnpm run build

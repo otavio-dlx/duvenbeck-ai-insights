@@ -3,7 +3,7 @@ import { QdrantClient } from "@qdrant/js-client-rest";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
-import { pool, ensureTagsTable } from "./db";
+import { ensureTagsTable, pool } from "./db";
 
 dotenv.config();
 
@@ -187,8 +187,13 @@ app.get("/api/tags/all", async (req, res) => {
   try {
     const client = await pool.connect();
     try {
-      const result = await client.query(`SELECT idea_text, tag_text as text, created_at FROM tags ORDER BY idea_text, created_at DESC`);
-      const map: Record<string, Array<{ text: string; created_at: string }>> = {};
+      const result = await client.query(
+        `SELECT idea_text, tag_text as text, created_at FROM tags ORDER BY idea_text, created_at DESC`
+      );
+      const map: Record<
+        string,
+        Array<{ text: string; created_at: string }>
+      > = {};
       result.rows.forEach((r) => {
         if (!map[r.idea_text]) map[r.idea_text] = [];
         map[r.idea_text].push({ text: r.text, created_at: r.created_at });
@@ -206,7 +211,8 @@ app.get("/api/tags/all", async (req, res) => {
 // POST /api/tags { ideaText, tagText }
 app.post("/api/tags", async (req, res) => {
   const { ideaText, tagText } = req.body;
-  if (!ideaText || !tagText) return res.status(400).json({ error: "ideaText and tagText are required" });
+  if (!ideaText || !tagText)
+    return res.status(400).json({ error: "ideaText and tagText are required" });
   try {
     const client = await pool.connect();
     try {
@@ -215,7 +221,10 @@ app.post("/api/tags", async (req, res) => {
       const normalizedTag = String(tagText).trim();
 
       // Check current tag count for the idea
-      const countRes = await client.query(`SELECT COUNT(*)::int AS cnt FROM tags WHERE idea_text = $1`, [ideaText]);
+      const countRes = await client.query(
+        `SELECT COUNT(*)::int AS cnt FROM tags WHERE idea_text = $1`,
+        [ideaText]
+      );
       const cnt = parseInt(countRes.rows[0].cnt, 10);
       if (cnt >= 5) {
         await client.query("ROLLBACK");
@@ -223,8 +232,11 @@ app.post("/api/tags", async (req, res) => {
       }
       // Insert, rely on unique index to prevent duplicates
       try {
-        await client.query(`INSERT INTO tags (idea_text, tag_text) VALUES ($1, $2)`, [ideaText, normalizedTag]);
-      } catch (err) {
+        await client.query(
+          `INSERT INTO tags (idea_text, tag_text) VALUES ($1, $2)`,
+          [ideaText, normalizedTag]
+        );
+      } catch {
         // Unique violation
         await client.query("ROLLBACK");
         return res.status(409).json({ error: "Tag already exists for idea" });
@@ -243,7 +255,10 @@ app.post("/api/tags", async (req, res) => {
 // PUT /api/tags { ideaText, oldTagText, newTagText }
 app.put("/api/tags", async (req, res) => {
   const { ideaText, oldTagText, newTagText } = req.body;
-  if (!ideaText || !oldTagText || !newTagText) return res.status(400).json({ error: "ideaText, oldTagText and newTagText are required" });
+  if (!ideaText || !oldTagText || !newTagText)
+    return res
+      .status(400)
+      .json({ error: "ideaText, oldTagText and newTagText are required" });
   try {
     const client = await pool.connect();
     try {
@@ -253,12 +268,20 @@ app.put("/api/tags", async (req, res) => {
       const normalizedOld = String(oldTagText).trim();
 
       // If newTagText already exists (case-insensitive), it's a conflict
-      const dup = await client.query(`SELECT 1 FROM tags WHERE idea_text = $1 AND lower(tag_text) = lower($2)`, [ideaText, normalizedNew]);
+      const dup = await client.query(
+        `SELECT 1 FROM tags WHERE idea_text = $1 AND lower(tag_text) = lower($2)`,
+        [ideaText, normalizedNew]
+      );
       if ((dup?.rowCount ?? 0) > 0) {
         await client.query("ROLLBACK");
-        return res.status(409).json({ error: "New tag text already exists for idea" });
+        return res
+          .status(409)
+          .json({ error: "New tag text already exists for idea" });
       }
-      await client.query(`UPDATE tags SET tag_text = $3 WHERE idea_text = $1 AND tag_text = $2`, [ideaText, normalizedOld, normalizedNew]);
+      await client.query(
+        `UPDATE tags SET tag_text = $3 WHERE idea_text = $1 AND tag_text = $2`,
+        [ideaText, normalizedOld, normalizedNew]
+      );
       await client.query("COMMIT");
       res.json({ ok: true });
     } finally {
@@ -273,7 +296,8 @@ app.put("/api/tags", async (req, res) => {
 // DELETE /api/tags { ideaText, tagText }
 app.delete("/api/tags", async (req, res) => {
   const { ideaText, tagText } = req.body;
-  if (!ideaText || !tagText) return res.status(400).json({ error: "ideaText and tagText are required" });
+  if (!ideaText || !tagText)
+    return res.status(400).json({ error: "ideaText and tagText are required" });
   try {
     const client = await pool.connect();
     try {
@@ -299,5 +323,5 @@ app.listen(PORT, () => {
   // Ensure tags table exists at startup
   ensureTagsTable()
     .then(() => console.log("Tags table ensured"))
-    .catch((_err) => console.error("Failed to ensure tags table:", _err));  
+    .catch((_err) => console.error("Failed to ensure tags table:", _err));
 });

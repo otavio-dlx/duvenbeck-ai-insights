@@ -53,7 +53,6 @@ interface IdeaWithNotes {
   strategicNoteKey?: string;
 }
 
-
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -766,29 +765,27 @@ export function InteractivePriorityCalculator({
                           {section.title}
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                          {section.stats?.map(
-                            (stat: ModalStat, _idx: number) => (
-                              <div
-                                key={`stat-${stat.label}-${stat.value}-${idx}`}
-                                className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
-                              >
-                                <div className="text-center">
-                                  <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                                    {stat.label}
-                                  </div>
-                                  <div
-                                    className={`text-2xl font-bold ${
-                                      stat.color === "red"
-                                        ? "text-red-600"
-                                        : "text-gray-900"
-                                    }`}
-                                  >
-                                    {stat.value}
-                                  </div>
+                          {section.stats?.map((stat: ModalStat) => (
+                            <div
+                              key={`stat-${stat.label}-${stat.value}-${sectionIndex}`}
+                              className="bg-white rounded-lg p-6 shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+                            >
+                              <div className="text-center">
+                                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                                  {stat.label}
+                                </div>
+                                <div
+                                  className={`text-2xl font-bold ${
+                                    stat.color === "red"
+                                      ? "text-red-600"
+                                      : "text-gray-900"
+                                  }`}
+                                >
+                                  {stat.value}
                                 </div>
                               </div>
-                            )
-                          )}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     )}
@@ -824,68 +821,66 @@ export function InteractivePriorityCalculator({
                           )}
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                          {section.metrics?.map(
-                            (metric: ModalMetric, _idx: number) => (
-                              <div
-                                key={`metric-${metric.id}`}
-                                className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200"
-                              >
-                                <div className="mb-4">
-                                  <div className="flex items-center justify-between mb-2">
-                                    <h4 className="font-semibold text-lg text-gray-900">
-                                      {metric.label}
-                                    </h4>
-                                    <div
-                                      className={`px-3 py-1 rounded-full text-sm font-bold ${
-                                        metric.color === "red"
-                                          ? "bg-red-50 text-red-700 border border-red-200"
-                                          : "bg-gray-50 text-gray-700 border border-gray-200"
-                                      }`}
-                                    >
-                                      {metric.value}/{metric.maxValue}
-                                    </div>
+                          {section.metrics?.map((metric: ModalMetric) => (
+                            <div
+                              key={`metric-${metric.id}`}
+                              className="bg-white rounded-lg p-6 border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200"
+                            >
+                              <div className="mb-4">
+                                <div className="flex items-center justify-between mb-2">
+                                  <h4 className="font-semibold text-lg text-gray-900">
+                                    {metric.label}
+                                  </h4>
+                                  <div
+                                    className={`px-3 py-1 rounded-full text-sm font-bold ${
+                                      metric.color === "red"
+                                        ? "bg-red-50 text-red-700 border border-red-200"
+                                        : "bg-gray-50 text-gray-700 border border-gray-200"
+                                    }`}
+                                  >
+                                    {metric.value}/{metric.maxValue}
                                   </div>
-                                  <p className="text-xs text-gray-500 leading-relaxed">
-                                    {metric.description}
+                                </div>
+                                <p className="text-xs text-gray-500 leading-relaxed">
+                                  {metric.description}
+                                </p>
+                              </div>
+
+                              {/* Progress Bar */}
+                              <div className="mb-4">
+                                <div className="flex gap-1 mb-3">
+                                  {Array.from(
+                                    { length: metric.maxValue },
+                                    (_, i) => {
+                                      const isActive = i < metric.value;
+                                      const barColor = isActive
+                                        ? "bg-red-500"
+                                        : "bg-gray-200";
+
+                                      return (
+                                        <div
+                                          key={i}
+                                          className={`flex-1 h-2 rounded-full ${barColor}`}
+                                        />
+                                      );
+                                    }
+                                  )}
+                                </div>
+                                <div className="text-xs text-gray-500 text-center font-medium">
+                                  {getMetricLevelText(metric.value)}
+                                </div>
+                              </div>
+
+                              {/* Note */}
+                              {metric.note && (
+                                <div className="pt-4 border-t border-gray-100">
+                                  <p className="text-xs text-gray-600 leading-relaxed">
+                                    {metric.note}
                                   </p>
                                 </div>
-
-                                {/* Progress Bar */}
-                                <div className="mb-4">
-                                  <div className="flex gap-1 mb-3">
-                                    {Array.from(
-                                      { length: metric.maxValue },
-                                      (_, i) => {
-                                        const isActive = i < metric.value;
-                                        const barColor = isActive
-                                          ? "bg-red-500"
-                                          : "bg-gray-200";
-
-                                        return (
-                                          <div
-                                            key={i}
-                                            className={`flex-1 h-2 rounded-full ${barColor}`}
-                                          />
-                                        );
-                                      }
-                                    )}
-                                  </div>
-                                  <div className="text-xs text-gray-500 text-center font-medium">
-                                    {getMetricLevelText(metric.value)}
-                                  </div>
-                                </div>
-
-                                {/* Note */}
-                                {metric.note && (
-                                  <div className="pt-4 border-t border-gray-100">
-                                    <p className="text-xs text-gray-600 leading-relaxed">
-                                      {metric.note}
-                                    </p>
-                                  </div>
-                                )}
-                              </div>
-                            )
-                          )}
+                              )}
+                            </div>
+                          ))}
                         </div>
                       </div>
                     )}
@@ -1094,6 +1089,7 @@ interface InsightsBubbleChartProps {
   getDepartmentDisplayName: (department: string) => string;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function InsightsBubbleChart({
   ideas,
   rankings,
@@ -1515,6 +1511,7 @@ function InsightsBubbleChart({
 }
 
 // Scenario Comparison Component
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function ScenarioComparison({
   ideas,
 }: Readonly<{

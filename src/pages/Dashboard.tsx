@@ -4,6 +4,7 @@ import { MetricCard } from "@/components/MetricCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { participantsData } from "@/data/participants";
+import { useFilters } from "@/hooks/useFilters";
 import { useTagging } from "@/hooks/useTagging";
 import { getIdeasFor, listDataKeys } from "@/lib/data";
 import { getAllIdeasForCalculator } from "@/lib/data-mapper";
@@ -16,7 +17,6 @@ import {
   Users,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
-import { useFilters } from "@/hooks/useFilters";
 import { useTranslation } from "react-i18next";
 import {
   Bar,
@@ -252,7 +252,10 @@ export const Dashboard = () => {
   }, []);
 
   // Filter participants based on selections
-  const filteredParticipants = useMemo(() => filterParticipants(participantsData), [filterParticipants]);
+  const filteredParticipants = useMemo(
+    () => filterParticipants(participantsData),
+    [filterParticipants]
+  );
 
   // Calculate metrics and department data
   const { metrics, departmentData } = useMemo(() => {
@@ -300,18 +303,6 @@ export const Dashboard = () => {
     departmentCount,
     allIdeasData,
   ]);
-
-  const dayData = useMemo(() => {
-    const day1Count = participantsData.filter((p) => p.day1).length;
-    const day2Count = participantsData.filter((p) => p.day2).length;
-    const day3Count = participantsData.filter((p) => p.day3).length;
-
-    return [
-      { name: t("common.day1"), value: day1Count },
-      { name: t("common.day2"), value: day2Count },
-      { name: t("common.day3"), value: day3Count },
-    ];
-  }, [t]);
 
   const COLORS = [
     "hsl(var(--chart-1))",
