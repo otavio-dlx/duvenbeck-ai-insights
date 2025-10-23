@@ -65,7 +65,7 @@ const formatDepartmentName = (key: string): string => {
 
 export const Dashboard = () => {
   const { t } = useTranslation();
-  const { getTagsForIdea } = useTagging();
+  const { taggedIdeas, isLoading: taggingLoading } = useTagging();
   // use shared filter logic but keep state local to this page
   const {
     selectedDepartment,
@@ -81,7 +81,6 @@ export const Dashboard = () => {
   const [tagData, setTagData] = useState<Array<{ tag: string; count: number }>>(
     []
   );
-  const [loadingTags, setLoadingTags] = useState(false);
   const [departmentCount, setDepartmentCount] = useState<number>(0);
   const [allIdeasData, setAllIdeasData] = useState<
     Array<{
@@ -101,35 +100,6 @@ export const Dashboard = () => {
         setTotalIdeasFromFiles(allIdeas.length);
         setAllIdeasData(allIdeas);
 
-        // Load tags for all ideas
-        setLoadingTags(true);
-        const tagCounts = new Map<string, number>();
-
-        // Sample: Load tags for a subset of ideas to avoid too many API calls
-        // You can adjust the sampling or load all if needed
-        const samplesToLoad = Math.min(allIdeas.length, 79); // Load all 79 ideas
-
-        for (let i = 0; i < samplesToLoad; i++) {
-          const idea = allIdeas[i];
-          try {
-            const tags = await getTagsForIdea(idea.description);
-            tags.forEach((tag) => {
-              const tagText = tag.text.toLowerCase();
-              tagCounts.set(tagText, (tagCounts.get(tagText) || 0) + 1);
-            });
-          } catch (error) {
-            console.warn("Error generating tags for idea:", error);
-          }
-        }
-
-        // Convert to array and sort by count
-        const sortedTags = Array.from(tagCounts.entries())
-          .map(([tag, count]) => ({ tag, count }))
-          .sort((a, b) => b.count - a.count)
-          .slice(0, 15); // Top 15 tags
-
-        setTagData(sortedTags);
-
         // Count departments
         const departments = await listDataKeys();
         const departmentKeys = departments.filter(
@@ -138,57 +108,36 @@ export const Dashboard = () => {
         setDepartmentCount(departmentKeys.length);
       } catch (error) {
         console.error("Error loading ideas:", error);
-      } finally {
-        setLoadingTags(false);
       }
     };
 
     loadData();
-  }, [getTagsForIdea]);
+  }, []);
 
-  // Load total ideas count and tags from all data files
+  // Update tag data when taggedIdeas change
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const allIdeas = await getAllIdeasForCalculator();
-        setTotalIdeasFromFiles(allIdeas.length);
+    if (taggedIdeas.length > 0) {
+      const tagCounts = new Map<string, number>();
 
-        // Load tags for all ideas
-        setLoadingTags(true);
-        const tagCounts = new Map<string, number>();
-
-        // Sample: Load tags for a subset of ideas to avoid too many API calls
-        // You can adjust the sampling or load all if needed
-        const samplesToLoad = Math.min(allIdeas.length, 79); // Load all 79 ideas
-
-        for (let i = 0; i < samplesToLoad; i++) {
-          const idea = allIdeas[i];
-          try {
-            const tags = await getTagsForIdea(idea.description);
-            tags.forEach((tag) => {
-              const tagText = tag.text.toLowerCase();
-              tagCounts.set(tagText, (tagCounts.get(tagText) || 0) + 1);
-            });
-          } catch (error) {
-            console.warn(`Failed to load tags for idea ${i}:`, error);
-          }
+      // Count tags across all tagged ideas
+      for (const taggedIdea of taggedIdeas) {
+        for (const tag of taggedIdea.tags) {
+          const tagText = tag.text.toLowerCase();
+          tagCounts.set(tagText, (tagCounts.get(tagText) || 0) + 1);
         }
-
-        // Convert to array and sort by count
-        const sortedTags = Array.from(tagCounts.entries())
-          .map(([tag, count]) => ({ tag, count }))
-          .sort((a, b) => b.count - a.count)
-          .slice(0, 8); // Top 8 tags for the radar chart
-
-        setTagData(sortedTags);
-        setLoadingTags(false);
-      } catch (error) {
-        console.error("Failed to load data:", error);
-        setLoadingTags(false);
       }
-    };
-    loadData();
-  }, [getTagsForIdea]);
+
+      // Convert to array and sort by count
+      const sortedTags = Array.from(tagCounts.entries())
+        .map(([tag, count]) => ({ tag, count }))
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 8); // Top 8 tags for the radar chart
+
+      setTagData(sortedTags);
+    } else {
+      setTagData([]);
+    }
+  }, [taggedIdeas]);
 
   // Load department count using the same logic as DynamicCollaboards
   useEffect(() => {
@@ -471,7 +420,7 @@ export const Dashboard = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="h-[400px]">
-                        {loadingTags ? (
+                        {taggingLoading ? (
                           <div className="flex items-center justify-center h-full">
                             <div className="text-center">
                               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-2"></div>
