@@ -30,6 +30,14 @@ export function enhanceIdeasForPriorityCalculator(
     name: getLocalizedString(idea.ideaKey) || `Initiative ${index + 1}`,
     description: getLocalizedString(idea.problemKey) || "AI Initiative",
     department: departmentName,
+    // Preserve department key (data file key) for translation lookups / fallbacks
+    departmentKey: departmentName,
+    // Pass through explicit note translation keys when present so UI can use them directly
+    complexityNoteKey: idea.complexityNoteKey,
+    costNoteKey: idea.costNoteKey,
+    roiNoteKey: idea.roiNoteKey,
+    riskNoteKey: idea.riskNoteKey,
+    strategicNoteKey: idea.strategicNoteKey,
     scores: mapIdeaToScoringCriteria(idea),
   }));
 }
@@ -74,7 +82,16 @@ export async function getAllIdeasForCalculator() {
                   getLocalizedString(idea.problemKey) ||
                   getLocalizedString(idea.solutionKey) ||
                   "AI Initiative",
+                // Human-friendly department name shown in the UI
                 department: departmentName,
+                // Preserve original data key so code that builds translation keys can use it
+                departmentKey: key,
+                // Pass through explicit note keys so the modal can render notes directly
+                complexityNoteKey: idea.complexityNoteKey,
+                costNoteKey: idea.costNoteKey,
+                roiNoteKey: idea.roiNoteKey,
+                riskNoteKey: idea.riskNoteKey,
+                strategicNoteKey: idea.strategicNoteKey,
                 scores: mapIdeaToScoringCriteria(idea),
                 problemKey: idea.problemKey,
                 solutionKey: idea.solutionKey,
