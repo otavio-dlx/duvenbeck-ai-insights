@@ -1,10 +1,11 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { pool, dbEnabled } from "../server/db.js";
+import { dbEnabled, pool } from "../server/db.js";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   const method = req.method || "GET";
   try {
-    if (!dbEnabled) return res.status(503).json({ error: "Database not configured" });
+    if (!dbEnabled)
+      return res.status(503).json({ error: "Database not configured" });
 
     if (method === "GET") {
       const department = String(req.query.department || "");
