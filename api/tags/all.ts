@@ -1,11 +1,13 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { pool } from "../../server/db";
+import { pool, dbEnabled } from "../../server/db.js";
 
 export default async function handler(
   _req: VercelRequest,
   res: VercelResponse
 ) {
   try {
+    if (!dbEnabled) return res.status(503).json({ error: "Database not configured" });
+
     const client = await pool.connect();
     try {
       const result = await client.query(

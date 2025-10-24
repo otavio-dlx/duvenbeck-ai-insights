@@ -4,7 +4,11 @@ import { Pool } from "pg";
 
 dotenv.config();
 
-const connectionString = process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
+const connectionString =
+  process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
+
+// Expose whether DB is configured so callers can short-circuit with a clear 503
+export const dbEnabled = Boolean(connectionString);
 
 // Do NOT throw at import time — on serverless platforms a missing env var at build/import
 // time would make every function fail with a confusing error. Instead, export a
@@ -16,12 +20,16 @@ if (connectionString) {
   _pool = new Pool({ connectionString });
   _db = drizzle(_pool);
 } else {
-  console.warn("DATABASE_URL / VITE_DATABASE_URL is not set — DB disabled. DB operations will error until configured.");
+  console.warn(
+    "DATABASE_URL / VITE_DATABASE_URL is not set — DB disabled. DB operations will error until configured."
+  );
 }
 
 // Export `pool` and `db` but keep types compatible. If DB is not configured, `pool.connect()` will
 // throw a clear runtime error instead of failing at import.
-const missingDbError = new Error("DATABASE_URL (or VITE_DATABASE_URL) is not set in environment");
+const missingDbError = new Error(
+  "DATABASE_URL (or VITE_DATABASE_URL) is not set in environment"
+);
 
 export const pool: Pool =
   (_pool as Pool) ||
@@ -38,7 +46,9 @@ export const pool: Pool =
     end: async () => {},
   } as unknown as Pool);
 
-export const db = (_db as ReturnType<typeof drizzle>) || (null as unknown as ReturnType<typeof drizzle>);
+export const db =
+  (_db as ReturnType<typeof drizzle>) ||
+  (null as unknown as ReturnType<typeof drizzle>);
 
 // Ensure tags table exists
 export async function ensureTagsTable() {
@@ -56,9 +66,8 @@ export async function ensureTagsTable() {
     // Drop old index (if any) and create a CI unique index
     try {
       await client.query(`DROP INDEX IF EXISTS tags_idea_tag_unique_idx`);
-    } catch (_err) {
-       
-      // ignore
+    } catch {
+      console.error("Failed to drop old index");
     }
     await client.query(`
       CREATE UNIQUE INDEX IF NOT EXISTS tags_idea_tag_unique_ci_idx
