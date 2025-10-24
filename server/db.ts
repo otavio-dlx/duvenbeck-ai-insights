@@ -4,14 +4,41 @@ import { Pool } from "pg";
 
 dotenv.config();
 
-const connectionString =
-  process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
-if (!connectionString) {
-  throw new Error("DATABASE_URL is not set in environment");
+const connectionString = process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
+
+// Do NOT throw at import time — on serverless platforms a missing env var at build/import
+// time would make every function fail with a confusing error. Instead, export a
+// lightweight `pool` replacement that surfaces a clear error when DB operations are attempted.
+let _pool: Pool | null = null;
+let _db: ReturnType<typeof drizzle> | null = null;
+
+if (connectionString) {
+  _pool = new Pool({ connectionString });
+  _db = drizzle(_pool);
+} else {
+  console.warn("DATABASE_URL / VITE_DATABASE_URL is not set — DB disabled. DB operations will error until configured.");
 }
 
-export const pool = new Pool({ connectionString });
-export const db = drizzle(pool);
+// Export `pool` and `db` but keep types compatible. If DB is not configured, `pool.connect()` will
+// throw a clear runtime error instead of failing at import.
+const missingDbError = new Error("DATABASE_URL (or VITE_DATABASE_URL) is not set in environment");
+
+export const pool: Pool =
+  (_pool as Pool) ||
+  // Minimal stand-in that throws on connect/query to keep existing call-sites working.
+  ({
+    connect: async () => {
+      throw missingDbError;
+    },
+    // Some call-sites use client.query directly on the pool, so provide a query function too.
+    query: async () => {
+      throw missingDbError;
+    },
+    // Provide a noop end to satisfy potential callers
+    end: async () => {},
+  } as unknown as Pool);
+
+export const db = (_db as ReturnType<typeof drizzle>) || (null as unknown as ReturnType<typeof drizzle>);
 
 // Ensure tags table exists
 export async function ensureTagsTable() {
