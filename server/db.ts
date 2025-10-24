@@ -1,11 +1,20 @@
 import dotenv from "dotenv";
-import { drizzle } from "drizzle-orm/node-postgres";
+import { drizzle as drizzlePg } from "drizzle-orm/node-postgres";
+import { drizzle as drizzleNeonHttp } from "drizzle-orm/neon-http";
+import { neon } from "@neondatabase/serverless";
 import { Pool } from "pg";
 
-dotenv.config();
+// Load local env files in development only. In Vercel the envs are injected.
+if (process.env.NODE_ENV !== "production") {
+  dotenv.config();
+}
 
-const connectionString =
-  process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
+const connectionString = process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
+
+// If you want to force using Neon HTTP client (serverless-friendly), set DRIZZLE_USE_NEON_HTTP=1
+const useNeonHttp =
+  process.env.DRIZZLE_USE_NEON_HTTP === "1" ||
+  (connectionString ? connectionString.includes("neon.tech") : false);
 
 // Expose whether DB is configured so callers can short-circuit with a clear 503
 export const dbEnabled = Boolean(connectionString);
@@ -14,11 +23,19 @@ export const dbEnabled = Boolean(connectionString);
 // time would make every function fail with a confusing error. Instead, export a
 // lightweight `pool` replacement that surfaces a clear error when DB operations are attempted.
 let _pool: Pool | null = null;
-let _db: ReturnType<typeof drizzle> | null = null;
+let _db: unknown | null = null;
 
 if (connectionString) {
-  _pool = new Pool({ connectionString });
-  _db = drizzle(_pool);
+  if (useNeonHttp) {
+    // Use Neon serverless HTTP client + drizzle's neon-http adapter.
+    // This is recommended for serverless deployments (Vercel) where a pooled TCP
+    // connection may not be appropriate.
+    const sql = neon(connectionString);
+    _db = drizzleNeonHttp(sql);
+  } else {
+    _pool = new Pool({ connectionString });
+    _db = drizzlePg(_pool);
+  }
 } else {
   console.warn(
     "DATABASE_URL / VITE_DATABASE_URL is not set — DB disabled. DB operations will error until configured."
@@ -46,9 +63,10 @@ export const pool: Pool =
     end: async () => {},
   } as unknown as Pool);
 
-export const db =
-  (_db as ReturnType<typeof drizzle>) ||
-  (null as unknown as ReturnType<typeof drizzle>);
+// Export db as unknown to accommodate either adapter. Consumers can keep using
+// current call sites (the project uses raw `pool` for schema creation and some
+// Drizzle queries elsewhere). If you prefer stricter typing, we can refine this.
+export const db = (_db as unknown) || (null as unknown);
 
 // Ensure tags table exists
 export async function ensureTagsTable() {
