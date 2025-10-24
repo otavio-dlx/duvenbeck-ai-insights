@@ -33,6 +33,32 @@ if (connectionString) {
     // connection may not be appropriate.
     const sql = neon(connectionString);
     _db = drizzleNeonHttp(sql);
+    // Create a minimal `pool`-like wrapper so existing code that calls
+    // `pool.connect()` / `client.query()` continues to work when using the
+    // Neon HTTP client. The wrapper delegates to the neon `sql.query` API.
+    // This avoids runtime errors in serverless environments where a real
+    // pg.Pool is not used.
+    _pool = {
+      connect: async () => {
+        return {
+          query: async (text: string, params?: unknown[]) => {
+            // Delegate directly to neon's query function. This returns an
+            // object resembling pg's result (rows, rowCount, etc.). We avoid
+            // wrapping in transactions here to keep the wrapper minimal.
+            return await sql.query(text, params);
+          },
+          release: async () => {},
+        } as unknown as {
+          query: (text: string, params?: unknown[]) => Promise<unknown>;
+          release: () => Promise<void>;
+        };
+      },
+      query: async (text: string, params?: unknown[]) => {
+        // Direct query path
+        return await sql.query(text, params);
+      },
+      end: async () => {},
+    } as unknown as Pool;
   } else {
     _pool = new Pool({ connectionString });
     _db = drizzlePg(_pool);
