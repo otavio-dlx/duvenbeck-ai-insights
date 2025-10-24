@@ -1,7 +1,7 @@
-import dotenv from "dotenv";
-import { drizzle as drizzlePg } from "drizzle-orm/node-postgres";
-import { drizzle as drizzleNeonHttp } from "drizzle-orm/neon-http";
 import { neon } from "@neondatabase/serverless";
+import dotenv from "dotenv";
+import { drizzle as drizzleNeonHttp } from "drizzle-orm/neon-http";
+import { drizzle as drizzlePg } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 
 // Load local env files in development only. In Vercel the envs are injected.
@@ -9,7 +9,8 @@ if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
 
-const connectionString = process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
+const connectionString =
+  process.env.DATABASE_URL || process.env.VITE_DATABASE_URL;
 
 // If you want to force using Neon HTTP client (serverless-friendly), set DRIZZLE_USE_NEON_HTTP=1
 const useNeonHttp =
