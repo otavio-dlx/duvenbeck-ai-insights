@@ -14,15 +14,41 @@ export default async function handler(
       const result = await client.query(
         `SELECT idea_text, tag_text as text, created_at FROM tags ORDER BY idea_text, created_at DESC`
       );
-      const map: Record<
-        string,
-        Array<{ text: string; created_at: string }>
-      > = {};
-      type Row = { idea_text: string; text: string; created_at: string };
-      for (const row of result.rows as Array<Row>) {
-        if (!map[row.idea_text]) map[row.idea_text] = [];
-        map[row.idea_text].push({ text: row.text, created_at: row.created_at });
+      // Log raw result shape for debugging on serverless (Vercel)
+      try {
+        console.info("api/tags/all - raw query result:", JSON.stringify(result));
+      } catch (e) {
+        // ignore JSON stringify errors
       }
+
+      // Normalize rows for different DB client shapes:
+      // - pg: { rows: [...] }
+      // - some serverless adapters: returns Array of rows directly
+      // - other adapters: may return { data: [...] } or object-like rows
+      let rows: Array<Record<string, any>> = [];
+      if (Array.isArray(result)) {
+        rows = result as any;
+      } else if (result && Array.isArray((result as any).rows)) {
+        rows = (result as any).rows;
+      } else if (result && Array.isArray((result as any).data)) {
+        rows = (result as any).data;
+      } else if (result && (result as any).rows && typeof (result as any).rows === "object") {
+        // e.g. rows returned as an object map — convert to array
+        rows = Object.values((result as any).rows) as any;
+      } else {
+        console.error("api/tags/all - unexpected query result shape", result);
+        return res.status(500).json({ error: "Unexpected DB response shape" });
+      }
+
+      const map: Record<string, Array<{ text: string; created_at: string }>> = {};
+      for (const r of rows) {
+        const idea_text = String(r.idea_text ?? r.idea ?? r.ideaText ?? "");
+        const text = String(r.text ?? r.tag_text ?? r.tag ?? "");
+        const created_at = String(r.created_at ?? r.createdAt ?? "");
+        if (!map[idea_text]) map[idea_text] = [];
+        map[idea_text].push({ text, created_at });
+      }
+
       return res.json({ tagsByIdea: map });
     } finally {
       client.release();
